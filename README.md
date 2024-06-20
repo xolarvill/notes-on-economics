@@ -2,11 +2,13 @@
 Notes in .md or .tex format for various courses I took in economics, i.e. econometrics, advanced macroeconomics.
 
 **MACRO**
+
 covering Solow model, Ramsey model, OLG model, RBC model and two DNK models
 
-[PDF](macro/macro.pdf) 
+[PDF](macro/macro.pdf)  [TeX](macro/macro.tex)
 
 **METRICS**
+
 covering Stock and Watson
 
-[PDF](metrics/metrics.pdf)
+[PDF](metrics/metrics.pdf) [TeX](metrics/metrics.tex)

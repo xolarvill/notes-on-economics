@@ -1,0 +1,2969 @@
+\documentclass{article}
+\usepackage{graphicx} % Images
+\usepackage{amsmath,amsthm} % Math
+\usepackage{wasysym,MnSymbol} % Greek alphabets
+\usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
+\usepackage{newtxtext}
+\usepackage{geometry} % Formatting
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{cancel}
+\usepackage{autobreak}
+\usepackage{hyperref}
+
+\graphicspath{ {./images/} }
+
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}}
+
+\newcommand*\sepline{%
+  \begin{center}
+    \rule[1ex]{.5\textwidth}{.5pt}
+  \end{center}}
+
+
+\setlength{\parindent}{0pt}% cancel indentation before every line
+
+% right cases
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Blue block
+\definecolor{blueshade}{rgb}{0.95,0.95,1} % blue block color
+\newenvironment{blueblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{DarkBlue}
+    \vrule width 2pt}
+    {\color{blueshade}
+    \vrule width 4pt}
+  \colorbox{blueshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+% Green block
+\definecolor{greenshade}{rgb}{0.90,0.99,0.91} % green block
+\newenvironment{greenblock}{%
+\def\FrameCommand{%
+  \hspace{1pt}%
+    {\color{Green}%
+    \vrule width 2pt}%
+    {\color{greenshade}%
+    \vrule width 4pt}%
+  \colorbox{greenshade}%
+}%
+\MakeFramed{%
+  \advance%
+  \hsize-%
+  \width%
+  \FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+% Red block
+\definecolor{redshade}{rgb}{1.00,0.90,0.90} % red block
+\newenvironment{redblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{LightCoral}
+    \vrule width 2pt}
+    {\color{redshade}
+    \vrule width 4pt}
+  \colorbox{redshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+\newtheorem{question}{Question}
+\newtheorem{note}{Note}
+
+\title{Notes on Advanced Macroeconomics}
+\author{Victor Li}
+\date{Spring Sememster, 2024}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Preface}
+\section*{Preface}
+
+Aim of this work of mine is to provide accurate documentation of macroeconomic knowledges in language as simple as possible. Most of this note is taken from the advanced macroeconomics course of Yanfei Deng I am currently taking. This note is still a work in progress and needs tons of ammending. See the newest version at \url{https://github.com/xolarvill/notes-on-economics} along with my other notes.
+
+This work was first written in markdown language on Obsidian, which provides a lightweight and highly personalized working experience. But it was later transfered into purely latex language on Sublime Text, due to poor support for rendering of long math equation blocks of Obsidian. I wrote some LaTeX snippets of Sublime Text to optimize the writing experience, and uploaded on github at \url{https://github.com/xolarvill/snippets-for-quick-latex-on-st}.
+
+One can find enormous academical help on advanced macroeconomics from books listed below:
+\begin{itemize}
+\tightlist
+  \item Introduction to Modern Economic Growth, D. Acemoglu
+  \item Economic Growth, R. Barro and S.i.M. Xavi
+  \item The ABCs of RBCs, An Introduction to Dynamic Macroeconomic Models, G. McCandless
+  \item Macroeconomics, A Comprehensive Textbook for First-Year Ph.D. Courses in Macroeconomics. M. Azzimonti, P. Krusell, A. McKay, and T. Mukoyama
+  \item Adavanced Macroeconomics, D. Romer
+\end{itemize}
+
+
+\newpage
+\part{Models of Growth}
+
+\begin{itemize}
+\tightlist
+  \item Classical model
+  \item Keynesian model
+  \item Solow-Swan model
+  \item Ramse-Cass-Koopsman model
+  \item Overlapping generations model
+  \item (Endogenous model)
+\end{itemize}
+
+
+\newpage
+\section{Classical Model}\label{classical-model}
+
+
+\begin{greenblock}
+Learning points for 23-2 Course: the goal is to understand:
+
+\begin{itemize}
+\tightlist
+  \item motivations for contruction of a model
+  \item the common approach to analyze a model
+  \item how models evolve over time
+  \item target function and constraint
+\end{itemize}
+
+\end{greenblock}
+
+In a perfectly competitive market, the economic system can be described as\footnote{See in Sargint, 1987}: 
+
+\begin{align}
+&\text{AS:}
+\begin{cases}
+Y=A\cdot F(K,N)\text{ (Only N is endogenously chosen; Inada conditions)}
+\\
+\max \pi \Rightarrow \frac{W}{P}=F_{N}(K,N) \\
+N=N(\frac{W}{P}),N'>0\text{ (ad hoc, assuming labor market clearing)}\end{cases}
+\\
+&\text{AD: }
+\begin{cases}
+Y=C+I+G+\delta K \\
+C=C(Y,T-\pi) \\
+I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
+\frac{M}{P}=m(Y,r),m_{1}>0,m_{2}<0
+\end{cases}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Exogeneous variables in this model would be]
+\end{note}
+\begin{itemize}
+\tightlist
+  \item In AS: $K$
+  \item In AD: $K, G, M, \pi, \delta, T$
+\end{itemize}
+\end{blueblock}
+
+
+At the equilibrium, the endogenous variables could be determined jointly
+by multiple exo variables. e.g. 
+
+$$
+\text{AS}
+ \Rightarrow 
+\begin{cases}
+Y^{*}=f(k) \\
+N^{*}=g(k) \\
+(\frac{W}{P})^{*}=h(k) 
+\end{cases}
+$$
+
+
+\begin{redblock}
+\begin{question}[how to calculate $N$ at the equilibrium?]
+\end{question}
+By using total derivatives, we could have: 
+$$\begin{cases}
+&dY=dY(dK)
+\\&d \frac{W}{P}=d \frac{W}{P}(dK)
+\\&dW=dW(dK)
+\\&dP=dP(dK)
+\end{cases}$$
+\end{redblock}
+
+\begin{blueblock}
+\begin{note}
+All a model can contain are: 
+\begin{itemize}
+\tightlist
+  \item behavioral function 
+    $\begin{cases}
+      \text{by ad hoc} \\
+      \text{by optimization}
+    \end{cases}$
+  \item definitive function 
+  \item equilibrium conditions
+\end{itemize}
+\end{note}
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}[General way of advanced macroeconomics]
+By method, there are optimization, equilibrium-conducting and comparative analysis. And all of three can do both static analysis and dynamic analysis.
+\end{note}
+\end{blueblock}
+
+
+\begin{blueblock}
+\begin{note}  
+Inada conditions making sure that profit maximization is feasible
+\end{note}
+\end{blueblock}
+
+
+
+
+\newpage
+\section{Keysian Model}
+In a brief way, a Keysian model can be seen as two parts:
+
+\begin{align}
+&
+\text{AS: }
+\begin{cases}
+Y=F(K,N) \\
+\frac{W}{P}=F_{N}(K,N) \\
+N_{S}=N_{s}\left(\frac{W}{P}\right)\text{,where in most cases neglected from the equations}
+\end{cases}
+\\&\text{AD: }
+\begin{cases}
+Y=C+I+G+\delta K \\
+C=C(Y,T-\pi) \\
+I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
+\frac{M}{P}=m(Y,r),m_{1}>0,m_{2}<0
+\end{cases}
+\end{align}
+
+
+The Keyensian model consists of six equations, instead of seven in
+classical model. Because labor market is not clearing. So the wage is exogenous.
+
+
+
+
+\newpage
+\section{Solow Model}
+
+
+The Solow--Swan model, or exogenous growth model, or Neoclassical model is an economic model of long-run economic growth. It attempts to explain long-run economic growth by looking at capital accumulation, labor or population growth, and increases in productivity largely driven by technological progress. At its core, it is an aggregate production function, often specified to be of Cobb--Douglas type, which enables the model to make contact with microeconomics. The model was developed independently by Robert Solow and Trevor Swan in 1956, and superseded the Keynesian Harrod--Domar model.
+
+\begin{quote}
+Mathematically, the Solow--Swan model is a nonlinear system consisting
+of a single ordinary differential equation that models the evolution of
+the per capita stock of capital.
+\end{quote}
+
+\begin{greenblock}
+Learning points for 23-2 Course:
+\begin{itemize}
+\tightlist
+  \item the economic environment of Solow model
+  \item the main equations in Solow model
+  \item Several key concepts of Solow model, i.e. golden rate, equilibrium dynamics
+  \item how does the model converge under different conditions
+\end{itemize}
+\end{greenblock}
+
+\sepline
+\subsection{Economic Environment and Specific Assumptions}\label{economic-environment-and-specific-assumptions}
+
+Solow model seems to have simple assumptions, but in which many things are pre-assumed.
+
+\textbf{Sections} 
+
+\begin{itemize}
+  \item A Solow model assumes only two sections in participation 
+\end{itemize}
+
+\begin{align}
+Y(t)=C(t)+I(t)=C(t)+S(t)
+\end{align}
+
+\textbf{Household} 
+
+\begin{itemize}
+\tightlist
+  \item A large number of non-optimizing homogeneous households (with ad-hoc assumptions) $\Rightarrow$ representative agent 
+  \item Constant saving rate of $s\in [0,1] \Rightarrow S(t)=sY(t)=I(t)$
+\end{itemize}
+
+
+\textbf{Firm} 
+
+\begin{itemize}
+\tightlist
+  \item A large number of non-optimizing homogeneous firms (with
+ad-hoc assumptions) $\Rightarrow$ representative agent 
+  \item Since sharing a common production method, it can use an aggregate production function
+\end{itemize}
+
+\textbf{Market structure} 
+
+\begin{itemize}
+  \item Competitive $\Rightarrow$ Solow model is a prototypical competitive general equilibrium model
+\end{itemize}
+
+\textbf{Endowment (labor and capital)} 
+
+\begin{itemize}
+\tightlist
+  \item Labor $L(t)$ provided inelastically by households at wage $w(t)$ 
+  \item Households also own the capital $K(t)$ and rent it to firms at capital rate $R(t)$ 
+  \item The inital capital is given as $K(0)$ 
+  \item Capital exponential depreciation is denoted as $\delta \; \Rightarrow$ real interest rate $r(t)=R(t)-\delta$
+  \item How the capital is distributed is irrelevant to our exploring
+\end{itemize}
+
+\textbf{Market clearing} 
+
+\begin{itemize}
+\tightlist
+  \item Labor market clearing condition is $L(t)=\bar{L}(t)$ 
+  \item Capital market clearing condition is $K^{s}(t)=K^{d}(t)$
+\end{itemize}
+
+\textbf{Technology} 
+\begin{itemize}
+  \item Technology is free and publicly available
+\end{itemize}
+
+\textbf{Production function} 
+
+The aggregate production function is 
+\begin{itemize}
+\tightlist
+  \item continuous 
+  \item differentiable 
+  \item positive 
+  \item diminishing MP 
+  \item CRTS
+\end{itemize}
+
+\textbf{Production function in Harrold form}
+
+\begin{align}
+Y_{t}=F(K_{t},A_{t}L_{t})
+\end{align}
+
+\begin{itemize}
+\tightlist
+  \item This format of production function means, in the final, the ratio of capital to production $K/Y$ will be stable. 
+  \item It is convient to make $A_t$ times $L_t$ instead of other ways in Solow Model.
+\end{itemize}
+
+\begin{blueblock}
+\begin{note}[Production function in Hicks neutrality form]
+$$Y_{t}=A_{t}F(K_{t},L_{t})$$
+\end{note}
+\end{blueblock}
+
+\textbf{CRTS} 
+
+\begin{align}
+F_t(cK_t,cL_t)=cF(K_t,L_t), \: \forall c \geqslant 0
+\end{align}
+
+\begin{itemize}
+\tightlist
+  \item One way to see CRTS as a reasonable requirement is that imagining the scale of economy large enough to cover the potiential benefits of cooperation. 
+  \item Another way is imagining all other factors are compared irrelevant than capital, labor and knowledge. 
+  \item The CRTS assumption can derive the production function to $y=f(k)$.
+\end{itemize}
+
+\textbf{Inada Conditions}
+
+\begin{align}
+&\lim\limits_{x \rightarrow 0} y=\lim\limits_{x \rightarrow 0} f(x)= \infty
+\\&\lim\limits_{x \rightarrow \infty} y = \lim\limits_{x \rightarrow \infty} f(x)=0
+\end{align}
+
+\begin{itemize}
+\tightlist
+  \item Many have argued that Inada conditions are the key limits of Solow model, as well as the exogenosu tech growth rate. \item The purpose of this setting is to confine the model from wild spreading.
+  \item Cobb-Douglas Function is very suitable in this setting. \textit{It is rather reducted than deducted from the economic nature.}
+\end{itemize}
+
+\begin{blueblock}
+\begin{note}[No profits for firms]
+\begin{align}
+&\Rightarrow \text{PMP:}
+\\& \mathop{max}_{L(t),K(t)} \; F-w(t)L(t)-R(t)K(t)
+\\&\Rightarrow \begin{cases}
+w(t)=F_{L} \\
+R(t)=F_{K}\end{cases}
+\\&\Rightarrow Y(t)=w(t)L(t)+R(t)K(t) \text{ (applying Euler's equation)}
+\\& \text{Meaning the firms make no profits. They are just profit-maximizing.}
+\end{align}
+\end{note}
+\end{blueblock}
+
+\textbf{Main equations} 
+
+All of these above should be considered oversimplication of the real world, but to the favor of an economist. 
+\begin{align}
+\color{red}
+\begin{cases}
+y_{t}=F(K_{t},A_{t}N_{t}) \\
+I_{t}=S_{t}=sY_{t} \\
+K_{t+1}=I_{t}+(1-\delta)K_{t}\end{cases}
+\end{align}
+
+
+\sepline
+\subsection{Solow model in discrete
+time}\label{solow-model-in-discrete-time}
+
+
+\begin{blueblock}
+\begin{note}
+The gradually smaller and smaller effect of exogenous variables on endogenous variable is called an impulse response.
+\end{note}
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}
+Even the edge or limit of a dynamic state is no way near the steady state.
+\end{note}
+\end{blueblock}
+
+
+\textbf{Fundamental law of motion} 
+
+\begin{align}
+\color{red}
+\text{Solow model's motion equations}\begin{cases}Y_{t}=F(K_{t},A_{t},L_{t}) \\
+K_{t+1}=(1-\delta)K_{t}+I_{t} \\
+\end{cases}
+\end{align}
+
+\begin{redblock}
+\begin{question}[how to solve this set of difference equations?] 
+See Gao Xu, 2017 and McCandless, 2008
+\end{question}
+\begin{align}
+&y_t=\frac{Y_t}{N_t}=A_t \cdot F(\frac{K_t}{N_t},\frac{N_t}{N_t})\equiv A_t f(k_t)
+\\&K_{t+1}=(1-\delta)K_t+I_t 
+\\&\Rightarrow \frac{K_{t+1}}{N_{t+1}}\frac{N_{t+1}}{N_t}=\frac{(1-\delta)K_t}{N_t}+\frac{I_t}{N_t}
+\\&\Rightarrow k_{t+1}=\frac{(1-\delta)k_t +i_t}{1+n}
+\\&\Rightarrow (1+n)k_{t+1}=(1-\delta)k_t+i_t \text{ (transpose)}
+\\&\Rightarrow(1+n)k_{t+1}=(1-\delta)k_t+s_t
+\\&\Rightarrow(1+n)k_{t+1}=(1-\delta)k_t+s\cdot (1+\alpha)^t A_0 \cdot y_t \text{ ($\alpha$ is the growth rate for tech, in simplest case$=0$)}
+\\&\Rightarrow(1+n)k_{t+1}=(1-\delta)k_t+s A_0 y_t
+\end{align}
+
+It is obvious the steady state of capital per worker can be found at when $k_{t+1}=k_t=k^*$
+\begin{align}
+k_{t+1}=g(k_t)=\frac{(1-\delta)k_t+s A_0 f(k_t)}{1+n}
+\end{align}
+\end{redblock}
+
+\textbf{Equilibrium steady states in a phase diagram} 
+
+With $A_{t}$ and $N_{t}$ being stable (not have to be constant), the solution of difference equations in discrete Solow model is $k_{t+1}=sf(k_{t})+(1-\delta)k_{t}$, which leads to the phase diagram below 
+
+\includegraphics[scale=0.4]{images/solow_phase_diagram.jpg}
+
+
+\textbf{Equilibrium dynamics, solving the $k^{*}$} 
+\begin{align}
+&k_{t+1}=sf(k_{t})+(1-\delta)k_{t}
+\\&=g(k_{t})
+\\&\Rightarrow \text{eventually that } k^{*}=g(k^{*})
+\\& \Rightarrow \frac{k^{*}}{f(k^{*})}=\frac{s}{n+\delta} \text{ (meaning capital-output ratio is anchored by the parameters)}
+\\&\Rightarrow k^{*}=\cdot \text{ (solving the real final } k \text{)}
+\end{align}
+
+\textbf{Growth rate}
+
+The growth rate of capital is denoted as
+\begin{align}
+\gamma_t=\frac{k_{t+1}}{k_t}=\frac{(1-\delta)k_t+s A_0 f(k_t)}{(1+n)k_t}
+\end{align}
+
+
+\textbf{Intertemporal equilibrium, convergence speed and convergence
+time} 
+
+\includegraphics[width=0.5\textwidth]{images/solow_phase_diagram.jpg}
+
+\begin{align}
+&k_{t+1}=g(k_{t})
+\\&\Rightarrow k_{t+1}=k^{*}+g'(k^{*})(k_{t}-k^{*})
+\\&\Rightarrow k_{t+1}=k^{*}+g'(k)(k_{t}-k^{*})
+\\&\Rightarrow \hat{k_{t+1}} \equiv \frac{k_{t+1}-k^{*}}{k^{*}}=g'(k^{*})(\frac{k_{t}-k^{*}}{k^{*}})=g'(k^{*})\hat{k_{t}} \text{ (redefining)}
+\\&\Rightarrow\hat{k_{t}}=[g'(k^{*})]^{t}\hat{k_{0}} \text{ (by the method of iteration, the equil steady state of capital growth ratio)}
+\\&\Rightarrow t=\frac{\log \frac{\hat{k_{t}}}{\hat{k_{0}}}}{\log g'(k^{*})} \text{ (using logarithms)}
+\\&\Rightarrow t=\frac{\log \frac{k_{t}-k^{*}}{k_{0}-k^{*}}}{\log g'(k^{*})} \text{ (meaning the time } t \text{ is now decided by the location of capital } k_{t} \text{)}
+\end{align}
+We have the convergence speed g$'(k^{*})$ and convergence time $t$.
+
+
+\begin{blueblock}
+\begin{note}[Steady State vs Intertemporal Equilibrium]
+Despite of seemingly different division, the two are sides of a coin.
+\end{note}
+\end{blueblock}
+
+\textbf{Balance of growth} 
+\begin{align}
+&k_{t}=\frac{K_{t}}{A_{t}L_{t}}
+\\&\Rightarrow \frac{dK_{t}}{k_{t}}=\frac{dk_{t}}{k_{t}}+\frac{dA_{t}}{A_{t}}+\frac{dN_{t}}{N_{t}}
+\end{align}
+
+\textbf{Convergence under different conditions:} 
+
+i) first scenerio:
+$\begin{cases}
+A_{t}=a \\
+N_{t}=n\end{cases}$
+
+\begin{align}
+& k_{t}\equiv \frac{K_{t}}{N}
+\\&y_{t}\equiv \frac{Y_{t}}{N}=F[\frac{K_{t}}{N},A]=f(k_{t})
+\\&k_{t+1}=sf(k_{t})+(1-\delta)k_{t}
+\\&\text{The steady state equilibrium is } k(t)=k^{*},\; \forall t
+\end{align}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\setcounter{enumi}{1}
+  \item second scenerio: $\begin{cases}
+  A_{t} =a \\
+  \frac{N_{t}}{N_{t-1}}=1+n\end{cases}$
+  \item third scenerio: $\begin{cases}
+  \frac{A_{t}}{A_{t-1}} =1+a \\
+  \frac{N_{t}}{N_{t-1}}=1+n\end{cases}$
+\end{enumerate}
+
+\sepline
+\subsection{Solow model in continuous time}\label{solow-model-in-continuous-time}
+
+Let $A(t)=1$, we have the Solow model in continous time 
+\begin{align}
+&Y(t)=F[K(t),L(t)]
+\\&I(t)=S(t)=sY(t)
+\\&\dot{K(t)}=I_{t}-\delta K_{t}
+\end{align}
+
+
+Derivation of the basic function of Solow model in continuous time,
+which is the steady state of Solow model 
+
+\begin{align}
+&k(t)=\frac{K(t)}{L(t)}
+\\&\frac{\dot{k(t)}}{k(t)}=\frac{\dot{K(t)}}{K(t)}-\frac{\dot{L(t)}}{L(t)}
+\\&\frac{\dot{k(t)}}{k(t)}=\frac{sF-\delta K(t)}{K(t)}-n
+\\&\frac{\dot{k(t)}}{k(t)}=\frac{(sF-\delta K(t)/L(t))}{K(t)/L(t)}-n
+\\&\Rightarrow \color{red} \dot{k(t)}=sf[k(t)]-(\delta+n)k(t)
+\end{align}
+
+
+\textbf{Intertemporal equilibrium, convergence speed and convergence time}
+
+\begin{align}
+&\dot{k(t)}=sf[k(t)]-(\delta+n)k(t)\equiv g[k(t)]
+\\&\Rightarrow \text{eventually at steady state }g(k^{*})=0=sf[k^{*}]-(\delta+n)k^{*} 
+\\& \Rightarrow \color{red} \frac{k^{*}}{f(k^{*})}=\frac{s}{\delta+n} \text{ (the anchored capital-output ratio determined by parameters)}
+\\& \Rightarrow \dot{k(t)} \approx g(k^{*})+g'(k^{*})[k(t)-k^{*}] \text{ (linearization by using Taylor expansion)}
+\\&\Rightarrow \frac{dK(t)}{dt}=g'(k^{*})k(t)-g'(k^{*})k^{*}
+\\&\Rightarrow k(t)=[k(0)-k^{*}] e^{[g'(k^{*})t]}+k^{*}
+\\&\Rightarrow \text{transposition}
+\\&\text{Denote }\hat{k(t)} \equiv \frac{k(t)-k^{*}}{k^{*}}=e^{[g'(k^{*})t]}\frac{k(0)-k^{*}}{k^{*}}
+\\&\Rightarrow \frac{\hat{k(t)}}{\hat{k(0)}}=e^{g'(k^{*})t}
+\\&\Rightarrow \text{Denote }t=\frac{log[\frac{\hat{k(t)}}{\hat{k(0)}}]}{g'(k^{*})}
+\\&\Rightarrow \text{Like in discrete time, we have the convergence speed } g'(k^{*}) \text{ and time for convergence } t
+\end{align}
+
+\sepline
+\subsection{Golden Rate}\label{golden-rate}
+
+One of the philosophies upon which economic science is established is utilitism, that is achieving max happiness by max consuming. To do so in a stationary state in Solow model, the idea of golden rate is introduced.
+
+Golden rate in discrete time, or the maximized welfare of Solow model 
+
+\begin{align}
+& \text{Starting with two ad-hoc assumptions}
+\begin{cases}C_{t}=(1-s)Y_{t} \\
+S_{t}=sY_{t} 
+\end{cases}
+\\&\Rightarrow\text{At the steady state:}
+\\&c^{*}(s)=(1-s)f[k^{*}(s)]=f[(1-s)k^{*}(s)]=f[k^{*}(s)]-(n+\delta)k^{*}(s)
+\\&\Rightarrow \max c^{*}
+\\& \Rightarrow s_g=\underset{s}{\text{argmax}}\;c^* \text{ (golden rate of saving)}
+\\& \Rightarrow k^*_g=\underset{k^*}{\text{argmax}}\;c^* \text{ (golden rate of capital per capita)}
+\end{align}
+
+
+\begin{redblock}
+\begin{question}[why do we even need to introduce money in a model like Solow model?]
+\end{question}
+\end{redblock}
+
+
+
+
+
+\newpage
+\section{Ramsey Model}
+
+\begin{greenblock}
+See Chapter 5 to Chapter 7 from Acemoglu, 2004 for more mathematical help.
+\end{greenblock}
+
+
+\begin{blueblock}
+\begin{note}
+Ramsey model is in nature a growth model with consumer optmization.
+\end{note}
+\end{blueblock}
+
+
+We begin the road to sophiscated macro skyscraper with the most basic frame, the Ramsey model. 
+
+The Ramsey model, or the RCK model, or the Neoclassical growth model differs from the Solow model in that the choice of consumption is explicitly microfounded at a point in time and so endogenizes the savings rate. 
+
+The most intuitive change is now we put $S_t$ under $\max$ as $\max\limits_{\{C_t, S_t\}}$.
+
+\sepline
+\subsection{Assumptions}\label{assumptions}
+
+
+
+\begin{itemize}
+  \item Same as Solow Model
+    \begin{itemize}
+    \tightlist
+      \item Production Function in the Harrold neutrality form 
+      \item \textbf{Exogenous Variables:} 
+      \item Population growth rate$=n$
+      \item Technology growth rate$=g$ 
+      \item Depreciation rate$=0$ (for simplicity)
+      \item And most of all, the technological growth rate is assumed as $a$.
+    \end{itemize}
+  \item Firm
+    \begin{itemize}
+    \tightlist
+      \item Perfect competitive firms, or homogenous firms, or representive firms
+      \item Hire workers and capital in competitive factor markets
+      \item Each has the production function $Y=F(K,AL)$
+      \item Firms are owned by the families, meaning the revenue goes straight to
+      latter
+    \end{itemize}
+  \item Household
+    \begin{itemize}
+    \tightlist
+      \item Homogenous families.
+      \item Population growth of each household is assumed as $n$.
+      \item Each member in a household provides one unit of labor.
+      \item Income of a household is the sum of the labor revenue subsum, the capital revenue subsum and the firm revenue share subsum.
+      \item A household should and must maximize the utility.
+      \item Degree of patience denoted as discount factor $\beta=\frac{1}{1+\rho}$, and $\rho$ is the discount rate.
+    \end{itemize}
+\end{itemize}
+
+
+
+\begin{blueblock}
+\begin{note}[Rule of Prohibiting Ponzi Schemes]
+Conconstraint in Ramsey model is also called Prohibiting Ponzi Schemes Rule. It forbids the household to do a scam of rolling over debt by repeatedly borrowing. Yet in real life, many people are doing this as a harmless way to ralex debt pressure.
+\end{note}
+\end{blueblock}
+
+\sepline
+\subsection{Solution of Ramsey model}
+
+\subsubsection{Central Planner's
+Problem}\label{central-planners-problem}
+
+Originally Ramsey set out the model as a social planner's problem of
+maximizing levels of consumption over successive generations. Only later was a model adopted by Cass and Koopmans as a description of a
+decentralized dynamic economy with a representative agent. This is also why the model is called Ramsey-Cass-Koopsman model, yet abbreviated as Ramsey model.
+
+So, chronologically the first thing we should address is central
+planner's problem.
+
+\textbf{Disperssive competition} 
+
+UMP
+
+\begin{equation}
+\begin{split}
+  &\max_{\{C_{t},K_{t+1}\}_{t=0}^{\infty}} \; \sum\limits_{t=0}^{\infty} \beta^{t}u(C_{t})
+  \\& s.t.  C_{t}+K_{t+1}-(1-\delta)K_{t}=W_t L_{t}+R_t k_{t}+D_{t}
+\end{split}
+\end{equation}
+
+Noticing that the constraint is equivalent to $C_{t}+I_{t}=Y_{t}+D_{t}$
+
+Solving this UMP resulting Euler's equation 
+\begin{equation}
+\begin{split}
+  \Rightarrow & u'[F(K_{t})-K_{t+1}]=u'(C_{t})=\beta u'(C_{t+1})F'(K_{t+1})\\
+  &\iff \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}
+\end{split}
+\end{equation}
+
+PMP at a perfectly competitive market
+\begin{align}
+&\mathop{max}_{K_{t}} \; \pi=F(K_{t},A_{t}L_{t})-(r+\delta)K_{t}-w L_{t}
+\end{align}
+where the $A_{t}L_{t}$ is assumed as a constant in order for model to converge
+\begin{align}
+F.O.C. \Rightarrow r+\delta=R=1+r
+\end{align}
+
+In a conclusion, opt in the disperssive economy yields
+$\begin{cases}
+  \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}\\
+  r+\delta=R=1+r
+\end{cases}$
+
+
+\textbf{Central Planner's Problem} 
+
+\begin{equation}
+\begin{split}
+&\mathop{max}_{\{C_{t},K_{t+1}\}_{t=0}^{\infty}} \; \sum\limits_{t=0}^{\infty} \beta^{t}u(C_{t})
+\\& s.t. \; C_{t}+K_{t+1}=Y_{t}, \text{ where } \delta \text{ is assumed as 1}
+\end{split}
+\end{equation}
+
+Using Lagranian method and acquire Euler's equation
+\begin{align}
+\begin{split}
+\Rightarrow & u'(F(K_{t})-K_{t+1})=u'(C_{t})=\beta u'(C_{t+1})F'(K+1)
+\\&\iff \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}
+\end{split}
+\end{align} 
+
+\textbf{Conclusion}
+
+Regardless of the economy being disperssive or central planning, we would have the same Euler's equation of consumption. This suggests for simplicity, we might as well use central planner's problem.
+
+
+
+
+
+
+\subsubsection{Method of Lagrangian}\label{method-of-lagrangian}
+
+We start from scratch, then move on to methods like using Hamiltonian equation or using Bellman equation.
+
+\textbf{one-period static opt} 
+
+\begin{equation}
+\begin{split}
+&v=f(x_{1},x_{2})
+\\&s.t. \; g(x_{1},x_{2})=z
+\end{split}
+\end{equation}
+
+
+
+\textbf{two-period dynamic opt} 
+
+A general form is denoted as
+\begin{equation}
+\begin{split}
+&\max v=f(x_1,x_2)
+\\&s.t. \; g(x_{1},x_{2})=z \text{ (where the subscript is denoted as time periods)}
+\end{split}
+\end{equation}
+
+
+a two-period consumer maximization problem can be denoted as
+\begin{align}
+\begin{split}
+&\mathop{max}_{C_{1},C_{2}} \; u_{1}=u(C_{1})+\beta u(C_{2})
+\\&s.t. \; \begin{cases}
+C_{1}+S_{1}\leqslant [r+(1-\delta)]S_{0} +Y_{1} \\
+C_{2}+S_{2}\leqslant [r+(1-\delta)]S_{1}+Y_{2}\end{cases}\text{ ,where we assume}\begin{cases}
+S_{0}=S_{2}=0 \\
+C_{1},C_{2}>0\end{cases} 
+\end{split}
+\\& \text{The reconstraints}\Rightarrow \color{red} C_{1}+\frac{C_{2}}{1+r}=Y_{1}+\frac{Y_{2}}{1+r} \text{ (intertemporal budget conconstraint)}
+\end{align}
+
+
+\begin{redblock}
+\begin{question}[How to solve the intertemporal UMP?]
+\end{question}
+
+
+(1). method of elimination
+
+$\frac{du_{1}}{dC_{1}}=0 \Rightarrow \frac{\beta u'(C_{2})}{u'(C_{1})}=\frac{1}{1+r} \text{ ( the Euler's equation of intertemporal consumption)}$
+In which the $\frac{1}{1+r}$ is the comparative price
+
+(2). method of geomotry 
+
+On a $C_{1}-C_{2}$ plane, \begin{align}
+&0=u'(C_{1})dC_{1}+\beta u'(C_{2})dC_{2}
+\\&\Rightarrow \frac{dC_{2}}{dC_{1}}=-\frac{u'(C_{1})}{\beta u'(C_{2})}
+\end{align}
+
+(3). method of Lagrangian function 
+
+\begin{align}
+& \mathscr{L}=u(C_{1})+\beta u(C_{2})+\lambda[C_{1}+\frac{C_{2}}{1+r}-Y_{1}-\frac{Y_{2}}{1+r}]
+\\&\Rightarrow  \begin{cases}
+\frac{\partial L}{\partial C_{1}}=0 \\
+\frac{\partial L }{\partial  C_{2}}=0 \\
+\frac{\partial L}{\partial \lambda}=0\end{cases}
+\\&\Rightarrow \frac{\beta u'(C_{2})}{u'(C_{1})}=\frac{1}{1+r} \text{ (in the difference equation lies the core of Ramsey model )}
+\end{align}
+\end{redblock}
+
+
+\textbf{t-period dynamic opt (finite-period)} 
+
+1) The original version:
+\begin{align}
+\begin{split}
+&\mathop{max}_{C_{1},C_{2},...,C(T)} \; u_{1}=u(C_{1})+\beta u(C_{2})+\beta^{2}u(C_{3})+...+\beta^{T-1}u(C_{T})
+\\&s.t. \; \begin{cases}
+C_{1}+S_{1} &\leqslant [1+r]S_{0} +Y_{1} \\
+C_{2}+S_{2} &\leqslant [1+r]S_{1}+Y_{2} \\
+&\dots\\
+C_{T}+s_{T}&\leqslant(1+r)S_{T-1}+Y_{T} \end{cases}\text{ ,where we assume}\begin{cases}
+\delta=s_{0}=s_{T}=0 \\
+C_{1},C_{2},...,C_{T}>0\end{cases} 
+\end{split}
+\end{align}
+
+where the budget constraints can be condensed into 
+\begin{align}
+C_{1}+\frac{C_{2}}{1+r}+...+\frac{C_{T}}{(1+r)^{T-1}}=Y_{1}+\frac{Y_{2}}{1+r}+...+\frac{Y_{T}}{(1+r)^{T-1}} 
+\end{align}
+
+2) Or the second version:
+\begin{align}
+\begin{split}
+&\mathop{max}_{\{C_{t}\}^{\infty}_{t=1}} \; u_{1}=\sum\limits_{t=1}^{T}\beta^{t-1}u(C_{t})
+\\&s.t. \; \begin{cases}
+C_{1}+S_{1} &\leqslant [1+r]S_{0} +Y_{1} \\
+C_{2}+S_{2} &\leqslant [1+r]S_{1}+Y_{2} \\
+&\dots\\
+C_{T}+S_{T}&\leqslant(1+r)S_{T-1}+Y_{T} \end{cases}\text{ ,where we assume}\begin{cases}
+S_{0}=S_{T}=0, \delta=0 \\
+C_{1},C_{2},...,C_{T}>0\end{cases} 
+\end{split}
+\end{align}
+
+To solve this t-period UMP, using Langranian method: (the $\lambda$ is the shadow price)
+\begin{align}
+&\mathop{max}_{\{C_{t}\}^{\infty}_{t=1},\lambda} \; \mathscr{L}=\sum\limits_{t=1}^{T}\beta^{t-1}u(C_{t})+\lambda[c_{1}+\frac{c_{2}}{1+r}+...+\frac{C_{T}}{(1+r)^{T-1}}-(Y_{1}+\frac{Y_{2}}{1+r}+...+\frac{Y_{T}}{(1+r)^{T-1}}) ]
+\\&\Rightarrow F.O.C.s \begin{cases}\frac{\partial  \mathscr{L}}{\partial  c_{1}}=0 \\
+\frac{\partial  \mathscr{L}}{\partial  C_{2}}=0 \\
+\vdots \\
+\frac{\partial  \mathscr{L}}{\partial  C_{T}}=0
+\end{cases} 
+\\&\Rightarrow \frac{\beta u'(C_{t+1})}{u'(C_t)}=\frac{1}{1+r}, t=1,2\dots,T
+\end{align}
+
+3) Another commonly adopted simplified version is
+\begin{align}
+\begin{split}
+&\mathop{max}\limits_{\{C_{t},S_{t}\}_{t=1}^{T}} u_{1}=\sum\limits_{t=1}^{T}\beta^{T-1}u(C_{t})
+\\&s.t. C_{t}+S_{t}\leqslant (1+r)S_{t-1}+Y_{t} \text{, where} \begin{cases}
+C_{t}>0 \\
+S_{0}=S_{T}=0
+\end{cases}
+\end{split}
+\end{align}
+Using Lagrangian function method:
+\begin{align}
+&\Rightarrow u'(C_{t+1})=\lambda_{t+1}
+\\&\Rightarrow \frac{u'(C_{t+1})}{u'(C_{t})}=\frac{\lambda_{t+1}}{\lambda_{t}}=\frac{1}{\beta(1+r)}
+\\&\Rightarrow \frac{\beta u'(C_{t+1})}{u'(C_t)}=\frac{1}{1+r}
+\end{align}
+
+\textbf{infinite-period dynamic opt} 
+
+Using the third version, we delve into infinity
+\begin{equation}
+\begin{split}
+&\mathop{max}_{\{C_{t}\}_{t=1}^{\infty}}\; u_{1}=\sum\limits_{t=1}^{\infty}\beta^{T-1}u(C_{t})
+\\&s.t. C_{t}+S_{t}\leqslant (1+r)S_{t-1}+Y_{t} \text{, where} 
+\begin{cases}
+C_{t}>0 \\
+S_{0}=\lim\limits_{t \rightarrow \infty} S_{T}=0
+\end{cases}
+\end{split}
+\end{equation}
+
+
+Using Lagrangian function method:
+\begin{align}
+& \mathscr{L} \equiv \sum\limits_{t=0}^{\infty} \{\beta^{t}u(c_{t})+\lambda_{t}[(1+r)s_{t-1}+Y_{t}-(c_{t}+s_{t})]\}
+\\&\Rightarrow F.O.C.
+\\&\Rightarrow u'(c_{t+1})=\lambda_{t+1}
+\\&\Rightarrow \frac{u'(c_{t+1})}{u'(c_{t})}=\frac{\lambda_{t+1}}{\lambda_{t}}=\frac{1}{\beta(1+r)}
+\\&\Rightarrow \frac{\beta u'(c_{t+1})}{u'(t)}=\frac{1}{1+r}
+\end{align}
+
+\subsubsection{Method of Hamiltonian Equation (Optimal
+Control)}\label{method-of-hamiltonian-equation-optimal-control}
+Method of Hamiltonian equation is part of the optimal control theory from mathematicals.
+
+\textbf{a) discrete time} 
+
+\begin{equation}
+\begin{split}
+&\mathop{max}\limits_{\{c_{t},s_{t}\}_{t=0}^{T}} u_{1}=\sum\limits_{t=1}^{T}\beta^{T-1}u(c_{t})
+\\&s.t. c_{t}+s_{t}\leqslant (1+r)s_{t-1}+Y_{t} \text{, where} \begin{cases}
+c_{t}>0 \\
+s_{-1}=s_{T}=0 \\
+\beta=\frac{1}{1+\rho}
+\end{cases}
+\end{split}
+\end{equation}
+
+
+
+
+
+\textbf{b) continuous time without patience} 
+\begin{equation}
+\begin{split}
+&\max_{\{C(t),S(t)\}} \; u=\int_{t=0}^{T}e^{-\rho t}u[C(t)]dt=\int_{t=0}^{T}u[C(t)]dt
+\\& s.t. \; C(t)+\dot{S}(t)=r \cdot S(t)+Y(t) \text{, where } S(0)=S(T)=0
+\end{split}
+\end{equation}
+
+Using Lagrangian
+\begin{align}
+\Rightarrow\mathscr{L}&=\int_{t=0}^{T} \{u[C(t)]+\lambda(t)[C(t)+\dot{S}(t)-r \cdot S(t)-Y(t)]\}dt
+\\&=\int_{t=0}^{T} \{ H(t)-\lambda(t)\dot{S}(t)\}dt \text{ ($H$ is Hamiltonian)}
+\\&=\int_{t=0}^{T} H(t)dt-\int_{t=0}^{T}\lambda(t)\dot{S}(t)dt \text{ (Then applying fractional integral method to latter)}
+\\&=\int_{t=0}^{T} H(t)dt-\{ \lambda(t)S(t)|_{0}^{T} - \int_{t=0}^{T} \dot{\lambda}(t)S(t)dt \}
+\\&=\int_{t=0}^{T} H(t)dt-\dot{\lambda}(t)S(t)dt-[\lambda(t)S(t)]|_{0}^{T}
+\\&=\int_{t=0}^{T} H(t)dt+\dot{\lambda}(t)dt
+\end{align}
+with this simplified version containing Hamiltonian
+\begin{align}
+&\Rightarrow \text{F.O.C. of Lagrangian function:} \begin{cases}
+\frac{\partial \mathscr{L}}{\partial C(t)}=0 \text{ (} C(t)\text{ is the control variable)}  \\
+\frac{\partial \mathscr{L}}{\partial S(t)}=0 \text{ (} S(t)\text{ is the state variable)} \\
+\frac{\partial \mathscr{L}}{\partial  \lambda(t)}=0 \text{ (} \lambda(t)\text{ is the monodromy variable)}\end{cases}
+\\&\Rightarrow \color{red} \text{the optimal control }\begin{cases}
+\frac{\partial \mathcal{H} }{\partial C(t)}=0 \\
+\frac{\partial \mathcal{H}}{\partial S(t)}=-\dot\lambda(t) \\
+\frac{\partial \mathcal{H}}{\partial \lambda(t)}=\dot S(t)\end{cases}
+\end{align}
+
+
+\begin{blueblock}
+\begin{note}[control variable and state variable]
+If a variable is determined in the current period, it is a control variable. If it is determined period(s) before, it is a state variable.
+\end{note}
+\end{blueblock}
+
+\textbf{c) continuous time with patience}
+
+Next we consider the Lagrangian function with subjective discount rate
+
+Right into this version's Lagrangian function
+\begin{align}
+&\mathscr{L}=\int_{t=0}^{T} \{e^{-\rho t}u[C(t)]+\lambda(t)[C(t)+\dot{S}(t)-r \cdot S(t)-Y(t)]\}dt
+\\&=\int_{t=0}^{T} \{e^{-\rho t} u[C(t)]+\lambda(t)[r S(t)+Y(t)-C(t)]-\lambda \dot S(t)\}dt
+\\&=\color{red}\int_{t=0}^{T} \{H(0)-\lambda \dot S(t)\}dt \text{ (} H(0) \text{ is present value Hamiltonian)}
+\\& \Rightarrow H(0)\equiv e^{-\rho t} u[C(t)]+\lambda(t)[r S(t)+Y(t)-C(t)]
+\\& \color{red} \Rightarrow \tilde{H}(t)= e^{\rho t}H(0) \text{ (the current value Hamiltonian)}
+\\& \Rightarrow H(t)=u[C(t)]+\eta(t)[r S(t)+Y(t)-C(t)]
+\end{align}
+
+Comparing the two scenarios (with and without consideration for
+$\rho$), we can see --- regardless of the subjective discount rate, result would be the same.
+
+\subsubsection{Method of Bellman Equation (Dynamic
+Programming)}\label{method-of-bellman-equation-dynamic-programming}
+
+\textbf{a) discrete time} 
+
+UMP as below
+\begin{align}
+\begin{split}
+&\max_{\{C_{t}, S_{t}\}_{t=0}^{\infty}} u_{0}=\beta^{t}u(C_{t})
+\\&s.t. \; C_{t}+S_{t}=(1+r)S_{t-1}+Y_{t} \text{, where }S_{1}=\lim_{t \rightarrow \infty} s_{t}=0
+\end{split}
+\end{align}
+
+Using the budget constraint to rewrite utility function
+\begin{align}
+& \Rightarrow C_{t}=(1+r)S_{t-1}+Y_{t}-S_{t}
+\\& \Rightarrow u_{0}=\max_{\{S_{t}\}_{t=0}^{\infty}} \beta^{t}u[(1+r)S_{t-1}+Y_{t}-S_{t}]
+\\&= \max_{S_{0}} \beta^{t}u[(1+r)S_{-1}+Y_{0}-S_{0}]+\beta \max_{\{S_{t}\}_{t=1}^{\infty}}\sum\limits_{t=1}^{\infty}\beta^{t-1}u[(1+r)S_{t-1}+Y_{t}-S_{t}]
+\\&=\max_{s_{0}}u[(1+r)S_{-1}+Y_{0}-S_{0}]+\beta u (S_{0},Y_{1})
+\end{align}
+Upscript $o$ denotes optimal
+\begin{align}
+&\Rightarrow u^{o}(S_{t-1},Y_{t})=\max_{S_{t}}\{u[(1+r)S_{t-1}+Y_{t}-S_{t}]+\beta u^{o}(S_{t},Y_{t+1})\} \text{ (Bellman equation)}
+\\&=\max_{S_{t}} \{u(C_{t})+\beta u^{o}(S_{t},Y_{t+1})\}
+\\&\Rightarrow \text{F.O.C.}: u_{C_{t}} \frac{\partial  C_{t}}{\partial  S_{t}}+\beta \frac{du(S_{t},Y_{t+1})}{dS_{t}}=0
+\end{align}
+Let $\frac{\partial  C_{t}}{\partial  S_{t}}$ be $-1$
+\begin{align}
+\Rightarrow \beta \frac{du(s_{t},Y_{t+1})}{ds_{t}}=u_{c_{t}} 
+\end{align}
+Move one period ahead and acquire Euler's equation
+\begin{align}
+\\& u(s_{t},Y_{t+1})=\max_{s_{t+1}}\{u[(1+r)s_{t}+Y_{t}-s_{t+1}]+\beta u(s_{t+1},Y_{t+2})\}
+\\&\Rightarrow \frac{du^{o} (s_{t},Y_{t+1})}{ds_{t}}=\frac{\partial u(\cdot)}{\partial s_{t}}+\frac{\partial u(\cdot)}{\partial s_{t+1}}\frac{ds_{t+1}}{ds_{t}}+\beta \frac{d u^{o}(\cdot)}{ds_{t}}\frac{ds_{t+1}}{ds_{t}}
+\\&=\frac{\partial u(\cdot)}{\partial s_{t}}+[\frac{\partial u(\cdot)}{\partial  s_{t+1}}+\beta \frac{du^{o}(\cdot)}{d_{s_{t+1}}}]\frac{ds_{t+1}}{ds_{t}} \text{ (using optimals' envelope therome )}
+\\&=u_{c,t+1}\frac{dc_{t+1}}{ds_{t}}+0
+\\&=u_{c,t+1} \cdot (1+r)
+\\&\Rightarrow \beta \frac{u_{c,t+1}}{u_{c,t}}=\frac{1}{1+r}
+\end{align}
+Hence the same result as before.
+
+\textbf{b) continuous time (Hamilton-Jacob-Bellman, HJB)}
+
+See in ...
+
+\sepline
+\subsection{Intertemporal Equilibrium of Ramsey model}
+
+\subsubsection{Dynamics of c} 
+
+Recalling that
+\begin{align}
+&\frac{\dot{c(t)}}{c(t)}=\frac{r(t)-\rho-\theta g}{\theta}
+\end{align}
+Since we know
+\begin{align}
+&r(t)=f'[k(t)]
+\end{align}
+Combining them as
+\begin{align}
+&\frac{\dot{c(t)}}{c(t)}=\frac{r(t)-\rho-\theta g}{\theta}=\frac{f'[k(t)]-\rho-\theta g}{\theta}
+\end{align}
+Once we assume that 
+\begin{align}
+\exists k^{*}\in\mathbb{R},f'[k^{*}]=\rho-\theta g
+\end{align}
+The dynamics of $c$, denoted as $\frac{\dot{c(t)}}{c(t)}$ is purely dependent on the value of $k$ according to Ramsey model.
+
+\subsubsection{Dynamics of k} 
+
+Since in Ramsey model we don't assume depreciation of capital $k$, denoted as $\delta=0$. The dynamics of $k$ accordingly is $\dot{k}(t)=f[k(t)]-c(t)-(n+g)k(t)$.
+
+This way, in order for the dynamics of $k$ returning to $0$, the
+model must fulfil the requirement of $c(t)=f[k(t)]-(n+g)k(t)$.
+
+
+\subsubsection{Phase diagram and dynamic efficiency}
+Combining the the two dynamics together, we would have 
+\begin{align}
+&\dot{k}=0
+\\ &\dot{c}=0
+\end{align} 
+in a coordinate system of $k$ and $c$.
+
+\begin{blueblock}
+\begin{note}[dynamic efficiency in Ramsey model]
+Beware that the equilibrium of two dynamics would always be on the left of golden rate of $\dot{k}$.
+The origin point $(0,0)$ can also be considered a special case of equilibrium.
+\end{note}
+\end{blueblock}
+
+The equilibrium in Ramsey model has given only one equilibrium path.
+
+
+Recalling the Solow presented as model equation of motion \begin{align}
+k_{t+1}-(1-\delta)k_{t}=sF(k_{t})
+\end{align} 
+
+RCK model has two equations of motion
+\begin{align}
+&\begin{cases}
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[F'(k_{t+1})-(1-\delta)] \\
+k_{t+1}-(1-\delta k_{t})=F(k_{t})-C_{t}\end{cases}
+\end{align}
+
+Acquirring the steady state of Ramsey model
+\begin{align}
+&
+\begin{cases}
+ k_{t+1}=k_{t}=k^{*},\triangle k =0 
+\\ c_{t+1}=c_{t}=c^{*},\triangle c =0 
+\end{cases}
+\\&\Rightarrow F'(k^{*})=\rho+\delta \Rightarrow k^{*} 
+\\&\Rightarrow c^{*}=F(k^{*})-\delta k^{*} 
+\\&\Rightarrow (k^{*},c^{*}) \text{ is the steady state}
+\\&\Rightarrow\frac{dc^{*}}{dk^{*}}=F'(k)-\delta=R-\delta
+\end{align}
+
+Deriving the derivatives at steady state
+\begin{align}
+& 
+\begin{cases}
+\frac{\partial  \triangle c}{\partial  k}<0 \\
+\frac{\partial  \triangle k}{\partial  c}<0
+\end{cases}
+\end{align}
+, meaning there must be seperating line for each
+\begin{align}
+& 
+\triangle c =0 
+\\&\Rightarrow F'(k^{*})=\rho +\delta \text{ (from the first equation of motion of RCK)}
+\\&\Rightarrow F_{kk}dk=0 dc
+\\&\Rightarrow \frac{dc}{dk}=\frac{F_{kk}}{0} \Rightarrow \text{the seperating line is vertical in C-K plane}
+\\&\triangle k=0
+\\&\Rightarrow C^{*}=F(k^{*})-\delta k^{*}
+\\&\Rightarrow \frac{dc}{dk}=F_{k}-\delta \Rightarrow \text{the seperating line is vertically reversed U shape}
+\end{align}
+
+
+\includegraphics[width=0.5\textwidth]{images/ramsey_phase_diagram.jpg}
+
+
+
+\subsection{Linearization} 
+
+Comparing Solow and Ramsey:
+
+Solow model's Euler equation 
+\begin{align}
+&\dot k(t)+\delta k(t)=sF(k(t))
+\end{align}
+
+Ramsey model's Euler equations 
+\begin{align}
+& \dot c(t)=\frac{F'[k(t)-(\delta+\rho)]}{\theta} c(t)\text{, where } \theta=-\frac{c u''(c)}{u'(c)}
+\\& \dot k(t)=F[k(t)]-\delta k(t)-c(t)
+\end{align}
+
+Noticing the two equations of Ramsey are unlinear. This demands a process of linearization.
+
+\textbf{Linearization, method of Taylor expansion}
+
+First method we use the same technique from Solow model's linearization, Taylor's Expansion.
+
+First order Taylor expansion of RCK' Euler equations:
+\begin{align}
+& \begin{bmatrix}\dot c(t) \\ \dot k(t)\end{bmatrix}
+=\begin{bmatrix} \frac{F'[k(t)-(\delta+\rho)]}{\theta} c(t) \\ F[k(t)]-\delta k(t)-c(t)\end{bmatrix}
+=\begin{bmatrix}\phi^{1}[c(t),k(t)] \\ \phi^{2}[c(t),k(t)] \end{bmatrix}
+\\&\Rightarrow 
+\begin{bmatrix}\dot c(t) \\ \dot k(t)\end{bmatrix}
+=\begin{bmatrix}\phi^{1}[c^{*},k^{*}] \\ \phi^{2}[c^{*},k^{*}] \end{bmatrix}+
+\begin{bmatrix}\phi_{c}^{1} & \phi_{k}^{1} \\ \phi_{c}^{2} & \phi_{k}^{2}\end{bmatrix} \mid_{c^{*},k^{*}}
+\begin{bmatrix} c(t)-c^{*} \\ k(t)-k^{*}\end{bmatrix}
+\\&=\begin{bmatrix}0 \\ 0\end{bmatrix} + \begin{bmatrix}o & \frac{F''(k^{*})}{\theta} c^{*} \\ -1 & \rho\end{bmatrix} \begin{bmatrix} c(t)-c^{*} \\ k(t)-k^{*}\end{bmatrix}
+\end{align}
+The above deduction use the following conclusions
+\begin{align}
+&\begin{cases}F'(k^{*})-(\delta+\rho)=0\Rightarrow F'(k^{*})=\rho+\delta \Rightarrow k^{*}
+\\c^{*}=F(k^{*})-\delta k^{*} \Rightarrow c^{*}
+\end{cases}
+\end{align}
+Because ...
+\begin{align}
+&Ax=\lambda x
+\\&\Rightarrow \lambda ^{2}-tr(A) \lambda+dt+\lambda =0
+\\&\Rightarrow \lambda^{2}-\rho \lambda+\frac{F'(k^{*})}{\theta}\cdot c^{*}=0
+\\&\Rightarrow \lambda_{1}=\frac{\rho-\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}<0<\lambda_{2}=\frac{\rho+\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}
+\end{align}
+$\Rightarrow$ We choose the negative one which is $\lambda_{1}$  so that $k(t)$ can converge over time
+\begin{align}
+&\Rightarrow \dot k(t)=\lambda_{1}[k(t)-k^{*}]
+\\&\Rightarrow k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
+\end{align}
+
+\textbf{Linearization, method of undetermined coefficients}
+
+The second approach is method of undetermined coefficients
+\begin{align}
+&\dot c(t)=\frac{F''(k^{*})}{\theta}c^{*}=0
+\\& \dot k(t)=\rho [k(t)-k^{*}]-[c(t)-c^{*}]
+\\&\Rightarrow \ddot k(t)=\rho \dot k(t)-\dot c(t)
+\\&=\rho \dot k (t)-\frac{F''(k^{*})}{\theta}\cdot c^{*}[k(t)-k^{*}]
+\end{align}
+We can make an assumption that $\dot k(t)=\lambda [k(t)-k^{*}]$, which is a differential equation in nature
+\begin{align}
+&\Rightarrow \ddot k(t)=\lambda \dot k(t)
+\\&=\lambda ^{2}[k(t)-k^{*}]
+\\&=\rho \dot k(t)-\frac{F''(k^{*})c^{*}[k(t)-k^{*}]}{\theta}
+\\&=\lambda^{2}-\rho \lambda +\frac{F''(k^{*})c^{*}[k(t)-k^{*}]}{\theta}=0
+\\&\Rightarrow \lambda_{1}=\frac{\rho-\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}<0<\lambda_{2}=\frac{\rho+\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}
+\end{align}
+Samewise
+\begin{align}
+\Rightarrow k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
+\end{align}
+
+\begin{blueblock}
+\begin{note}[convergence in Ramsey model]
+Recall Solow model's chapter of convergence speed and time, we can compare the two similar results:
+\begin{align}
+&
+\begin{cases}
+\text{Ramsey: }k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
+\\\text{Solow: }k(t)=k^{*}+e^{[g'(k^{*})t]}[k(0)-k^{*}] 
+\end{cases}
+\end{align}
+
+Meaning the $\lambda$ we are trying to derive here is the convergence speed.
+\end{note}
+\end{blueblock}
+
+\sepline
+\subsection{Maximizing welfare}\label{maximizing-welfare}
+
+Similiar to the concept of golden rate in Solow model, Ramsey model also provide a glimpse of maximized consumption.
+
+At the steady state
+\begin{align}
+&c^{*}= F(k^{*})-\delta k^{*}
+\\&\Rightarrow k^*_{gold}=\underset{k^*}{\text{argmax}} \;c^{*}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{OLG Model}
+
+In contrast to the Ramsey model in which individuals are infinitely-lived, in the OLG model individuals live a finite length of time, long enough to overlap with at least one period of another agent's life.
+
+\begin{blueblock}
+\begin{note}[Meet only once]
+Two generation OLG is particularly simple because it precludes
+intertemporal trade (no one meets twice).
+\end{note}
+\end{blueblock}
+
+\textbf{Solow model, RCK model and OLG model}
+\begin{itemize}
+\tightlist
+  \item All of them are under the assumption of perfect competitive market.
+  \item Solow model has exogenous saving rate, whereas Ramsey model and OLG model has endogenous one.
+  \item OLG model has heterogeneous representative agents.
+\end{itemize}
+
+
+\sepline
+\subsection{Assumptions}
+\begin{align}
+&C_{t}= L_{t} C_{1t}^{\text{young}}+L_{t-1}C_{2t}^{\text{old}} \text{ (where subscript 1 and 2 stands for age)}
+\\&L_{t}=(1+n)L_{t-1} \Rightarrow L_{t}=(1+n)^{t}L_{0}
+\\&S_{t}=s_{t}L(t)
+\end{align}
+
+\sepline
+\subsection{UMP of household}
+A general UMP would be
+\begin{align}
+\begin{split}
+&\max u (C_{1})+\beta u (C_{2,t+1})
+\\&s.t.  
+\begin{cases}C_{1t}+S_{t} \leqslant W_{t} \\
+C_{2,t+1}\leqslant R_{t+1} S_{t}
+\end{cases}
+\end{split}
+\end{align}
+Form a Lagrangian and acquire Euler's equation
+\begin{align}
+&\mathscr{L}=u (C_{1})+\beta u (C_{2,t+1})+\lambda_{1t}(c_{1t}+s_{t} - w_{t})+\lambda_{2,t+1}(c_{2,t+1}- R_{t+1} s_{t})
+\\&\Rightarrow \text{F.O.C. }\begin{cases}
+\frac{\partial \mathscr{L}}{\partial C_{1t}}=0 \\
+\frac{\partial \mathscr{L}}{\partial C_{2,t+1}}=0 \\
+\frac{\partial \mathscr{L}}{\partial S_{t}}=0\end{cases}
+\Rightarrow 
+\begin{cases}
+u'(C_{1t})=\lambda_{1t} \\
+\beta' u'(C_{2,t+1})=\lambda_{2,t+1} \\
+\frac{\lambda_{1t}}{\lambda_{2,t+1}}=R_{t+1}\end{cases}
+\\&\Rightarrow \color{red} u'(C_{1t})=\beta R_{t+1} u'(C_{2,t+1}) \text{ (Euler's equation in OLG UMP)}
+\end{align}
+
+\begin{greenblock}
+e.g. Given a specific utillity function
+\begin{align}
+&u(C_{gt})=\frac{C_{gt}^{1-\theta}-1}{1-\theta},0<\theta\neq1, g =1,2
+\\&\text{UMP}\Rightarrow 
+\begin{cases}
+C_{1t}^{-\theta}=\beta R_{t+1}C_{2,t+1}^{-\theta} \\
+C_{1t}=W_{t}-S_{t} \\
+C_{2,t+1}=R_{t+1}S_{t}\end{cases}
+\\&\Rightarrow(W_{t}-S_{t})^{-\theta}=\beta R_{t+1}(R_{t+1}S_{t} )^{-\theta}
+\\&\Rightarrow (\frac{W_{t}-S_{t}}{S_{t}})^{-\theta}=\beta R^{1-\theta}_{t+1}
+\\&\Rightarrow \frac{W_{t}}{S_{t}}=(\beta R_{t+1}^{1-\theta})^{-\frac{1}{\theta}}+1
+\\&\Rightarrow S_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}<w_{t}
+\\&\Rightarrow S'_{w}=\frac{1}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1} \in (0,1)
+\\&\Rightarrow S'_{R}=\frac{1-\theta}{\theta}\frac{S_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}(\beta R_{t+1})^{-\frac{1}{\theta}}
+\\&\Rightarrow S'_{R} \begin{cases}
+>0, 0<\theta<1 \\
+=0, \theta = 1 \\
+<0, \theta >1\end{cases}
+\end{align}
+\end{greenblock}
+
+
+\sepline
+\subsection{PMP of firm}
+A general PMP would be
+\begin{align}
+&\max_{k_{t},L_{t}} \pi_{t} =Y_{t}-w_{t}L_{t}-R_{t}K_{t}
+\\&\text{Since }
+\pi_{t}=\frac{\Pi_{t}}{L_{t}},y_{t}=\frac{Y_{t}}{L_{t}},k_{t}=\frac{K_{t}}{L_{t}}, \frac{K_{t+1}}{L_{t}}=\frac{K_{t+1}}{L_{t+1}}\frac{L_{t+1}}{L_{t}},s_{t}=\frac{S_{t}}{L_{t}}
+\end{align}
+Rearrange in form of per capita
+\begin{align}
+&\Rightarrow \max_{K_{t}} \pi_{t}=Y_{t}-W_{t}-R_{t}K_{t}
+\\&\Rightarrow \text{F.O.C.}\begin{cases} R_{t}=f'(K_{t}) \\
+W_{t}=f(K_{t})-K_{t}f'(K_{t})
+\end{cases}
+\end{align}
+
+\sepline
+\subsection{Dynamics}
+
+Looking at the motion equation of capital
+\begin{align}
+&K_{t+1}-(1-\delta)K_{t}=I_{t}=S_{t}=s_{t}L_{t}=s(w_{t},R_{t+1}) L_{t}
+\\&\Rightarrow K_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}
+\\&\Rightarrow K_{t+1}=\frac{w_{t}}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (using conditions from UMP and PMP)}
+\\&\Rightarrow \color{red} K_{t+1}=\frac{f(K_{t})-K_{t}f'(K_{t})}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (equation of motion of capital in OLG)}
+\end{align}
+
+The steady states (intertemporal equilibrium) would be
+\begin{align}
+&k_{t+1}=k_{t}=k^{*}
+\\& \Rightarrow k^{*}=\frac{s[f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t}),f'(k^{*})]}{1+n}
+\\&=\frac{f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t})}{(\beta^{-\frac{1}{\theta}}f'(^{*})^{-\frac{1-\theta}{\theta}}+1)(1+n)}
+\\&\Rightarrow \color{red} k_{t+1}=\frac{(1-\alpha)(k^{*})^\alpha}{(\beta^{-\frac{1}{\theta}}[\alpha(k^{*})^{\alpha-1}]^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (capital per capita at steady state in OLG)}
+\\&\Rightarrow k^{*}= \cdot \text{ (thus we have the $k$ at steady state)}
+\end{align}
+
+
+\begin{greenblock}
+e.g., For a utillity function $u=\log c_{1t}+\beta \log c_{2,t+1}$, where $\theta=1$.
+\begin{align}
+&\Rightarrow \frac{c_{2,t+1}}{c_{1t}}=\beta k_{t+1}
+\\&\Rightarrow s_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}
+\\&=\frac{w_{t}}{\beta^{-1}+1}
+\\&=\frac{\beta}{1+\beta}w_{t} \text{ (meaning the saving is a function of wage, instead of endowment)}
+\\&\Rightarrow k_{t+1}=\frac{s_{t}}{1+n}=\frac{\beta w_{t}}{(1+\beta)(1+n)}
+\\&=\frac{\beta (1-\alpha k_{t}^{\alpha})}{(1+\beta)(1+n)}
+\\& \text{steady state demands }k_{t+1}=k_{t}=k^{*} \Rightarrow k^{*}=[\frac{\beta (1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}
+\end{align}
+\end{greenblock}
+
+
+
+\sepline
+\subsection{Comparing three models so far}
+\begin{align}
+&\text{Solow}
+\begin{cases} L_{t}=(1+n)L_{t-1} \\
+\frac{S_{t}}{L_{t}}=s_{t} =sy_{t}=s \frac{Y_{t}}{L_{t}} \\
+k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}
+\end{cases}
+\\&\text{OLG} \begin{cases}
+L_{t}=(1+n)L_{t-1} \\
+k_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}=\frac{s[f(k_{t})-k_{t}f'(k_{t}),f'(k_{t+1})]}{1+n} \\
+\end{cases}
+\\&\text{Ramsey} \begin{cases}L_{t}=(1+n)L_{t-1} \\
+k_{t+1}=\frac{f(k_{t})+c_{t}}{1+n} \Rightarrow 0=F(k^{*})-c^{*}-\rho k^{*} \Rightarrow F'(k^{*}_{G})=\delta\\
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]\Rightarrow 1= \rho [F'(k^{*})+(1-\delta)] \Rightarrow F'(k^{*})=\rho +\delta \Rightarrow k^{*}_{G}>k^{*}
+\end{cases}
+\end{align}
+
+\sepline
+\subsection{Dynamic inefficiency}
+Because of the micro-foundations (patience denoted as $\beta=\frac{1}{1+\rho}$) in Ramsey, there will be no over-accumulation of capital, avoiding dynamic inefficiency. Whereas in Solow model the inefficiency is inevitable. Somehow in OLG model, the dynamic inefficiency returns.
+
+\textbf{Solow}
+
+The model has key equations
+\begin{equation}
+\begin{cases}
+  Y=F(K,L)
+  \\
+  I=S=sY
+  \\
+  L_{t+1}=(1+n)L_t
+  \\
+  k_{t+1}=\frac{(1-\delta)k_t+sf(k_t)}{(1+n)}\iff \dot k=sf(k)-(n+\delta)k
+\end{cases}
+\end{equation}
+
+For a certain production $y=k^a$ at steady state
+
+use $k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}$
+\begin{align}
+&\Rightarrow(1+n)k^*=(1-\delta)k^*+s f(k^*)
+\\&-(n+\delta)k^*=-s f(k^*)
+\\&f(k^*)-(n+\delta)k^*=(1-s) f(k^*)=c^*
+\\&\Rightarrow c^*=f(k^*)-(n+\delta)k^*
+\\&\text{To maximize welfare at steady state} \iff \max c* \iff FOC: k^*_g=(\frac{n+\delta}{\alpha})^{1-\alpha}
+\end{align}
+also at steady state
+\begin{align}
+&(1+n)k^*=(1-\delta)k^*+s f(k^*) 
+\\&\Rightarrow k^*=(\frac{n+\delta}{s})^{1-\alpha}
+\end{align}
+
+for certain $\alpha$ and $s$ it could be
+\begin{align}
+\Rightarrow k^*<k^*_{g}
+\end{align}
+meaning there is possible dynamic inefficiency in Solow model
+
+\textbf{Ramsey}
+
+Ramsey has no dynamic inefficiency, here's why
+
+The model has three key equations
+\begin{align}
+&\begin{cases}L_{t}=(1+n)L_{t-1} \\
+k_{t+1}-(1-\delta)k_t=f(k_t)-c_t \\
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]
+\end{cases}
+\end{align}
+
+Put $k_{t+1}-(1-\delta)k_t=f(k_t)-c_t$ at steady state
+\begin{align}
+&c^*=f(k^*)-k^*+(1-\delta)k^*=f(k^*)-\delta k^*
+\\& \text{To maxmize welfare at steady state}\Rightarrow \text{FOC: } f'(k^{*}_{G})=\delta
+\end{align}
+
+Put $\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]$ at steady state resulting
+\begin{align}
+&\Rightarrow 1= \beta [f'(k^{*})+(1-\delta)] =\frac{1}{1+\rho} [f'(k^{*})+(1-\delta)] 
+\\&\Rightarrow 1+\rho=f'(k^{*})+1- \delta
+\\&\Rightarrow f'(k^{*})=\rho +\delta < f'(k^*_g)
+\\&\Rightarrow k^{*}_{G}>k^{*}
+\end{align}
+Capital per capita at steady state is lower than $k_{gold}$, meaning it is dynamic efficient.
+
+\textbf{OLG}
+
+OLG in central planner form:
+\begin{align}
+\begin{split}
+&\max \sum\limits_{t=0}^{\infty}(\beta_{s})^{t}L_{t}[u(c_{1t})+\beta u(c_{2,t+1})] \text{ ($\beta_s$ is the discount factor)}
+\\&s.t. \; 
+c_{1t}+\frac{c_{2t}}{1+n}+(1+n)k_{t+1}=f(k_{t})
+\end{split}
+\end{align}
+
+Equation of motion of capital per capita at the steady states
+\begin{align}
+&c^{*}\equiv c_{1}^{*}+\frac{c_{2}^{*}}{1+n}=f(k^{*})-(1+n)k^{*}
+\end{align}
+
+Since we are maximizing welfare at steady state, let $\frac{\partial  c^{*}}{\partial  k^{*}}=0$ to acquire first order condition
+\begin{align}
+&\Rightarrow f'(k^{*}_{G})=1+n
+\end{align}
+using production function $y=k^\alpha$ at equilibrium
+\begin{align}
+f'(k^{*})&=\alpha (k^{*})^{\alpha-1}
+\\&=\alpha\{[\frac{\beta(1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}\}^{\alpha-1}
+\\&=\frac{\alpha}{1-\alpha}\frac{1+\beta}{\beta}(1+n)
+\end{align}
+for certain value of $\alpha$
+\begin{align}
+&f'(k^{*})<1+n
+\\&\Rightarrow f'(k^{*})<f'(k^{*}_{G})
+\\& \Rightarrow k^{*}>k^{*}_{G}
+\end{align}
+Meaning there can be over-accumulation of capital $\iff$ suffices dynamic inefficiency possible in OLG model.
+
+\textbf{Conclusion}
+\begin{itemize}
+\tightlist
+  \item Due to ad hoc given $s$, Solow model is unable to assure dynamic efficiency.
+  \item Due to endogenous saving decision and discount factor $\beta$, Ramsey model is able to achieve dynamic efficiency.
+  \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
+\end{itemize}
+
+\newpage
+\part{Models of Fluctuation}
+\begin{itemize}
+\tightlist
+  \item Real Business Cycle model
+  \item Dynamic New Keynesian model
+\end{itemize}
+
+
+
+
+
+
+\newpage
+\section{RBC Model}
+
+A standard RBC model is in nature a Ramsey model with
+\begin{itemize}
+\tightlist
+  \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
+  \item Stochastic productivity (i.e. real shocks)
+\end{itemize}
+
+
+\begin{blueblock}
+\begin{note}[Two principles of the RBC theory of business cycles]
+
+1. Money is of little importance in business cycles.
+
+2. Business cycles are created by rational agents responding optimally to
+real (not nominal) shocks - mostly fluctuations in productivity growth,
+but also fluctuations in government purchases, import prices, or preferences.
+\end{note}
+\end{blueblock}
+
+
+
+
+\sepline
+\subsection{UMP of household}
+A typical household entails product-consuming for $C_t$ and labor-providing for $N_t$. Only in this model, the agent value leisure $L_t=1-N_t$.
+
+The UMP in RBC model is 
+\begin{align}
+&\max\limits_{C_{t},N_{t},B_{t}} E_t \sum\limits_{t=0}^{\infty}\beta^{t}u(C_{t},N_{t})
+\\&
+s.t. \; P_{t}C_{t}+Q_{t}B_{t}\leqslant B_{t-1}+W_{t}N_{t}+D_{t} 
+\text{, where } 
+\begin{cases}
+\beta \in (0,1) \\
+Q_{t}=\frac{1}{1+i_{t}} \text{ is the price per bond bought today}
+\end{cases}
+\end{align}
+
+Form a Lagrangian and acquire FOCs
+\begin{align}
+&\mathscr{L}=E_{0} \sum\limits_{t=0}^{\infty}\beta^{t}[u(C_{t},N_{t})+\lambda_{t}(P_{t}C_{t}+Q_{t}B_{t}-B_{t-1}-W_{t}N_{t}-D_{t} )]
+\\&
+\Rightarrow 
+\begin{cases}\frac{\partial  \mathscr{L}}{\partial C_{t}}=0 \Rightarrow \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \Rightarrow \frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+\frac{\partial  \mathscr{L}}{\partial N_{t}}=0 \Rightarrow \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0 \\
+\frac{\partial  \mathscr{L}}{\partial \beta_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t} 
+\end{cases}
+\end{align}
+
+using these FOCs 
+\begin{align}
+&\begin{cases}
+  \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \\
+  \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0
+\end{cases} \Rightarrow \color{red} \text{Labor supply equation} -\frac{u_{N_{t}}}{u_{C_{t}}}=\frac{W_{t}}{P_{t}}
+\\&
+\text{Also} \begin{cases}\frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+\beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t}
+\end{cases} 
+\Rightarrow \color{red} \text{Euler's equation } \frac{Q_{t}}{\beta}=E_{t}\cdot 
+\frac{\frac{U_{c,t+1}}{P_{t+1}}}{\frac{U_{c,t}}{P_{t}}}
+\end{align}
+
+
+\begin{greenblock}
+e.g. Let utility function be specific
+\begin{align}
+&
+u(C_{t},N_{t})=\begin{cases}
+\frac{c^{1-\sigma}_{t}-1}{1-\sigma}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma\neq 1 \\
+\log C_{t}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma=1\end{cases}
+\\&
+\Rightarrow \begin{cases}
+\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \\
+Q_{t}=\beta E_{t}\cdot (\frac{C_{t+1}}{C_{t}})^{-\sigma}\cdot \frac{P_{t}}{P_{t+1}}
+\end{cases}
+\end{align}
+\end{greenblock}
+
+
+
+\sepline
+\subsection{PMP of firm}
+\begin{align}
+\min\limits_{N_{t}} W_t N_t \Leftrightarrow &\max\limits_{Y_t} P_{t}Y_{t}-W_{t}N_{t}
+\\&s.t. Y_t = A_t K_t^\alpha N_t^{1-\alpha}, \alpha \in [0,1)
+\\&
+\text{where } 
+\begin{cases}
+  Y_{t}=A_{t}W_{t}^{1-\alpha}\\
+  A_{t}=A_{t-1}^{\rho\alpha} \epsilon_{t}^{\alpha}, \epsilon_{t}^{\alpha} \overset{iid}{\sim} N(0,\sigma_{\alpha}^{\epsilon})
+  \text{ (technology shocks)}
+\end{cases}
+\\&
+\Rightarrow \text{F.O.C.: } \frac{W_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand equation)}
+\end{align}
+
+\sepline
+\subsection{Economy described by RBC}
+{\color{red}
+The whole economy system is described as the balance of demand and supply
+\begin{align}
+&\text{AS}
+\begin{cases} Y_{t}=A_{t}N_{t}^{1-\alpha} \text{ (total production function)}, A_t=A^{\rho a}_{t-1} e^{\epsilon^a_t} \text{ (technology shocks)}\\
+\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \text{ (labor supply from UMP)}\\
+\frac{w_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand from PMP)}
+\end{cases}
+\\&
+\text{AD}
+\begin{cases}Y_{t}=C_{t}+I_{t} \text{ (accouting equation)}\\
+Q_{t}=\beta E_{t} (\frac{C_{t+1}}{C_{t}})^{-a} \frac{P_{t}}{P_{t+1}}  \text{ (Euler equation from UMP)}\\
+\frac{M_{t}}{P_{t}}=\frac{Y_{t}}{Q_{t}^{-n}}  \text{ (demand of liquidity)}
+\end{cases}
+\end{align}
+}
+
+
+\sepline
+\subsection{Log-linearization}
+
+Two methods we can transform. 
+1) The first is 
+\begin{align}
+&
+\hat x_{t}=\ln x_{t}-\ln x^{*}
+\\&
+=\ln |\frac{ x_{t}}{x^{*}}| 
+\\&
+=\ln |1+ \frac{x_{t}-x^{*}}{x^{*}}| \text{ (percentage of deviation from stable state)}
+\\&
+\approx \ln |1+\frac{1}{x^{*}}(x_{t}-x^{*})|
+\\&
+=\frac{x_{t}-x^{*}}{x^{*}}
+\end{align}
+
+2) Another approach would be
+\begin{align}
+&\ln x^{*}=ln x_{t}-\tilde{x_{t}}\Rightarrow \ln x_{t}=ln x^{*}+\tilde{x_{t}}
+\\&
+\Rightarrow e^{\ln x_{t}}=x_{t}=e^{n x^{*}+\tilde{x_{t}}}=x^{*}e^{\hat{x_{t}}} \approx x^{*} (1+\hat x_{t})
+\end{align}
+
+Now we turn to the linearization of RBC model
+\begin{align}
+&
+\begin{cases}
+y_{t}=a_{t}+(1-\alpha)n_{t}
+\\
+y=a+(1-\alpha)n
+\end{cases}
+\Rightarrow \hat y_{t}=\hat a_{t}+(1-\alpha)\hat n_{t}
+\\&
+\Rightarrow 
+\begin{cases}
+\hat w_{t}-\hat p_{t}=\hat a_{t}+(1-\alpha)\hat n_{t} \\
+\hat w_{t}-\hat p_{t}=a\hat c_{t}+\rho \hat n_{t}\end{cases}
+\Rightarrow \hat y_{t}=\hat c_{t}, \; m_{t}-\hat p_{t}=\hat y_{t} -\hat n_{it}
+\\&
+Y_{t}=C_{t}+I_{t}
+\\&
+Y\cdot e^{\hat y_{t}}=C\cdot e^{\hat c_{t}}+I\cdot e^{\hat i_{t}}
+\\&
+Y(1+\hat y_{t})=C(1+\hat c_{t})+I(1+\hat i_{t})
+\\&
+\hat y_{t}=\frac{C}{Y}\hat c_{t}+ \frac{I}{Y} \hat i_{t}\\&
+a_{t}=\rho_{t} a_{t-1}+\epsilon_{t}^{a}
+\\&
+1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a(c_{t+1}-c_{t})-(P_{t+1}-P_{t})}
+\\&
+1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a\triangle c_{t+1}-\pi_{t+1}}
+\\&
+1=E_{t} I[1+(i_{t}-i)-a(\triangle c_{t+1}-\triangle c_{t}]-(\pi_{t+1}-\pi_{t})]
+\end{align}
+
+{\color{red} Therefore a RBC model can be rewritten in linearized log equations
+\begin{align}
+\color{red}&\text{AS:} \begin{cases}
+\hat y_{t}=a_{t}+(1-\alpha)\hat n_{t} \text{ (output)}\\
+\hat w_{t}-\hat p_{t}=a_{t}-\alpha \hat n_{t} \text{ (labor demand)}\\
+\hat w_{t}-\hat p_{t}=a c_{t}+\varphi \hat n_{t} \text{ (labor supply)}\\
+\hat a_{t}=\rho_a \hat a_{t-1}+\epsilon_t^a \text{ (technology)}
+\end{cases} 
+\\&
+\text{AD:} \begin{cases}
+\hat y_{t}=\hat c_{t} \text{ (product market clearing)}\\
+\hat c_{t}=E_{t}\hat c_{t+1}-\frac{1}{a}(\hat i_{t}-E_{t}\hat \pi_{t+1}) \\
+\hat m_{t}-\hat p_{t}=\hat y_{t}-\eta \cdot \hat i_{t} \text{ (money demand equation; $\eta$ is interest rate elasticity)}\\
+\hat r_{t}=i_{t}-E_{t} \hat \pi_{t+1} \text{ (Fisherian equation)}
+\end{cases}
+\end{align}
+}
+
+\begin{blueblock}
+\begin{note}[Exceptation for Expectation]
+Notice this method does not apply to equations involving expectations.
+\end{note}
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}[RBC has neutrality of money]
+The final answer of this standard RBC model is not relevant to any price variable, inferring the model being money-neutral.
+\end{note}
+\end{blueblock}
+
+
+
+
+
+
+
+
+
+\newpage
+\section{DNK Model}\label{dnk-model}
+
+DNK is short for Dynamic New Keynesian\footnote{This chapter is mainly based on the Gali, 2015.}
+
+This New keynesian Model contains elements being 
+\begin{itemize}
+\tightlist
+  \item dispersive economy, a continuum of agents
+  \item perfect information 
+  \item rational expectations, i.e. $E_t(X_{t+1})=E(X_{t+1}|I_t)$
+  \item perfect competitive labor market 
+  \item monopolisitc competitive product market, heterogenous products, nominal rigidities
+\end{itemize}
+
+
+
+\sepline
+\subsection{UMP of household} 
+
+\textbf{Two stages of optimization}
+
+Goal of UMP is to acquire DIS, which represents demand. Household face two stages of optimization. Since goods are heterogenous, UMP begins by choosing items $i\in I$.
+
+Stage I: choosing goods
+
+One way to choose products is by method of maximization.
+\begin{align}
+\begin{split}
+&\max\limits_{C_{it}} ( \int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}} 
+\\&s.t. \int_{0}^{1} P_{it}C_{it}di \leqslant Z_{t}
+\end{split}
+\end{align}
+, in which the $\epsilon$ stands for current substitute elasticity and $\frac{\epsilon-1}{\epsilon}$ is contemporaneous elasticity of substitution. And $Z_t$ stands for endowment.
+
+The other way to choose products is by method of minimization. In this case Lagrangian multiplier could be shadow price.
+\begin{align}
+\begin{split}
+& \min \int_{0}^{1} P_{it}C_{it}di
+\\& s.t. (\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}} \geqslant C_{t}
+\end{split}
+\end{align}
+
+Form a Lagrangian, we would have
+\begin{align}
+&\mathop{\mathscr{L}}\limits_{\{C_{it}\}} =\int_{0}^{1} P_{it}C_{it}di+P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}}-C_{t}]
+\\&\Rightarrow P_{it}=P_{t}\frac{\epsilon}{\epsilon-1}((\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}-1})\frac{\epsilon-1}{\epsilon} C_{it}^{\frac{\epsilon-1}{\epsilon}-1}
+\\&\Rightarrow P_{it}=P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}})^{\frac{1}{\epsilon}}]C_{it}^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \frac{P_{it}}{P_{t}}=(\frac{C_{it}}{C_{t}})^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \color{red} C_{it}=(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} \text{ (the demand curve)}
+\end{align}
+
+
+From $\int_{0}^{1} P_{it}C_{it}di =P_{t}C_{t}$ we have
+\begin{align}
+&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} di=P_{t}C_{t}
+\\&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon} di=P_{t}
+\\&\Rightarrow \color{red} P_{t}=(\int_{0}^{1}P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon}} \text{ (the expression of total price level)}
+\end{align}
+
+Apparently
+$\begin{cases}
+\max\limits_{C_{it}}(\frac{1}{I}\sum\limits_{i=1}^{I}C_{it}^{\frac{1}{1+n_{t}}})^{1+n_{t}}=C_{t}
+\\
+s.t. \sum\limits_{i=1}^{I}P_{it} C_{it}\leqslant Z_{t} \\
+\end{cases}$
+and
+$\begin{cases} \min\limits_{C_{it}}\sum\limits_{i=1}^{I}P_{it}C_{it} \\
+s.t. (\frac{1}{I}\sum\limits_{i=1}^{I}C_{it}^{\frac{1}{1+n_{t}}})^{1+n_{t}})\geqslant C_{t}
+\end{cases}$
+are the same. But as mentioned before, the minimization approach is commonly prefered.
+
+
+Using either approach, we can conduct the result that demand curve and expression of total price level being
+\begin{align}
+&C_{it}=(I\cdot \frac{P_{it}}{P_{t}})^{\frac{1+n_{t}}{-\wedge_t}}C_{t}
+\\&P_{t}=I(\frac{1}{I}\sum\limits_{i=1}^{I}P_{it}^\frac{1}{-\wedge_t})^{-\wedge_t}
+\end{align}
+
+After picking products, we enter stage II, UMP at period $t$ 
+\begin{align}
+\begin{split}
+&\max_{C_{t},N_{t},\frac{M_{t}}{P_{t}}} E_{0} \sum\limits_{t=0}^{\infty} \beta^{t} u\left(C_{t},N_{t},\frac{M_{t}}{P_{t}}\right) \leftarrow\text{ (MIU)}
+\\&s.t. \int_{0}^{1}P_{it}C_{it}di +M_{t}+B_{t}\leqslant M_{t-1}+(1+i_{t-1})B_{t-1}+\int_{o}^{1}W_{it}N_{it}di+T_{t}
+\end{split}
+\end{align}
+
+constraint of this UMP can be rewritten as
+\begin{align}
+\begin{split}
+&\max_{C_{t},N_{t},\frac{M_{t}}{P_{t}}} E_{0} \sum\limits_{t=0}^{\infty} \beta^{t} u\left(C_{t},N_{t},\frac{M_{t}}{P_{t}}\right)
+\\&
+s.t. \;P_{t}C_{t}+M_{t}+B_{t}\leqslant M_{t-1}+(1+i_{t-1})B_{t-1}+W_{t}N_{t}+T_{t}
+\end{split}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Subscript $it$ and $t$]
+$C_{it}\neq C_t \Leftrightarrow $ Monopolistic competitive goods market; $N_{it}= N_t \Leftrightarrow $ Perfect competitve labor market
+\end{note}
+\end{blueblock}
+
+
+Form the Lagrangian
+\begin{align}
+&\mathscr{L}=E_{0}\sum\limits_{t=0}^{\infty}\beta^{t} \{u(C_{t},N_{t},\frac{M_{t}}{P_{t}})+\lambda_{t}[P_{t}C_{t}+M_{t}+B_{t}-M_{t-1}-(1+i_{t-1})B_{t-1}-W_{t}N_{t}+T_{t}]\}
+\end{align}
+
+Solving this will deliver the F.O.C.s., resulting 
+\begin{align}
+&\Rightarrow \begin{cases} Q_{t}=\beta E_{t} \cdot (\frac{u_{C,t+1}}{u_{C,t}}\frac{P_{t}}{P_{t+1}}) \\
+\frac{W_{t}}{P_{t}}=-\frac{u_{N_{t}}}{U_{C_t}} \\
+1-Q_{t}=u_{\frac{M_{t}}{P_t}} \\
+\end{cases}
+\end{align}
+This result is basically same as in RBC model with one more equation since money is added to the utility function.
+
+
+\textbf{Linearization}
+
+Linearization specificly focusing on the third equation of the second equation, as the other two are identical in RBC model's linearization.
+\begin{align}
+& 1-\frac{1}{1+i_{t}}=C_{t}^{\sigma}(\frac{M_{t}}{P_{t}})^{-\nu} \text{ (using $Q_t$'s defintion)}
+\\&
+\Rightarrow \frac{i_{t}}{1+i_{t}}=C_{t}^{\sigma}(\frac{M_{t}}{P_{t}})^{-\nu}
+\end{align}
+
+Taking logs
+\begin{align}&
+\log \frac{i_{t}}{1+i_{t}}=\sigma c_{t}-\nu (m_{t}-p_{t}) \text{ (hereafter a lowercase letter $x$ denotes $\log x$)}
+\\&
+\log \frac{i}{1+i}=\sigma c-\nu (m-p) 
+\\&
+\Rightarrow \log(\frac{i_{t}}{1+i_{t}})-\log(\frac{i}{1+i})=\sigma \hat c_{t}-\nu(m_{t}-\hat p_{t})
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+\log (\frac{1+i_{t}}{i_{t}})-\log(\frac{1+i}{i})
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+[\log \frac{(\frac{1+i}{i})+1}{\frac{1+i}{i}} \frac{i-(1+i)}{i^{2}}(i_{t}-i)-\log(\frac{1+i}{i})]
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+ \frac{i}{i+1} \frac{i-(1+i)}{i} \frac{i_{t}-i}{i}
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}-\frac{1}{1+i}\hat i_{t}
+\\&
+\Rightarrow m_{t}-\hat p_{t}=\frac{\sigma}{\nu}\hat c_{t}-\frac{1}{(1+i)\nu}\hat i_{t}
+\\&
+\Rightarrow m_{t}-\hat p_{t}=\hat c_{t}-\eta \hat i_{t}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Must-be in exam: monopolistic competition vs perfect competition]
+Zero market power to finite market power, meaning infinite elasticiy to non-zero positive elasticity.
+\end{note}
+\end{blueblock}
+
+\sepline
+\subsection{PMP of firm}
+
+\begin{blueblock}
+\begin{note}[Two features DNK firm has]
+Monopolistic competitive goods market and stikcy price.
+\end{note}
+\end{blueblock}
+
+\subsubsection{Price-setting behavioral equation}
+
+We first use PMP to acquire price-setting equation then linearize it. Next we use price-setting equation to derive NKPC.
+
+\textbf{PMP and price-setting behavioral equation}
+
+Set base period on the intial period $t=0$ for simplicity
+\begin{align}
+\begin{split}&
+\max_{P_{i0}}\pi_{0}^{n}=E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{P_{i0}Y_{it | 0}-[T C^n_{it|0} (Y_{it|0})]\} 
+\\&
+s.t. \; Y_{it|0}=(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t} \text{ (since $C_t =Y_t$ at equilbrium, the constraint is essentially demand curve)}
+\end{split}
+\end{align}
+
+$|0$ means evaluated at prices from period $0$
+
+$Y_{it}$ is total sales of firm $i$ at period $t$
+
+$TC$ is a function of nominal total cost
+
+$Q_{0,t}$ means discount rate from period $0$ to period $t$
+
+$\theta$ means the probability of price adjusting, therefore $1-\theta$ means the probablity to stay put. It's sticky price. 
+\footnote{For more of price adjusting, see in Calvo, 1983 for uncertain version; Taylor, 1980 for certain version.}
+
+
+Solving the PMP by putting demand curve into profit function, it would be
+\begin{align}
+\pi_{0}^{n}=E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{P_{i0}(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t}-[T C^n_{it|0} ((\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t})]\} 
+\end{align}
+
+then let the F.O.C. be $0$ (fig 1,2)
+\begin{align}
+&\frac{\partial  \pi_{0}^{n}}{\partial  P_{i0}}=0
+\\&\Rightarrow E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{(1-\theta )(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t}-[\frac{\partial T C^n_{it|0}}{\partial   P_{it|0}} \frac{\partial P_{it|0}}{\partial{P_{i0}}}]=0
+\\& \Rightarrow E_0\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon }Y_t -MC^n_{it|0}(-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon-1}Y_t \frac{1}{P_t}]=0
+\\& \Rightarrow E_0\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)Y_t -MC^n_{it|0}(-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon-1}Y_t \frac{1}{P_t}]=0
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)Y_{it|0}+ \frac{\epsilon}{P_{t}} MC_{it|0}^{n}(\frac{P_{i0}}{P_{t}})^{-1}]=0 
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}Q_{0,t}Y_{it|0}[(1-\epsilon)+\epsilon MC^{n}_{it|0}\cdot (P_{i0})^{-1}]=0
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0}\cdot (1-\epsilon)=-E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0} \cdot \epsilon \cdot MC^{n}_{it|0}\cdot (P_{i0})^{-1}
+\\& \Rightarrow (1-\epsilon)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0}=-\epsilon(P_{i0})^{-1}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0} \cdot MC^{n}_{it|0}
+\end{align}
+
+restore $Q_{0t}$ and $Y_{it|0}$ back to demand curve
+\begin{align}
+& \Rightarrow (\epsilon-1)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} [(\frac{Y_{0}}{Y_{t} })^{\rho}\frac{P_{0}}{P_{t}}](\frac{P_{i0}}{P_{t}})^{-\epsilon }Y_{t}=(P_{i0})^{-1}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\beta^{t}[(\frac{Y_{0}}{Y_{t} })^{\rho}\frac{P_{0}}{P_{t}}](\frac{P_{i0}}{P_{t}})^{-\epsilon }Y_{t}\cdot MC_{it|0}^{n}
+\end{align}
+
+take $P_{i0}$ and $P_0$ out since it can be treated as constants
+\begin{align}
+& \Rightarrow (\epsilon-1)\underline{P_{i0}^{-\epsilon}P_{0}Y_{o}^{\sigma}}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\rho}=\epsilon \underline{P_{i0}^{-1} P_{i0}^{-\epsilon} P_{0} Y_{0}^{\rho}} E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}
+\end{align}
+
+eliminates the underlined common factors on RH and LH
+\begin{align}
+& \Rightarrow (\epsilon-1)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\rho}=\epsilon E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}
+\\& \Rightarrow \color{red} P_{i0}^{*}=\frac{\epsilon}{\epsilon-1} \frac{E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}}{E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\sigma}}
+\text{ (sticky price form price-setting equation) }
+\end{align}
+Also acquiring optimal price $p^*$, and $\frac{\epsilon}{\epsilon-1}$ is cost mutltiplier
+
+\begin{align}
+&\color{red} \Rightarrow P_{i0}^{*}=P_{0}^{*}=\frac{\epsilon}{\epsilon-1}\frac{
+[(1-\epsilon)\beta]^{0}P_{o}^{\epsilon-1}Y_{0}^{1-\sigma} MC_{0|0}^{n}
+}{
+(1-\theta)^{0} \beta^{0} P_{0}^{\epsilon-1}Y_{0}^{1-\sigma}
+}=\frac{\epsilon}{\epsilon-1} MC^{n}_{0|0}
+\text{ (elastic form price-setting equation)}
+\end{align}
+
+For elastic form, the intuition is that firms are adjusting price at any time so there is no need to observe profit based on any specific period. So no summation symbol.
+
+
+\begin{redblock}
+\begin{question}[what if price is elastic?]
+\end{question}
+elasticity means adjusting price at all time. it means price sticky price is $0 \Leftrightarrow 1- \theta =0 $.
+\end{redblock}
+
+\begin{blueblock}
+\begin{note}
+monopolistic competition and elasticity are not the same thing
+\end{note}
+\end{blueblock}
+
+next try the period-$t$-based version in textbook (pic 3)
+\begin{align}
+&P_{t}^{*} =\frac{\epsilon}{\epsilon-1}\frac{E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}^{1-\sigma} \cdot MC_{t+k|t}^{n}}{E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t} P_{t+k}^{\epsilon-1}Y_{t+k}^{1-\sigma}}
+\end{align}
+(here the subscript $i$ is gone because all firms are making unanimous decisions)
+\begin{align}
+& P_{t}^{*}=\frac{\epsilon}{\epsilon-1} MC_{t|t}^{n}
+\end{align}
+
+
+\begin{blueblock}
+\begin{note}[CRTS in DNK]
+if production function is CRTS, then all firms would also be making unanimous decisions regardless of time period position
+\end{note}
+\end{blueblock}
+
+\textbf{log-linearization of sticky price form price-setting behavioral equation}
+
+the method is still first order Taylor expansion, though bit trickier (pic 3, 4, 5)
+
+dividing $P_{t-1}$ on both side, and try seperately
+\begin{align}
+& \underbrace{\frac{P_{t}^{*}}{P_{t-1}}E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t} P_{t+k}^{\epsilon-1}Y_{t+k}^{1-\sigma}}_{\text{LHS}}
+=
+\underbrace{\frac{1}{P_{t-1}}\frac{\epsilon}{\epsilon-1}E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}^{1-\sigma} \cdot MC_{t+k|t}^{n}}_{\text{RHS}}
+\end{align}
+
+LHS mutil-variate first order Taylor expansion, the constant term is LHS at steady state where all $P$ are equal
+\begin{align}
+\begin{split}
+ \text{LHS's 1st order Taylor expansion}=&\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}
+\\& +\frac{1}{p}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon}Y^{1-\sigma}( \frac{P_{t}^{*}-P}{P})
+\\& - \frac{P}{P^{2}}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{P_{t-1}-P}{P})
+\\& +(\epsilon-1)E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{P_{t+k}-P}{P})
+\\& +(1-\sigma)E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{Y_{t+k}-Y}{Y})
+\end{split}
+\end{align}
+
+Like before, we use lowercase letters denotes log version
+\begin{align}
+& \Rightarrow \text{LHS}=P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1+\hat p^{*}_{t}-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}]
+\end{align}
+For RHS,
+\begin{align}
+& \text{RHS}=\dots=\frac{\epsilon}{\epsilon-1} \frac{1}{P} P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}+\hat mc_{t+k|t}^{n}]
+\end{align}
+
+\begin{blueblock}
+\begin{note}[First order Taylor expansion and steady state]
+First term (constant term) of 1st Taylor expansion is steady state
+\end{note}
+\end{blueblock}
+
+
+\begin{redblock}
+\begin{question}[why do we do log-linearization]
+\end{question}
+to simulate a curve with a line, so there would be a foundable or writable solution.
+\end{redblock}
+Now the two sides are log-linearized, let them be in the same equation
+\begin{align}
+&\underbrace{P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1+\hat p^{*}_{t}-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}]}_{\text{log-linear LHS}}=
+\\&\underbrace{\frac{\epsilon}{\epsilon-1} \frac{1}{P} P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}+\hat mc_{t+k|t}^{n}]}_{\text{log-linear RHS}}
+\end{align}
+
+Use sticky form price-setting equation at steady state (which because of steadiness looks like elastic form), we have 
+\begin{align}
+& \frac{MC^{n}}{P}=\frac{\epsilon-1}{\epsilon}
+\end{align}
+
+Since $E_t$ is followed by an infinite series, it is meaningless. Eliminate it.
+\begin{align}
+& \Rightarrow \hat p_{t}^{*} \cancel{E_{t}}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}=E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k} \hat mc^n_{t+k|t}
+\\& \Rightarrow \frac{\hat p_t^*}{1-(1-\theta)\beta}=E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}MC^n_{t+k|t}
+\\& \Rightarrow \hat p_t^* =[1-(1-\theta)\beta]E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k} \hat mc^n_{t+k|t} \text{ (log-linear sticky price setting equation)}
+\end{align}
+Therefore we have the log-linear optimal-price-setting equation for monopolistic competition and sticky price features firms.
+
+
+\subsubsection{Philips curve}
+
+\textbf{First way to acquire Philips curve}
+
+next we use this log-linearized price-setting equation to acquire NK Philips curve
+
+originally PC is about inflation and employment
+
+step I, inflation (p7,8,9)
+\begin{align}
+& P_{t}=I(\frac{1}{I}\sum\limits_{i=1}^{I}P_{it}^\frac{1}{-\wedge_t})^{-\wedge_t}\text{ (expression of total price)}
+\\& =[\int_{0}^{\theta} (P^{*}_{it})^{1-\epsilon}di+\int_{\theta}^{1} P_{t-1}^{1-\epsilon}di]^{ \frac{1}{1-\epsilon}}
+\text{ ($\theta$ portion of firms don't adjust price)}
+\\& =[\theta (P^{*}_{it})^{1-\epsilon}+(1-\theta) P_{t-1}^{1-\epsilon}]^{ \frac{1}{1-\epsilon}}
+\text{ (expression of total price with $\theta$ firms adjusting price)}
+\\& \Rightarrow P_t^{1-\epsilon}=\theta (P^{*}_{it})^{1-\epsilon}+(1-\theta) P_{t-1}^{1-\epsilon}
+\\& \Rightarrow (\frac{P_t}{P_{t-1}})^{1-\epsilon}=\theta (\frac{P_t^*}{P_{t-1}})^{1-\epsilon}+(1-\theta) 
+\\& \Rightarrow \Pi^{1-\epsilon}=\theta (\frac{P_t^*}{P_{t-1}})^{1-\epsilon}+(1-\theta) 
+\text{ (the capital letter $\Pi$ is for total inflation $\frac{P_t}{P_{t-1}}$)}
+\end{align}
+Then log-linearization by bi-variate first order Taylor expansion
+\begin{align}
+& \Rightarrow \Pi^{1-\epsilon}+(1-\epsilon)\Pi^{1-\epsilon}(\frac{\Pi_t-\Pi}{\Pi})=\{\theta (\frac{P}{P})^{1-\epsilon}+\theta (1-\epsilon)(\frac{P}{P})^{1-\epsilon}[\frac{1}{P}(P^*_t-P)-\frac{P}{P^2} \frac{(P_{t-1}-P)}{P}]\}^{1-\theta}
+\end{align}
+Since first term of tay exp is steady state, making $\Pi^{1-\epsilon}=1$
+\begin{align}
+& \Rightarrow 1+(1-\epsilon)\hat \Pi_t=\theta+\theta(1-\epsilon)(\hat P_t^*-\hat P_{t-1})+(1-\theta)
+\\& \Rightarrow \hat \Pi_t =\theta(\hat P_t^*-\hat P_{t-1})
+\\& \Rightarrow \frac{1}{\theta}\hat \Pi_t=\hat P_t^*-\hat P_{t-1}
+\end{align}
+Using price-setting equation, which is related to marginal cost, then production.
+(making nominal price combination of real price and $\hat p_{t-1}$)
+\begin{align}
+& \Rightarrow \frac{1}{\theta}\hat \Pi_t=[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat mc^r_{t+k|t}+\hat p_{t+k}-\hat p_{t-1})
+\\& = \underbrace{[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k \hat mc^r_{t+k|t}}_{A} +[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat p_{t+k}-\hat p_{t-1} )
+\end{align}
+Let the untouched part be A for simplicity, open the sum so there will be expression of inflation in log-linearized form
+\begin{align}
+& =A+[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat p_{t+k}-\hat p_{t-1})
+\\& 
+\begin{autobreak}
+  =A+[1-(1-\theta)\beta]E_t \{(\hat p_t -\hat p_{t-1})+[(1-\theta)\beta](\hat p_{t+1} -\hat p_{t}+\hat p_t -\hat p_{t-1})
+  \quad +[(1-\theta)\beta]^2(\hat p_{t+2} -\hat p_{t+1}+\hat p_{t+1} -\hat p_{t}+\hat p_t -\hat p_{t-1})+\dots \}
+\end{autobreak}
+\\& 
+=A+[1-(1-\theta)\beta]E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+\\& 
+\begin{autobreak}
+  = A+E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+  \quad -(1-\theta)\beta E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+  \text{ (making elimination possible)}
+\end{autobreak}
+\\&
+\begin{autobreak}
+  = A+E_t \{\hat \pi_{t}+[(1-\theta)\beta](\hat \pi_{t+1}+\hat \pi_{t})+[(1-\theta)\beta]^2 (\hat \pi_{t+2} \hat \pi_{t+1}+\hat \pi_{t})+\dots \}
+  \quad -[(1-\theta)\beta]\{\hat \pi_t -[(1-\theta)\beta]^2 E_t (\hat \pi_{t+1}+\hat \pi_{t})-\dots\}
+\end{autobreak}
+\end{align}
+Make format simple by doing iteration form, the first term is when $k=0$, but the second still starts from k=0 so there will be some parameters changed
+\begin{align}
+& =[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^\infty \hat mc^r_{t+k|t}+E_t \sum\limits_{k=0}^\infty \hat \pi_{t+k+1}
+\\& = \underbrace{
+  [1-(1-\theta)\beta] mc^r_{t+k|t} +\pi_t
+}_{k=0}
++[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^\infty [(1-\theta)\beta]^{k+1}\hat mc^r_{t+k+1|t}+E_t \sum\limits_{k=0}^\infty [(1-\theta)\beta]^{k+1}\hat \pi_{t+k}
+\\& = [1-[(1-\theta)\beta]]\hat mc^r_{t|t}+\hat \pi_t +[(1-\theta)\beta]\{\quad \quad \}
+\\& = B \text{ (back to recursive form and let it be B)}
+\\& \Rightarrow \frac{1}{\theta}\hat \pi_t=B
+\\& \Rightarrow \color{red} \hat \pi_t=\underbrace{\frac{\theta[1-(1-\theta)\beta]}{1-\theta}\hat mc^r_t}_{\text{effect of current marginal cost}} +\underbrace{\beta E_t \hat \pi_{t+1}}_{\text{effect of expectation of future inflation}} \text{ (New Keynesian Philips Curve marginal cost version)}
+\end{align}
+
+\begin{redblock}
+\begin{question}[at which variable are we making derivative of Lagrangian function ?]
+\end{question}
+Theoratically we can make derivative of any variable if possible but not proper.
+\end{redblock}
+
+NKPC has another version where marginal cost is substitued with real output, thus measuring the effect of output gap.
+\begin{align}
+\begin{split}
+& \min \frac{W_t}{P_t}N_t
+\\& s.t. Y_t =A_t N_t^{1-\alpha}
+\end{split}
+\end{align}
+
+Form a Lagrangian
+\begin{align}
+& \Rightarrow \mathscr{L}=\frac{W_t}{P_t}N_t +MC_t^r\cdot(Y_t -A_t N_t^{1-\alpha})\text{ (shadow price can also be marginal cost)}
+\end{align}
+
+Take partial derivative of $N_t$ here since labor is decided by market, the firm only can control demand of labor
+\begin{align}
+& \Rightarrow \frac{\partial \mathscr{L}}{\partial N_t}=0 
+\\& \Rightarrow \frac{W_t}{P_t}N_t=MC^r_t \cdot MP N_t
+\text{ , where }MPN_t=\frac{\partial Y_t}{\partial N_t}=(1-\alpha)A_t N_t^{-\alpha}
+\\& \Rightarrow MC^r_t=\frac{\frac{W_t}{P_t}}{MPN_t}
+\\& \hat mc^{\sigma}_t=\hat w_t -\hat p_t -(a_t-\alpha \hat n_t)\text{ (log-linearized, and using labor supply equation)}
+\\& =\sigma \hat c_t +\varphi \hat n_t -(a_t-\alpha \hat n_t )
+\\& =\sigma \hat y_t -a_t -(\varphi+\alpha)\frac{\hat y_t -a_t}{1-\alpha}
+\\& =\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t-\frac{1+\varphi}{1-\alpha}a_t
+\end{align}
+
+To acquire natural ratio of output, we use the fact that elastic marginal cost is zero.
+\begin{align}
+& \Rightarrow 0=\hat mc^r_t=\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t^f-\frac{1+\varphi}{1-\alpha}a_t \text{ (upscript $f$ stands for flexible meaning elastic)}
+\\& \Rightarrow \frac{1+\varphi}{1-\alpha}a_t=\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t^f
+\\& \Rightarrow \hat mc_t^r = \frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}(\underbrace{\hat y_t- \hat y_t^f}_{\equiv \tilde y_t \text{, output gap}})
+\text{ (put it back, having the gap of output $\hat y_t - y_t^f=\tilde t$)}
+\end{align}
+
+If we put the last equation back to NKPC marginal cost version, we connect natural output to inflation which is NKPC real output version.
+
+{
+\color{red}
+New Keynesian Philips Curve marginal cost version:
+\begin{align}
+\hat \pi_t=\underbrace{
+\frac{\theta[1-(1-\theta)\beta]}{1-\theta}\hat 
+\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}(\hat y_t- \hat y_t^f)
+}
+_{\text{effect of current output gap}} 
++
+\underbrace{
+\beta E_t \hat \pi_{t+1}}_{\text{effect of expectation of future inflation}
+} 
+\end{align}
+}
+
+
+another way to acquire the NKPC is to concern monopolistic competition, then sticky price. 
+
+\begin{align}
+& \max\limits_{P_{it}} \pi^r =\frac{P_{it}}{P_t}Y_{it}-\frac{W_t}{P_t}N_{it}
+\\& \Rightarrow \frac{P_{it}}{P_t}=\frac{\epsilon}{\epsilon-1}MC^r_t
+\end{align}
+
+\begin{blueblock}
+\begin{note}[indicator of monopolistic competition]
+\end{note}
+
+$\frac{\epsilon}{\epsilon-1}$ means monopolistic competition
+
+integral means perfect competitive labor supply for households
+
+$\epsilon$ is subtitute elasticity
+
+\end{blueblock}
+
+This is real price, where $\epsilon$ is subtitute elasticity. Here $MC_i$ comes without subscript $t$ is because of CRTS production function.
+\begin{align}
+\Rightarrow \frac{P_{it}}{P_t} &=\frac{\epsilon}{\epsilon-1} \frac{W_t/P_t}{A_t}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma N_t^\varphi}{A_t}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t} (\int_0^1 N_{it}di)^\varphi
+\text{ (because of goods market p.c.)} 
+\\& = 
+\frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t} [\int_0^1 (\frac{Y_{it}}{A_t})di]^\varphi
+\text{ (based on CRTS production function)}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t^{1+\varphi}} [\int_0^1 (\frac{P_{it}}{P_t})^{-\epsilon} Y_t di]^\varphi
+\text{ (using demand curve and move $A_t$ out)}
+\\& = 
+\frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t^{1+\varphi}} (\frac{P^*_{it}}{P_t})^{-\epsilon\varphi}
+\text{ (star means symmetric and at equil)}
+\end{align}
+
+Since at equilibrium all prices are same
+\begin{align}
+& P^{*}_{it}=P_{t}^{*} \Rightarrow \frac{P^{*}_{it}}{P_t}=\frac{\epsilon}{\epsilon-1} \frac{Y_t^{\sigma+\varphi}}{A_t^{1+\varphi}} (\frac{P^*_{t}}{P_t})^{-\epsilon\varphi}
+\end{align}
+
+Let's consider a situation that
+\begin{align}
+& \text{If } P_{t}^{*}=P_t \text{ (meaning when price elastic)} 
+\\& 1=\frac{\epsilon}{\epsilon-1}
+\\& \Rightarrow Y_t^f \text{ or } \hat y_t^f \text{ (to be log-linearized)}
+\end{align}
+
+
+Taking logs
+\begin{align}
+& 
+(1+\epsilon \varphi)(P^*_t - P_t)=\ln \frac{\epsilon}{\epsilon-1}-(1+\varphi)a_t+(\sigma+\varphi)y_t
+\\& = (\sigma+\phi)y_t-(1+\phi)a_t+\ln(\frac{\epsilon}{\epsilon-1}) 
+\text{ (change order)}
+\end{align}
+
+Change order for furthur preparation
+\begin{align}
+& \Rightarrow P_t^*=P_t + \frac{\sigma+\varphi}{1+\epsilon\varphi}y_t - \frac{1+\varphi}{1+\epsilon \varphi} a_t+ \frac{1}{1+\epsilon \varphi}\ln (\frac{\epsilon}{\epsilon-1})
+\\& \Rightarrow  P^*=P+\frac{\sigma+\varphi}{1+\epsilon\varphi}y_t-0+\frac{1}{1+\epsilon \varphi}\ln (\frac{\epsilon}{\epsilon-1})
+\text{ (steady state by definition)}
+\end{align}
+
+Two equations above deducted, having the log-linearized result; elastic price means $p_t^*=\hat p_t$
+\begin{align}
+& \hat p_t^*=\hat p_t + \frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t -\frac{1+\varphi}{1+\epsilon\varphi} a_t
+\\& P_t^*=\hat p_t \text{ (elastic price gives $y$ a $f$ upscript)}
+\\& \Rightarrow 0=\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t -\frac{1+\varphi}{1+\epsilon\varphi} a_t
+\\& \Rightarrow \color{red} \hat y_t^f = \frac{1+\varphi}{\sigma+\varphi}a_t
+\end{align}
+here notice natural output is a function of technology
+
+\begin{align}
+& \Rightarrow \hat p_t^*=\hat p_t +\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t-\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t^f
+\\& \Rightarrow \hat p_t^*=\hat p_t +\gamma (\hat y_t-\hat y_t^f) \text{ ($\gamma$ denotes the bundle of coefficients)}
+\\& \Rightarrow \color{red} \hat p_t^*=\hat p_t +\gamma \tilde y_t \text{ (acceptable price-setting euqation with only assumption of m.c.)} 
+\end{align}
+
+\footnote{see Mankiw and Reis 2002 for more details of acceptable price-setting eq}
+
+\begin{blueblock}
+\begin{note}[DNK model is perfect information rational expectation]
+Here $E_t$ is not $\bar E_t$ because of perfect information rational expectation
+\end{note}
+\end{blueblock}
+
+
+\textbf{Second way to acquire NKPC}
+
+\begin{blueblock}
+\begin{note}[Price adjusting in certainty vs in randomness]
+\end{note}
+Price adjusting in certainty Taylor, 1978; price adjusting in randomness, Calvo, 1983
+
+\textbf{Taylor}
+
+a, b and c denotes three firms in a monopolistic competitive market. they adjust price by turns and one person per period.
+
+Q1: how does one choose price
+
+$P_A^\triangle=\frac{}{3}$, the upscript $\triangle$ stands for staying put in the next three periods.
+
+Q2: what is the total price
+
+$P_t=$
+
+\textbf{Calvo}
+
+each firm adjust price at probablity $\theta^t$ at period $t$.
+
+\end{blueblock}
+
+Now sticky price price-adjusting equation \footnote{See more in Calvo, 1983}
+\begin{align}
+&\hat p_t^\triangle=\underbrace{(1-\theta \beta)\sum\limits_{k=0}^\infty (\theta \beta)^k E_t P_{t+k}^*}_{\text{weighted average}}
+\\\Rightarrow &\color{red} \hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle \text{ (sticky PAE)}
+\end{align}
+
+The $\theta$ is the opposite of the one in previous PAE, here rather is to stay put. price adjusting based on acceptable price setting eq in future periods, $\beta$ mean subjective discount.
+
+With the expression of total price being
+\begin{align}
+&\Rightarrow\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle
+\\&\Rightarrow \color{red} \hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1} \text{ (expression of total price based on APSE and PAE)}
+\end{align}
+
+Based on Acceptable Price-setting Equation (from monopolistic competition) and Total Price (from sticky price), one can quickly conduct NKPC.
+
+\begin{blueblock}
+\begin{note}[prices in DNK]
+\end{note}
+starred price means acceptable price, triangled price means adjusting price
+\end{blueblock}
+
+
+From the first equation $\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle$ we have
+\begin{align}
+& \hat p_t =(1-\theta)P_t^\triangle+\theta P_{t-1}
+\\& \Rightarrow (1-\theta)P_t^\triangle=\hat p_t - \theta \hat p_{t-1}
+\\& \Rightarrow (1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t
+\\& \Rightarrow (1-\theta)\beta E_t \hat P_{t+1}^\triangle=\beta E_t \hat p_{t+1} - \theta \beta \hat p_t
+\end{align}
+
+From the second equation $\hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1}$, first use sticky price price-adjusting equation $\hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle$ to substitute
+\begin{align}
+& \Rightarrow \hat p_t-\theta \hat p_{t-1}=(1-\theta)\hat p_t^\triangle = (1-\theta)(1-\theta \beta)\hat p_t^* 
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+then use {\color{red} APSE $\hat p_t^*=\hat p_t+\gamma \tilde y_t$} to substitute
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+use the conclusion $(1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t$ above
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)+\theta \beta E_t \hat p_{t+1} -\theta^2 \beta \hat p_t
+\\& \Rightarrow [1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}= (1-\theta)(1-\theta \beta) \gamma \tilde y_t +\theta \beta E_t \text{ (break APSE)}
+\\& \Rightarrow 
+[1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}-\theta \beta \hat p_t = (1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat p_{t+1}-\hat p_t)
+\\& \Rightarrow 
+\theta(\hat p_t -\hat p_{t-1})=(1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat P_{t+1}-\hat p_t) 
+\text{ (match terms so there is inflation)}
+\\& \Rightarrow 
+\theta \hat \pi_t = (1-\theta )(1-\theta \beta)\gamma \tilde y_t +\theta \beta E_t \hat \pi_{t+1}
+\text{ (here comes inflation)}
+\\& \Rightarrow \color{red} \hat \pi_t=k \hat y_t+\beta E_t \hat \pi_{t+1} \text{ (NKPC)}
+\end{align}
+
+
+
+\sepline
+\subsubsection{Dynamic IS curve}
+
+Recalling that household
+\begin{align}
+& \hat y_t = E_t \hat y_{t+1} -\frac{1}{\sigma}(\hat i_t -E_t \hat \pi_{t+1})
+\\& \Rightarrow \hat y_t^f= E_t \hat y_{t+1} -\frac{1}{\sigma}(\hat i_t -0)\text{ (inflation elastic form is assumed as $0$)}
+\\& \Rightarrow \color{red} \tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1})\text{ (dynamic IS curve, DIS)}
+\end{align}
+
+
+\sepline
+\subsection{Equilibrium of model}
+
+Now NKPC and DIS each represents supply and demand. The two equations have three unkown variables $\hat \pi_t, \tilde y_t, \hat i_t$, applying the model does not have a solution. It is so that we need to add another variable into the model. There are two ways making DNK model solvable, if not monetary supply rule then Taylor rule.
+
+\subsubsection{DNK with money supply rule}
+\begin{align}
+&\text{DNK } 
+\begin{cases}
+\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\
+\tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1}) \text{ (DIS)}
+\\
+\hat m_t=\hat p_t +\hat y_t - \eta \hat i_t
+\text{ (Money supply rule, used to be ad hoc in RBC)}
+\end{cases}
+\end{align}
+Seems now three equations have even more unkown variables $\hat \pi_t, \tilde y_t, \hat i_t, \hat p_t, m_t$.
+
+But hat $\pi_t, \hat p_t$ are the same thing because
+\begin{align}
+& \hat \pi_t=\hat p_t -\hat p_{t-1}
+\\& \Rightarrow  \hat p_t = \hat \pi_t + \hat p_{t-1}
+\\& \Rightarrow \hat m_t = \hat \epsilon_t
+\end{align}
+this transfer works either way.
+
+Let the $m_t$ money supply be exogenous for simplicity.
+
+\begin{blueblock}
+\begin{note}[Exogenous variables in DNK model]
+Only technology and money supply are considered real exogenous variables here.
+\end{note}
+\end{blueblock}
+
+So we are left with three equations and three unkowns, the model is now solutionable. The final result will be a function of $m_t$.
+
+
+\subsubsection{DNK with interest rate rule} 
+
+\begin{align}
+&\text{DNK } \begin{cases}
+\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\
+\tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1}) \text{ (DIS)}
+\\
+\hat i_t = \phi_\pi \hat \pi_t  +\phi_y \hat y_t  +\nu_t \text{ (Interest rate rule)}
+\end{cases}
+\\& \text{where } \nu_t =\rho_v \nu_{t-1}+\epsilon^\nu_t \text{ is the exogenous shock of interest rate, with the feature of AR1} 
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Interest rate rule]
+\begin{align}
+\hat i_t = \phi_\pi \cdot (\hat \pi_t -\hat \pi^*)+\phi_y \cdot (\hat y_t -y_t^f)+\nu_t
+\end{align} 
+\end{note}
+
+If the target parameters $\hat \pi^*$ and $y_t^f$ are given, it is Taylor Rule.
+
+Operation parameters $\phi_\pi$ and $\phi_y$ are decided based on past experience.
+\end{blueblock}
+
+
+\textbf{Acquiring equilibrium and prove it is the only equilibrium}
+
+Rewrite the DIS
+\begin{align}
+&\Rightarrow \tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}[(\phi_\pi \hat \pi_t  +\phi_y \hat y_t  +\nu_t ) - E_t \hat \pi_{t+1}]
+\text{ (apply interest rate rule to the second equation)}
+\\& = E_t \tilde y_{t+1} -\frac{1}{\sigma}\{[\phi_\pi \cdot (\beta E_t \hat \pi_{t+1}+k \tilde y_t)  +\phi_y \hat y_t  +\nu_t ] - E_t \hat \pi_{t+1}\}
+\text{ (put the first in)}
+\\& = E_t \tilde y_{t+1}+ \frac{1-\beta \phi_\pi}{\sigma}E_t \pi_{t+1}-\frac{\phi_\pi k+\phi_y}{\sigma} \tilde y_t - \frac{\nu_t}{\sigma}
+\\& = \color{red} \frac{1}{\sigma+\phi_\pi k + \phi_y}[\sigma E_t \tilde y_{t+1}+(1-\beta \phi_\pi)E_t \hat \pi_{t+1}-\nu_t]
+\text{ (the relationship of $y_t$ and $y_{t+1}$ and $\pi_{t+1}$)}
+\end{align}
+
+Similarly we can change the NKPC
+\begin{align}
+& \color{red} \hat \pi_t =\frac{1}{\sigma+\phi_\pi k + \phi_y} 
+\{k\sigma E_t \tilde y_{t+1}+[k+\beta(\sigma+\phi_y)]E_t \hat \pi_{t+1}-\nu_t\}
+\end{align}
+
+Therefore three equations are two now.
+
+Iteration in vector form
+\begin{align}
+&
+\begin{bmatrix}
+\tilde y_t \\
+\hat \pi_t
+\end{bmatrix}
+=\frac{1}{\sigma+\phi_\pi k + \phi_y} 
+\begin{bmatrix}
+\sigma & 1-\beta \phi_\pi
+\\
+k \sigma & k+\beta(\sigma+\phi_y)
+\end{bmatrix}
+\begin{bmatrix}
+E_t \hat y_{t+1}
+\\
+E_t \hat \pi_{t+1}
+\end{bmatrix}
+-\frac{1}{\sigma+\phi_\pi k + \phi_y} 
+\begin{bmatrix}
+  1
+  \\
+  k
+\end{bmatrix} \nu_t
+\\& \Rightarrow
+\begin{bmatrix}
+\tilde y_t \\
+\hat \pi_t
+\end{bmatrix}
+=A
+\begin{bmatrix}
+  C_{t-1}
+  \\
+  K_{t-1}
+\end{bmatrix}
+-B \nu_t
+ \text{ (at RHS one period ahead meaning the whole equation is foresight-seeing)}
+\\& \Rightarrow \lambda^2-\frac{\sigma+k+\beta(\sigma+\phi_y)}{\sigma+\phi_\pi k +\phi_y} \lambda+\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y}=0
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Technique in Ramsey and DNK]
+\end{note}
+From the perspective of techniques in persuiing solution, it is greatly similar to the way we did with Ramsey model, where the model is one period backward at RHS.
+\end{blueblock}
+
+
+\begin{blueblock}
+\begin{note}[HNKPC]
+Hybrid New Keynesian Philips Curve
+\end{note}
+
+Since NKPC lacks persistence in practical use (shocks are too slow to effects), we might as well add a 1-period-lagged inflation to the RHS as adpative expectation. This is somehow a nominal shock since it gets into the DNK model through $m_t$.
+
+{\color{red}\begin{align}
+&\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\&\hat \pi_t = \hat\pi_{t-1} + \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (HNKPC)}
+\end{align}}
+
+$a_t$ is described as real shocks of DNK model. But it shows up too fast.
+
+Later the concept of sticky information is added to the model to solve the problem.
+
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}[BK conditions]
+\end{note}
+First brought up by Blanchard and Kahn, 1980 
+\end{blueblock}
+\footnote{Also see Nakajima 2007 for similar techniques.}
+
+\begin{blueblock}
+\begin{note}
+\end{note}
+Lasalle, 1986
+\begin{align}
+& x^2 + b x +c=0
+\\&x_{1},x_{2} <1 \iff 
+\begin{cases}
+  |c|<1\\|b|<1+c
+\end{cases}
+\end{align}
+\end{blueblock}
+
+
+If the equilibrium exists and it is the only one, then
+\begin{align}
+&\begin{cases}
+  |\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y}|<1 \Rightarrow \sigma(\beta-1)<0<\phi_\pi k +\phi_y
+  \\
+  |\frac{\sigma+k+\beta(\sigma+\phi_y)}{\sigma+\phi_\pi k +\phi_y}|<1+\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y} \Rightarrow k(\phi_\pi-1)+(1-\beta)\phi_y>0
+\end{cases}
+\end{align}
+
+Method of Undetermined Coefficients:
+
+Let's assume 
+\begin{align}
+&\begin{cases}
+  \tilde y_t = \psi_{y \nu} \nu_t
+  \\
+  \hat \pi_t = \psi_{\pi \nu} \nu_t
+\end{cases}
+\end{align}
+
+recall that
+\begin{align}
+&\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \hat y_t \text{ (expected inflation)}
+\end{align}
+
+\begin{align}
+& \psi_{\pi \nu} \nu_t= \beta E_t (\psi_{\pi \nu} \nu_{t+1})+k \hat y_t \text{ (iterating)}
+\\& = \beta E_t [\psi_{\pi \nu} (\rho_\nu \nu_t +\epsilon_{t+1}^\nu)]+k \hat y_t
+\text{ (expand $\nu_{t+1}$ since it's AR1 shock of $i_t$)}
+\\& = \beta \psi_{\pi \nu} \rho_\nu \nu_t + k \psi_{y \nu} \nu_t
+\text{ (preassuming expectation of next period noise is $0$)}
+\\& \Rightarrow (1-\beta \rho_\nu)\psi_{\pi \nu}=k \psi_{y \nu}
+\\& \Rightarrow k \psi_{y \nu}=\frac{1-\beta \rho_\nu}{k}\psi_{\pi \nu}
+\text{ (relationship of two undetermined coefficients)}
+\end{align}
+
+Using DIS
+\begin{align}
+& \tilde y_t =E_t \tilde y_{t+1}-\frac{1}{\sigma}[\phi_\pi \hat \pi_t+\phi_y \hat y_t +\nu_t)-E_t \hat \pi_{t+1}]
+\end{align}
+
+using interest rate rule
+\begin{align}
+& \Rightarrow \psi_{y \nu}\nu_t= \psi_{y \nu} E_t \nu_{t+1}-\frac{1}{\sigma}(\phi_\pi \psi_{\pi \nu}\nu_t+\phi_y \psi_{y \nu} \nu_t+\nu_t -\psi_{\pi \nu}E_t \nu_{t+1})
+\\& = \psi_{y \nu}\rho_\nu \nu_t -\frac{1}{\sigma}(\phi_\pi \psi_{\pi \nu}\nu_t+\phi_y \psi_{y \nu} \nu_t+\nu_t -\psi_{\pi \nu}\rho_\nu \nu_t)  
+\\& = \frac{\sigma \rho_\nu-\phi_y}{\sigma} \phi_{y \nu}\nu_t-\frac{\phi_\pi-\rho_\nu}{\sigma}\psi_{\pi \nu}\nu_t-\frac{1}{\sigma}\nu_t
+\\& \Rightarrow 
+\sigma \psi_{y \nu}=(\sigma \rho_\nu-\phi_y)\psi_{y \nu}-(\phi_\pi-\rho_\nu)\psi_{\pi \nu}-1\text{ (elimination of $\nu_t$)}
+\\& \Rightarrow (\sigma-(\sigma \rho_\nu-\phi_y))
+\psi_{y \nu}+(\phi_\pi-\rho_\nu)\psi_{\pi \nu}=-1
+\\& \Rightarrow \psi_{\pi \nu}=\frac{-k}{\dots}=-k\wedge_\nu
+\\& \Rightarrow \psi_{y \nu}=-(1-\beta \rho_\nu)\wedge_\nu
+\end{align}
+
+\subsection{Analyze exogenous shocks}  
+
+Now policy change will reflect in the parameter $\epsilon$, making policy analysis possible.
+
+
+$\begin{rcases}
+  \text{we use }\nu \text{ to denote the exogenous shock}
+  \\
+  \text{last section we have expression of }\nu
+\end{rcases} \Rightarrow$ to analyze the shock would mean fully using it.
+
+\begin{blueblock}
+\begin{note}[what is a shock?]
+\end{note}
+
+In a model with uncertainty, variable has the feature of causing change in variation by change itself can cause a shock.
+
+But it was later broadened as change of exogenous variable in a model without uncertainty.
+
+\end{blueblock}
+
+recall output gap at equilibrium
+\begin{align}
+\hat y_t-\hat y_t^f&=\hat y_t^*=\psi_{y \nu} \nu_t
+\\&=-(1-\beta \rho_\nu)\wedge_\nu \nu_t
+\\&=-(1-\beta \rho_\nu)\wedge_\nu (\rho_\nu \nu_{t-1}+\epsilon^\nu_t)
+\\&=-(1-\beta \rho_\nu)\wedge_\nu \rho_\nu \nu_{t-1}-(1-\beta \rho_\nu)\wedge_\nu \epsilon^\nu_t
+\\&= \rho_\nu \tilde y_{t-1}-(1-\beta \rho_\nu)\wedge_\nu \epsilon_t^\nu \text{ ($\tilde y_{t-1}$ backward one period)}
+\end{align}
+
+\begin{blueblock}
+\begin{note}
+we can only do analysis at equil
+\end{note}
+\end{blueblock}
+
+similiar with inflation at equilibrium
+\begin{align}
+&\hat \pi_t^*=\psi_{\pi \nu} \nu_t
+\\&=-k \wedge_\nu \nu_t
+\\&=-k \wedge_\nu(\rho_\nu \nu_{t-1}+\epsilon_t^\nu)
+\\&=\rho_\nu \pi_{t-1}-k\wedge_\nu \epsilon_t^\nu
+\end{align}
+
+
+
+interest rate at equilibrium
+\begin{align}
+& \hat r_t^*=\hat i_t- E_t \hat \pi_{t+1} \text{ (Real interest rate at equilibrium)}
+\\&= \sigma (E_t \tilde y_{t+1}-\hat y_t)\leftarrow \text{DIS}
+\\& = \sigma (1-\beta \rho_\nu)(1-\rho_\nu)\wedge_\nu \nu_t
+\\& \Rightarrow \hat i_t^*=\hat r_t+E_t \hat \pi_{t+1} \text{Nominal interest rate at equilibrium}
+\\& = [\sigma(1-\beta \rho_\nu)(1-\rho_\nu)-k \rho_\nu]\wedge_\nu \nu_t
+\end{align}
+
+
+moreever we can do analysis with money supply using quantity equation of money
+\begin{align}
+& \hat m_t^*= \hat p_t^*+\hat y_t^*-\eta \hat i_t^*\text{ (LHS is solvable since all variables at RHS has been solved)}
+\\& = \text{ (assuming $\hat y_t^{f*} = 0$)}
+\\& = 
+\\& = \text{ use solutions from above}
+\\& \Rightarrow 
+\\& = 
+\\& \frac{d \hat m^*_t}{d \nu_t}=
+\\& = \text{showing the result is decided by mutiple joint forces}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[quantity equation of money]
+
+$MV=Py$
+
+While this theory was originally formulated by Polish mathematician Nicolaus Copernicus in 1517, it was popularized later by economists Milton Friedman and Anna Schwartz after the publication of their book, "A Monetary History of the United States, 1867-1960," in 1963.
+\end{note}
+\end{blueblock}
+
+
+
+
+
+
+\subsection{Optimal monetary policy}
+
+A significant paper Mankiw and Reis 2002 used a new keynesian macroeconomic model to acquire the optimal monetary policy.
+\footnote{N. Gregory Mankiw, Ricardo Reis, Sticky Information versus Sticky Prices: A Proposal to Replace the New Keynesian Phillips Curve, The Quarterly Journal of Economics, Volume 117, Issue 4, November 2002, Pages 1295–1328, https://doi.org/10.1162/003355302320935034}
+  
+
+\begin{blueblock}
+\begin{note}[why is there welfare loss?]
+\end{note}
+monopoly and sticky price cause deviation from Pareto optimality.
+\end{blueblock}
+
+
+
+\begin{blueblock}
+\begin{note}[Optimal monetary policy]
+\end{note}
+No concept of optimality can be found in policy analysis in the perspective of household or firm. But the government can use welfare loss fucntion in its optimality to maximize social welfare. In the process of achieving maximized social welfare, the monetary policy is the so-called optimal monetary policy.
+
+\end{blueblock}
+
+To acquire the optimal monetary policy, the welfare loss function must be previously introduced.
+
+
+To acquire WLF, we use second order taylor expansion
+
+first order Taylor expansion
+\begin{align}
+& \frac{X_t -X}{X}=\ln X_t -\ln X=x_t -x =\hat x_t 
+\end{align}
+
+second order Taylor expansion
+\begin{equation}
+\begin{split}
+ \frac{X_t -X}{X}&=\frac{1}{X}e^{x_t}-1
+\\& = (\frac{1}{X}e^x -1)+\frac{1}{X}e^x(x_t -x)+\frac{1}{2}\frac{1}{X}e^x (x_t-x)^2
+\\& = \hat x_t +\frac{1}{2}\hat x_t^2
+\end{split}
+\end{equation}
+
+Similarly
+\begin{align}
+& \Rightarrow 
+\begin{cases}
+\frac{C_t -C}{C}\approx \hat c_t +\frac{1}{2} \hat c_t^2 
+\\\frac{N_t -N}{N}\approx \hat n_t +\frac{1}{2} \hat n_t^2 
+\end{cases}
+\end{align}
+
+Bi-variate 2o taylor expansion for a utility function where people gain utilities from consuming goods and enjoying leisure.
+\begin{align}
+& u(C_t,N_t)\approx u(C,N)+u_C^C (\frac{C_t -C}{C})+u_N^N(\frac{N_t -N}{N})+\frac{1}{2}u_{CC}^{C^2}\frac{(C_t-C)^2}{C}+\frac{1}{2}u_{NN}^{N^2}\frac{(N_t-N)^2}{N}
+\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2(\hat c_t +\frac{1}{2}\hat c_t^2)+\frac{1}{2}u_{NN} N^2(\hat n_t +\frac{1}{2}\hat n_t^2)
+\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2 \hat c_t+\frac{1}{2}u_{NN} N^2 \hat n_t
+\text{ (reservate only to 2o)}
+\\& = u(C,N)+u_C C(\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t)+u_N N(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}N}{2}\hat n_t)
+\end{align}
+
+\begin{align}
+& \Rightarrow \frac{u(C_t,N_t)-u(C,N)}{u_C C}
+= (\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t^2)+\frac{u_N N}{u_C C}(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}}{2}\hat n^2_t)
+\\& \because \hat c_t = \hat y_t \text{ (market clearing at equilibrium)}
+\\&
+u(C_t,N_t)=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\frac{N_t^{1+\varphi}-1}{1+\varphi}
+\iff 
+\begin{cases}
+-\frac{u_{CC}}{u_C}C=\sigma\\
+-\frac{u_{NN}}{u_N}N=\varphi
+\end{cases}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Coefficients of CES function]
+\end{note}
+$\sigma$ is intertemporal substitute elasticy, $\varphi$ is frisch elasticity
+\end{blueblock}
+
+continue to the last taylor expanded eq, introducing $var_i$ as the deviation of each firm's price
+\begin{align}
+\dots &= (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\{\frac{1}{\alpha}(\hat y_t -a_t)+A \cdot var_i P_{it}\}+\frac{1+\varphi}{2}[\frac{1}{\alpha}(\hat y_t - a_t)+A \cdot var_i P_{it}]^2
+\\& = (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\frac{1}{\alpha}\{[(\hat y_t -a)+B \cdot var_i P_{it}]+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}, B\equiv \alpha A
+\end{align}
+, here let's ignore many fluctuation terms from taylor expansion as they are extremely small and irrelevant to monetary policy.
+
+\begin{align}
+& -\frac{U_N}{U_C}=MP \cdot N=\alpha A N^{\alpha-1}
+\\& = \alpha \frac{C}{N} \Rightarrow \frac{u_N N}{u_C C}=-\alpha\text{ (can use this to simplify equation before)}
+\end{align}
+
+go back to before 
+\begin{align}
+\Rightarrow \dots & = (\hat y_t -\frac{1-\sigma}{2}\hat y_t^2)-\{(\hat y_t -a_t)+B \cdot var_i P_{it}+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}
+\\& =\frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2
+\\& = \frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t^2-2 \hat y_t a_t +a_t^2)
+\\& = (\frac{1-\sigma}{2}+\frac{1+\varphi}{2 \alpha})\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t a_t -B \cdot var_i P_{it}
+\\& =  \frac{\alpha (1-\alpha)+1+\varphi}{2 \alpha}\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t \hat y_t^f -B \cdot var_i P_{it} \text{ (remember when we work out the $\hat y_t^f$)}
+\\& = 
+\color{red}
+\underbrace{
+-\frac{1}{2}[
+\underbrace{
+C(\hat y_t -\hat y_t^f)+
+}_\text{deviation from output}
+\underbrace{
+D(\hat \pi_t - \pi^*)^2
+}_\text{inflation}
+]
+}_\text{welfare loss} \text{ (welfare loss function)}
+\end{align}
+
+the goal is to minimize the whole term
+
+
+\begin{blueblock}
+\begin{note}[paradoxy in welfare loss function]
+\end{note}
+the two goals are contradicated according to philips curve
+\end{blueblock}
+
+
+
+\newpage
+\section{Sticky wage model}
+
+Before good market is price-sticky and monopolistic competitive, now the setting goes to labor market.
+\begin{align}
+& Y_{it}=(\frac{P_{it}}{P_t})^{-\epsilon_P}Y_t
+\text{ (good demand curve, $\epsilon$ is substitute elasticity)}
+\\& P_t=(\int_0^1P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon_p}}\text{ (total price)}
+\\& W_t=W_{it}=\int_0^1 W_{it}di
+\\& P^*_{it}=c+\alpha \tilde y_t \text{ (desired price)}
+\end{align}
+
+labor market m.c. (as in classical model) and sticky wage (partial rigidity, in contrary to total rigidity where all wages are rigid).
+
+1)
+labor demand curve and total wage price level
+\begin{equation}
+\begin{split}
+& \min \int_0^1 W_{jt} N_{ijt}dj
+\\& s.t. A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_W-1}{\epsilon_W}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}\geqslant A_t N_{it}^{1-\alpha}
+\end{split}
+\end{equation}
+where $i$ indexing firm, $j$ indexing labor, $t$ is time
+
+
+Form a Lagrangian
+\begin{align}
+& \mathcal{L}=\int_0^1 W_{jt} N_{ijt}dj+W_t\{
+A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_w-1}{\epsilon_w}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}-A_t N_{it}^{1-\alpha}
+\}
+\end{align}
+where Lagrangian multiplier is total wage level
+
+Solving the optimization problem results
+\begin{align}
+& \Rightarrow 
+\color{red}
+\begin{cases}
+N_{ijt}=(\frac{W_{jt}}{W_t})^{-\epsilon_W}N_{it} \text{ (labor supply equation)}
+\\
+W_t=(\int_0^1 W_{jt}^{1-\epsilon_W}dj)^{\frac{1}{1-\epsilon_W}} \text{ (expression of total wage level)}
+\end{cases}
+\end{align}
+
+
+
+2)
+UMP of household
+
+in utility function N is labor demand instead of labor supply as before. this is because of m.c. labor market.
+\begin{equation}
+\begin{split}
+&u=u(C_t,N_t)
+\\&=u(C_t,\{N_{jt}\})
+\\&=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\int_0^1 \frac{N_j^{1+\varphi}}{1+\varphi}dj \text{ (CES style)}
+\end{split}
+\end{equation}
+
+the UMP can be rewritten as
+\begin{equation}
+\begin{split}
+\max_{\{C_t,W_t^*\}} \sum\limits_{t-0}^{\infty} \beta^t u(C_t,\int_0^1 N_{jt}dj) \iff \max \sum\limits_{t=0}^{\infty} \beta^t u(C_t,\int_0^1 (\frac{W_t^*}{W_t})^{-\epsilon_W} N_{it} dj)
+\\s.t. P_t C_t+Q_t B_t \leqslant \int_0^1 W_t^* (\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it}dj+B_{t-1}
+\end{split}
+\end{equation}
+here $W_t^*$ instead of original because all wages can be adjusted, eventually they will be the same
+
+
+a simplified version would be 
+\begin{equation}
+\begin{split}
+& \max \sum\limits_{t=0}^{\infty}\beta^t u(C_t,(\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it})
+\\& s.t. P_t C_t +Q_t B_t \leqslant W_t^*(\frac{W_t^*}{W_t})^{-\epsilon_W}+B_{t-1}-T_t
+\end{split}
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+& \max\limits_{W^*_0}  \sum\limits_{t=0}^{\infty}\beta^t \theta_W^t u(C_{t|0},N_{t|0})
+\\& s.t. 
+\begin{cases}
+C_{t|0}=\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]
+\\
+N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve, left with only $W^*_0$)}
+\end{cases}
+\end{split}
+\end{equation}
+sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole eq to stay put.
+
+
+put two constraints in the max part, now the opt problem is a unconstrainted one
+\begin{align}
+& \max_{W_0^*} \sum\limits_{t=0}^{\infty} (\beta \theta_W )^t 
+u(
+{\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]},
+(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it}
+)
+\\& FOC \Rightarrow E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W)(\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}-
+u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)^{-1}} \frac{1}{W_t} N_{it})
+]
+\\& = E_0 \sum_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W) (\frac{W_0^*}{W_t})^{-\epsilon_W} W_t^{\epsilon_W} N_{it}-
+u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)} W_t^{\epsilon_W} N_{it} \frac{1}{W_0^*})
+]
+\end{align}
+
+move some exogenous variables out since they basically can be treated as constants
+\begin{align}
+& \Rightarrow  (1-\epsilon_W)(W_0^*)^{-\epsilon_W} \dots  
+\\& = \epsilon_W (W_0^*)^{-\epsilon_W^{-1}}
+\\& \Rightarrow W_0^*=\frac{\epsilon_W}{1-\epsilon_W}
+\frac{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})W_t^{\epsilon_W}N_{it}}{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}}
+\end{align}
+
+use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the eq is essentially an inflation eq
+\begin{align}
+& W_0^*= \frac{\epsilon_W}{\epsilon_W-1}
+\frac{
+E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})MRS_{t|0} W_t^{\epsilon_W}N_{it}
+}{
+E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}
+}
+\\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no eq above)}
+\end{align}
+
+now based on the perspective at period $t$
+\begin{align}
+& W_t^* = \frac{\epsilon_W}{\epsilon_W-1} 
+\frac{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})MRS_{t+k|t}W^{\epsilon_W}_{t+k|t}}{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})\frac{1}{P_{t+k}}W^{\epsilon_W}_{t+k|t}}
+\text{ (at t period instead 0 period)}
+\\& \Rightarrow \frac{W_t^*}{P_t}=\frac{\epsilon_W}{\epsilon_W-1}MRS \text{ (if elasticity wage and monopolistic competitive at t period)}
+\end{align}
+
+
+\begin{blueblock}
+\begin{note}[M.C. firm choice variable for opt problem]
+MC firm can choose price max or quantity max
+\end{note}
+\end{blueblock}
+
+
+
+
+\end{document}

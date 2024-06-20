@@ -1,0 +1,790 @@
+\documentclass{article}
+\usepackage{graphicx} % Images
+\usepackage{amsmath,amsthm} % Math
+\usepackage{wasysym,MnSymbol} % Greek alphabets
+\usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
+\usepackage{newtxtext}
+\usepackage{geometry} % Formatting
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{cancel}
+\usepackage{autobreak}
+\usepackage{hyperref}
+
+%graphicspath{ {./images/} }
+
+\setlength{\parindent}{0pt}% cancel indentation before every line
+
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}}
+
+\newcommand*\sepline{%
+  \begin{center}
+    \rule[1ex]{.5\textwidth}{.5pt}
+  \end{center}}
+
+% Blue block
+\definecolor{blueshade}{rgb}{0.95,0.95,1} % blue block color
+\newenvironment{blueblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{DarkBlue}
+    \vrule width 2pt}
+    {\color{blueshade}
+    \vrule width 4pt}
+  \colorbox{blueshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+% Green block
+\definecolor{greenshade}{rgb}{0.90,0.99,0.91} % green block
+\newenvironment{greenblock}{%
+\def\FrameCommand{%
+  \hspace{1pt}%
+    {\color{Green}%
+    \vrule width 2pt}%
+    {\color{greenshade}%
+    \vrule width 4pt}%
+  \colorbox{greenshade}%
+}%
+\MakeFramed{%
+  \advance%
+  \hsize-%
+  \width%
+  \FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+% Red block
+\definecolor{redshade}{rgb}{1.00,0.90,0.90} % red block
+\newenvironment{redblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{LightCoral}
+    \vrule width 2pt}
+    {\color{redshade}
+    \vrule width 4pt}
+  \colorbox{redshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+\newtheorem{question}{Question}
+\newtheorem{note}{Note}
+
+\title{Notes on Econometrics}
+\author{Victor Li}
+\date{Autumn Sememster, 2023}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+
+\newpage
+\section{preparation}
+
+one should always be able to differ
+\begin{itemize}
+\tightlist
+  \item causal relationship
+  \item correlative relationship
+\end{itemize}
+
+data types
+\begin{itemize}
+\tightlist
+  \item cross-sectional
+  \item time series
+  \item panel
+\end{itemize}
+
+\textbf{skewness}
+
+skewness (standardized 3rd central moment)
+\begin{equation}
+  \tilde \mu_3=\frac{E[(Y-\bar Y)^3]}{\sigma^3_Y}
+\end{equation}
+
+If
+$\begin{cases}
+  \approx 0 \iff \text{ almost like normal distribution}
+  \\
+  >0 \iff \text{ right side lower, meaning more outliers ar right side}
+  \\
+  <0 \iff \text{ left side lower, meaning more outliers ar left side}
+\end{cases}$
+
+\textbf{kurtois}  
+
+kurtosis or peakness (standardized 4rd central moment of samples)
+\begin{equation}
+  Kurt=\frac{E[(Y-\bar Y)^4]}{\sigma^4}
+\end{equation}
+
+If 
+$\begin{cases}
+  \approx 0 \iff \text{ almost like normal distribution}
+  \\
+  >0 \iff \text{ higher than}
+  \\
+  <0 \iff \text{ lower than}
+\end{cases}$
+
+
+\section{linear regression}
+
+
+\subsection{regression}
+
+sample
+
+\begin{align}
+  &\hat Y =\hat \beta_0 +\hat{\beta_{1}}X \text{ (regression equation)}
+  \\& Y=\hat \beta_0 +\hat{\beta_{1}}X+
+  \underbrace{e}_\text{error}
+  =\hat Y + e
+  \text{ (regression model)}
+\end{align}
+
+
+population
+
+\begin{align}
+& E(Y|X)=\beta_{0}+\beta_{1} X =E(Y|X) \text{ (regression equation)}
+\\& Y= \beta_{0}+\beta_{1}X+\underbrace{\mu}_\text{disturbance}=E(Y|X)+\mu \text{ (regression model)}
+\end{align}
+
+
+\textbf{OLS}
+
+The goal is to minimize the deviation of estimation from the real world
+\begin{align}
+  & \min \sum\limits_{i=1}^n (Y_i-\hat Y_i)^2
+  \\& =\min \sum\limits_{i=1}^n e_i^2
+  \\& =\min \sum\limits_{i=1}^n [Y_i-(\hat{\beta_{0}}+\hat{\beta_{1}}X_i)]^2
+\end{align}
+
+so OLS is basically an optimization problem
+
+FOC:
+$\begin{cases}
+\frac{\partial \min}{\partial \hat{\beta_{0}}}=0
+\\
+\frac{\partial \min}{\partial \hat{\beta_{1}}}=0
+\end{cases} \Rightarrow
+\text{yielding the optimal coefficients}
+\begin{cases}
+\hat{\beta_{0}}=\bar Y-\hat{\beta_{1}}\bar X
+\\
+\hat{\beta_{1}}=\frac{S_{XY}}{S^2_X}=\frac{\sum\limits_{i=1}^n (X_i-\bar X)(Y_i-\bar Y)}{\sum\limits_{i=1}^n (X_i-\bar X)^2}
+\end{cases}$
+
+
+using OLS, we would have fitted value $\hat Y_i$ and residual value $\hat e_i$
+\begin{equation}
+  \begin{cases}
+    \hat Y_i=\hat{\beta_{0}}+\hat{\beta_{1}}X_i,i=1,2\dots n
+    \\
+    \hat e_i=Y_i-\hat Y_i,i=1,2\dots n
+  \end{cases}
+\end{equation}
+
+
+moments of estimated coefficients
+\begin{align}
+
+\end{align}
+
+
+
+\subsection{GM theorem and BLUE} % (fold)
+\label{sub:gm_theorem_and_blue}
+
+GM theorem:
+
+Under CLRM conditions, OLS method gives estimated coefficients satisfying BLUE.
+
+BLUE:
+
+$\begin{cases}
+  \text{unbiasedness: } E(\hat{\beta})=\beta
+  \\
+  \text{efficiency: } \min var(\hat{\beta})
+  \\
+  \text{(consistency in large samples): } \hat{\beta} \stackrel{P}{\rightarrow} \beta
+\end{cases}$
+% subsection gm_theorem_and_blue (end)
+
+
+\subsection{R-squared}
+
+$R^2$ measures goodness of fit, which is how good the estimated coefficient fit the real world data. It is considered an indicator to judge a model.
+
+\begin{blueblock}
+\begin{note}[degree of freedom]
+\end{note}
+degree of freedom is actually $\begin{cases}
+ TSS: n-1\\
+ ESS: k\\
+ SSR: n-k-1
+\end{cases}$n-
+Denominators below are actually degree of freedom. Only in large samples approximated by $n$.
+\end{blueblock}
+
+For $Y$,
+\begin{align}
+&\frac{TSS}{n}=var(Y)
+\\& TSS=n \cdot var(Y)=n \cdot \frac{\sum\limits_i^n (Y_i-\bar Y)^2}{n}=\sum\limits_i^n (Y_i-\bar Y)^2
+\\& SE(Y)=\sqrt{var(Y)}=\sqrt{\frac{TSS}{n}}=\sqrt{\frac{\sum\limits_i^n (Y_i-\bar Y)^2}{n}}
+\end{align}
+
+For $\hat Y$,
+\begin{align}
+&\frac{ESS}{n}=var(\hat Y)
+\\&ESS=\sum\limits_i^n (\hat Y_i-\bar Y)^2
+\\&SE(\hat Y)=\sqrt{var(\hat Y)}=\sqrt{\frac{ESS}{n}}=\sqrt{\frac{\sum\limits_i^n (\hat Y_i-\bar Y)^2}{n}}
+\end{align}
+
+For $e$,
+\begin{align}
+&\frac{SSR}{n}=var(e)
+\\&SSR=\sum\limits_i^n (e_i-\bar e)^2
+\\&SER=SE(e)=\sqrt{var(e)}=\sqrt{\frac{SSR}{n}}=\sqrt{\frac{\sum\limits_i^n (e_i-\bar e)^2}{n}} \text{ (also the SE of the regression)}
+\end{align}
+
+Now the R-squared
+\begin{align}
+& R^2=\frac{ESS}{TSS}=\frac{\sum\limits_i^n (\hat Y_i-\bar Y)^2}{\sum\limits_i^n (Y_i-\bar Y)^2}
+\\&R^2=\frac{ESS}{TSS}=1-\frac{SSR}{TSS}=\frac{\text{explained by the estimated model}}{\text{total sample data}}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[SER, standard error of regression]
+an indicator measuring the deviation of error term, not the deviation of whole model.
+\end{note}
+\end{blueblock}
+% subsection r_2 (end)
+
+
+\section{hypothesis and test}
+
+t-value
+\begin{equation}
+  t=\frac{\hat{\beta_{1}}-\beta_{1}}{se(\hat{\beta_{1}})}=\frac{\text{estimation}-\text{hypothesis}}{\text{standard error of estimation}}
+\end{equation}
+
+
+p-value
+\begin{equation}
+  p=2 \Phi(-|t|)
+\end{equation}
+
+
+\subsection{t-test} % (fold)
+\label{sub:t_test}
+
+
+\textbf{step 1: give a hypothesis}
+
+$\begin{cases}
+  H_0: \beta_1  = 45812
+  \\
+  H_1: \beta_1 \neq 45812
+\end{cases}$
+
+
+\textbf{step 2: calculate t-value based on hypothesis}
+
+$t=\frac{\hat{\beta_{1}}-\beta_{1}}{se(\hat{\beta_{1}})}$
+
+\textbf{step 3:  calculate p-value}
+
+$p=2 \Phi(-|t|) 
+\begin{cases}
+  < \alpha \iff \text{at reject area} \iff \text{reject null hypothesis $H_0$} \iff \text{$X$ is significant}
+  \\
+  > \alpha \iff \text{at accept area} \iff \text{accept null hypothesis $H_0$} \iff \text{$X$ is not significant}
+\end{cases}$
+
+\textbf{or another step 3:  judge by experience}
+
+$|t|
+\begin{cases}
+>t_{\frac{\alpha}{2}} \iff \text{at reject area} \iff \text{reject null hypothesis $H_0$} \iff \text{$X$ is significant}
+\\
+<t_{\frac{\alpha}{2}} \iff \text{at accept area} \iff \text{accept null hypothesis $H_0$} \iff \text{$X$ is not significant}
+\end{cases}$
+
+% subsection t_test (end)
+
+\subsection{confidence interval test} % (fold)
+\label{subp:confidence_interval_test}
+
+\textbf{step 1: give a hypothesis}
+
+$\begin{cases}
+  H_0: \beta_1  = 45812
+  \\
+  H_1: \beta_1 \neq 45812
+\end{cases}$
+
+\textbf{step 2: calculate t-value}
+
+\textbf{step 3: choose significance level}
+
+small sample: $\text{based on significance level $\alpha$, degree of freedom $df=n-2$ , two-tale or one-tale} \Rightarrow t_{\frac{\alpha}{2}}=$
+
+large sample: $\text{based on significance level $\alpha$, degree of freedom $df=n$ , two-tale or one-tale} \Rightarrow t_{\frac{\alpha}{2}}=$
+
+\textbf{step 4: calculate CI}
+
+$\hat{\beta}-t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})\leqslant \beta \leqslant+t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})$
+
+\begin{blueblock}
+\begin{note}[one-tale or two-tale?]
+depending on the hypothesis
+\end{note}
+\end{blueblock}
+
+% subparagraph confidence_interval_test (end)
+
+
+\section{multi-variate linear regression} % (fold)
+\label{sec:multi_variate_linear_regression}
+
+\textbf{New assumption for MLR:}
+
+non-zero finite fourth order moment (kurtois)
+
+
+\textbf{OVB, Omitted Variable Bias }
+$\Rightarrow 
+\begin{cases}
+  E(\mu|X)\neq 0 \text{ endogeneity}  
+  \\
+  R^2 \text{ is lower than it should be} 
+\end{cases}$
+
+\begin{equation}
+  \hat{\beta}\stackrel{P}{\rightarrow}\beta+
+  \color{red}
+  \underbrace{\frac{\sigma_u}{\sigma_X}\rho_{uX}}_{\text{effect of OVB}}
+\end{equation}
+
+meaning OVB causes estimator to be biased and inconsistent
+
+\textbf{How to overcome OVB?}
+\begin{itemize}
+\tightlist
+  \item More control variables
+  \item IV
+  \item Panel Fixed Effect model
+\end{itemize}
+
+\sepline
+
+\textbf{Adjusted R-squared}
+\begin{equation}
+  \bar R^2=1-\frac{RSS/n-k-1}{TSS/n-1}=1-\frac{n-1}{n-k-1}\frac{RSS}{TSS}
+\end{equation}
+
+\begin{blueblock}
+\begin{note}[difference between $R^2$ and $\bar R^2$]
+\end{note}
+$\bar R^2<R^2$
+
+$R^2 \in (0,1)$ whereas $\bar R^2 $ can be sub zero.
+\end{blueblock}
+
+
+\textbf{how many variables should i add into the model?}
+
+AIC
+
+BIC
+
+\sepline
+
+\textbf{OLS in MLR:}
+
+\begin{equation}
+  \min\limits_{\{\beta_0,\dots,\beta_k\}} \sum\limits_i^n (Y_i-\hat Y_i)^2
+\end{equation}
+
+or in matrix form
+\begin{equation}
+  \min (Y-X \hat{\beta} )^2
+\end{equation}
+
+results
+\begin{equation}
+  \hat{\beta}=(X^T X)^{-1}X^T Y
+\end{equation}
+
+\sepline
+
+\textbf{Joint hypothesis test}
+\begin{equation}
+  \begin{cases}
+    H_0: \beta_1=0 \& \beta_2=0
+    \\
+    H_1: \beta_1\neq 0 \text{ or } \beta_2\neq 0\text{ or both} \neq 0 
+  \end{cases}
+\end{equation}
+
+
+\textbf{F-test}
+\begin{equation}
+  F=\frac{1}{2}(\frac{t_1^2+t_2^2-2 \hat \rho_{t_1,t_2} t_1 t_2 }{1-\hat \rho_{t_1,t_2}^2}) \text{, where $\hat\rho_{t_1,t_2}^2$ is estimated correlative coefficient}
+\end{equation}
+
+in large sample $\hat\rho_{t_1,t_2}^2 \stackrel{P}{\rightarrow} 0$, therefore
+
+\begin{equation}
+  F=\frac{1}{2}(t_1^2+t_2^2)
+\end{equation}
+
+\textbf{simplified F statistics when homoskedasticity}
+
+$H_0: \beta_1=0,\beta_2=0,\dots,\beta_q=0$ and $H_1: \dots$
+
+$q=$ number of constraints
+
+unrestricted regression: $Y=Y(X_1,X_2\dots X_n)$
+
+restricted regression: $Y=Y(X_1,X_2\dots X_i) \;s.t. \; g(X_i,X_{i+1}\dots X_n)=c$
+
+\begin{equation}
+  F=
+  \frac{(R^2_{\text{unrestricted}}-R^2_{\text{restricted}})/q}{(1-R^2_{\text{unrestricted}})/(n-k_{\text{unrestricted}}-1)}
+\end{equation}
+
+
+\textbf{Tests for Single Constraints Involving Multiple Coefficients}
+
+change the original
+$Y=\beta_{0}+\beta_{1}X+\beta_{2}Y+u$ 
+
+to
+\begin{equation}
+\begin{split}
+  Y=&\beta_{0}+(\beta_1- \beta_{2})X+\beta_2 (X+Y)+u\\
+  =&\beta_{0}+\gamma X +\beta_2 W+u
+\end{split}
+\end{equation}
+
+now testing $\gamma=0$ is same as testing $\beta_{1}=\beta_{2}$
+
+% section multi_variate_linear_regression (end)
+
+
+
+\section{other regression stuff}
+
+\textbf{dummy variables}
+
+$D_i=0 \text{ or } 1$
+
+\textbf{dummy variable trap}
+
+For 4 cases, model has 4 cases $\Rightarrow$ perfect multicolineary
+
+To fix it, use $k-1$ dummies for $k$ cases.
+
+\sepline
+
+non-linear regression
+
+probit model, $Pr(Y=1|X_1,X_2\dots X_n)=\Phi(\beta_0 +\beta_{1}X_1+\dots+\beta_{n} X_n)$
+
+logit model, $Pr(Y=1|X_1,X_2\dots X_n)=\frac{1}{1+e^{-(\beta_0 +\beta_{1}X_1+\dots+\beta_{n} X_n)}}$
+
+
+\sepline
+
+\textbf{heteroskedasticity}
+
+$var(u|x)$ is variant to different $x_i, i\in n$
+
+heteroskedasticity causes significance test to be meaningless
+
+how to overcome
+
+\begin{itemize}
+\tightlist
+  \item heteroskedasticity-robust standard error regression
+  \item GLS
+  \item clustered heteroskedasticity-robust standard error regression
+\end{itemize}
+
+\sepline
+
+multicolinearity
+
+\sepline
+
+interaction term
+
+1) two dummies (DID)
+
+$Y=\beta_0+\beta_{1}D_1+\beta_{2}D_2+\beta_{3}D_1 D_2+u$
+
+\begin{equation}
+  \begin{split}
+  \text{effect of $D_2$}=&E(Y|D_1,D_2=1)-E(Y|D_1,D_2=0)\\
+  =&(\beta_0+\beta_{1}D_1+\beta_{2}+\beta_{3}D_1)-(\beta_0+\beta_{1}D_1)
+  \\=&\beta_2+\beta_3 D_1
+  \end{split}
+\end{equation}
+
+2) dummy and continuent variable
+
+
+3) two continuent variables
+
+
+
+\section{Panel data}
+
+\textbf{fixed effect}
+
+fixed effect is used when $corr(X,u)\neq 0$. we use dummies on individual level to capture fixed effect, eliminating endogeneity.
+
+individual fixed effect
+\begin{equation}
+  y_{it}=\beta_1 X_{it}+\beta_2D_i+\mu_{it}
+\end{equation}
+
+time fixed effect
+\begin{equation}
+  y_{it}=\beta_1 X_{it}+\beta_2D_t+\mu_{it}
+\end{equation}
+
+individual and time fixed effect
+\begin{equation}
+  y_{it}=\beta_1 X_{it}+\beta_2D_i+\beta_3D_t+\mu_{it}
+\end{equation}
+
+
+\begin{blueblock}
+\begin{note}[individual fixed effect]
+can be used to overcome OVB problem
+\end{note}
+\end{blueblock}
+
+
+
+\textbf{random effect}
+
+random effect is used when $corr(X,u)=0$
+
+\textbf{Hausman test}
+
+used to decide whether to use fixed effect or randome effect
+
+The null hypothesis is that there is no difference between random effects and fixed effects. If the null hypothesis is rejected, the fixed effects model is adopted, otherwise the random effects model is adopted.
+
+\sepline
+
+Long panel, $n<t$
+
+Short panel, $n>t$
+
+For short panels, since $t$ is small, it is impossible to explore whether the disturbance term has autocorrelation. For long panels, $t$ is relatively large, so it is necessary to discuss its heteroskedasticity and autocorrelation.
+
+GMM
+
+
+\section{Causal effect}
+
+treatment
+$D_i=
+\begin{cases}
+  1 \text{, receiving treatment}\\
+  0 \text{, not receiving treatment}
+\end{cases}$
+
+potential untreated outcome
+$Y_{i}^{0}=Y_{i}(D=0)$
+
+potential treated outcome
+$Y_{i}^{1}=Y_{i}(D=1)$
+
+realistic outcome
+$Y_{i}=D_{i}Y_{i}^{1}-(1-D_{i})Y_{i}^{0}$
+
+unit treatment effect
+$\delta_{i}=Y_{i}^{1}-Y_{i}^{0}$
+
+ATT
+\begin{equation}
+\begin{split}
+\tau_{att}&=E(\delta_{i}|D_{i}=1)
+\\&=E(Y^{1}_{i}-Y^{0}_{i}|D_{i}=1)
+\\&=E(Y^{1}_{i}|D_{i}=1)-E(Y^{0}_{i}|D_{i}=1)
+\end{split}
+\end{equation}
+
+
+ATU
+\begin{equation}
+\begin{split}
+\tau_{atu}&=E(\delta_{i}|D_{i}=0)
+\\&=E(Y^{1}_{i}-Y^{0}_{i}|D_{i}=0)
+\\&=E(Y^{1}_{i}|D_{i}=0)-E(Y^{0}_{i}|D_{i}=0)
+\end{split}
+\end{equation}
+
+ATE
+\begin{equation}
+\begin{split}
+\tau_{ate}&=E(\delta_{i})
+\\&=E(Y^{1}_{i}-Y^{0}_{i})
+\\&=E[E(Y_{i}^{1}-Y_{i}^{0}|D_{i})]
+\\&=E(Y_{i}^{1}-Y_{i}^{0}|D_{i}=1)\cdot Pr(D_{i}=1)+E(Y_{i}^{1}-Y_{i}^{0}|D_{i}=0)\cdot Pr(D_{i}=0)
+\\&=\tau_{att}\cdot Pr(D_{i}=1)+\tau_{atu} \cdot Pr(D_{i}=0)
+\end{split}
+\end{equation}
+
+\subsection{IV}
+
+\textbf{IV conditions}
+\begin{align}
+  &corr(Z,\mu)=0
+  \\&corr(Z,X)\neq 0
+\end{align}
+
+\textbf{2SLS}
+
+For a 
+$\begin{cases}
+Y=\beta_0+\beta_1X+\mu\\
+X=\pi_0+\pi_1 Z+\nu
+\end{cases}$
+
+step 1: regress $X$ on $Z$, eliminating the part of $X$ related to $\mu$
+
+step 2: regress $Y$ on the estimated $\hat X$
+
+step 3: resulting $\hat{\beta}=\frac{s_{YZ}}{s_{XZ}}$
+
+
+\textbf{weak IV}
+
+First stage least squares has F-value lower than 10. Or first stage regression is not significant.
+
+
+
+\textbf{Identification}
+
+$n=$number of IV and $k=$ number of endogenous variable
+
+an identification problem can be denoted as 
+$\begin{cases}
+  n=k \text{ perfect identification}
+  \\
+  n>k \text{ over-identification}
+  \\
+  n<k \text{ unable to identify}
+\end{cases}$
+
+Sargent test
+
+Hansen J test
+
+C-statistics
+
+\subsection{DID}
+
+\begin{equation}
+  y_{it}=\beta x_{it} + \gamma_1 D_i +\gamma_2 D_t + \mu_{it}
+\end{equation}
+
+
+\subsection{RDD}
+\begin{equation}
+  Y_i = \alpha + \beta D_i + f(X_i) + \mu_i 
+\end{equation}
+
+\begin{itemize}
+\tightlist
+  \item $D_i$ denotes if the treatment is received
+  \item $X_i$ contains the treatment variable
+  \item $f(\cdot)$ is to capture the continuity around the cut-off
+\end{itemize}
+
+sharp RD demands $W_i=1$ if $X_i\geqslant c$
+
+fuzzy RD demands $\lim\limits_{x \rightarrow c^+} E(Y|X=x)\neq\lim\limits_{x \rightarrow c^-} E(Y|X=x)$
+
+LATE of RDD $\tau=\lim\limits_{x \rightarrow c^+} E(Y|X=x)-\lim\limits_{x \rightarrow c^-} E(Y|X=x)$
+
+
+\section{Time series data}
+
+\textbf{auto regression}
+
+AR(n) $\iff corr(X_t,X_{t-n})\neq 0$
+
+\textbf{Stationary}
+
+for $\{X_1,\dots,X_t,\dots\}$ that any sequence of N period has the same distribution
+
+potential causes for being unstationary:
+\begin{itemize}
+\tightlist
+  \item 
+\end{itemize}
+
+
+\textbf{unit root test}
+
+study one time series data's stationary relationship. if unit root is tested true in the time series, the time series is not stationary.
+
+common unit root tests are:
+\begin{itemize}
+\tightlist
+  \item ADF test
+  \item PP test
+\end{itemize}
+
+\textbf{cointegration test}
+
+study multiple non-stationary time series' long-term stationary relationship.
+
+\textbf{Granger test}
+
+used for causal test in mutiple sationary time series
+
+\end{document}
