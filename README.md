@@ -13,6 +13,12 @@ Covering Stock and Watson, Wooldridge
 
 [PDF](metrics/metrics.pdf) [TeX](metrics/metrics.tex)
 
+**MATH IN ECONOMICS**
+
+Covering basic mathematics
+
+[PDF](math/mathinecon.pdf)
+
 **CREDIT**
 
 This repo is inspired by Dexter Chua's [Cam Notes](https://github.com/dalcde/cam-notes). And many thanks go to everyone giving comments.
