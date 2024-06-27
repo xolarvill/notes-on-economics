@@ -111,7 +111,15 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+   \vspace*{\stretch{1.0}}
+   \begin{center}
+      \Large\textbf{Notes on Advanced Macroeconomics}\\
+      \large\textit{Victor Li}\\
+      \large\textit{Spring semester, 2024}
+   \end{center}
+   \vspace*{\stretch{2.0}}
+\end{titlepage}
 
 \newpage
 \tableofcontents
@@ -120,9 +128,9 @@
 \addcontentsline{toc}{section}{Preface}
 \section*{Preface}
 
-Aim of this work of mine is to provide accurate documentation of macroeconomic knowledges in language as simple as possible. Most of this note is taken from the advanced macroeconomics course of Yanfei Deng I am currently taking. This note is still a work in progress and needs tons of ammending. See the newest version at \url{https://github.com/xolarvill/notes-on-economics} along with my other notes.
+Aim of this work of mine is to provide clear macroeconomic knowledges in language as simple as possible. Most of this note is taken from the advanced macroeconomics course of Yanfei Deng I took. This note is still a work in progress and needs tons of ammending. See the newest version at \url{https://github.com/xolarvill/notes-on-economics} along with my other notes. And pull a request if you figure some part of this note is wrong.
 
-This work was first written in markdown language on Obsidian, which provides a lightweight and highly personalized working experience. But it was later transfered into purely latex language on Sublime Text, due to poor support for rendering of long math equation blocks of Obsidian. I wrote some LaTeX snippets of Sublime Text to optimize the writing experience, and uploaded on github at \url{https://github.com/xolarvill/snippets-for-quick-latex-on-st}.
+This work was first written in markdown language on Obsidian, which provides a lightweight and highly personalized working experience. But it was later transfered into purely latex language on Sublime Text, due to poor support for rendering of long math equation blocks of Obsidian. For the tranfer I used Pandoc at \url{https://pandoc.org/}. I wrote some LaTeX snippets of Sublime Text to optimize the writing experience, and uploaded on github at \url{https://github.com/xolarvill/snippets-for-quick-latex-on-st}.
 
 One can find enormous academical help on advanced macroeconomics from books listed below:
 \begin{itemize}
@@ -196,8 +204,7 @@ I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
 \end{blueblock}
 
 
-At the equilibrium, the endogenous variables could be determined jointly
-by multiple exo variables. e.g. 
+At the equilibrium, the endogenous variables could be determined jointly by multiple exo variables. e.g. 
 
 $$
 \text{AS}
@@ -255,8 +262,8 @@ Inada conditions making sure that profit maximization is feasible
 
 
 \newpage
-\section{Keysian Model}
-In a brief way, a Keysian model can be seen as two parts:
+\section{Keynesian Model}
+In a brief way, a Keynesian model can be seen as two parts:
 
 \begin{align}
 &
@@ -276,7 +283,7 @@ I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
 \end{align}
 
 
-The Keyensian model consists of six equations, instead of seven in
+The Keynesian model consists of six equations, instead of seven in
 classical model. Because labor market is not clearing. So the wage is exogenous.
 
 
@@ -286,12 +293,10 @@ classical model. Because labor market is not clearing. So the wage is exogenous.
 \section{Solow Model}
 
 
-The Solow--Swan model, or exogenous growth model, or Neoclassical model is an economic model of long-run economic growth. It attempts to explain long-run economic growth by looking at capital accumulation, labor or population growth, and increases in productivity largely driven by technological progress. At its core, it is an aggregate production function, often specified to be of Cobb--Douglas type, which enables the model to make contact with microeconomics. The model was developed independently by Robert Solow and Trevor Swan in 1956, and superseded the Keynesian Harrod--Domar model.
+The Solow-Swan model is an economic model of long-run growth, focusing on capital accumulation, population growth, and technological progress. Developed by Robert Solow and Trevor Swan in 1956, it replaced the Keynesian Harrod-Domar model.
 
 \begin{quote}
-Mathematically, the Solow--Swan model is a nonlinear system consisting
-of a single ordinary differential equation that models the evolution of
-the per capita stock of capital.
+Mathematically, the Solow-Swan model is a nonlinear system consisting of a single ordinary differential equation that models the evolution of the per capita stock of capital.
 \end{quote}
 
 \begin{greenblock}
@@ -456,8 +461,8 @@ time}\label{solow-model-in-discrete-time}
 
 
 \begin{blueblock}
-\begin{note}
-The gradually smaller and smaller effect of exogenous variables on endogenous variable is called an impulse response.
+\begin{note}[Impulse response function]
+Impulse response functions are useful for studying the interactions between variables in a vector autoregressive model. They represent the reactions of the variables to shocks hitting the system. It is often not clear, however, which shocks are relevant for studying specific economic problems.
 \end{note}
 \end{blueblock}
 
@@ -618,7 +623,7 @@ which is the steady state of Solow model
 \sepline
 \subsection{Golden Rate}\label{golden-rate}
 
-One of the philosophies upon which economic science is established is utilitism, that is achieving max happiness by max consuming. To do so in a stationary state in Solow model, the idea of golden rate is introduced.
+One of the philosophies upon which economic science is established is utilitism. In approximate understanding, that is achieving max happiness by max consuming. To do so in a stationary state in Solow model, the idea of golden rate is introduced.
 
 Golden rate in discrete time, or the maximized welfare of Solow model 
 
@@ -635,10 +640,61 @@ S_{t}=sY_{t}
 \end{align}
 
 
-\begin{redblock}
-\begin{question}[why do we even need to introduce money in a model like Solow model?]
+\begin{greenblock}
+\begin{question}[Why does Solow model matter?]
 \end{question}
-\end{redblock}
+Jess Benhabib and Mark M. Spiegel, 1994, The role of human capital in economic development: Evidence from aggregate cross-country data. Journal of Monetary Economics 34: 143-17
+
+\begin{quote}
+\textit{"Our results indicate that human capital enters insignificantly in explaining per capita growth rates."}
+\end{quote}
+
+Lant Pritchett, 2001, Where has all the education gone? The World Bank Economic Review 15(3): 367-391.
+
+\begin{quote}
+\textit{"Cross-national data show no association between increases in human capital attributable to the rising educational attainment of the labor force and the rate of growth of output per worker. This implies that the association of educational capital growth with conventional measures of total factor production is large, strongly statistically significant, and negative."}
+\end{quote}
+
+Chandra Shekhar Kumar, 2006, Human capital and growth empirics. The Journal of Developing Areas 40(1): 153-179.
+
+\begin{quote}
+\textit{"In all the above estimation methodologies, the positive and significant effect of human capital is not observed."}
+\end{quote}
+
+There must be various reasons to explain the fact. Pritchett examines three possible reasons. But, before arguing the reasons, one inquiry seems to be missing. It is the question of validity of Solow augmented production function and by consequence the validity of endogenous growth theory (at least that based on the Lucas-Uzawa model). Three papers above cited imply that there is no significant positive effect of human capital accumulation on the increase of per capita product.
+
+\end{greenblock}
+
+
+\subsection{Extensions}
+
+Solow model with money
+\begin{itemize}
+  \item Purvis, Douglas D. “Introducing Useful Money into a Growth Model.” The Canadian Journal of Economics / Revue Canadienne d’Economique 4, no. 3 (1971)
+\end{itemize}
+
+Augmented Solow model
+
+\begin{itemize}
+  \item N. Gregory Mankiw, David Romer, David N. Weil, A Contribution to the Empirics of Economic Growth, The Quarterly Journal of Economics, Volume 107, Issue 2, May 1992, Pages 407–437
+\end{itemize}
+
+AK model (often treated as a tool to introduce endogeneous growth model)
+
+\begin{itemize}
+  \item Romer, Paul M. (1986). "Increasing Returns and Long-Run Growth". Journal of Political Economy. 94 (5): 1002–1037.
+\end{itemize}
+
+Malthus to Solow (unified growth theory)
+
+\begin{itemize}
+  \item Hansen, Gary, D., and Edward C. Prescott. 2002. "Malthus to Solow ." American Economic Review, 92 (4): 1205–1217.
+\end{itemize}
+
+
+
+
+
 
 
 
@@ -651,17 +707,9 @@ S_{t}=sY_{t}
 See Chapter 5 to Chapter 7 from Acemoglu, 2004 for more mathematical help.
 \end{greenblock}
 
-
-\begin{blueblock}
-\begin{note}
-Ramsey model is in nature a growth model with consumer optmization.
-\end{note}
-\end{blueblock}
-
-
 We begin the road to sophiscated macro skyscraper with the most basic frame, the Ramsey model. 
 
-The Ramsey model, or the RCK model, or the Neoclassical growth model differs from the Solow model in that the choice of consumption is explicitly microfounded at a point in time and so endogenizes the savings rate. 
+The Ramsey model\footnote{Ramsey, Frank P. (1928). "A Mathematical Theory of Saving". Economic Journal. 38 (152): 543–559.}, or the RCK model, or the Neoclassical growth model differs from the Solow model in that the choice of consumption is explicitly microfounded at a point in time and so endogenizes the savings rate. Ramsey model is in nature a growth model with consumer optmization.
 
 The most intuitive change is now we put $S_t$ under $\max$ as $\max\limits_{\{C_t, S_t\}}$.
 
@@ -753,7 +801,7 @@ where the $A_{t}L_{t}$ is assumed as a constant in order for model to converge
 F.O.C. \Rightarrow r+\delta=R=1+r
 \end{align}
 
-In a conclusion, opt in the disperssive economy yields
+In a conclusion, optimization in the disperssive economy yields
 $\begin{cases}
   \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}\\
   r+\delta=R=1+r
@@ -790,7 +838,7 @@ Regardless of the economy being disperssive or central planning, we would have t
 
 We start from scratch, then move on to methods like using Hamiltonian equation or using Bellman equation.
 
-\textbf{one-period static opt} 
+\textbf{one-period static optimization} 
 
 \begin{equation}
 \begin{split}
@@ -801,7 +849,7 @@ We start from scratch, then move on to methods like using Hamiltonian equation o
 
 
 
-\textbf{two-period dynamic opt} 
+\textbf{two-period dynamic optimization} 
 
 A general form is denoted as
 \begin{equation}
@@ -856,7 +904,7 @@ On a $C_{1}-C_{2}$ plane, \begin{align}
 \end{redblock}
 
 
-\textbf{t-period dynamic opt (finite-period)} 
+\textbf{t-period dynamic optimization (finite-period)} 
 
 1) The original version:
 \begin{align}
@@ -919,7 +967,7 @@ Using Lagrangian function method:
 \\&\Rightarrow \frac{\beta u'(C_{t+1})}{u'(C_t)}=\frac{1}{1+r}
 \end{align}
 
-\textbf{infinite-period dynamic opt} 
+\textbf{infinite-period dynamic optimization} 
 
 Using the third version, we delve into infinity
 \begin{equation}
@@ -1529,8 +1577,17 @@ Meaning there can be over-accumulation of capital $\iff$ suffices dynamic ineffi
   \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
 \end{itemize}
 
+
+
+
+
+
+
+
 \newpage
 \part{Models of Fluctuation}
+In this part, we deal with models that are essentially DSGE models.\footnote{See Gao Xu, 2008 for a brief history of DSGE models.}
+
 \begin{itemize}
 \tightlist
   \item Real Business Cycle model
@@ -1542,10 +1599,13 @@ Meaning there can be over-accumulation of capital $\iff$ suffices dynamic ineffi
 
 
 
+
+
+
 \newpage
 \section{RBC Model}
 
-A standard RBC model is in nature a Ramsey model with
+Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
 \begin{itemize}
 \tightlist
   \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
@@ -1590,7 +1650,7 @@ Form a Lagrangian and acquire FOCs
 \Rightarrow 
 \begin{cases}\frac{\partial  \mathscr{L}}{\partial C_{t}}=0 \Rightarrow \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \Rightarrow \frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
 \frac{\partial  \mathscr{L}}{\partial N_{t}}=0 \Rightarrow \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0 \\
-\frac{\partial  \mathscr{L}}{\partial \beta_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t} 
+\frac{\partial  \mathscr{L}}{\partial B_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t} 
 \end{cases}
 \end{align}
 
@@ -2914,7 +2974,7 @@ N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve
 sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole eq to stay put.
 
 
-put two constraints in the max part, now the opt problem is a unconstrainted one
+put two constraints in the max part, now the optimization problem is a unconstrainted one
 \begin{align}
 & \max_{W_0^*} \sum\limits_{t=0}^{\infty} (\beta \theta_W )^t 
 u(
@@ -2958,7 +3018,7 @@ now based on the perspective at period $t$
 
 
 \begin{blueblock}
-\begin{note}[M.C. firm choice variable for opt problem]
+\begin{note}[M.C. firm choice variable for optimization problem]
 MC firm can choose price max or quantity max
 \end{note}
 \end{blueblock}
