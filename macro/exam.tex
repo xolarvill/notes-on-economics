@@ -1,0 +1,490 @@
+\documentclass{article}
+\usepackage{graphicx} % Images
+\usepackage{amsmath,amsthm} % Math
+\usepackage{wasysym,MnSymbol} % Greek alphabets
+\usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
+\usepackage{newtxtext}
+\usepackage{geometry} % Formatting
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{cancel}
+\usepackage{autobreak}
+\usepackage{hyperref}
+
+\graphicspath{ {./images/} }
+
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}}
+
+\newcommand*\sepline{%
+  \begin{center}
+    \rule[1ex]{.5\textwidth}{.5pt}
+  \end{center}}
+
+
+\setlength{\parindent}{0pt}% cancel indentation before every line
+
+% right cases
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Blue block
+\definecolor{blueshade}{rgb}{0.95,0.95,1} % blue block color
+\newenvironment{blueblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{DarkBlue}
+    \vrule width 2pt}
+    {\color{blueshade}
+    \vrule width 4pt}
+  \colorbox{blueshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+% Green block
+\definecolor{greenshade}{rgb}{0.90,0.99,0.91} % green block
+\newenvironment{greenblock}{%
+\def\FrameCommand{%
+  \hspace{1pt}%
+    {\color{Green}%
+    \vrule width 2pt}%
+    {\color{greenshade}%
+    \vrule width 4pt}%
+  \colorbox{greenshade}%
+}%
+\MakeFramed{%
+  \advance%
+  \hsize-%
+  \width%
+  \FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+% Red block
+\definecolor{redshade}{rgb}{1.00,0.90,0.90} % red block
+\newenvironment{redblock}{
+\def\FrameCommand{
+  \hspace{1pt}
+    {\color{LightCoral}
+    \vrule width 2pt}
+    {\color{redshade}
+    \vrule width 4pt}
+  \colorbox{redshade}
+}
+\MakeFramed{
+  \advance
+  \hsize-
+  \width
+  \FrameRestore}
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}
+\vspace{2pt}\vspace{2pt}
+}
+{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+
+
+\newtheorem{question}{Question}
+\newtheorem{note}{Note}
+
+\title{Notes on Advanced Macroeconomics, Edition for Final Exam}
+\author{Victor Li}
+\date{June Sememster, 2024}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{jian da ti, 15'x2}
+
+\subsection{RBC model (6 eqs) vs classical model (7 eqs), match similar eqs and differ}
+
+\includegraphics[width=\textwidth]{images/Classical_vs_RBC.jpg}
+
+In conclusion, classical model assumes a world where market always clears based on simple aggregated relationships; RBC model, using micro foundation and incorporating technology shocks, still portraits a perfectly competitive world but with mechanism rendering market-unclearing possible. The key difference is that RBC model, originated from Ramsey model, internalizes consumption and saving decisions. Therefore RBC consists of six equation, where as classical consists of seven.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{?}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{jisuan tuidao ti, 20'x2}
+
+
+
+
+
+
+
+\subsection{second way to deduct NKPC, three equations, acceptable price setting eq}
+
+Now sticky PAE\footnote{See more in Calvo, 1983} is
+\begin{align}
+& \color{red} \hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle
+\end{align}
+
+With the expression of total price being
+\begin{align}
+&\Rightarrow\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle
+\\&\Rightarrow \color{red} \hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1} \text{ (expression of total price based on APSE and PAE)}
+\end{align}
+
+From the first equation of total price $\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle$ we have
+\begin{align}
+& \hat p_t =(1-\theta)P_t^\triangle+\theta P_{t-1}
+\\& \Rightarrow (1-\theta)P_t^\triangle=\hat p_t - \theta \hat p_{t-1}
+\\& \Rightarrow (1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t
+\\& \Rightarrow (1-\theta)\beta E_t \hat P_{t+1}^\triangle=\beta E_t \hat p_{t+1} - \theta \beta \hat p_t
+\end{align}
+
+From the second equation $\hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1}$, first use sticky PAE $\hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle$ to substitute
+\begin{align}
+& \Rightarrow \hat p_t-\theta \hat p_{t-1}=(1-\theta)\hat p_t^\triangle = (1-\theta)(1-\theta \beta)\hat p_t^* 
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+then use {\color{red} APSE $\hat p_t^*=\hat p_t+\gamma \tilde y_t$} to substitute
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+use the conclusion $(1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t$ above
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)+\theta \beta E_t \hat p_{t+1} -\theta^2 \beta \hat p_t
+\\& \Rightarrow [1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}= (1-\theta)(1-\theta \beta) \gamma \tilde y_t +\theta \beta E_t \text{ (break APSE)}
+\\& \Rightarrow 
+[1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}-\theta \beta \hat p_t = (1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat p_{t+1}-\hat p_t)
+\\& \Rightarrow 
+\theta(\hat p_t -\hat p_{t-1})=(1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat P_{t+1}-\hat p_t) 
+\text{ (match terms so there is inflation)}
+\\& \Rightarrow 
+\theta \hat \pi_t = (1-\theta )(1-\theta \beta)\gamma \tilde y_t +\theta \beta E_t \hat \pi_{t+1}
+\text{ (here comes inflation)}
+\\& \Rightarrow \color{red} \hat \pi_t=k \hat y_t+\beta E_t \hat \pi_{t+1} \text{ (NKPC)}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\subsection{sticky price and sticky wage to labor demand eq, opt problem, with hints}
+
+
+\begin{itemize}
+  \item sticky price
+  \begin{itemize}
+    \item UMP of household
+  \end{itemize}
+\end{itemize}
+
+Household face two stages of optimization. Since goods are heterogenous, UMP begins by choosing items $i\in I$. The first stage is sufficient to acquire good demand equation and expression of total price .
+
+We go by method of minimization, as in this case Lagrangian multiplier could be shadow price.
+\begin{align}
+\begin{split}
+& \min \int_{0}^{1} P_{it}C_{it}di
+\\& s.t. (\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}} \geqslant C_{t}
+\end{split}
+\end{align}
+
+Form a Lagrangian, we would have
+\begin{align}
+&\mathop{\mathscr{L}}\limits_{\{C_{it}\}} =\int_{0}^{1} P_{it}C_{it}di+P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}}-C_{t}]
+\\&\Rightarrow P_{it}=P_{t}\frac{\epsilon}{\epsilon-1}((\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}-1})\frac{\epsilon-1}{\epsilon} C_{it}^{\frac{\epsilon-1}{\epsilon}-1}
+\\&\Rightarrow P_{it}=P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}})^{\frac{1}{\epsilon}}]C_{it}^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \frac{P_{it}}{P_{t}}=(\frac{C_{it}}{C_{t}})^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \color{red} C_{it}=(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} \text{ (the demand curve)}
+\end{align}
+
+From $\int_{0}^{1} P_{it}C_{it}di =P_{t}C_{t}$ we have
+\begin{align}
+&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} di=P_{t}C_{t}
+\\&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon} di=P_{t}
+\\&\Rightarrow \color{red} P_{t}=(\int_{0}^{1}P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon}} \text{ (the expression of total price level)}
+\end{align}
+
+\sepline
+
+\begin{itemize}
+  \item sticky wage
+  \begin{itemize}
+    \item PMP
+  \end{itemize}
+\end{itemize}
+
+With labor market being monopolistic comptitive and sticky wage, we can find labor supply equation and expression of total wage in PMP.
+
+For a representative firm
+\begin{equation}
+\begin{split}
+& \min \int_0^1 W_{jt} N_{ijt}dj
+\\& s.t. A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_W-1}{\epsilon_W}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}\geqslant A_t N_{it}^{1-\alpha}
+\end{split}
+\end{equation}
+where $i$ indexing firm, $j$ indexing labor, $t$ is time
+
+
+Form a Lagrangian
+\begin{align}
+& \mathcal{L}=\int_0^1 W_{jt} N_{ijt}dj+W_t\{
+A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_w-1}{\epsilon_w}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}-A_t N_{it}^{1-\alpha}
+\}
+\end{align}
+where Lagrangian multiplier is total wage level
+
+Using similar techniques to solve the optimization problem results
+\begin{align}
+& \Rightarrow 
+\color{red}
+\begin{cases}
+N_{ijt}=(\frac{W_{jt}}{W_t})^{-\epsilon_W}N_{it} \text{ (labor supply equation)}
+\\
+W_t=(\int_0^1 W_{jt}^{1-\epsilon_W}dj)^{\frac{1}{1-\epsilon_W}} \text{ (expression of total wage level)}
+\end{cases}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{lunshuti, 30'}
+\subsection{dynamic inefficiency: solow to ramsey to olg}
+\textbf{Solow}
+
+The model has key equations
+\begin{equation}
+\begin{cases}
+  Y=F(K,L)
+  \\
+  I=S=sY
+  \\
+  L_{t+1}=(1+n)L_t
+  \\
+  k_{t+1}=\frac{(1-\delta)k_t+sf(k_t)}{(1+n)}\iff \dot k=sf(k)-(n+\delta)k
+\end{cases}
+\end{equation}
+
+For a certain production $y=k^a$ at steady state
+
+use $k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}$
+\begin{align}
+&\Rightarrow(1+n)k^*=(1-\delta)k^*+s f(k^*)
+\\&-(n+\delta)k^*=-s f(k^*)
+\\&f(k^*)-(n+\delta)k^*=(1-s) f(k^*)=c^*
+\\&\Rightarrow c^*=f(k^*)-(n+\delta)k^*
+\\&\text{To maximize welfare at steady state} \iff \max c* \iff FOC: k^*_g=(\frac{n+\delta}{\alpha})^{1-\alpha}
+\end{align}
+also at steady state
+\begin{align}
+&(1+n)k^*=(1-\delta)k^*+s f(k^*) 
+\\&\Rightarrow k^*=(\frac{n+\delta}{s})^{1-\alpha}
+\end{align}
+
+for certain $\alpha$ and $s$ it could be
+\begin{align}
+\Rightarrow k^*<k^*_{g}
+\end{align}
+meaning there is possible dynamic inefficiency in Solow model.
+
+\textbf{Ramsey}
+
+Ramsey has no dynamic inefficiency, here's why
+
+The model has three key equations
+\begin{align}
+&\begin{cases}L_{t}=(1+n)L_{t-1} \\
+k_{t+1}-(1-\delta)k_t=f(k_t)-c_t \\
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]
+\end{cases}
+\end{align}
+
+Put $k_{t+1}-(1-\delta)k_t=f(k_t)-c_t$ at steady state
+\begin{align}
+&c^*=f(k^*)-k^*+(1-\delta)k^*=f(k^*)-\delta k^*
+\\& \text{To maxmize welfare at steady state}\Rightarrow \text{FOC: } f'(k^{*}_{G})=\delta
+\end{align}
+
+Put $\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]$ at steady state resulting
+\begin{align}
+&\Rightarrow 1= \beta [f'(k^{*})+(1-\delta)] =\frac{1}{1+\rho} [f'(k^{*})+(1-\delta)] 
+\\&\Rightarrow 1+\rho=f'(k^{*})+1- \delta
+\\&\Rightarrow f'(k^{*})=\rho +\delta 
+\\&\Rightarrow k^{*}_{G}>k^{*}
+\end{align}
+Capital per capita at steady state is lower than $k_{gold}$, meaning it is dynamic efficient.
+
+\textbf{OLG}
+
+OLG in central planner form:
+\begin{align}
+\begin{split}
+&\max \sum\limits_{t=0}^{\infty}({\beta_{s}})^{t}L_{t}[u(c_{1t})+\beta u(c_{2,t+1})]
+\\&s.t. \; 
+c_{1t}+\frac{c_{2t}}{1+n}+(1+n)k_{t+1}=f(k_{t})
+\end{split}
+\end{align}
+
+Equation of motion of capital per capita at the steady states
+\begin{align}
+&c^{*}\equiv c_{1}^{*}+\frac{c_{2}^{*}}{1+n}=f(k^{*})-(1+n)k^{*}
+\end{align}
+
+Since we are maximizing welfare at steady state, let $\frac{\partial  c^{*}}{\partial  k^{*}}=0$ to acquire first order condition
+\begin{align}
+&\Rightarrow f'(k^{*}_{G})=1+n
+\end{align}
+using production function $y=k^\alpha$ at equilibrium
+\begin{align}
+f'(k^{*})&=\alpha (k^{*})^{\alpha-1}
+\\&=\alpha\{[\frac{\beta(1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}\}^{\alpha-1}
+\\&=\frac{\alpha}{1-\alpha}\frac{1+\beta}{\beta}(1+n)
+\end{align}
+for certain value of $\alpha$
+\begin{align}
+&f'(k^{*})<1+n
+\\&\Rightarrow f'(k^{*})<f'(k^{*}_{G})
+\\& \Rightarrow k^{*}>k^{*}_{G}
+\end{align}
+Meaning there can be over-accumulation of capital $\iff$ suffices dynamic inefficiency possible in OLG model.
+
+\textbf{Conclusion}
+\begin{itemize}
+\tightlist
+  \item Due to ad hoc given $s$, Solow model is unable to assure dynamic efficiency.
+  \item Due to endogenous saving decision and discount factor $\beta$, Ramsey model is able to achieve dynamic efficiency.
+  \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
+\end{itemize}
+
+
+\newpage
+\section{Intermediate macro}
+
+GDP deflator $=\frac{\text{real GDP}}{\text{nominal GDP}}=\frac{\sum P_1 Q_1}{\sum P_0 Q_1}$
+
+CPI $=\frac{\sum P_1 Q_0}{\sum P_0 Q_0}$
+
+Nominal money supply = currency + deposit, $M=C+D$
+
+Basic money = currency + reserve, $B=C+R$
+
+Money multiplier, $\frac{M}{B}=\frac{C+D}{C+R}=\frac{cr+1}{cr+rr}$
+
+quantity equation of money, 
+$MV=Py$
+
+Cambridge equation, 
+$M=kPY$
+
+Simple equation of money supply, 
+$\frac{M}{P}=ky$
+
+Keynesian equation of money supply, 
+$\frac{M}{P}=ky-hr$
+
+Friedman equation of money supply, 
+$\frac{M}{P}=f(r_b,r_e,r_p,w,y,u)$
+
+Small open economy, 
+$NX=EX-IM=S-I$
+
+\includegraphics[width=\textwidth]{images/Small_open.png}
+
+Indirect pricing exchange rate, $e=\varepsilon \frac{P_f}{P}$
+
+sticky price model, $Y=\bar Y +\alpha (P-EP)$
+
+
+\end{document}
