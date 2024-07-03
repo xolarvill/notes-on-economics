@@ -1,0 +1,484 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm} % Math
+\usepackage{wasysym,MnSymbol} % Greek alphabets
+\usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+
+\title{Notes on Math in Economics}
+\author{Victor Li}
+\date{October 2023}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{LOGIC}
+
+\setlength{\parindent}{0pt}% cancel indentation before every line
+
+Proposition
+
+is a declaration that can be either true or false, but not both. If withour further notice, $P$ and $Q$ is propositions as default.
+
+Negation
+$$\neg P$$
+
+Conjunction
+$$P\land Q$$
+
+Disjunction
+$$P \lor Q$$
+
+Implication
+$$P \Rightarrow Q$$
+
+Equivalence
+$$P \iff Q$$
+
+Converse
+$$P \Rightarrow Q: Q \Rightarrow P$$
+
+Inverse
+$$P \Rightarrow Q: \neg P \Rightarrow \neg Q$$
+
+Contrapositive
+$$P \Rightarrow Q: \neg Q \Rightarrow \neg P$$
+
+Contradiction
+$$(P\land \neg Q) \Rightarrow \neg P \text{ ,where P is a priori} \Rightarrow Q$$
+
+Logically equivalence
+$$P\equiv Q,(P \Rightarrow Q)\equiv(\neg Q \Rightarrow \neg P)\equiv[(P\land \neg Q) \Rightarrow \neg P]$$
+
+Truth table
+
+\includegraphics[width=\textwidth]{image/Truth_table.jpg}
+
+
+Universal quantifier
+$$\forall x, P(x)$$
+
+Existence quantifier
+$$\exists x, P(x)$$
+
+Negation of the two quantifier
+\begin{align}
+&\neg[\forall x, P(x)] \equiv [\exists x, \neg P(x)];
+\\& \neg[\exists x,P(x)]\equiv [\forall x,\neg P(x)]
+\end{align}
+
+\newpage
+\section{SET}
+Set
+$$e.g.X=\{1,2,3\}$$
+
+Element
+$$\omega \in X$$
+
+Family
+$$\mathscr{X}=\{A,B,C\}$$
+
+Union
+$$A\cup B=\{\omega|(\omega\in A) \lor (\omega \in B)\}=A+B$$
+
+Intersection
+$$A \cap B:\{\omega|(\omega\in A) \land (\omega \in B)\}=AB$$
+
+Complement
+\begin{align}
+&A\setminus B=\{\omega|(\omega\in A) \land (\omega \notin B)\}=A-B
+\\&A^{c}=\Omega \setminus A
+\\&A\setminus B=A\cap B^{c}
+\end{align}
+
+Disjoint
+\begin{align}
+&A\cap B= \emptyset
+\\& A \cap A^{c}=\emptyset
+\end{align}
+
+Subset
+$$A \subset B:\omega\in A \Rightarrow \omega \in B$$
+
+Superset
+$$B \supset A$$
+
+Equivalence
+$$A=B \iff (A \subset B) \land (B \subset A)$$
+
+Equivalent difference
+$$A \triangle B=(A\setminus B)\cup (B\setminus A)$$
+
+Algorithing rules
+\begin{align}
+&A\cap B=B\cap A,A\cup B=B\cup A
+\\&(A\cup B)\cap C=(A\cap C)\cup(B\cap C)
+\end{align}
+
+De Morgan's Rule
+$$(\cup A_{i})^{c}=\cap A_{i}^{c},(\cap A_{i})^{c}=\cup A_{i}^{c}$$
+
+Cartesian products
+$$\mathop{\pi}_{i\in I} A_{i}=A_{1}\times A_{2} \times \dots \times A_{I}$$
+
+\newpage
+\section{TOPOLOGY ON EUCLIDEAN SPACE}
+Euclidean space
+
+the space of vectors of real numbers with $n$ components, denoted as $\mathbb{R}^n$.
+
+Metric on $\mathbb{R}^n$
+$$(x,y)\in \mathbb{R}^{n},(\mathbb{R}^{n},d):d(x,y)=\sqrt{\sum\limits_{i=1}^{n}(x_{i}-y_{i})^{2}}$$
+
+
+Equal of vectors  on $\mathbb{R}^n$
+$$x=y\iff \forall i,x_{i}=y_{i}$$
+
+Greater than or equal of vectors on $\mathbb{R}^n$
+$$ x \geqslant y \iff \forall i, x_{i} \geqslant y_{i}$$
+
+Greater than of vectors on $\mathbb{R}^n$
+$$x>y \iff \forall i, x_{i}\geqslant y_{i}; \exists j,x_{j}>y_{j}$$
+
+Much greater than of vectors on $\mathbb{R}^n$
+$$x \gg y \iff \forall i,x_{i}>y_{i}$$
+
+$\epsilon$-open ball/ $\epsilon$-neighborhood of $x$ on $\mathbb{R}^n$
+$$B_{\epsilon}(x)=\{y\in \mathbb{R}^{n}|d(x,y)< \epsilon\}$$
+
+Max on $\mathbb{R}$ 
+$$\exists A \subset \mathbb{R},(x\in A)\land(\forall a \in A, x \geqslant a) \Rightarrow x=\max \;A$$
+
+Min on $\mathbb{R}$ 
+$$\exists A \subset \mathbb{R},(x\in A)\land(\forall a \in A, x \leqslant a) \Rightarrow x=\min \;A$$
+
+Upper bound on $\mathbb{R}$
+$$\exists A \subset \mathbb{R},(x\in \mathbb{R})\land(\forall a \in A, x \geqslant a) \Rightarrow x\text{ is the upper bound of}\;A$$
+
+Supremum on $\mathbb{R}$
+$x$ is the least upper bound of $A \subset \mathbb{R} \iff$ $x=sup \; A$ 
+
+Lower bound on $\mathbb{R}$
+$$\exists A \subset \mathbb{R},(x\in \mathbb{R})\land(\forall a \in A, x \leqslant a) \Rightarrow x \text{ is the lower bound of} \;A$$
+
+Infimum on $\mathbb{R}$
+$x$ is the least lower bound of $A \subset \mathbb{R} \iff$ $x=inf\;A$
+
+Open set on $\mathbb{R}^{n}$
+$$S\subset \mathbb{R}^{n},\forall x \in S, \exists \epsilon >0, B_\epsilon(x)\subset S$$
+
+\begin{theorem}
+some theorems of open set:
+\begin{align}
+&\text{1. } \emptyset \; \text{and} \; \mathbb{R}^{n}\; \text{are open}
+\\&\text{2. the union of any collection of open sets is open} 
+\\&\text{3. the intersection of any infinite collection of open sets is open}
+\end{align}
+\end{theorem}
+
+Topology
+
+a system $\tau=\{S_{\alpha}\}_{\alpha\in A}$ is a topology on space $X$ if
+\begin{align}
+&\text{1. }\emptyset \text{ and }X \in \tau
+\\&\text{2. } \forall \{S_{\beta}|S_{\beta}\in \tau\}, \cup S_{\beta} \in \tau
+\\&\text{3. } \forall \{S_{k}|S_{k}\in \tau,k=1,2...n\}, \cap S_{k}\in \tau
+\end{align}
+
+Closed set
+$$S\subset \mathbb{R}^{n} \text{ is closed if }S^{c}\text{ is open}$$
+
+\begin{theorem}
+Some theorems of closed set:
+\begin{align}
+&\text{1. } \emptyset \; \text{and} \; \mathbb{R}^{n}\; \text{are open}
+\\&\text{2. the intersection of any collection of closed sets is closed} 
+\\&\text{3. the union of any infinite collection of closed sets is closed}
+\end{align}
+\end{theorem}
+
+Sequence in $\mathbb{R}^{n}$
+$$\{x^{i}\}_{n=1}^{\infty}=\{x_{1},x_{2},...,x_{n},...\},x_{i}\in \mathbb{R}^{n}$$
+
+Converge
+$$\text{if for a sequence }\{x^{i}\},\forall \epsilon>0,\exists N,i \geqslant N,d(x^{i},\alpha)<\epsilon \Rightarrow x\text{ is the limit of the sequence}\{x^{i}\}$$
+
+Bounded
+$$\exists M>0,S \subset B_{M}(\cdot)$$
+
+\begin{theorem}
+A non-decreasing and bounded sequence $\{x^{i}\}_{i=1}^{\infty}$ in $\mathbb{R}$ converges.
+\end{theorem}
+
+\begin{proof}
+\begin{align}
+&\text{bounded} \Rightarrow \exists M >0,\{x_{i}\}_{i=1}^{\infty} \subset B_{M}(0)=\{y\in \mathbb{R}: \sqrt{(y-0)^{2}}<M \}
+\\&\Rightarrow sup\{x^{i}\}_{i=1}^{\infty} <M
+\\&\forall \epsilon >0,x-\epsilon \text{ is not an upper bound of the sequence}
+\\&\Rightarrow \exists x^{N}\in {x_{i}},x^{N} > x-\epsilon 
+\\&\text{nondecreasing} \Rightarrow \forall i \geqslant N,x^{i} \geqslant x^{N} \Rightarrow x^{i}>x-\epsilon
+\\&\forall i, x \geqslant x^{i} \Rightarrow x > x^{i}- \epsilon
+\\& \Rightarrow |x-x^{i}|=d(x,x^{i})< \epsilon \Rightarrow \text{converge}
+\end{align}
+\end{proof}
+
+Using convergence to define closed set
+$$S\in \mathbb{R}^{n},\{x^{i}\}\subset S,\{x^{i}\} \to x \in S \Rightarrow S \text{ is a closed set}$$
+
+Non-empty closed cell in $\mathbb{R}^{n}$
+\begin{align}
+I&=\{x=(x_{1},x_{2},...,x_{n}):a_{1}\leqslant x_{1} \leqslant b_{1}, a_{2}\leqslant x_{2} \leqslant b_{2},...,a_{n}\leqslant x_{n} \leqslant b_{n},   \}
+\\&=[a_{1},b_{1}]\times[a_{2},b_{2}]\times ... \times [a_{n},b_{n}]
+\end{align}
+
+\begin{theorem}[Nested cells theorem]
+\begin{align}
+&\text{Let } \{I_{i}\} \text{ be a sequence of non-empty closed cells in } \mathbb{R}^{n} \text{ that are nested,}
+\\&i.e. I_{1} \supset I_{2} \supset \dots \supset I_{k}\supset I_{k+1} \supset \dots
+\\&\text{then} \mathop{\cap}_{i=1}^{\infty}I_{i}\neq \emptyset
+\end{align}
+\end{theorem}
+
+Subsequence
+\begin{align}
+&\exists \{x^{i}\}\in \mathbb{R}^{n},\{x^{i_{k}}\}\text{ where } i_{k}<i_{k+1}
+\\&e.g.
+\\&\{x^{i}\}=\{x_{1},x_{2},x_{3},x_{4},x_{5},...\}
+\\&\{x^{i_{k}}\}=\{x_{1},x_{3},x_{5},...\}
+\end{align}
+
+\begin{theorem}[Bolzano-Weierstrass theorem]
+The theorem states that each infinite bounded sequence in $\mathbb{R}^{n}$ has a convergent subsequence. An equivalent formulation is that a subset of $\mathbb {R} ^{n}$ is sequentially compact if and only if it is closed and bounded. The theorem is sometimes called the sequential compactness theorem.
+\end{theorem}
+
+
+
+Open cover
+
+a family $\{T_{\alpha}\}_{\alpha\in A} \in \mathbb{R}^{n}$ is said to be an open cover of $S \subset \mathbb{R}^{n}$ if $T_{\alpha}$ is open for each $\alpha \in A$ and $S\subset \mathop{\cup}_{\alpha}T_{\alpha}$
+
+Finite open subcover
+
+given an open cover $\{T_{\alpha}\}_{\alpha\in A} \in \mathbb{R}^{n}$, $\{T_{\alpha_{k}}\}_{k=1}^{N}$ is said to be a finite subcover if for each $\alpha_{k}\in A, S\subset \cup_{\alpha_{k}}T_{\alpha_{k}}$. 
+
+Compact
+
+a set $S\subset \mathbb{R}^{n}$ is compact if for any open cover of $S$, there exists a finite open subcover
+
+\begin{theorem}[Heine-Borel theorem]
+$S\subset \mathbb{R}^{n}$ is compact$\iff S$ is closed and bounded
+\end{theorem}
+
+Function
+\begin{align}
+&f:X \to Y=\{y \in Y|\exists x \in X, f(x) \in Y\};
+\\& \exists S \subset X, f(S)=\{y\in Y| \exists x \in S, f(x)=y\}
+\end{align}
+
+One-to-one or Injection
+$$f(x_{1})\neq f(x_{2}),x_{1}\neq x_{2}$$
+
+Continuent function
+\begin{align}
+&\exists f: \mathbb{R}^{n}\to \mathbb{R}^{m},\forall x \in \mathbb{R}^{n}, \exists \delta>0,\forall x' \in B_{\delta}(x),f(x')\in B_{\delta}[f(x)] 
+\\&or
+\\&\forall \text{ open } T \subset \mathbb{R}^{n}, f^{-1}(T) \text{ is open}
+\end{align}
+
+\begin{theorem}[Weierstrass theorem]
+\begin{align}
+&D \subset X \text{ is a nonempty compact set}
+\\&f:X \to Y \text { is a continuent function}
+\\&\Rightarrow f(D)\subset Y \text{ is compact}
+\end{align}
+\end{theorem}
+
+\begin{lemma}[Corollary of Weierstrauss theorem on real Number space]
+\begin{align}
+&D \subset X \text{ is a nonempty compact set}
+\\&f:X \to \mathbb{R} \text { is a continuent function}
+\\& \Rightarrow \exists x_{1},x_{2}\in D,\forall x \in D, f(x_{1})\leqslant f(x)
+\leqslant f(x_{2})
+\end{align}
+\end{lemma}
+
+Distance between point and closed set
+
+using Weierstrauss theorem to make sure there is a shortest distance between a point and a closed set
+
+
+Vector/a point in Euclidean space
+$$x=(x_{1},x_{2},...,x_{n})\in \mathbb{R}^{n}$$
+
+Convex
+$$C\subset \mathbb{R}^{n} \text{ is convex if and only if } \forall x,y \in C \text{ and } \lambda\in[0,1],\lambda x+ (1-\lambda)y\in C$$
+
+\begin{theorem}[Two theorems about convexity]
+\begin{align}
+&\exists C,D \subset \mathbb{R}^{n} \text{ are convex} \Rightarrow
+\\&C+D=\{x+y|x\in C, y\in D\} \text{ is convex};
+\\&\forall \alpha \in \mathbb{R}, \alpha C \text{ is also convex}
+\end{align}
+\end{theorem}
+
+Hyperplane
+$$\exists h \in \mathbb{R}^{n},\lambda\in \mathbb{R},\{x\in \mathbb{R}^{n}|hx=\lambda \} \text{ is a hyperplane}$$
+
+Half-space
+$$\exists h \in \mathbb{R}^{n},\lambda\in \mathbb{R},\{x\in \mathbb{R}^{n}|hx \leqslant \lambda \} \text{ or } \{x\in \mathbb{R}^{n}|hx \geqslant \lambda \}\text{ is a half-space}$$
+
+\begin{theorem}[seperating hyperplane theorem]
+\begin{align}
+&\text{Suppose that a set } C \neq \emptyset \subset \mathbb{R}^{n} \text{ is closed and convex, and a point } b \notin C
+\\& \Rightarrow \exists h \in \mathbb{R}^{n}, \exists \lambda \in \mathbb{R}, \forall x \in C, h\cdot b < \lambda<h\cdot x
+\end{align}
+\end{theorem}
+
+Using hyperplane to seperate two convex sets
+\begin{align}
+&\text{Suppose that two nonempty sets }C,D \subset \mathbb{R}^{n} \text{ are closed and convex, and } C\cap D=\emptyset
+\\&\text{if at least one of the two sets is bounded, then } \exists h \neq0 \in \mathbb{R}^{n}, \exists \lambda \in \mathbb{R},
+\\& \forall x \in C,\forall y \in D, h \cdot x < \lambda<h \cdot y
+\end{align}
+
+Corrospondance
+$$F: X \rightrightarrows Y \iff \forall x \in X, F(x)\subset Y$$
+- $F(x)$ is assumed non-empty from now on if without furthur notice
+
+Compact-valued correspondance
+$$\forall x\in X, F(x)\subset Y \text{ is compact}$$
+
+Convex-valued correspondance
+$$\forall x\in X, F(x)\subset Y \text{ is convex}$$
+
+Closed-valued correspondance
+$$\forall x\in X, F(x)\subset Y \text{ is closed}$$
+
+Singleton-valued correspondance
+$$\forall x\in X, F(x)\subset Y \text{ is a singleton set} \iff F(x) \text{ is a function } f(x)$$
+
+Continuous function
+$$\text{A function }f \text{ is continuous if and only if for any open }\forall x\in X$$
+
+Upper hemi-continuous correspondance
+
+Lower hemi-continuous correspondance
+
+\begin{theorem}
+$$F \text{ is continuous if and only if }F \text{ is both upper hemi-continuous and lower hemi-continuous.}$$
+\end{theorem}
+
+
+
+
+
+
+
+
+\newpage
+\section{TOPOLOGY}
+a topology $\tau$ on $X$ is a family of subsets of $X$ satisfying
+$$\begin{cases}
+\emptyset, X\in \tau
+\\ \tau\;\text{is closed under finite intersections}
+\\ \tau\;\text{is closed under unions}
+\end{cases}$$
+
+Topological space
+$$(X,\tau)$$
+
+Open set
+
+a member of $\tau$ is an open set
+
+Closed set
+
+the complement of an open set is a closed set
+
+Interior and Closure
+
+let $(x,\tau)$ be a topological space and $A\subset X$,interior is the largest open set included by $A$
+$$Int(A)$$
+and closure is the smallest closed set including A
+$$Cl(A)$$
+
+Dense
+$$If \;D\in(X,\tau),Cl(D)=X \Rightarrow D\text{ is dense}$$
+
+Seperable 
+$$\exists D\in(X,\tau),Cl(D)=X \Rightarrow X \text{ is seperable}$$
+
+Continuous function
+$$\text{In }(X,\tau),f:X \rightarrow Y \text{ is continuous if } f^{-1}(U)\subset X \text{ is open whenever } U\subset Y \text{ is open}$$
+
+Hemeomorphic
+$$\exists (X,\tau),(Y,\tau)\text{, if a one-to-one continuous function } f:X \rightarrow Y \text{ such that } f^{-1} \text{ is continuous}$$
+
+Compact
+$$\exists K \subset (X,\tau),\forall \; \text{open cover}\; K \text{ includes a finite subcover} \iff K \text{ is compact}$$
+
+\begin{theorem}[Weierstrass theorem]
+Every continuous function from topological space to another carries compact sets to compact sets.
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{LINEAR ALGEBRA}
+
+\newpage
+\section{FIXED POINT}
+
+\newpage
+\section{LATITICE AND SUPER-MODULARITY}
+
+\newpage
+\section{STATIC OPTIMIZATION}
+
+Lagrangian method
+
+KKT method
+
+\newpage
+\section{DYNAMIC OPTIMIZATION}
+
+Hamiltonian method
+
+Bellman method
+
+Discrete time optimization
+
+
+\end{document}

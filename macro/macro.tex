@@ -2352,7 +2352,7 @@ here notice natural output is a function of technology
 \\& \Rightarrow \color{red} \hat p_t^*=\hat p_t +\gamma \tilde y_t \text{ (acceptable price-setting euqation with only assumption of m.c.)} 
 \end{align}
 
-\footnote{see Mankiw and Reis 2002 for more details of acceptable price-setting eq}
+\footnote{See Mankiw and Reis 2002 for more details of acceptable price-setting equation}
 
 \begin{blueblock}
 \begin{note}[DNK model is perfect information rational expectation]
@@ -2363,11 +2363,16 @@ Here $E_t$ is not $\bar E_t$ because of perfect information rational expectation
 
 \textbf{Second way to acquire NKPC}
 
+We need to know two methods of price-setting:
+\begin{itemize}
+  \item Price adjusting in certainty, Taylor, 1978\footnote{Taylor, John B. “Staggered Wage Setting in a Macro Model.” The American Economic Review 69, no. 2 (1979): 108–13.}
+  \item price adjusting in randomness, Calvo, 1983\footnote{Calvo, Guillermo A., 1983. "Staggered prices in a utility-maximizing framework," Journal of Monetary Economics, Elsevier, vol. 12(3), pages 383-398, September.}
+\end{itemize}
+
+
 \begin{blueblock}
 \begin{note}[Price adjusting in certainty vs in randomness]
 \end{note}
-Price adjusting in certainty Taylor, 1978; price adjusting in randomness, Calvo, 1983
-
 \textbf{Taylor}
 
 a, b and c denotes three firms in a monopolistic competitive market. they adjust price by turns and one person per period.
@@ -2386,13 +2391,14 @@ each firm adjust price at probablity $\theta^t$ at period $t$.
 
 \end{blueblock}
 
-Now sticky price price-adjusting equation \footnote{See more in Calvo, 1983}
+
+Now sticky price price-adjusting equation
 \begin{align}
 &\hat p_t^\triangle=\underbrace{(1-\theta \beta)\sum\limits_{k=0}^\infty (\theta \beta)^k E_t P_{t+k}^*}_{\text{weighted average}}
 \\\Rightarrow &\color{red} \hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle \text{ (sticky PAE)}
 \end{align}
 
-The $\theta$ is the opposite of the one in previous PAE, here rather is to stay put. price adjusting based on acceptable price setting eq in future periods, $\beta$ mean subjective discount.
+The $\theta$ is the opposite of the one in previous PAE, here rather is to stay put. price adjusting based on acceptable price setting equation in future periods, $\beta$ mean subjective discount.
 
 With the expression of total price being
 \begin{align}
@@ -2839,7 +2845,7 @@ u(C_t,N_t)=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\frac{N_t^{1+\varphi}-1}{1+\varphi}
 $\sigma$ is intertemporal substitute elasticy, $\varphi$ is frisch elasticity
 \end{blueblock}
 
-continue to the last taylor expanded eq, introducing $var_i$ as the deviation of each firm's price
+continue to the last taylor expanded equation, introducing $var_i$ as the deviation of each firm's price
 \begin{align}
 \dots &= (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\{\frac{1}{\alpha}(\hat y_t -a_t)+A \cdot var_i P_{it}\}+\frac{1+\varphi}{2}[\frac{1}{\alpha}(\hat y_t - a_t)+A \cdot var_i P_{it}]^2
 \\& = (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\frac{1}{\alpha}\{[(\hat y_t -a)+B \cdot var_i P_{it}]+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}, B\equiv \alpha A
@@ -2971,7 +2977,7 @@ N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve
 \end{cases}
 \end{split}
 \end{equation}
-sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole eq to stay put.
+sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole equation to stay put.
 
 
 put two constraints in the max part, now the optimization problem is a unconstrainted one
@@ -2997,7 +3003,7 @@ move some exogenous variables out since they basically can be treated as constan
 \frac{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})W_t^{\epsilon_W}N_{it}}{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}}
 \end{align}
 
-use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the eq is essentially an inflation eq
+use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the equation is essentially an inflation equation
 \begin{align}
 & W_0^*= \frac{\epsilon_W}{\epsilon_W-1}
 \frac{
@@ -3005,7 +3011,7 @@ E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})MRS_{t|0} 
 }{
 E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}
 }
-\\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no eq above)}
+\\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no equation above)}
 \end{align}
 
 now based on the perspective at period $t$
