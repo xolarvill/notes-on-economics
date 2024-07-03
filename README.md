@@ -1,5 +1,5 @@
 # notes-on-economics
-Notes in .md or .tex format for various courses I took.
+Notes in .md or .tex format for various courses I took. Currently I'm discovering the potential of [typst](https://typst.app) as well (the experience is better than overleaf).
 
 **MACRO**
 
