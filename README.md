@@ -21,7 +21,9 @@ Covering basic mathematics
 
 **Pandas and SQL**
 
-Using marimo to replace traditional jupyter notebook, covering basic data analysis cheatsheet. 
+Using [marimo](https://github.com/marimo-team/marimo) to replace traditional jupyter notebook, covering basic data analysis cheatsheet. 
+
+[PY]() [Marimo.app]()
 
 **CREDIT**
 
