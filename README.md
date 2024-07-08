@@ -19,6 +19,10 @@ Covering basic mathematics
 
 [PDF](math/mathinecon.pdf)
 
+**Pandas and SQL**
+
+Using marimo to replace traditional jupyter notebook, covering basic data analysis cheatsheet. 
+
 **CREDIT**
 
 This repo is inspired by Dexter Chua's [Cam Notes](https://github.com/dalcde/cam-notes). And many thanks go to everyone giving comments.
