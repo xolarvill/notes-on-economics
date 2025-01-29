@@ -1,6 +1,12 @@
 # notes-on-economics
 Notes in .md or .tex format for various courses I took. Currently I'm discovering the potential of [typst](https://typst.app) as well (the experience is better than overleaf).
 
+**MICRO**
+
+Covering MWG
+
+[PDF](micro/micro.pdf) [TeX](micro/micro.tex)
+
 **MACRO**
 
 Covering Solow model, Ramsey model, OLG model, RBC model and two DNK models (sticky price and sticky wage)
@@ -19,7 +25,7 @@ Covering basic mathematics
 
 [PDF](math/mathinecon.pdf)
 
-**Pandas and SQL**
+**PANDAS AND SQL**
 
 Using [marimo](https://github.com/marimo-team/marimo) to replace traditional jupyter notebook, covering basic data analysis cheatsheet. 
 
