@@ -26,11 +26,17 @@ Covering basic mathematics
 
 [PDF](math/mathinecon.pdf)
 
-## PANDAS AND SQL
+## MYPY
 
-Using [marimo](https://github.com/marimo-team/marimo) to replace traditional jupyter notebook, covering basic data analysis cheatsheet. 
+Mypy is an optional static type checker in python.
 
-[PY]() [Marimo.app]()
+[IPYNB](python-mypy/mypy.ipynb)
+
+## PANDAS
+
+Using [marimo](https://github.com/marimo-team/marimo) to replace traditional jupyter notebook, covering basic data analysis cheatsheet.
+
+[PY](python-pandas/visualization.py)  [IPYNB](python-pandas/visualization.ipynb)
 
 ## CREDIT
 
