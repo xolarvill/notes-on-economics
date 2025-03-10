@@ -41,6 +41,11 @@ Backward stochastic differential equation is used for modelling the evolution of
 
 [PDF](BSDE/BSDE.pdf) [Tex](BSDE/BSDE.tex)
 
+### MIGRATION
+
+Migrations are a way of moving people from one place to another. Mainly there are two general methods to describe a migration problem.
+
+[PDF](migration/migration.pdf) [Tex](migration/migration.tex)
 
 ## USEFUL PYTHON LIBS
 
