@@ -15,6 +15,7 @@
 \usepackage{indentfirst} % 让章节后第一段也缩进
 %graphicspath{ {./images/} }
 
+
 \setlength{\parindent}{2em} % 控制首行缩进
 \setlength{\parskip}{0.3\baselineskip} % 控制段落间距
 
@@ -26,6 +27,10 @@
   \begin{center}
     \rule[1ex]{.5\textwidth}{.5pt}
   \end{center}}
+
+
+
+
 
 % Blue block
 \definecolor{blueshade}{rgb}{0.95,0.95,1} % blue block color
@@ -114,7 +119,7 @@
 
 
 \newpage
-\section{Preparation}
+\section{Preparation and foundational knowledge}
 
 Reading this note book, you should understand all the basics of higher math. 
 
@@ -128,11 +133,17 @@ A student studying econometrics should be able to differentiate that
   \item correlative relationship
 \end{itemize}
 are two different things. The latter may be intuitive in live but is essentially misguiding in true meaning.
-\footnote{Modern day science has brought us intuitive idea. The simple and commonly accepted idea of science is that the world rationed by agnosticism and determinism.}
+\footnote{Modern day science has brought us intuitive idea. The simple and commonly accepted idea of science is that agnosticism and determinism are required if you want to be rational and truth-seeking. Which, is mostly true.}
 
 \textbf{The core pursuit of econometrics is to move beyond simple observation to rigorously estimate causal relationships.} 
 
 We often observe that two things move together—a correlation—but the goal is to determine if a change in one causes a change in the other. For example, an online retailer might see that on days with high advertising spending, they also have high sales. This is a correlation. But did the advertising cause the increase in sales, or did both rise because of an external factor, like a holiday weekend? Econometrics provides the theoretical framework and practical tools to answer such questions with data.
+
+Only with this kind of understanding, you can bear in mind that the core mission of econometrics is to use statistical methods and mathematical models to give empirical content to economic theory. In simpler terms, it's about \textbf{turning broad economic ideas into testable, quantifiable statements}. This is what sets econometrics apart from other causal studies.
+
+
+
+
 
 
 \subsection{Data structure} % (fold)
@@ -207,34 +218,62 @@ For a normal distribution, the kurtosis is 3. Based on this standard,
 \end{itemize}
 
 
-\section{Linear Regression}
+\section{Linear Regression Model}
 
 The linear regression model is the workhorse of econometrics. It provides a simple yet powerful way to model how a dependent variable, $Y$ changes in response to an independent (or explanatory) variable, $X$.
 
 \subsection{The Population and the Sample}
 
-It is crucial to distinguish between the unobservable reality we wish to understand and the limited data we have to work with.
-
-Sample
-
-\begin{align}
-  &\hat Y =\hat \beta_0 +\hat{\beta_{1}}X \text{ (regression equation)}
-  \\& Y=\hat \beta_0 +\hat{\beta_{1}}X+
-  \underbrace{e}_\text{error}
-  =\hat Y + e
-  \text{ (regression model)}
-\end{align}
+It is crucial to distinguish between the unobservable reality we wish to understand and the limited data we have to work with. The reality is the population of data, the part of reality that we are able to direct observe is the sample of the population.
 
 
-Population
+\paragraph{The Population Regression Function (PRF)}
+This is the true, underlying relationship that governs how $Y$is determined. It is a theoretical ideal that we can never observe directly.
 
+
+For a simplified version of function format (that is the simple form of linear function), the PRF can be stated as:
 \begin{align}
 & E(Y|X)=\beta_{0}+\beta_{1} X =E(Y|X) \text{ (regression equation)}
 \\& Y= \beta_{0}+\beta_{1}X+\underbrace{\mu}_\text{disturbance}=E(Y|X)+\mu \text{ (regression model)}
 \end{align}
 
+\begin{itemize}
+  \item $\beta_0$ (Intercept) and $\beta_1$(Slope) are the population parameters. They are fixed, unknown constants. $\beta_1$ is typically the object of our interest; it represents the true causal effect on $Y$ of a one-unit change in $X$.
+  \item $\mu$ is the unobservable disturbance or error term. It captures all other factors that affect $Y$apart from $X$, as well as any inherent randomness. In our retail example, if $Y$is sales and $X$is ad spend, $\mu$includes competitor actions, news events, website glitches, and customer mood.
+\end{itemize}
 
-\textbf{OLS}
+
+
+
+
+
+
+\paragraph{The Sample Regression Function (SRF)}
+
+Since we cannot see the entire population, we use a random sample of data to estimate the PRF. The SRF is the estimated relationship for our specific sample.
+
+\begin{align}
+  &\hat Y_i =\hat \beta_0 +\hat{\beta_{1}}X_i \text{ (regression equation)}
+  \\& Y_i=\hat \beta_0 +\hat{\beta_{1}}X_i+
+  \underbrace{e}_\text{error}
+  =\hat Y_i + e_i
+  \text{ (regression model)}
+\end{align}
+
+\begin{itemize}
+  \item $\hat{\beta_0}$ and $\hat{\beta_1}$ are estimators (or coefficients). They are our data-driven "best guesses" for the true population parameters $\beta_0$ and $\beta_1$. The "hat" notation ($\hat{\cdot}$) always denotes an estimate.
+  \item $e_i$ is the residual. It is the sample counterpart of the disturbance $\mu$ and represents the difference between the actual value $Y_i$ and the predicted value from our model, $\hat{Y_i} = \hat{\beta_0} +\hat{\beta_{1}}X_i$. Thus, $e_i = Y_i - \hat{Y_i}$.
+\end{itemize}
+
+
+
+\subsection{OLS Estimator} % (fold)
+\label{sub:ols_estimator}
+
+
+\paragraph{The Ordinary Least Squares (OLS) Estimator}
+
+How do we choose the best estimates $\hat{\beta_0}$ and $\hat{\beta_1}$ to draw a line through our data points? The OLS method provides the answer: we choose the values that minimize the sum of the squared residuals.
 
 The goal is to minimize the deviation of estimation from the real world
 \begin{align}
@@ -242,6 +281,14 @@ The goal is to minimize the deviation of estimation from the real world
   \\& =\min \sum\limits_{i=1}^n e_i^2
   \\& =\min \sum\limits_{i=1}^n [Y_i-(\hat{\beta_{0}}+\hat{\beta_{1}}X_i)]^2
 \end{align}
+
+\begin{greenblock}
+\textbf{The OLS Principle}
+The goal is to find the line that is, on the whole, "closest" to all the data points. We define "closeness" as the vertical distance ($e_i$). By squaring each residual, we ensure that negative and positive deviations don't cancel out and that larger errors are penalized more heavily.
+\begin{align}
+  \min_{\hat{\beta_0}, \hat{\beta_1}} \sum\limits_{i=1}^n e_i^2 = \min_{\hat{\beta_0}, \hat{\beta_1}} \sum\limits_{i=1}^n [Y_i-(\hat{\beta_{0}}+\hat{\beta_{1}}X_i)]^2
+\end{align}
+\end{greenblock}
 
 So OLS is basically an optimization problem.
 
@@ -269,44 +316,66 @@ Using OLS, we would have fitted value $\hat Y_i$ and residual value $\hat e_i$
 \end{equation}
 
 
-Moments of estimated coefficients
-\begin{align}
-
-\end{align}
 
 
+\subsection{The Gauss-Markov Theorem and BLUE}
 
-\subsection{GM theorem and BLUE} % (fold)
-\label{sub:gm_theorem_and_blue}
+Why should we prefer the OLS method over any other way of fitting a line? The Gauss-Markov theorem provides the theoretical justification. It states that if a set of assumptions holds, then the OLS estimator is the Best Linear Unbiased Estimator (BLUE).
 
-GM theorem:
+The Gauss-Markov Assumptions (Classical Linear Regression Model - CLRM) is required by:
+\begin{enumerate}
+  \item Linearity in Parameters: The model is linear in $\beta_0$ and $\beta_1$.
+  \item Random Sampling: The data is a random sample from the population.
+  \item Variation in X: The sample outcomes for $X$ are not all the same value.
+  \item Zero Conditional Mean ($E(\mu|X) = 0$): This is the most critical assumption. It states that the unobserved factors in $\mu$ are, on average, unrelated to the value of $X$. In our example, it means that a competitor's promotion (part of $\mu$) is not systematically launched on days when we happen to increase our ad spend ($X$). A violation of this assumption leads to biased estimates.
+  \item Homoskedasticity ($var(\mu|X) = \sigma^2$): The variance of the unobserved factors is constant for all values of $X$. This means the "unpredictability" of sales is the same on high-spend ad days as it is on low-spend ad days.
+\end{enumerate}
 
-Under CLRM conditions, OLS method gives estimated coefficients satisfying BLUE.
-
-BLUE:
-
-$\begin{cases}
-  \text{unbiasedness: } E(\hat{\beta})=\beta
-  \\
-  \text{efficiency: } \min var(\hat{\beta})
-  \\
-  \text{(consistency in large samples): } \hat{\beta} \stackrel{P}{\rightarrow} \beta
-\end{cases}$
-% subsection gm_theorem_and_blue (end)
-
-
-\subsection{R-squared}
-
-$R^2$ measures goodness of fit, which is how good the estimated coefficient fit the real world data. It is considered an indicator to judge a model.
 
 \begin{blueblock}
-\begin{note}[degree of freedom]
+\begin{note}[What is BLUE?]
+If the five Gauss-Markov assumptions hold, the OLS estimator has the following desirable properties:
 \end{note}
-degree of freedom is actually $\begin{cases}
+\begin{itemize}
+    \tightlist
+    \item \textbf{Best:} It has the minimum variance among all linear unbiased estimators. This means OLS is the most precise or efficient.
+    \item \textbf{Linear:} The estimators $\hat{\beta_0}$ and $\hat{\beta_1}$ are linear functions of the dependent variable $Y$.
+    \item \textbf{Unbiased:} On average, the estimator will equal the true population parameter. Formally, $E(\hat{\beta})=\beta$. Your estimate from one sample may be high or low, but if you could repeat the sampling process infinitely, the average of your estimates would be the true value.
+    \item \textbf{Estimator:} It is a rule that tells us how to use data to compute an estimate of a population parameter.
+\end{itemize}
+In essence, the theorem gives us confidence that, under ideal conditions, OLS is the optimal choice. Much of advanced econometrics is concerned with what to do when one or more of these assumptions are violated.
+\end{blueblock}
+
+
+
+\subsection{Measures of Fit}
+
+Once we have estimated a regression model using OLS, a natural question arises: how well does our model actually fit the data? We need metrics to quantify the model's explanatory power.
+
+\paragraph{Decomposing Variance}
+
+The foundation of the most common goodness-of-fit measure is the decomposition of the total variation in the dependent variable, $Y$. The total variation is the sum of the squared deviations of each $Y_i$ from its mean $\bar Y$. This is called the \textbf{Total Sum of Squares (TSS)}.
+
+This total variation can be broken into two parts: the portion that is explained by our model, called the \textbf{Explained Sum of Squares (ESS)}, and the portion that is left unexplained, which is captured by the residuals and is called the \textbf{Sum of Squared Residuals (SSR)}.
+
+\begin{equation}
+    \underbrace{\sum_{i=1}^n (Y_i - \bar Y)^2}_{\text{TSS}} = \underbrace{\sum_{i=1}^n (\hat Y_i - \bar Y)^2}_{\text{ESS}} + \underbrace{\sum_{i=1}^n e_i^2}_{\text{SSR}}
+\end{equation}
+
+
+\paragraph{Degree of Freedom} 
+
+In statistics, degrees of freedom (df) refers to the number of values in a final calculation that are free to vary. A good way to think about it is as the number of independent pieces of information that you can use to estimate a parameter.
+
+\begin{blueblock}
+\begin{note}[Degree of freedom]
+\end{note}
+For the decomposition, degree of freedom is actually $\begin{cases}
  TSS: n-1\\
  ESS: k\\
  SSR: n-k-1
-\end{cases}$n-
+\end{cases}$.
+
 Denominators below are actually degree of freedom. Only in large samples approximated by $n$.
 \end{blueblock}
 
@@ -331,39 +400,53 @@ For $e$,
 \\&SER=SE(e)=\sqrt{var(e)}=\sqrt{\frac{SSR}{n}}=\sqrt{\frac{\sum\limits_i^n (e_i-\bar e)^2}{n}} \text{ (also the SE of the regression)}
 \end{align}
 
-Now the R-squared
+\paragraph{R-squared}
+
+A common and easy way to measure goodness of fit is by using $R^2$. It is considered an indicator to judge a model.
+
+The $R^2$, or the coefficient of determination, formalizes this decomposition into a single, intuitive metric. It measures the fraction of the total variance in $Y$ that is explained by the explanatory variable(s) in the model.
+
 \begin{align}
 & R^2=\frac{ESS}{TSS}=\frac{\sum\limits_i^n (\hat Y_i-\bar Y)^2}{\sum\limits_i^n (Y_i-\bar Y)^2}
 \\&R^2=\frac{ESS}{TSS}=1-\frac{SSR}{TSS}=\frac{\text{explained by the estimated model}}{\text{total sample data}}
 \end{align}
 
-\begin{blueblock}
-\begin{note}[SER, standard error of regression]
-an indicator measuring the deviation of error term, not the deviation of whole model.
-\end{note}
-\end{blueblock}
+
+
+\paragraph{Standard Error of the Regression (SER)}
+While $R^2$ is a relative measure of fit, the SER is an absolute measure. It estimates the standard deviation of the regression disturbance $\mu$. In practical terms, it tells us the typical size of the regression error, or how far our predictions typically are from the actual outcomes.
+
+\begin{greenblock}
+\textbf{Definition: Standard Error of the Regression (SER)}
+\begin{equation}
+SER = s_e = \sqrt{\frac{SSR}{n-2}} = \sqrt{\frac{\sum\limits_i^n e_i^2}{n-2}}
+\end{equation}
+The SER is measured in the same units as the dependent variable, $Y$.
+\end{greenblock}
+
+A lower SER implies a more accurate model in terms of prediction. In our retail example, if sales ($Y$) are measured in dollars, an SER of \$500 means our model's predictions of daily sales are typically off by about \$500.
+
+
 % subsection r_2 (end)
 
 
 \section{Hypothesis and Test}
 
-t-value
-\begin{equation}
-  t=\frac{\hat{\beta_{1}}-\beta_{1}}{se(\hat{\beta_{1}})}=\frac{\text{estimation}-\text{hypothesis}}{\text{standard error of estimation}}
-\end{equation}
+Remember the metrics before are used to test how good a model is. When a number is calculated, is it 100 percent convincing? No, they are not. Because they are calculated under assumptions and simplization of reality. 
 
+Would a different sample produce a different estimate? The fundamental question of statistical inference is: how confident are we that our estimated relationship is real and not just a fluke of our particular sample? For instance, is the true effect of advertising on sales, $\beta_1$, actually zero? 
 
-p-value
-\begin{equation}
-  p=2 \Phi(-|t|)
-\end{equation}
+\textbf{We care about significance in statistics because it provides a way to quantify the likelihood that an observed result in a study is not due to random chance.}
 
+Hypothesis testing provides a formal framework to answer this.
 
-\subsection{t-test} % (fold)
-\label{sub:t_test}
+\subsection{The t-test} 
 
+The most common method for testing a hypothesis about a {\color{red} single} regression coefficient is the t-test.\footnote{Take a good look at the word "single" and remember what it stands.} It follows a structured process to determine whether to accept or reject a claim about the true population parameter.
 
-\textbf{Step 1: give a hypothesis}
+\textbf{Step 1: State the Hypotheses}
+
+We begin by stating a \textbf{null hypothesis ($H_0$)}, which represents the "status quo" or a benchmark of no effect, and an \textbf{alternative hypothesis ($H_1$)}, which is what we are trying to establish. The most common test is for statistical significance:
 
 $\begin{cases}
   H_0: \beta_1  = 45812
@@ -371,53 +454,92 @@ $\begin{cases}
   H_1: \beta_1 \neq 45812
 \end{cases}$
 
+This is a two-sided test, as we are interested in deviations from zero in either direction (positive or negative).
 
-\textbf{Step 2: calculate t-value based on hypothesis}
+\textbf{Step 2: Calculate the t-statistic}
 
-$t=\frac{\hat{\beta_{1}}-\beta_{1}}{se(\hat{\beta_{1}})}$
+The t-statistic (or t-value) measures how many standard errors our estimated coefficient, $\hat{\beta_1}$, is away from the value hypothesized under the null. A larger t-statistic implies that our estimate is less likely to have occurred by random chance if the null hypothesis were true.
 
-\textbf{Step 3:  calculate p-value}
+\begin{greenblock}
+\textbf{Definition: t-statistic}
+\begin{equation}
+  t=\frac{\hat{\beta_{1}}-\beta_{1, H_0}}{se(\hat{\beta_{1}})}=\frac{\text{Estimation}-\text{Hypothesized Value}}{\text{Standard Error of Estimation}}
+\end{equation}
+where $se(\hat{\beta_1})$ is the standard error of our coefficient estimate, a measure of its sampling variability. When testing for significance, $\beta_{1, H_0}$ is 0.
+\end{greenblock}
 
+\textbf{Step 3:  Make a Decision}
+
+We have two common, and equivalent, ways to decide whether our t-statistic is "large enough" to reject the null hypothesis.
+
+
+\textbf{The p-value Approach:} The p-value is the probability of observing a t-statistic as extreme as, or more extreme than, the one we calculated, assuming the null hypothesis is true.
+\begin{equation}
+  p=2 \Phi(-|t|)
+\end{equation}
+Here, $\Phi$ is the cumulative distribution function of the standard normal distribution (a good approximation for the t-distribution in large samples). We compare the p-value to a pre-determined \textbf{significance level ($\alpha$)}, usually 0.05 (5\%), 0.01 (1\%), or 0.10 (10\%).
+
+\begin{itemize}
+\tightlist
+  \item If $p < \alpha$, we \textbf{reject the null hypothesis}. The result is "statistically significant at the $\alpha$ level." We have strong evidence that $\beta_1$ is not zero.
+  \item If $p \ge \alpha$, we \textbf{fail to reject the null hypothesis}. The result is "not statistically significant." We do not have sufficient evidence to claim that $\beta_1$ is different from zero.
+\end{itemize}
+
+\begin{blueblock}
 $p=2 \Phi(-|t|) 
 \begin{cases}
   < \alpha \iff \text{at reject area} \iff \text{reject null hypothesis $H_0$} \iff \text{$X$ is significant}
   \\
   > \alpha \iff \text{at accept area} \iff \text{accept null hypothesis $H_0$} \iff \text{$X$ is not significant}
 \end{cases}$
+\end{blueblock}
 
-\textbf{Or another step 3:  judge by experience}
 
+
+\textbf{The Critical Value Approach:} Alternatively, we can find a critical value, $t_c$, from a t-distribution table (or software) that corresponds to our chosen significance level $\alpha$ and degrees of freedom ($df=n-2$).
+
+\begin{itemize}
+\tightlist
+  \item If $|t| > t_c$, our calculated statistic falls in the "rejection region." We \textbf{reject the null hypothesis}.
+  \item If $|t| \le t_c$, our statistic falls in the "acceptance region." We \textbf{fail to reject the null hypothesis}.
+\end{itemize}
+
+
+\begin{blueblock}
 $|t|
 \begin{cases}
 >t_{\frac{\alpha}{2}} \iff \text{at reject area} \iff \text{reject null hypothesis $H_0$} \iff \text{$X$ is significant}
 \\
 <t_{\frac{\alpha}{2}} \iff \text{at accept area} \iff \text{accept null hypothesis $H_0$} \iff \text{$X$ is not significant}
 \end{cases}$
+\end{blueblock}
+
 
 % subsection t_test (end)
 
-\subsection{confidence interval test} % (fold)
-\label{subp:confidence_interval_test}
+\subsection{Confidence Interval} % (fold)
+\label{subp:confidence_interval}
 
-\textbf{step 1: give a hypothesis}
+While a t-test gives a yes/no answer about a single hypothesized value, a confidence interval provides a more informative range of plausible values for the true population parameter, $\beta_1$.
 
-$\begin{cases}
-  H_0: \beta_1  = 45812
-  \\
-  H_1: \beta_1 \neq 45812
-\end{cases}$
+\paragraph{Constructing a Confidence Interval}
+A 95\% confidence interval is constructed by taking our point estimate and adding and subtracting a margin of error, which is determined by the critical t-value and the standard error of the estimate.
 
-\textbf{step 2: calculate t-value}
+\begin{greenblock}
+\textbf{Formula: (1-$\alpha$)\% Confidence Interval}
+\begin{equation}
+  CI = [\hat{\beta_1} - t_{c} \cdot se(\hat{\beta_1}), \quad \hat{\beta_1} + t_{c} \cdot se(\hat{\beta_1})]
+\end{equation}
+For a 95\% confidence interval, $\alpha=0.05$, and $t_c$ is the critical value leaving $\alpha/2 = 2.5\%$ in each tail of the t-distribution. For large samples, $t_c \approx 1.96$.
+\end{greenblock}
 
-\textbf{step 3: choose significance level}
-
-small sample: $\text{based on significance level $\alpha$, degree of freedom $df=n-2$ , two-tale or one-tale} \Rightarrow t_{\frac{\alpha}{2}}=$
-
-large sample: $\text{based on significance level $\alpha$, degree of freedom $df=n$ , two-tale or one-tale} \Rightarrow t_{\frac{\alpha}{2}}=$
-
-\textbf{step 4: calculate CI}
-
-$\hat{\beta}-t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})\leqslant \beta \leqslant+t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})$
+A confidence interval can also be used for hypothesis testing. To test the null hypothesis $H_0: \beta_1=0$, we simply check if 0 lies within the interval.
+\begin{itemize}
+\tightlist
+    \item If the interval \textbf{does not} contain 0, we can reject $H_0$ at the corresponding significance level.
+    \item If the interval \textbf{does} contain 0, we fail to reject $H_0$.
+\end{itemize}
+This provides a measure of both statistical significance and the practical range of uncertainty around our estimate. A very wide interval, even if it excludes zero, signals that our estimate is imprecise.
 
 \begin{blueblock}
 \begin{note}[one-tale or two-tale?]
