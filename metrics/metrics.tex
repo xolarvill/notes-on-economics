@@ -1,7 +1,8 @@
 \documentclass{article}
 \usepackage{graphicx} % Images
 \usepackage{amsmath,amsthm} % Math
-\usepackage{wasysym,MnSymbol} % Greek alphabets
+\usepackage{wasysym} % Math symbols
+\usepackage{amssymb} % Greek alphabets
 \usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
 \usepackage{newtxtext}
 \usepackage{geometry} % Formatting
@@ -11,10 +12,11 @@
 \usepackage{cancel}
 \usepackage{autobreak}
 \usepackage{hyperref}
-
+\usepackage{indentfirst} % 让章节后第一段也缩进
 %graphicspath{ {./images/} }
 
-\setlength{\parindent}{0pt}% cancel indentation before every line
+\setlength{\parindent}{2em} % 控制首行缩进
+\setlength{\parskip}{0.3\baselineskip} % 控制段落间距
 
 \providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}
@@ -112,62 +114,108 @@
 
 
 \newpage
-\section{preparation}
+\section{Preparation}
 
-one should always be able to differ
+Reading this note book, you should understand all the basics of higher math. 
+
+\subsection{Core of econometrics} % (fold)
+\label{sub:core_of_econometrics}
+
+A student studying econometrics should be able to differentiate that
 \begin{itemize}
 \tightlist
   \item causal relationship
   \item correlative relationship
 \end{itemize}
+are two different things. The latter may be intuitive in live but is essentially misguiding in true meaning.
+\footnote{Modern day science has brought us intuitive idea. The simple and commonly accepted idea of science is that the world rationed by agnosticism and determinism.}
 
-data types
+\textbf{The core pursuit of econometrics is to move beyond simple observation to rigorously estimate causal relationships.} 
+
+We often observe that two things move together—a correlation—but the goal is to determine if a change in one causes a change in the other. For example, an online retailer might see that on days with high advertising spending, they also have high sales. This is a correlation. But did the advertising cause the increase in sales, or did both rise because of an external factor, like a holiday weekend? Econometrics provides the theoretical framework and practical tools to answer such questions with data.
+
+
+\subsection{Data structure} % (fold)
+\label{sub:data_structure}
+
+% subsection data_structure (end)
+
+The data we use dictates the methods we can apply. Econometric data is typically organized in one of three ways:
+
 \begin{itemize}
-\tightlist
-  \item cross-sectional
-  \item time series
-  \item panel
+  \item \textbf{Cross-Sectional Data}: A snapshot of many different entities at a single point in time.
+  Example: Data on daily sales and advertising expenditure for 500 different online stores on December 1st, 2023. Each row is a different store.
+
+  \item \textbf{Time Series Data}: Observations of a single entity over multiple time periods.
+  Example: Data on the daily sales and advertising expenditure for one specific online store from January 1st to December 31st, 2023. Each row is a different day.
+
+  \item \textbf{Panel Data (Longitudinal Data)}: A combination of the two, observing multiple entities over multiple time periods.
+  Example: Data on the daily sales and advertising expenditure for 500 different online stores, tracked each day for the entire year of 2023. This is incredibly powerful as it allows us to control for factors unique to each store that don't change over time.
 \end{itemize}
 
-\textbf{skewness}
 
-skewness (standardized 3rd central moment)
+
+\subsection{Understanding the Shape of Your Data: Moments} % (fold)
+\label{sub:understanding_the_shape_of_your_data_moments}
+
+% subsection understanding_the_shape_of_your_data_moments (end)
+
+
+
+Before modeling, we must understand the fundamental characteristics of our variables. The shape of a variable's distribution can be summarized by its statistical moments.
+
+\paragraph{Skewness}
+
+Skewness measures the asymmetry of a distribution. A perfectly symmetric distribution has zero skewness.
+
+\begin{greenblock}
+\textbf{Definition: Skewness} (Standardized 3rd Central Moment)
 \begin{equation}
-  \tilde \mu_3=\frac{E[(Y-\bar Y)^3]}{\sigma^3_Y}
+\tilde \mu_3=\frac{E[(Y-\bar Y)^3]}{\sigma^3_Y}
 \end{equation}
+The skewness of a random variable $Y$ is the average of its cubed standardized deviations. Cubing the deviations preserves their sign.
+\end{greenblock}
 
-If
-$\begin{cases}
-  \approx 0 \iff \text{ almost like normal distribution}
-  \\
-  >0 \iff \text{ right side lower, meaning more outliers ar right side}
-  \\
-  <0 \iff \text{ left side lower, meaning more outliers ar left side}
-\end{cases}$
 
-\textbf{kurtois}  
+\begin{itemize}
+  \item $\approx 0 \iff $ Symmetric, almost like normal distribution.
 
-kurtosis or peakness (standardized 4rd central moment of samples)
+  \item $>0 \iff $ Right Skew, right side lower, meaning more outliers ar right side.
+  
+  \item $<0 \iff $ Left Skew, left side lower, meaning more outliers ar left side.
+\end{itemize}
+  
+
+\paragraph{Kurtosis}  
+
+
+Kurtosis measures the "tailedness" of a distribution. It tells us how much of the data's variance is driven by infrequent, extreme events (fat tails) versus frequent, modest deviations.
+\begin{greenblock}
+\textbf{Definition: Kurtosis} (Standardized 4th Central Moment)
 \begin{equation}
-  Kurt=\frac{E[(Y-\bar Y)^4]}{\sigma^4}
+Kurt=\frac{E[(Y-\bar Y)^4]}{\sigma^4_Y}
 \end{equation}
+The kurtosis of $Y$ is the average of its standardized deviations raised to the fourth power. The fourth power makes extreme values dominate the calculation.
+\end{greenblock}
 
-If 
-$\begin{cases}
-  \approx 0 \iff \text{ almost like normal distribution}
-  \\
-  >0 \iff \text{ higher than}
-  \\
-  <0 \iff \text{ lower than}
-\end{cases}$
-
-
-\section{linear regression}
+For a normal distribution, the kurtosis is 3. Based on this standard,
+\begin{itemize}
+  \item $\approx 3 \iff$ (Mesokurtic): The distribution has tails similar to a normal distribution.
+  \item $>3 \iff$ (Leptokurtic): "Fat tails." The distribution has more mass in its tails than a normal distribution. In finance, this implies that extreme market movements (crashes or booms) are more likely than a normal model would predict.
+  
+  \item $<3 \iff$ (Platykurtic): "Thin tails." Extreme events are less likely than in a normal distribution.
+\end{itemize}
 
 
-\subsection{regression}
+\section{Linear Regression}
 
-sample
+The linear regression model is the workhorse of econometrics. It provides a simple yet powerful way to model how a dependent variable, $Y$ changes in response to an independent (or explanatory) variable, $X$.
+
+\subsection{The Population and the Sample}
+
+It is crucial to distinguish between the unobservable reality we wish to understand and the limited data we have to work with.
+
+Sample
 
 \begin{align}
   &\hat Y =\hat \beta_0 +\hat{\beta_{1}}X \text{ (regression equation)}
@@ -178,7 +226,7 @@ sample
 \end{align}
 
 
-population
+Population
 
 \begin{align}
 & E(Y|X)=\beta_{0}+\beta_{1} X =E(Y|X) \text{ (regression equation)}
@@ -195,7 +243,7 @@ The goal is to minimize the deviation of estimation from the real world
   \\& =\min \sum\limits_{i=1}^n [Y_i-(\hat{\beta_{0}}+\hat{\beta_{1}}X_i)]^2
 \end{align}
 
-so OLS is basically an optimization problem
+So OLS is basically an optimization problem.
 
 FOC:
 $\begin{cases}
@@ -211,7 +259,7 @@ $\begin{cases}
 \end{cases}$
 
 
-using OLS, we would have fitted value $\hat Y_i$ and residual value $\hat e_i$
+Using OLS, we would have fitted value $\hat Y_i$ and residual value $\hat e_i$
 \begin{equation}
   \begin{cases}
     \hat Y_i=\hat{\beta_{0}}+\hat{\beta_{1}}X_i,i=1,2\dots n
@@ -221,7 +269,7 @@ using OLS, we would have fitted value $\hat Y_i$ and residual value $\hat e_i$
 \end{equation}
 
 
-moments of estimated coefficients
+Moments of estimated coefficients
 \begin{align}
 
 \end{align}
@@ -297,7 +345,7 @@ an indicator measuring the deviation of error term, not the deviation of whole m
 % subsection r_2 (end)
 
 
-\section{hypothesis and test}
+\section{Hypothesis and Test}
 
 t-value
 \begin{equation}
@@ -315,7 +363,7 @@ p-value
 \label{sub:t_test}
 
 
-\textbf{step 1: give a hypothesis}
+\textbf{Step 1: give a hypothesis}
 
 $\begin{cases}
   H_0: \beta_1  = 45812
@@ -324,11 +372,11 @@ $\begin{cases}
 \end{cases}$
 
 
-\textbf{step 2: calculate t-value based on hypothesis}
+\textbf{Step 2: calculate t-value based on hypothesis}
 
 $t=\frac{\hat{\beta_{1}}-\beta_{1}}{se(\hat{\beta_{1}})}$
 
-\textbf{step 3:  calculate p-value}
+\textbf{Step 3:  calculate p-value}
 
 $p=2 \Phi(-|t|) 
 \begin{cases}
@@ -337,7 +385,7 @@ $p=2 \Phi(-|t|)
   > \alpha \iff \text{at accept area} \iff \text{accept null hypothesis $H_0$} \iff \text{$X$ is not significant}
 \end{cases}$
 
-\textbf{or another step 3:  judge by experience}
+\textbf{Or another step 3:  judge by experience}
 
 $|t|
 \begin{cases}
@@ -628,7 +676,7 @@ GMM
 
 \section{Causal effect}
 
-treatment
+Treatment
 $D_i=
 \begin{cases}
   1 \text{, receiving treatment}\\
@@ -786,5 +834,8 @@ study multiple non-stationary time series' long-term stationary relationship.
 \textbf{Granger test}
 
 used for causal test in mutiple sationary time series
+
+
+\section{Structural Equations}
 
 \end{document}
