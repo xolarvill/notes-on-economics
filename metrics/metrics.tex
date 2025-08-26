@@ -119,6 +119,10 @@
 
 
 \newpage
+\part{THE REGRESSION FRAMEWORK} % (fold)
+\label{prt:the_ _regression_ _framework}
+
+
 \section{Preparation and foundational knowledge}
 
 Reading this note book, you should understand all the basics of higher math. 
@@ -550,414 +554,1083 @@ depending on the hypothesis
 % subparagraph confidence_interval_test (end)
 
 
-\section{multi-variate linear regression} % (fold)
+\section{Multi-variate linear regression} % (fold)
 \label{sec:multi_variate_linear_regression}
 
-\textbf{New assumption for MLR:}
+\subsection{Multiple Variables} % (fold)
+\label{sub:multiple_variables}
 
-non-zero finite fourth order moment (kurtois)
+The simple linear regression model is a powerful starting point, but reality is rarely so simple. The outcomes we seek to explain, like sales, wages, or economic growth, are influenced by more than just one factor. The multivariate linear regression (MLR) model is a significant step forward, allowing us to estimate the effect of one variable while simultaneously \textit{controlling for} the effects of others.
 
+\paragraph{MLR}
+The population model with $k$ independent variables is:
+\begin{equation}
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k + u
+\end{equation}
+Each coefficient, $\beta_j$, now represents the partial effect of $X_j$ on $Y$, holding all other variables constant. This "ceteris paribus" interpretation is the core strength of MLR.
 
-\textbf{OVB, Omitted Variable Bias }
-$\Rightarrow 
-\begin{cases}
-  E(\mu|X)\neq 0 \text{ endogeneity}  
-  \\
-  R^2 \text{ is lower than it should be} 
-\end{cases}$
+\subsection{Omitted Variable Bias (OVB)}
+\label{sub:ovb}
+
+The primary motivation for moving from simple to multiple regression is to avoid \textbf{Omitted Variable Bias}. OVB occurs when we leave out a variable from our model that is both:
+\begin{enumerate}
+    \tightlist
+    \item A determinant of the dependent variable $Y$ (i.e., it belongs in the true model).
+    \item Correlated with one or more of the included independent variables $X$.
+\end{enumerate}
+
+\paragraph{The Consequence of OVB}
+When both conditions hold, the omitted variable becomes part of the error term, $u$. Since it is also correlated with an included $X$, this violates the crucial Zero Conditional Mean assumption ($E(u|X) \neq 0$). The result is that the OLS estimator for the included variable's coefficient becomes biased and inconsistent—it does not converge to the true population value, even with an infinitely large dataset.
+
+The bias in the simple regression coefficient $\hat{\beta_1}$ can be expressed as:
+\begin{equation}
+  E(\hat{\beta_1}) = \beta_1 + \beta_2 \cdot \delta_1
+\end{equation}
+where $\beta_2$ is the true effect of the omitted variable on $Y$, and $\delta_1$ is the slope coefficient from a regression of the omitted variable on the included variable $X_1$. This formula clearly shows that the bias is zero only if the omitted variable is irrelevant ($\beta_2=0$) or if it is uncorrelated with our variable of interest ($\delta_1=0$).
 
 \begin{equation}
   \hat{\beta}\stackrel{P}{\rightarrow}\beta+
-  \color{red}
+  {\color{red}
   \underbrace{\frac{\sigma_u}{\sigma_X}\rho_{uX}}_{\text{effect of OVB}}
+  }
 \end{equation}
 
-meaning OVB causes estimator to be biased and inconsistent
 
-\textbf{How to overcome OVB?}
-\begin{itemize}
-\tightlist
-  \item More control variables
-  \item IV
-  \item Panel Fixed Effect model
-\end{itemize}
+\begin{redblock}
+\textbf{Example of OVB:} Imagine a simple regression of daily ice cream sales ($Y$) on the number of beach visitors ($X_1$). We would likely find a strong positive relationship. However, we have omitted temperature ($X_2$). Temperature affects sales ($\beta_2 > 0$) and is also highly correlated with the number of beach visitors ($\delta_1 > 0$). Therefore, our estimate for the effect of beach visitors will be biased upwards, incorrectly attributing the effect of the warm weather to the mere presence of people on the beach.
+\end{redblock}
 
-\sepline
-
-\textbf{Adjusted R-squared}
-\begin{equation}
-  \bar R^2=1-\frac{RSS/n-k-1}{TSS/n-1}=1-\frac{n-1}{n-k-1}\frac{RSS}{TSS}
-\end{equation}
-
-\begin{blueblock}
-\begin{note}[difference between $R^2$ and $\bar R^2$]
-\end{note}
-$\bar R^2<R^2$
-
-$R^2 \in (0,1)$ whereas $\bar R^2 $ can be sub zero.
-\end{blueblock}
+\paragraph{Overcoming OVB}
+The most direct solution to OVB is to include the omitted variable in the regression, turning it into an MLR model. By adding control variables, we can isolate the effect of our primary variable of interest. Other advanced methods for tackling OVB when data on the omitted variable is unavailable include Instrumental Variables (IV) and Panel Data Fixed Effect models, which are discussed in later sections.
 
 
-\textbf{how many variables should i add into the model?}
+
+
+\subsection{Fitting}
+
+\paragraph{Information criterion}
+
+how many variables should i add into the model?
 
 AIC
 
 BIC
 
-\sepline
+\paragraph{OLS in Matrix Form}
+With multiple regressors, it is convenient to express the OLS problem using matrix algebra. Let $Y$ be an $n \times 1$ vector of outcomes, $X$ be an $n \times (k+1)$ matrix of regressors (including a column of ones for the intercept), and $\beta$ be a $(k+1) \times 1$ vector of parameters. The minimization problem $\min (Y-X\beta)'(Y-X\beta)$ yields the compact solution:
+\begin{equation}
+  \hat{\beta}=(X'X)^{-1}X'Y
+\end{equation}
 
-\textbf{OLS in MLR:}
-
+The OLS is to
 \begin{equation}
   \min\limits_{\{\beta_0,\dots,\beta_k\}} \sum\limits_i^n (Y_i-\hat Y_i)^2
 \end{equation}
 
-or in matrix form
-\begin{equation}
-  \min (Y-X \hat{\beta} )^2
-\end{equation}
-
-results
+This could end in the result of 
 \begin{equation}
   \hat{\beta}=(X^T X)^{-1}X^T Y
 \end{equation}
 
-\sepline
 
-\textbf{Joint hypothesis test}
+
+
+\subsection{Measures of Fit in MLR}
+\label{sub:fit_in_mlr}
+
+\paragraph{Adjusted R-Squared}
+In a multiple regression setting, the standard $R^2$ has a critical flaw: it mechanically increases every time we add a new variable to the model, regardless of whether that variable is truly relevant. This makes it a poor tool for comparing models with different numbers of variables.
+
+The Adjusted R-Squared ($\bar{R}^2$) corrects this problem by penalizing the inclusion of irrelevant variables. It adjusts both the SSR and TSS by their respective degrees of freedom.
+
+\begin{greenblock}
+\textbf{Definition: Adjusted R-Squared ($\bar{R}^2$)}
 \begin{equation}
-  \begin{cases}
-    H_0: \beta_1=0 \& \beta_2=0
-    \\
-    H_1: \beta_1\neq 0 \text{ or } \beta_2\neq 0\text{ or both} \neq 0 
-  \end{cases}
+  \bar R^2 = 1-\frac{SSR/(n-k-1)}{TSS/(n-1)}=1-\frac{n-1}{n-k-1} \cdot \frac{SSR}{TSS}
 \end{equation}
+where $n$ is the sample size and $k$ is the number of independent variables.
+\end{greenblock}
+
+Key properties of $\bar{R}^2$:
+\begin{itemize}
+    \tightlist
+    \item $\bar{R}^2$ is always less than $R^2$.
+    \item Adding a new variable will only increase $\bar{R}^2$ if that variable's contribution to explaining $Y$ is large enough to offset the penalty for losing a degree of freedom.
+    \item $\bar{R}^2$ can be negative, which is a strong signal of a very poorly fitting model.
+\end{itemize}
+For model selection, a higher $\bar{R}^2$ is generally preferred. Other common model selection criteria that impose different penalties for complexity include the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC).
 
 
-\textbf{F-test}
-\begin{equation}
-  F=\frac{1}{2}(\frac{t_1^2+t_2^2-2 \hat \rho_{t_1,t_2} t_1 t_2 }{1-\hat \rho_{t_1,t_2}^2}) \text{, where $\hat\rho_{t_1,t_2}^2$ is estimated correlative coefficient}
-\end{equation}
 
-in large sample $\hat\rho_{t_1,t_2}^2 \stackrel{P}{\rightarrow} 0$, therefore
 
-\begin{equation}
-  F=\frac{1}{2}(t_1^2+t_2^2)
-\end{equation}
 
-\textbf{simplified F statistics when homoskedasticity}
+\subsection{Inference in MLR}
+\label{sub:inference_in_mlr}
 
-$H_0: \beta_1=0,\beta_2=0,\dots,\beta_q=0$ and $H_1: \dots$
+Hypothesis testing in MLR extends the concepts from simple regression, but with the added ability to test more complex hypotheses involving multiple coefficients.
 
-$q=$ number of constraints
+\paragraph{Joint Hypothesis Testing: The F-test}
+Often, we want to test a hypothesis that involves multiple coefficients simultaneously. For example, we might want to test if a group of variables *as a whole* has no effect on $Y$. This is called a joint hypothesis.
+The null and alternative hypotheses take the form:
+\begin{itemize}
+    \tightlist
+    \item $H_0: \beta_1=0, \beta_2=0, \dots, \beta_q=0$ ($q$ restrictions)
+    \item $H_1: \text{At least one of the } \beta_j \text{ in } H_0 \text{ is non-zero.}$
+\end{itemize}
+We cannot test this by simply looking at individual t-tests, as they don't account for the covariance between the coefficient estimates. The correct tool is the F-test. The F-statistic compares the fit of the "unrestricted" model (with all variables) to the "restricted" model (where the null hypothesis is forced to be true by excluding the variables).
 
-unrestricted regression: $Y=Y(X_1,X_2\dots X_n)$
-
-restricted regression: $Y=Y(X_1,X_2\dots X_i) \;s.t. \; g(X_i,X_{i+1}\dots X_n)=c$
-
+\begin{greenblock}
+\textbf{Definition: The F-statistic}
 \begin{equation}
   F=
+  \frac{(SSR_{\text{restricted}}-SSR_{\text{unrestricted}})/q}{SSR_{\text{unrestricted}}/(n-k_{\text{unrestricted}}-1)}
+  =
   \frac{(R^2_{\text{unrestricted}}-R^2_{\text{restricted}})/q}{(1-R^2_{\text{unrestricted}})/(n-k_{\text{unrestricted}}-1)}
 \end{equation}
-
-
-\textbf{Tests for Single Constraints Involving Multiple Coefficients}
-
-change the original
-$Y=\beta_{0}+\beta_{1}X+\beta_{2}Y+u$ 
-
-to
-\begin{equation}
-\begin{split}
-  Y=&\beta_{0}+(\beta_1- \beta_{2})X+\beta_2 (X+Y)+u\\
-  =&\beta_{0}+\gamma X +\beta_2 W+u
-\end{split}
-\end{equation}
-
-now testing $\gamma=0$ is same as testing $\beta_{1}=\beta_{2}$
-
-% section multi_variate_linear_regression (end)
+where $q$ is the number of restrictions (coefficients set to zero) in the null hypothesis. A large F-statistic provides evidence against the null, suggesting the tested variables are jointly significant.
+\end{greenblock}
 
 
 
-\section{other regression stuff}
-
-\textbf{dummy variables}
-
-$D_i=0 \text{ or } 1$
-
-\textbf{dummy variable trap}
-
-For 4 cases, model has 4 cases $\Rightarrow$ perfect multicolineary
-
-To fix it, use $k-1$ dummies for $k$ cases.
-
-\sepline
-
-non-linear regression
-
-probit model, $Pr(Y=1|X_1,X_2\dots X_n)=\Phi(\beta_0 +\beta_{1}X_1+\dots+\beta_{n} X_n)$
-
-logit model, $Pr(Y=1|X_1,X_2\dots X_n)=\frac{1}{1+e^{-(\beta_0 +\beta_{1}X_1+\dots+\beta_{n} X_n)}}$
 
 
-\sepline
+\section{Functional Form and Diagnostic Issues in Regression}
+\label{sec:functional_form_diagnostics}
 
-\textbf{heteroskedasticity}
+The linear regression model is more flexible than its name suggests. The "linear" part refers to the model being linear in its parameters ($\beta_j$), not necessarily in its variables. By transforming the variables ($Y$ and $X$), we can model a wide variety of non-linear relationships. This section also addresses common practical issues that can invalidate our standard OLS inference.
 
-$var(u|x)$ is variant to different $x_i, i\in n$
+\subsection{Modeling Non-linear Relationships}
+\label{sub:nonlinear}
 
-heteroskedasticity causes significance test to be meaningless
+Real-world economic relationships are often non-linear. The effect of an additional year of experience on wages, for instance, is likely much larger for a new graduate than for a late-career professional.
 
-how to overcome
+\paragraph{Logarithmic Transformations}
+The most common method for modeling non-linearities is the natural logarithm (`log` or `ln`). It allows us to interpret coefficients in terms of percentage changes, which is often more intuitive than unit changes.
 
 \begin{itemize}
-\tightlist
-  \item heteroskedasticity-robust standard error regression
-  \item GLS
-  \item clustered heteroskedasticity-robust standard error regression
+    \tightlist
+    \item \textbf{Log-Lin Model}: $\log(Y) = \beta_0 + \beta_1 X + u$.
+    \begin{itemize}
+        \item \textit{Interpretation}: A one-unit increase in $X$ is associated with a $(100 \cdot \beta_1)\%$ change in $Y$. This is a standard model for wage equations, where $Y$ is wages and $X$ is years of education.
+    \end{itemize}
+    
+    \item \textbf{Lin-Log Model}: $Y = \beta_0 + \beta_1 \log(X) + u$.
+    \begin{itemize}
+        \item \textit{Interpretation}: A one-percent increase in $X$ is associated with a $(\beta_1/100)$-unit change in $Y$. For example, modeling the effect of a percent change in advertising spend ($X$) on the number of units sold ($Y$).
+    \end{itemize}
+    
+    \item \textbf{Log-Log Model}: $\log(Y) = \beta_0 + \beta_1 \log(X) + u$.
+    \begin{itemize}
+        \item \textit{Interpretation}: A one-percent increase in $X$ is associated with a $\beta_1\%$ change in $Y$. In this specification, $\beta_1$ is an \textbf{elasticity}. This is the standard functional form for estimating demand curves.
+    \end{itemize}
 \end{itemize}
 
-\sepline
-
-multicolinearity
-
-\sepline
-
-interaction term
-
-1) two dummies (DID)
-
-$Y=\beta_0+\beta_{1}D_1+\beta_{2}D_2+\beta_{3}D_1 D_2+u$
-
+\paragraph{Polynomial Regression}
+To model relationships that may increase and then decrease (or vice-versa), we can include polynomial terms. A quadratic model is the most common:
 \begin{equation}
-  \begin{split}
-  \text{effect of $D_2$}=&E(Y|D_1,D_2=1)-E(Y|D_1,D_2=0)\\
-  =&(\beta_0+\beta_{1}D_1+\beta_{2}+\beta_{3}D_1)-(\beta_0+\beta_{1}D_1)
-  \\=&\beta_2+\beta_3 D_1
-  \end{split}
+    Y = \beta_0 + \beta_1 X + \beta_2 X^2 + u
 \end{equation}
+The partial effect of $X$ on $Y$ is now $\frac{\partial Y}{\partial X} = \beta_1 + 2\beta_2 X$, which depends on the level of $X$. If $\beta_1 > 0$ and $\beta_2 < 0$, the relationship is an inverted U-shape. This is often used to model the effect of age or experience on income.
 
-2) dummy and continuent variable
+\subsection{Using Qualitative Information: Dummy Variables}
+\label{sub:dummy_variables}
 
+Often, important explanatory factors are categorical (e.g., gender, region, industry). We can incorporate this information using dummy variables(or indicator variables).
 
-3) two continuent variables
-
-
-
-\section{Panel data}
-
-\textbf{fixed effect}
-
-fixed effect is used when $corr(X,u)\neq 0$. we use dummies on individual level to capture fixed effect, eliminating endogeneity.
-
-individual fixed effect
+\paragraph{Single Dummy Variable}
+A dummy variable, $D$, is a binary variable that takes the value 1 if a certain condition is met and 0 otherwise. Consider the model:
 \begin{equation}
-  y_{it}=\beta_1 X_{it}+\beta_2D_i+\mu_{it}
+    Y_i = \beta_0 + \delta_0 D_i + u_i
 \end{equation}
+Here, the average value of $Y$ for the group where $D=0$ is $E(Y_i|D_i=0) = \beta_0$. For the group where $D=1$, the average value is $E(Y_i|D_i=1) = \beta_0 + \delta_0$. Thus, $\delta_0$ represents the difference in the average value of $Y$ between the two groups.
 
-time fixed effect
+\paragraph{The Dummy Variable Trap}
+When a categorical variable has $k$ mutually exclusive categories (e.g., a company's industry: Manufacturing, Retail, Tech), we must include only $k-1$ dummy variables in the regression. If we include a dummy for every single category, the sum of these dummies will be a constant (equal to 1 for every observation), which is perfectly collinear with the intercept term. This is the \textbf{dummy variable trap}, and it makes OLS estimation impossible due to perfect multicollinearity. 
+
+The category for which we omit the dummy becomes the base category, and the coefficients on the included dummies are interpreted as the difference relative to this base.
+
+
+\paragraph{Interaction Terms}
+The effect of one variable may depend on the value of another. We can model such dependencies using interaction terms.
+
+\begin{itemize}
+    \tightlist
+    \item \textbf{Dummy-Continuous Interaction}: Does the effect of advertising ($X_{cont}$) depend on whether it's a holiday ($D_{holiday}$)?
+    \begin{equation}
+        Y = \beta_0 + \beta_1 X_{cont} + \delta_1 D_{holiday} + \delta_2 (X_{cont} \cdot D_{holiday}) + u
+    \end{equation}
+    The effect of an extra dollar of advertising is $\beta_1$ on a non-holiday, but it is $\beta_1 + \delta_2$ on a holiday. A t-test on $\delta_2$ can determine if this difference is statistically significant.
+    
+    \item \textbf{Continuous-Continuous Interaction}: To see if the effect of $X_1$ depends on the level of $X_2$, we can include their product: $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 (X_1 \cdot X_2) + u$. The effect of $X_1$ on $Y$ is now $\beta_1 + \beta_3 X_2$.
+\end{itemize}
+
+\subsection{Violations of the OLS Assumptions}
+\label{sub:ols_violations}
+
+Remember a OLS can be and should be used in certain conditions? In reality they are not so ideal and perfect.
+
+\paragraph{Multicollinearity}
+Multicollinearity occurs when independent variables are highly correlated with each other.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Perfect Multicollinearity}: One regressor is a perfect linear combination of another (e.g., falling into the dummy variable trap). The model cannot be estimated.
+    \item \textbf{Imperfect Multicollinearity}: Regressors are strongly but not perfectly correlated. OLS estimates remain unbiased, but their standard errors become inflated. This makes it hard to distinguish the individual impacts of the collinear variables, leading to statistically insignificant t-statistics even when the variables are jointly significant.
+\end{itemize}
+
+\paragraph{Heteroskedasticity}
+Heteroskedasticity is a violation of the Gauss-Markov assumption of constant variance.
+\begin{greenblock}
+\textbf{Definition: Heteroskedasticity}
+The variance of the error term, conditional on the independent variables, is not constant.
 \begin{equation}
-  y_{it}=\beta_1 X_{it}+\beta_2D_t+\mu_{it}
+    Var(u|X_1, X_2, \dots, X_k) \neq \sigma^2
 \end{equation}
+For example, the variance in food consumption may be much larger for high-income households than for low-income households.
+\end{greenblock}
 
-individual and time fixed effect
-\begin{equation}
-  y_{it}=\beta_1 X_{it}+\beta_2D_i+\beta_3D_t+\mu_{it}
-\end{equation}
-
-
+\begin{itemize}
+    \tightlist
+    \item \textbf{Consequences}: The OLS estimators ($\hat{\beta}_j$) are still unbiased and consistent. However, the formulas for their standard errors are incorrect. Consequently, t-statistics, F-statistics, and confidence intervals are unreliable. You might conclude an effect is significant when it is not, or vice-versa.
+    \item \textbf{Solution}: The modern, standard solution is to use 
+Heteroskedasticity-Robust Standard Errors
+ (often called White, Huber-White, or simply robust standard errors). These standard errors are calculated in a way that is valid even in the presence of heteroskedasticity of an unknown form. Most statistical software packages can compute them easily.
+\end{itemize}
 \begin{blueblock}
-\begin{note}[individual fixed effect]
-can be used to overcome OVB problem
+\begin{note}[Modern Practice]
+In applied econometrics, it is now standard practice to report robust standard errors by default, as heteroskedasticity is a common feature of economic data, particularly in cross-sectional studies. Assuming homoskedasticity without evidence is often considered unrealistic.
 \end{note}
 \end{blueblock}
 
 
 
-\textbf{random effect}
-
-random effect is used when $corr(X,u)=0$
-
-\textbf{Hausman test}
-
-used to decide whether to use fixed effect or randome effect
-
-The null hypothesis is that there is no difference between random effects and fixed effects. If the null hypothesis is rejected, the fixed effects model is adopted, otherwise the random effects model is adopted.
-
-\sepline
-
-Long panel, $n<t$
-
-Short panel, $n>t$
-
-For short panels, since $t$ is small, it is impossible to explore whether the disturbance term has autocorrelation. For long panels, $t$ is relatively large, so it is necessary to discuss its heteroskedasticity and autocorrelation.
-
-GMM
+\newpage
+\part{EXTENSIONS OF THE REGRESSION FRAMEWORK}
 
 
-\section{Causal effect}
 
-Treatment
-$D_i=
-\begin{cases}
-  1 \text{, receiving treatment}\\
-  0 \text{, not receiving treatment}
-\end{cases}$
 
-potential untreated outcome
-$Y_{i}^{0}=Y_{i}(D=0)$
+\section{Models for Limited Dependent Variables}
+\label{sec:ldv_models}
 
-potential treated outcome
-$Y_{i}^{1}=Y_{i}(D=1)$
+In many economic scenarios, the outcome we want to explain is not a continuous variable. It might be a binary choice (to buy a product or not), an ordinal ranking (a credit rating), or a count (the number of patents filed). When the dependent variable is "limited" in this way, OLS is no longer the appropriate tool. This section introduces models designed specifically for the most common case: a binary dependent variable.
 
-realistic outcome
-$Y_{i}=D_{i}Y_{i}^{1}-(1-D_{i})Y_{i}^{0}$
+\subsection{The Linear Probability Model (LPM)}
+\label{sub:lpm}
 
-unit treatment effect
-$\delta_{i}=Y_{i}^{1}-Y_{i}^{0}$
-
-ATT
+The most direct approach to modeling a binary outcome ($Y \in \{0, 1\}$) is to simply use OLS. This is called the Linear Probability Model (LPM).
 \begin{equation}
-\begin{split}
-\tau_{att}&=E(\delta_{i}|D_{i}=1)
-\\&=E(Y^{1}_{i}-Y^{0}_{i}|D_{i}=1)
-\\&=E(Y^{1}_{i}|D_{i}=1)-E(Y^{0}_{i}|D_{i}=1)
-\end{split}
+    Y = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k + u
+\end{equation}
+Because the expected value of a binary variable is the probability that it equals 1, we have $E[Y|X] = Pr(Y=1|X)$. The LPM therefore models the probability directly as a linear function of the regressors.
+
+\paragraph{Interpretation and Flaws}
+The coefficient $\beta_j$ in an LPM is interpreted as the change in the probability of success ($Y=1$) for a one-unit change in $X_j$. While simple to estimate and interpret, the LPM has several serious drawbacks:
+\begin{enumerate}
+    \tightlist
+    \item \textbf{Predicted Probabilities Out of Bounds:} The linear functional form can produce predicted probabilities that are less than 0 or greater than 1, which is nonsensical.
+    \item \textbf{Constant Marginal Effects:} The model assumes that the effect of $X_j$ on the probability is constant, which is often unrealistic. The impact of an extra \$1000 in income on the probability of buying a car is likely much larger for a low-income individual than for a millionaire.
+    \item \textbf{Inherent Heteroskedasticity:} The variance of the error term in an LPM depends on the values of $X$, violating the homoskedasticity assumption by construction. While this can be fixed with robust standard errors, the other issues remain.
+\end{enumerate}
+The LPM is useful as a simple benchmark, but its flaws motivate the need for more sophisticated models.
+
+\subsection{Probit and Logit Models}
+\label{sub:probit_logit}
+
+Instead of modeling the probability as a linear function, Probit and Logit models use a non-linear S-shaped curve that is bounded between 0 and 1. This is achieved by linking the probability to the Cumulative Distribution Function (CDF) of a probability distribution.
+
+\begin{equation}
+    Pr(Y=1|X) = G(\beta_0 + \beta_1 X_1 + \dots + \beta_k X_k)
+\end{equation}
+where $G(\cdot)$ is a chosen CDF. The term inside, $Z = \beta_0 + \beta_1 X_1 + \dots$, is often called the index.
+
+\paragraph{The Probit Model}
+The Probit model assumes that $G(\cdot)$ is the CDF of the standard normal distribution, denoted by $\Phi(\cdot)$.
+\begin{equation}
+    Pr(Y=1|X) = \Phi(\beta_0 + \beta_1 X_1 + \dots + \beta_k X_k)
+\end{equation}
+As the index $Z$ goes from $-\infty$ to $+\infty$, the resulting probability smoothly moves from 0 to 1.
+
+\paragraph{The Logit Model}
+The Logit model uses the CDF of the standard logistic distribution, denoted by $\Lambda(\cdot)$.
+\begin{equation}
+    Pr(Y=1|X) = \Lambda(\beta_0 + \dots + \beta_k X_k) = \frac{e^{\beta_0 + \dots + \beta_k X_k}}{1+e^{\beta_0 + \dots + \beta_k X_k}}
+\end{equation}
+In practice, the Probit and Logit models yield very similar results. The logistic distribution has slightly fatter tails than the normal distribution, but the choice between them is often a matter of convention in a particular field.
+
+\subsection{Estimation and Interpretation}
+\label{sub:ldv_interpretation}
+
+\paragraph{Maximum Likelihood Estimation (MLE)}
+Because these models are non-linear, they cannot be estimated by OLS. Instead, they are estimated using the principle of \textbf{Maximum Likelihood Estimation (MLE)}. The intuition of MLE is to find the parameter values ($\hat{\beta}$) that make the observed data (our sample of $Y$s and $X$s) most likely to have occurred. It is a general and powerful estimation method used throughout econometrics.
+
+\paragraph{Interpreting Coefficients: Marginal Effects}
+A critical point to understand is that the coefficients ($\beta_j$) in a Probit or Logit model are \textbf{not} the marginal effects. They show the effect of a one-unit change in $X_j$ on the latent index $Z$, not on the probability itself.
+
+To find the effect on the probability, we must compute the derivative of $Pr(Y=1|X)$ with respect to $X_j$, which is:
+\begin{equation}
+    \frac{\partial Pr(Y=1|X)}{\partial X_j} = g(\beta_0 + \beta_1 X_1 + \dots) \cdot \beta_j
+\end{equation}
+where $g(\cdot)$ is the Probability Density Function (PDF) corresponding to the CDF $G(\cdot)$. This shows that the marginal effect is not constant; it depends on the values of all the $X$ variables.
+
+In practice, we don't report $\beta_j$. Instead, we report one of two summary measures, which are easily calculated by statistical software:
+\begin{itemize}
+    \tightlist
+    \item \textbf{Marginal Effect at the Mean (MEM):} The marginal effect calculated at the mean values of all $X$ variables.
+    \item \textbf{Average Marginal Effect (AME):} The marginal effect is calculated for each individual observation in the sample, and then the average of these effects is taken. The AME is generally preferred as it is more representative of the entire sample.
+\end{itemize}
+
+\begin{blueblock}
+\begin{note}[Random Utility and the Logit Model]\label{note:mcfadden}
+\end{note}
+A powerful theoretical justification for the Logit model comes from discrete choice theory, specifically Daniel McFadden's work on Random Utility Models. Imagine an individual must choose between two options, 0 and 1. The utility they get from each choice is:
+\begin{align*}
+    U_{i0} &= V_{i0} + \epsilon_{i0} \\
+    U_{i1} &= V_{i1} + \epsilon_{i1}
+\end{align*}
+Here, $V_{ij}$ is the deterministic part of the utility (which can be modeled as a function of observed characteristics, e.g., $V_{i1} = X_i\beta$), and $\epsilon_{ij}$ is a random, unobserved component.
+
+The individual will choose option 1 if $U_{i1} > U_{i0}$. McFadden showed that if the random error terms, $\epsilon_{i0}$ and $\epsilon_{i1}$, are assumed to be independently and identically drawn from a Type-I extreme value distribution, then the probability of choosing option 1 takes the exact form of the Logit model:
+\begin{equation}
+    Pr(Y_i=1|X_i) = Pr(V_{i1} - V_{i0} > \epsilon_{i0} - \epsilon_{i1}) = \frac{e^{V_{i1}-V_{i0}}}{1+e^{V_{i1}-V_{i0}}}
+\end{equation}
+This framework generalizes to choices among multiple alternatives (the multinomial logit), where the probability of choosing option $j$ out of $J$ total options becomes the \textbf{softmax function}: 
+
+\begin{equation}
+  Pr(Y_i=j) = \frac{e^{V_{ij}}}{\sum_{k=1}^J e^{V_{ik}}}
+\end{equation}
+\end{blueblock}
+
+
+
+
+
+
+
+\newpage
+\part{THE CAUSAL INFERENCE TOOLKIT}
+
+
+Traditional models are excellent at finding correlation—showing how variables move together—but they struggle to prove that one variable causes a change in another.
+
+Some assumption are really unrealistic. This means endogeneity being inevitable. That's why we have to forfeit some of the rules and be practical. 
+
+Stuff in this part, they are explicitly designed to identify and isolate a causal effect. Or in simple terms, they are designed to overcome endogeneity problems.
+
+
+\section{The Challenge of Causal Inference}
+\label{sec:causal_inference_challenge}
+
+\textbf{This section is the philosophical heart of modern applied econometrics.}
+
+The previous sections focused on fitting models and describing relationships within a dataset. We now shift our focus to the central ambition of modern econometrics: estimating the causal effect of a variable or intervention. While a traditional regression can show us that advertising and sales are correlated, a causal approach seeks to answer the question: "By how much \textit{would sales increase} if we were to increase our advertising budget by \$100?" Answering this "what if" question requires moving beyond mere association to a more structured way of thinking about cause and effect.
+
+IF ALL CRITERIONS ARE MET IN THE OLS, they are purely causal.
+
+
+\subsection{The Potential Outcomes Framework}
+\label{sub:potential_outcomes}
+
+The most influential framework for thinking about causality is the Rubin Causal Model (RCM), also known as the Potential Outcomes framework. It provides a precise language for defining a causal effect, even if that effect is fundamentally unobservable.
+
+Let's consider a binary treatment, $D_i$. For each individual $i$, there are two potential outcomes:
+\begin{itemize}
+    \tightlist
+    \item $Y_i(1)$: The potential outcome for individual $i$ \textit{if they receive the treatment} ($D_i=1$).
+    \item $Y_i(0)$: The potential outcome for individual $i$ \textit{if they do not receive the treatment} ($D_i=0$).
+\end{itemize}
+The individual-level causal effect is the difference between these two potential outcomes:
+\begin{equation}
+    \delta_i = Y_i(1) - Y_i(0)
 \end{equation}
 
-
-ATU
+\paragraph{The Fundamental Problem of Causal Inference}
+The core dilemma is that for any given individual $i$, we can only ever observe one of their potential outcomes. The one we do not observe is called the counterfactual. We observe the realized outcome, $Y_i$, which is:
 \begin{equation}
-\begin{split}
-\tau_{atu}&=E(\delta_{i}|D_{i}=0)
-\\&=E(Y^{1}_{i}-Y^{0}_{i}|D_{i}=0)
-\\&=E(Y^{1}_{i}|D_{i}=0)-E(Y^{0}_{i}|D_{i}=0)
-\end{split}
+    Y_i = D_i Y_i(1) + (1-D_i) Y_i(0)
 \end{equation}
+Since we can never observe $\delta_i$ for any individual, our goal must be to estimate the \textbf{average} causal effect across a population.
 
-ATE
+\paragraph{Average Causal Effects}
+There are several population-level parameters of interest:
+\begin{itemize}
+    \tightlist
+    \item \textbf{Average Treatment Effect (ATE)}: The average effect for an individual chosen at random from the population.
+    \begin{equation}
+        \tau_{ATE} = E[\delta_i] = E[Y_i(1) - Y_i(0)]
+    \end{equation}
+    \item \textbf{Average Treatment Effect on the Treated (ATT)}: The average effect specifically for those who actually received the treatment.
+    \begin{equation}
+        \tau_{ATT} = E[\delta_i | D_i=1] = E[Y_i(1)|D_i=1] - E[Y_i(0)|D_i=1]
+    \end{equation}
+\end{itemize}
+
+\subsection{Selection Bias: Why Simple Comparisons Fail}
+\label{sub:selection_bias}
+
+A naive approach to estimating the causal effect is to simply compare the average outcomes of the treated group and the untreated group. This simple difference in means is:
 \begin{equation}
-\begin{split}
-\tau_{ate}&=E(\delta_{i})
-\\&=E(Y^{1}_{i}-Y^{0}_{i})
-\\&=E[E(Y_{i}^{1}-Y_{i}^{0}|D_{i})]
-\\&=E(Y_{i}^{1}-Y_{i}^{0}|D_{i}=1)\cdot Pr(D_{i}=1)+E(Y_{i}^{1}-Y_{i}^{0}|D_{i}=0)\cdot Pr(D_{i}=0)
-\\&=\tau_{att}\cdot Pr(D_{i}=1)+\tau_{atu} \cdot Pr(D_{i}=0)
-\end{split}
+    \Delta = E[Y_i | D_i=1] - E[Y_i | D_i=0]
 \end{equation}
-
-\subsection{IV}
-
-\textbf{IV conditions}
+Using the potential outcomes framework, we can decompose this simple difference:
 \begin{align}
-  &corr(Z,\mu)=0
-  \\&corr(Z,X)\neq 0
+    \Delta &= E[Y_i(1) | D_i=1] - E[Y_i(0) | D_i=0] \\
+    &= E[Y_i(1) | D_i=1] - E[Y_i(0)|D_i=1] + E[Y_i(0)|D_i=1] - E[Y_i(0) | D_i=0] \\
+    &= \underbrace{\tau_{ATT}}_{\text{True Causal Effect}} + \underbrace{E[Y_i(0)|D_i=1] - E[Y_i(0) | D_i=0]}_{\text{Selection Bias}}
 \end{align}
+The simple difference in means is the sum of the true causal effect we want and a selection bias term. This bias term represents the difference in the \textit{no-treatment potential outcome} between those who chose treatment and those who did not.
 
-\textbf{2SLS}
+\begin{redblock}
+\textbf{Example of Selection Bias:} Consider estimating the effect of a job training program on wages. If more motivated individuals are more likely to sign up for the program, they would likely have earned higher wages than the non-participants \textit{even if they had not taken the training}. This means $E[Y_i(0)|D_i=1] > E[Y_i(0) | D_i=0]$, leading to a positive selection bias. A simple comparison would overstate the program's true effect.
+\end{redblock}
 
-For a 
-$\begin{cases}
-Y=\beta_0+\beta_1X+\mu\\
-X=\pi_0+\pi_1 Z+\nu
-\end{cases}$
+The central challenge of causal econometrics is finding a research design that eliminates or accounts for selection bias. A randomized controlled trial (RCT) does this by design, as random assignment ensures that, on average, the treatment and control groups are identical before treatment ($E[Y_i(0)|D_i=1] = E[Y_i(0) | D_i=0]$). The methods we will discuss in the following sections (Panel Data, IV, DID, RDD) are all strategies for approximating an RCT and eliminating selection bias when we only have observational, non-experimental data.
 
-step 1: regress $X$ on $Z$, eliminating the part of $X$ related to $\mu$
+\subsection{Causal Identification Strategies}
+\label{sub:causal_identification}
 
-step 2: regress $Y$ on the estimated $\hat X$
+An "identification strategy" is the set of assumptions we rely on to argue that our chosen method has isolated a true causal effect, free from selection bias. It is the story that connects our statistical model to the causal parameter we wish to estimate.
 
-step 3: resulting $\hat{\beta}=\frac{s_{YZ}}{s_{XZ}}$
+\paragraph{From Potential Outcomes to Regression}
+The problem of selection bias can be reframed in the regression context. In the model $Y = \beta_0 + \beta_1 D + u$, the coefficient $\beta_1$ only has a causal interpretation if the treatment assignment $D$ is uncorrelated with the error term $u$. However, if individuals who are more likely to have a high $Y$ for other reasons (e.g., motivation, ability, which are part of $u$) are also more likely to select into treatment (have $D=1$), then $Cov(D,u) \neq 0$. This is the problem of endogeneity, and selection bias is a primary cause. The goal of causal identification strategies is to find a way to make $Cov(D,u) = 0$.
+
+\begin{blueblock}
+\begin{note}[Directed Acyclic Graphs, DAGs]
+\end{note}
+Another increasingly popular framework for reasoning about causality is the Directed Acyclic Graph (DAG). DAGs provide a visual way to represent the assumed causal relationships between variables.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Nodes and Arrows:} Each variable is a node, and a causal relationship is represented by a directed arrow ($A \rightarrow B$ means A causes B).
+    \item \textbf{The Goal:} To estimate the causal effect of a treatment $T$ on an outcome $Y$, we need to block all "backdoor paths" between $T$ and $Y$. A backdoor path is a non-causal path of association that can create bias.
+    \item \textbf{Controlling for Confounders:} A common backdoor path is created by a "confounder" $C$, a variable that causes both $T$ and $Y$ ($T \leftarrow C \rightarrow Y$). This path creates a spurious correlation between $T$ and $Y$. By controlling for $C$ in a regression, we "block" this backdoor path.
+\end{itemize}
+DAGs are a powerful tool for making our causal assumptions explicit. An OVB arises when we fail to control for a confounder that opens a backdoor path. The potential outcomes framework and DAGs are two complementary languages for describing the same fundamental challenges of causal inference.
+\end{blueblock}
 
 
-\textbf{weak IV}
-
-First stage least squares has F-value lower than 10. Or first stage regression is not significant.
 
 
 
-\textbf{Identification}
 
-$n=$number of IV and $k=$ number of endogenous variable
+\section{Matching Methods: Propensity Score Matching (PSM)}
+\label{sec:psm}
 
-an identification problem can be denoted as 
-$\begin{cases}
-  n=k \text{ perfect identification}
-  \\
-  n>k \text{ over-identification}
-  \\
-  n<k \text{ unable to identify}
-\end{cases}$
+After formalizing the problem of selection bias in the potential outcomes framework, our first line of attack is to ask: can we eliminate this bias by simply "controlling for" all relevant observable differences between the treated and untreated groups? Matching methods, particularly Propensity Score Matching (PSM), are designed to do exactly this.
 
-Sargent test
+\subsection{The "Selection on Observables" Assumption}
+\label{sub:selection_on_observables}
 
-Hansen J test
+Matching methods are built upon a key identifying assumption known as selection on observables, or conditional independence.
 
-C-statistics
+\begin{redblock}
+\textbf{The Conditional Independence Assumption (CIA)}
+Conditional on a set of observable pre-treatment characteristics, $X$, the assignment to treatment is independent of the potential outcomes. Formally:
+\begin{equation}
+(Y_i(1), Y_i(0)) \perp D_i | X_i
+\end{equation}
+\end{redblock}
 
-\subsection{DID}
+\paragraph{The Intuition}
+The CIA states that once we have controlled for a rich enough set of observable variables ($X$), there are no remaining unobserved differences (like motivation, ability, or risk tolerance) that are correlated with both treatment status and the outcome. In essence, it assumes that the selection bias we identified earlier is entirely due to observable factors. If CIA holds, then within any group of individuals with the same characteristics $X$, the assignment to treatment is "as good as random."
+
+This is a very strong assumption, and it is the primary weakness of matching methods. Its credibility hinges entirely on the researcher's ability to argue that their dataset contains \textit{all} the key variables that jointly determine treatment and outcomes.
+
+\subsection{From High Dimensions to a Single Score}
+\label{sub:propensity_score}
+
+In principle, if CIA holds, we could estimate the treatment effect by matching each treated individual to an untreated individual with the exact same values for all variables in $X$. However, if $X$ contains many variables, especially continuous ones, finding exact matches becomes impossible. This is known as the \textbf{curse of dimensionality}.
+
+The \textbf{propensity score}, introduced by Rosenbaum and Rubin, is an ingenious solution to this problem.
+
+\begin{greenblock}
+\textbf{Definition: The Propensity Score}
+The propensity score, $p(X_i)$, is the conditional probability of an individual receiving the treatment, given their vector of pre-treatment characteristics $X_i$.
+\begin{equation}
+    p(X_i) = Pr(D_i = 1 | X_i)
+\end{equation}
+\end{greenblock}
+
+In practice, the true propensity score is unknown and must be estimated, typically using a Logit or Probit model where the dependent variable is the treatment dummy $D_i$ and the independent variables are the characteristics in $X_i$.
+
+Rosenbaum and Rubin proved that if CIA holds conditional on $X$, then it also holds conditional on the one-dimensional propensity score $p(X)$. This means that instead of having to match on a potentially huge vector of variables, we only need to match individuals based on their estimated probability of being treated.
+
+\subsection{Implementing PSM: A Practical Guide}
+\label{sub:psm_implementation}
+
+The process of estimating a treatment effect using PSM typically involves four steps.
+
+\paragraph{Step 1: Estimate the Propensity Score}
+Run a Logit or Probit regression of the treatment indicator $D_i$ on the set of pre-treatment covariates $X_i$ to get the estimated propensity score, $\hat{p}(X_i)$, for every observation in both the treatment and control groups.
+
+\paragraph{Step 2: Check for Common Support}
+A crucial diagnostic step is to check for **common support** (or overlap). The CIA is only useful in regions where we have both treated and untreated individuals. If, for example, the control group only has individuals with propensity scores between 0.1 and 0.5, while the treatment group has scores from 0.6 to 0.9, the groups are too different to be compared, and we have no common support. In practice, observations that fall outside the common support region are often discarded.
+
+\paragraph{Step 3: Choose a Matching Algorithm}
+Once scores are estimated, each treated unit must be matched to one or more control units. Common algorithms include:
+\begin{itemize}
+    \tightlist
+    \item \textbf{Nearest Neighbor Matching:} Each treated unit is matched to the control unit with the closest propensity score. "Matching with replacement" is often preferred, as it allows a good control unit to be used as a match multiple times, which can improve match quality at the cost of some precision.
+    \item \textbf{Caliper Matching:} A variant of nearest neighbor that imposes a tolerance level: a match is only made if the propensity score difference is smaller than a pre-specified amount (the caliper).
+    \item \textbf{Kernel Matching:} Each treated unit is matched to a weighted average of all control units, where the weights are inversely proportional to the distance in propensity scores. This uses more data but can be sensitive to the choice of kernel function.
+\end{itemize}
+
+\paragraph{Step 4: Estimate the Treatment Effect and Check Balance}
+After matching, the Average Treatment Effect on the Treated (ATT) is estimated by taking the mean difference in the outcome variable between the treated units and their matched control units.
+
+Finally, one must perform a **balance check**. The whole point of matching was to make the treatment and control groups comparable on their observable characteristics $X$. We must verify that this was successful by comparing the means of the $X$ variables between the two groups *after* matching. If significant differences remain, the matching procedure has failed.
+
+\begin{blueblock}
+\begin{note}[PSM vs. Regression]
+\end{note}
+You might wonder how PSM differs from just running an OLS regression of $Y$ on $D$ and $X$. OLS imposes a linear functional form on the relationship between $X$ and $Y$. PSM is non-parametric in this regard; it does not make assumptions about how $X$ affects $Y$. By focusing on the *treatment assignment process* (the propensity score), it can be more robust if the OLS model is misspecified. However, both methods are equally reliant on the strong, untestable Conditional Independence Assumption.
+\end{blueblock}
+
+
+
+
+
+
+
+
+
+\section{Panel Data Methods}
+\label{sec:panel_data}
+
+Panel data (or longitudinal data), which tracks the same entities (e.g., individuals, firms, countries) over time, is one of the most powerful tools for causal inference. The ability to observe the same unit under different circumstances allows us to control for unobservable factors that are constant over time, thereby mitigating a critical source of omitted variable bias.
+
+\subsection{The Power of Fixed Effects}
+\label{sub:fixed_effects}
+
+Consider a simple regression to estimate the effect of $X$ on $Y$ for an entity $i$ at time $t$:
+\begin{equation}
+    Y_{it} = \beta_0 + \beta_1 X_{it} + u_{it}
+\end{equation}
+The key challenge is that the error term $u_{it}$ contains unobserved factors. Some of these factors may be constant for a given individual over time (e.g., innate ability, a firm's foundational culture, a country's geography), while others may vary over time. We can decompose the error term:
+\begin{equation}
+    u_{it} = \alpha_i + \nu_{it}
+\end{equation}
+where $\alpha_i$ is the unobserved, time-invariant individual-specific effect, and $\nu_{it}$ is the idiosyncratic error that changes over time.
+
+The endogeneity problem arises if the variable of interest, $X_{it}$, is correlated with the fixed effect $\alpha_i$. For example, when estimating the effect of education ($X_{it}$) on wages ($Y_{it}$), an individual's innate ability ($\alpha_i$) is likely correlated with both their educational attainment and their wage potential. This leads to biased OLS estimates.
+
+\paragraph{The Fixed Effects (FE) Estimator}
+The Fixed Effects (or "within") estimator provides a brilliant solution to this problem. It eliminates the time-invariant effect $\alpha_i$ by using only the variation *within* each individual over time. This is typically done through one of two equivalent procedures:
+
+\begin{enumerate}
+    \tightlist
+    \item \textbf{De-meaning:} For each individual $i$, calculate the average of $Y$, $X$, and $u$ over time ($\bar{Y}_i, \bar{X}_i, \bar{u}_i$). Subtracting these averages from the original equation yields:
+    \begin{equation}
+        (Y_{it} - \bar{Y}_i) = \beta_1 (X_{it} - \bar{X}_i) + (\nu_{it} - \bar{\nu}_i)
+    \end{equation}
+    The individual fixed effect $\alpha_i$ is perfectly constant over time, so it drops out of the equation ($\alpha_i - \bar{\alpha}_i = \alpha_i - \alpha_i = 0$). We can then run OLS on this "de-meaned" data to get an unbiased estimate of $\beta_1$.
+    \item \textbf{Least Squares Dummy Variable (LSDV):} An equivalent approach is to include a dummy variable for every single individual $i$ in the regression (except one, to avoid the dummy variable trap). This is computationally intensive for large datasets but yields the exact same estimate for $\beta_1$.
+\end{enumerate}
+
+\paragraph{Real-World Application and Interpretation}
+The FE estimator is a workhorse in applied economics for estimating the effect of policies or changing circumstances. A key feature is that it 
+cannot estimate the effect of any time-invariant variable
+ (e.g., gender, race, a firm's industry). Because these variables do not change within an individual, their effects are absorbed into the fixed effect and cannot be separately identified. The interpretation of $\beta_1$ is therefore: "When individual $i$ changes its value of $X$ by one unit, its value of $Y$ is expected to change by $\beta_1$ units, holding all other time-varying factors constant and controlling for all stable, unobserved characteristics of the individual."
+
+\subsection{The Two-Way Fixed Effects (TWFE) Model}
+\label{sub:twfe}
+
+The standard FE model controls for unobserved factors that are constant within an individual. However, there may also be unobserved factors that are constant across all individuals at a specific point in time, such as a nationwide macroeconomic shock, a new regulation, or a change in public sentiment. These are called time fixed effects.
+
+\begin{greenblock}
+\textbf{The Two-Way Fixed Effects (TWFE) Model}
+To control for both types of unobserved confounders simultaneously, we augment the FE model with time dummies. This is the standard model used in a vast amount of modern empirical research.
+\begin{equation}
+    Y_{it} = \beta_1 X_{it} + \alpha_i + \gamma_t + \nu_{it}
+\end{equation}
+\begin{itemize}
+    \tightlist
+    \item $\beta_1$: The coefficient of interest.
+    \item $\alpha_i$: A full set of individual fixed effects (entity dummies). Controls for all time-invariant confounders.
+    \item $\gamma_t$: A full set of time fixed effects (time period dummies). Controls for all common shocks that affect all entities in a given period.
+\end{itemize}
+\end{greenblock}
+
+\paragraph{Practical Implementation}
+In practice, nobody calculates de-meaned data by hand or includes thousands of individual dummies manually. All major statistical software packages have specialized commands that estimate FE and TWFE models efficiently. The standard practice is to specify the model and declare which variables represent the "individual" and "time" dimensions. \textbf{A crucial and often overlooked best practice is to cluster standard errors at the individual level.} This accounts for the fact that the errors for a given individual are likely to be correlated across time (serial correlation).
+
+\begin{redblock}
+\textbf{Example: Minimum Wage and Employment}
+A classic application of TWFE is estimating the effect of minimum wage increases on employment. Researchers use a panel of all 50 U.S. states over many years.
+\begin{itemize}
+    \item $Y_{it}$: Employment in the restaurant industry in state $i$ in year $t$.
+    \item $X_{it}$: The minimum wage in state $i$ in year $t$.
+    \item $\alpha_i$ (State Fixed Effects): Control for time-invariant differences between states (e.g., industrial structure, political culture, geography).
+    \item $\gamma_t$ (Year Fixed Effects): Control for national trends affecting all states in a given year (e.g., recessions, changes in federal policy, technological progress).
+\end{itemize}
+By using TWFE, the estimate for $\beta_1$ is isolated from both stable differences across states and common national trends, bringing us closer to a causal estimate.
+\end{redblock}
+
+\subsection{Random Effects and the Hausman Test}
+\label{sub:random_effects}
+
+An alternative to the FE model is the Random Effects (RE) model. The RE model assumes that the unobserved individual effects $\alpha_i$ are random and, crucially, 
+uncorrelated with the explanatory variables.
+
+\begin{greenblock}
+\textbf{A Conceptual Distinction: Fixed vs. Random Effects}
+
+Beyond the statistical mechanics of the Hausman test, there is a conceptual difference in the research question being asked by FE and RE models.
+
+The Fixed Effects approach is fundamentally agnostic about the distribution of the individual effects, $\alpha_i$. It treats them as fixed, unknown constants that we need to control for and eliminate in order to get a clean estimate of $\beta_1$. The inference is conditional on the specific individuals in our sample. We are primarily interested in the causal effect \textit{within} this sample, making it the preferred model for causal inference where selection bias is a concern. It answers the question: "For the firms in our dataset, what was the effect of this policy?"
+
+The Random Effects approach, by contrast, assumes that the individuals in our sample were randomly drawn from a larger population and treats the individual effects, $\alpha_i$, as random variables that are part of the composite error term. The goal is to make an inference about the entire population from which the sample was drawn. This makes it more suitable for predictive modeling or for situations where the entities are genuinely interchangeable and random sampling from a large population can be credibly assumed (a scenario less common in economics than in, for example, biology or psychology). By treating the effects as random, it "uses" both the within-individual and between-individual variation, making it more efficient—but this comes at the cost of the strong and often untenable assumption of zero correlation.
+
+\end{greenblock}
+
 
 \begin{equation}
-  y_{it}=\beta x_{it} + \gamma_1 D_i +\gamma_2 D_t + \mu_{it}
+    Cov(X_{it}, \alpha_i) = 0
 \end{equation}
+If this assumption holds, the RE model is more efficient (has lower variance) than FE. However, this assumption is often considered unrealistic in economics—it's the econometric equivalent of saying there is no selection bias.
+
+\paragraph{Choosing Between FE and RE: The Hausman Test}
+How do we decide which model to use? The 
+Hausman test
+ provides a formal procedure. It compares the coefficient estimates from the FE model and the RE model.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Null Hypothesis ($H_0$)}: The RE model is appropriate ($Cov(X_{it}, \alpha_i) = 0$). Both FE and RE estimators are consistent, but RE is more efficient.
+    \item \textbf{Alternative Hypothesis ($H_1$)}: The RE model is inappropriate ($Cov(X_{it}, \alpha_i) \neq 0$). Only the FE estimator is consistent.
+\end{itemize}
+If the p-value of the Hausman test is small (e.g., < 0.05), we reject the null hypothesis and conclude that the unobserved effects are correlated with our regressors. In this case, the RE estimates are biased, and we must use the FE model. In most applied microeconomic settings, the Hausman test rejects the null, and \textbf{Fixed Effects is the preferred, more conservative, and more credible approach.}
 
 
-\subsection{RDD}
+
+
+
+\section{Instrumental Variables and Two-Stage Least Squares}
+\label{sec:iv}
+
+We often face situations where our primary explanatory variable, $X$, is endogenous—correlated with the error term $u$—due to omitted variables, measurement error, or simultaneous causality. In these cases, OLS is biased and inconsistent, and a fixed effects strategy may not be possible (e.g., in a cross-sectional study). The Instrumental Variables (IV) method is a powerful, general-purpose solution to this problem. It is a technique that, under the right conditions, allows us to isolate a sliver of "clean" variation in our endogenous variable and use it to estimate a causal effect.
+
+\subsection{The Intuition of Instrumental Variables}
+\label{sub:iv_intuition}
+
+Imagine the variation in our problematic endogenous variable, $X$, is composed of two parts: a "good" part that is exogenous and a "bad" part that is correlated with the error term $u$. OLS uses all the variation and is therefore biased. The goal of IV is to find a special third variable, $Z$, called an \textbf{instrument}, that can isolate only the "good" variation in $X$.
+
+To be a valid instrument, $Z$ must satisfy two core conditions:
+
+\begin{enumerate}
+    \item \textbf{Instrument Relevance:} The instrument must be correlated with the endogenous explanatory variable.
+    \begin{equation}
+        Cov(Z, X) \neq 0
+    \end{equation}
+    The instrument needs to have some power to explain or predict the variable we are trying to fix. If it's unrelated to $X$, it's useless.
+    
+    \item \textbf{Instrument Exogeneity (The Exclusion Restriction):} The instrument must be uncorrelated with the error term $u$. It can only affect the outcome variable $Y$ through its effect on $X$.
+    \begin{equation}
+        Cov(Z, u) = 0
+    \end{equation}
+    This is the crucial, untestable assumption that gives IV its causal power. It demands that the instrument itself is not plagued by the same endogeneity problems as the original variable. It must not have any direct effect on $Y$, nor be correlated with any of the unobserved factors that affect $Y$.
+\end{enumerate}
+
+\begin{redblock}
+\textbf{Classic Example: The Effect of Education on Earnings}
+A classic IV application estimates the return to education. Education ($X$) is likely endogenous because of unobserved "ability" ($u$), which affects both educational attainment and earnings.
+\begin{itemize}
+    \item \textbf{Instrument ($Z$):} Proximity to a college or quarter of birth. Angrist and Krueger (1991) famously used an individual's quarter of birth as an instrument. Due to compulsory schooling laws, those born earlier in the year could legally drop out of school with slightly less education than those born later.
+    \item \textbf{Relevance:} Quarter of birth is (weakly) correlated with years of schooling.
+    \item \textbf{Exogeneity:} Quarter of birth is plausibly random and should not be correlated with an individual's innate ability or have a direct effect on their future earnings, other than through its effect on their schooling.
+\end{itemize}
+By using this instrument, they could isolate the variation in schooling that was driven only by the arbitrary schooling laws, not by ability, thus estimating a causal effect.
+\end{redblock}
+
+\subsection{Estimation: Two-Stage Least Squares (2SLS)}
+\label{sub:2sls}
+
+The most common method for implementing IV is Two-Stage Least Squares (2SLS). It's an intuitive, two-step procedure that mechanically isolates the "good" variation.
+
+Consider the system:
+\begin{align*}
+    Y &= \beta_0 + \beta_1 X + u \quad \text{(Structural Equation)} \\
+    X &= \pi_0 + \pi_1 Z + \nu \quad \text{(First-Stage Equation)}
+\end{align*}
+
+\paragraph{The Two Stages}
+\begin{itemize}
+    \tightlist
+    \item \textbf{First Stage:} We regress the endogenous variable $X$ on the instrument $Z$ (and any other exogenous control variables).
+    \begin{equation}
+        \text{Regress } X \text{ on } Z \Rightarrow \text{ Obtain predicted values } \hat{X}
+    \end{equation}
+    The predicted values, $\hat{X} = \hat{\pi}_0 + \hat{\pi}_1 Z$, represent the part of the variation in $X$ that is explained by our instrument. Because our instrument $Z$ is assumed to be exogenous, this predicted variation, $\hat{X}$, is now also exogenous—it has been "cleaned" of its correlation with $u$.
+    
+    \item \textbf{Second Stage:} We regress our original outcome variable $Y$ on the \textit{predicted values} $\hat{X}$ from the first stage.
+    \begin{equation}
+        \text{Regress } Y \text{ on } \hat{X} \Rightarrow \text{ Obtain the IV estimate } \hat{\beta}_1^{IV}
+    \end{equation}
+    The resulting coefficient, $\hat{\beta}_1^{IV}$, is our consistent estimate of the causal effect. It's crucial to note that while this two-step procedure provides the correct coefficient, the standard errors calculated manually from the second stage are incorrect. Statistical software must be used to perform 2SLS, as it makes the necessary adjustments to compute the correct standard errors.
+\end{itemize}
+
+\subsection{IV in Practice: Finding Instruments in the Real World}
+\label{sub:iv_in_practice}
+
+The credibility of an IV analysis rests entirely on finding a plausible instrument. This search is often a creative process that combines economic theory, institutional knowledge, and an understanding of how natural or historical processes can generate "as-if random" variation. Below are a few famous examples that illustrate the diversity of instrumental variables.
+
+\paragraph{Quasi-Random Natural Events: Rainfall}
+\begin{itemize}
+    \item \textbf{Research Question:} What is the effect of a country's income on its likelihood of experiencing civil war?
+    \item \textbf{Endogeneity Problem:} Income and conflict are simultaneously determined. Poor economic conditions might cause conflict, but conflict also destroys the economy. OLS cannot disentangle this.
+    \item \textbf{Instrumental Variable ($Z$):} Variation in annual rainfall. In countries heavily reliant on agriculture, rainfall is a strong predictor of agricultural output and thus GDP growth (Instrument Relevance). However, rainfall itself is unlikely to have a direct effect on civil war, other than through its effect on the economy (Instrument Exogeneity). Miguel, Satyanath, and Sergenti (2004) used this strategy to find a strong causal link from negative economic shocks to increased conflict in Africa.
+\end{itemize}
+
+\paragraph{Institutional Rules and Administrative Boundaries}
+\begin{itemize}
+    \item \textbf{Research Question:} What is the causal effect of having more police on the crime rate?
+    \item \textbf{Endogeneity Problem:} Police presence is not random. More police are typically assigned to high-crime areas, and crime rates might drive police deployment, creating simultaneity bias. OLS would likely find a positive correlation between police and crime, which is not the true causal effect.
+    \item \textbf{Instrumental Variable ($Z$):} The timing of mayoral or gubernatorial elections. Levitt (1997) argued that politicians hire more police in election years to appear "tough on crime." This creates variation in the size of the police force that is driven by the political cycle, not by the current crime rate (Relevance). The timing of an election itself should have no direct effect on crime (Exogeneity).
+\end{itemize}
+
+\paragraph{Geographic "Lotteries": Land Suitability or Distance}
+\begin{itemize}
+    \item \textbf{Research Question:} Do a country's institutions (e.g., property rights, rule of law) have a causal effect on its long-run economic development?
+    \item \textbf{Endogeneity Problem:} It's difficult to separate the effect of institutions from other factors like geography or culture. Rich countries may be able to "afford" better institutions, creating reverse causality.
+    \item \textbf{Instrumental Variable ($Z$):} Mortality rates of early European colonial settlers. Acemoglu, Johnson, and Robinson (2001) argued that in places where settlers faced high mortality rates (e.g., due to malaria in Africa), they established "extractive" institutions designed to exploit resources quickly. Where they could settle safely, they set up institutions that protected property rights, mimicking their home countries. These early institutional choices persisted over centuries (Relevance). The historical mortality rates are unlikely to have a direct effect on a country's GDP \textit{today}, except through their persistent effect on its institutions (Exogeneity).
+\end{itemize}
+
+These examples highlight the art of IV estimation: it requires identifying a source of variation—be it from nature, politics, or history—that affects the endogenous variable of interest but is plausibly independent of the unobserved factors that confound the causal relationship.
+
+\subsection{Practical Challenges and Diagnostics}
+\label{sub:iv_practice}
+
+Finding a valid instrument is one of the most difficult creative acts in econometrics. The credibility of any IV study rests entirely on the quality of the instrument.
+
+\paragraph{The Weak Instrument Problem}
+A "weak instrument" is one that satisfies the relevance condition ($Cov(Z, X) \neq 0$) but is only weakly correlated with the endogenous variable.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Consequences:} If the instrument is weak, even a tiny violation of the exogeneity assumption ($Cov(Z, u) \approx 0$) can lead to large biases in the 2SLS estimate. Furthermore, weak instruments lead to imprecise (large standard error) estimates.
+    \item \textbf{Diagnosis:} The standard diagnostic is the \textbf{F-statistic from the first-stage regression}. A common rule of thumb is that an \textbf{F-statistic less than 10 signals a weak instrument problem}. If the F-statistic is low, the 2SLS results should not be trusted.
+\end{itemize}
+
+\paragraph{Testing the Exogeneity Assumption}
+The core exogeneity assumption ($Cov(Z, u) = 0$) cannot be formally tested when we have exactly one instrument for one endogenous variable (a case called "exact identification"). This is why the justification for the instrument's validity must be based on deep institutional knowledge and economic theory.
+
+However, if we have more instruments than endogenous variables ("over-identification"), we can perform a \textbf{test of over-identifying restrictions} (e.g., the Sargan-Hansen J-test). This test checks if the "extra" instruments are correlated with the residuals from the 2SLS regression.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Null Hypothesis ($H_0$):} All instruments are exogenous.
+    \item If we reject the null, it's a strong sign that at least one of our instruments is invalid. If we fail to reject, it provides some (but not definitive) confidence in our instruments' validity.
+\end{itemize}
+
+\begin{blueblock}
+\begin{note}[What Does IV Actually Estimate?]
+\end{note}
+When the causal effect is heterogeneous (different for different people), the IV estimate does not recover the Average Treatment Effect (ATE). Instead, under certain assumptions, it estimates the \textbf{Local Average Treatment Effect (LATE)}. The LATE is the average causal effect for the specific sub-population of individuals whose treatment status was changed by the instrument. These individuals are called "compliers." In the Angrist and Krueger example, the LATE is the return to education specifically for those people who were induced to get more schooling because of the compulsory schooling laws, which may not be the same as the return for the population at large.
+\end{blueblock}
+
+
+
+
+
+\section{Quasi-Experiments I: Difference-in-Differences}
+\label{sec:did}
+
+Many of the most credible causal studies come from \textbf{quasi- or natural experiments}, situations where a real-world event, policy change, or administrative decision creates a setup that \textit{mimics} a randomized controlled trial. The Difference-in-Differences (DID) design is one of the most common and powerful frameworks for analyzing such events.
+
+
+\begin{blueblock}
+\begin{note}[Quasi Experiments]
+A research design that studies causal relationships without random assignment to treatment groups, often because it's impractical or unethical to do so.
+\end{note}
+\end{blueblock}
+
+\subsection{The Intuition of DID}
+\label{sub:did_intuition}
+
+The DID method is used to estimate the causal effect of a specific intervention by comparing the change in outcomes over time between a group that receives the treatment (the \textbf{treatment group}) and a group that does not (the \textbf{control group}).
+
+Imagine a new training program is introduced in one region of a country but not another. We have data on worker wages in both regions, both before and after the program was launched. A simple comparison would suffer from severe biases:
+\begin{itemize}
+    \tightlist
+    \item A simple "before-after" comparison in the treated region is biased if other things were also changing over time (e.g., a national economic boom).
+    \item A simple "treated-control" comparison after the policy is biased if the two regions were different to begin with (e.g., the treated region was already richer).
+\end{itemize}
+
+The DID estimator brilliantly solves both problems by netting out these biases. The logic is as follows:
+\begin{enumerate}
+    \item Calculate the change in wages in the treated region (After - Before). This difference captures the treatment effect *plus* any time trends.
+    \item Calculate the change in wages in the control region (After - Before). This difference captures *only* the time trends.
+    \item The causal effect is the 
+difference between these two differences
+. By subtracting the change in the control group from the change in the treated group, we isolate the true effect of the treatment, assuming the time trends would have been the same for both groups.
+\end{enumerate}
+
+\begin{greenblock}
+\textbf{The DID Estimator}
+Let $\bar{Y}_{g,t}$ be the average outcome for group $g \in \{\text{Treatment, Control}\}$ in time period $t \in \{\text{Before, After}\}$.
 \begin{equation}
-  Y_i = \alpha + \beta D_i + f(X_i) + \mu_i 
+\begin{split}
+\hat{\delta}_{DID} &= (\bar{Y}_{\text{Treat, After}} - \bar{Y}_{\text{Treat, Before}}) - (\bar{Y}_{\text{Control, After}} - \bar{Y}_{\text{Control, Before}})
+\end{split}
 \end{equation}
+\end{greenblock}
 
+\subsection{The Crucial Assumption: Parallel Trends}
+\label{sub:parallel_trends}
+
+The entire credibility of the DID design rests on one single, critical assumption: the \textbf{parallel trends assumption}.
+
+\begin{redblock}
+\textbf{The Parallel Trends Assumption}
+In the absence of the treatment, the average outcome for the treatment group would have followed the same time trend as the average outcome for the control group.
+\end{redblock}
+
+This is the counterfactual we can never observe. We assume that the change experienced by the control group is a valid proxy for the change the treatment group \textit{would have} experienced if they had not been treated. While this assumption is fundamentally untestable, we can build confidence in it by using data from multiple pre-treatment periods. If we can show that the two groups were trending in parallel \textit{before} the treatment occurred, it lends strong support to the assumption that they would have continued to do so. A graph showing these pre-trends is a mandatory component of any serious DID study.
+
+\subsection{DID Estimation Using Regression}
+\label{sub:did_regression}
+
+While the double-difference calculation is intuitive, the DID model is most often estimated using a regression framework, as it easily allows for the inclusion of control variables and is equivalent to the two-way fixed effects model in the simple 2x2 case.
+
+Consider a panel dataset where we observe individuals $i$ over time periods $t$. We define two dummy variables:
 \begin{itemize}
-\tightlist
-  \item $D_i$ denotes if the treatment is received
-  \item $X_i$ contains the treatment variable
-  \item $f(\cdot)$ is to capture the continuity around the cut-off
+    \tightlist
+    \item $Treat_i$: A dummy equal to 1 if individual $i$ is in the treatment group, 0 otherwise.
+    \item $Post_t$: A dummy equal to 1 if the time period is after the treatment, 0 otherwise.
+\end{itemize}
+We then estimate the following regression model:
+\begin{equation}
+    Y_{it} = \beta_0 + \beta_1 Treat_i + \beta_2 Post_t + \delta (Treat_i \cdot Post_t) + u_{it}
+\end{equation}
+The coefficients have the following interpretation:
+\begin{itemize}
+    \tightlist
+    \item $\beta_0$: The average outcome for the control group in the pre-period.
+    \item $\beta_1$: The average difference between the treatment and control groups in the pre-period.
+    \item $\beta_2$: The average change in the outcome for the control group from the pre- to the post-period (the time trend).
+    \item $\delta$: The coefficient on the interaction term. This is the 
+DID estimator
+. It captures the additional change in the outcome for the treatment group in the post-period, over and above the general time trend. It is our estimate of the causal effect.
 \end{itemize}
 
-sharp RD demands $W_i=1$ if $X_i\geqslant c$
-
-fuzzy RD demands $\lim\limits_{x \rightarrow c^+} E(Y|X=x)\neq\lim\limits_{x \rightarrow c^-} E(Y|X=x)$
-
-LATE of RDD $\tau=\lim\limits_{x \rightarrow c^+} E(Y|X=x)-\lim\limits_{x \rightarrow c^-} E(Y|X=x)$
-
-
-\section{Time series data}
-
-\textbf{auto regression}
-
-AR(n) $\iff corr(X_t,X_{t-n})\neq 0$
-
-\textbf{Stationary}
-
-for $\{X_1,\dots,X_t,\dots\}$ that any sequence of N period has the same distribution
-
-potential causes for being unstationary:
+\paragraph{Real-World Practice and Extensions}
+In modern empirical work, the simple 2x2 DID model is often extended, especially when researchers have many time periods and when treatment is rolled out to different units at different times.
 \begin{itemize}
-\tightlist
-  \item 
+    \tightlist
+    \item 
+\textbf{Adding Control Variables}:
+ The regression framework allows for the inclusion of other time-varying covariates, $X_{it}$, to absorb some of the residual variance and improve precision.
+    \item 
+\textbf{Staggered Adoption}:
+ When different groups receive the treatment at different points in time, the model is often specified as a Two-Way Fixed Effects model. For years, this was the standard approach, though recent econometric research has highlighted potential biases in the TWFE estimator in this context and proposed alternative estimators (e.g., Callaway and Sant'Anna, 2021). This is an active area of research.
+    \item 
+\textbf{Standard Errors}:
+ As with panel data, it is crucial to cluster standard errors. In DID, the standard practice is to cluster at the level of the group that was treated (e.g., at the state level if the policy was enacted by a state), to account for correlation within those groups.
 \end{itemize}
 
-
-\textbf{unit root test}
-
-study one time series data's stationary relationship. if unit root is tested true in the time series, the time series is not stationary.
-
-common unit root tests are:
+\begin{blueblock}
+\begin{note}[A Classic DID Study: The Mariel Boatlift]
+\end{note}
+One of the most famous DID studies is David Card's (1990) analysis of the Mariel Boatlift's effect on the Miami labor market.
 \begin{itemize}
-\tightlist
-  \item ADF test
-  \item PP test
+    \item \textbf{Treatment:} A sudden, unexpected influx of low-skilled immigrants (the "Marielitos") to Miami in 1980.
+    \item \textbf{Treatment Group:} The city of Miami.
+    \item \textbf{Control Group:} Four similar cities (Atlanta, Houston, etc.) that did not experience the immigration shock.
+    \item \textbf{Outcome:} Wages and unemployment rates for low-skilled workers.
+    \item \textbf{Finding:} By comparing the change in labor market outcomes in Miami before and after 1980 to the change in the control cities, Card found surprisingly little effect on the wages or employment of existing low-skilled workers. The DID design was crucial for netting out the effects of the national recession that was happening at the same time.
+\end{itemize}
+\end{blueblock}
+
+
+
+
+\section{Quasi-Experiments II: Regression Discontinuity Design}
+\label{sec:rdd}
+
+The Regression Discontinuity Design (RDD) is a powerful quasi-experimental method that can be used when a treatment is assigned based on whether an observation's value for a specific numeric variable—the \textbf{running variable}—is above or below a known \textbf{cutoff point}. The core idea is that individuals who are just barely on either side of the cutoff are likely very similar in all other respects, making any sharp difference in their outcomes a credible estimate of the treatment effect.
+
+\subsection{The Intuition of RDD}
+\label{sub:rdd_intuition}
+
+Imagine a university offers a merit scholarship to all students with an entrance exam score of 80 or higher. The exam score is the running variable, and 80 is the cutoff.
+\begin{itemize}
+    \tightlist
+    \item A student with a score of 80.1 receives the scholarship (treatment).
+    \item A student with a score of 79.9 does not.
+\end{itemize}
+It is highly plausible that these two students are virtually identical in terms of motivation, background, and ability. The only substantive difference between them is the scholarship, which was assigned based on a tiny, almost random difference in their scores. By comparing the average outcomes (e.g., graduation rates) of students in a very narrow band just above and just below the 80-point cutoff, we can estimate the causal effect of receiving the scholarship.
+
+This design essentially uses the arbitrary nature of the cutoff to create a localized randomized experiment.
+
+\paragraph{Sharp vs. Fuzzy RDD}
+There are two main variants of the RDD.
+\begin{itemize}
+    \tightlist
+    \item \textbf{Sharp RDD:} Treatment assignment is a deterministic function of the running variable. All units above the cutoff are treated, and all units below are not. The scholarship example above is a sharp RDD.
+    \item \textbf{Fuzzy RDD:} Crossing the cutoff does not guarantee treatment but rather changes the *\textit{probability}* of being treated. For example, a rule might make individuals over age 65 *\textit{eligible}* for a program, but not all of them will sign up. The cutoff still creates a discontinuity in the likelihood of treatment, which can be leveraged using an IV approach.
 \end{itemize}
 
-\textbf{cointegration test}
+\subsection{The RDD Assumptions and Graphical Analysis}
+\label{sub:rdd_assumptions}
 
-study multiple non-stationary time series' long-term stationary relationship.
+The credibility of an RDD study rests on two key conditions.
+\begin{enumerate}
+    \tightlist
+    \item \textbf{No Manipulation of the Running Variable:} Individuals should not be able to precisely manipulate their running variable to place themselves on one side of the cutoff. If students who scored 79 could somehow get their scores bumped up to 80, the sample around the cutoff would no longer be comparable. A key diagnostic test is to check for a "bunching" or discontinuous jump in the number of observations right at the cutoff.
+    \item \textbf{Continuity of Potential Outcomes:} In the absence of the treatment, the relationship between the running variable and the outcome must be continuous at the cutoff. There should be no other reason for the outcome to jump suddenly at that exact point.
+\end{enumerate}
 
-\textbf{Granger test}
+\paragraph{Graphical Evidence: The Heart of RDD}
+The most compelling evidence for an RDD estimate is almost always graphical. The standard RDD graph plots the average outcome against the running variable. A clear, discontinuous "jump" in the outcome at the cutoff is the visual signature of a treatment effect. This graphical transparency is one of the main strengths of the RDD method. It is standard practice to show this plot, often with a smooth line (e.g., a local polynomial) fitted to the data on both sides of the cutoff.
 
-used for causal test in mutiple sationary time series
 
 
-\section{Structural Equations}
+\subsection{Estimation of the RDD Effect}
+\label{sub:rdd_estimation}
+
+While the effect can be seen graphically, it is formally estimated using regression models that control for the underlying relationship between the running variable and the outcome.
+
+\paragraph{Local Linear Regression}
+The modern state-of-the-art method for RDD estimation is to use \textbf{local linear regression}. This involves:
+\begin{enumerate}
+    \tightlist
+    \item Choosing a narrow 
+\textbf{bandwidth}
+, $h$, around the cutoff $c$.
+    \item Running a linear regression only on the observations within this bandwidth ($c-h < X_i < c+h$).
+\end{enumerate}
+The model estimated is:
+\begin{equation}
+    Y_i = \beta_0 + \tau D_i + \beta_1 (X_i - c) + \beta_2 D_i(X_i-c) + u_i
+\end{equation}
+\begin{itemize}
+    \tightlist
+    \item $D_i$ is a dummy variable equal to 1 if $X_i \ge c$.
+    \item $(X_i-c)$ is the centered running variable. This allows the regression line to have a slope.
+    \item $D_i(X_i-c)$ is an interaction term that allows the slope to be different on either side of the cutoff.
+    \item $\tau$: This is the RDD estimate of the treatment effect. It captures the size of the jump in the regression line precisely at the cutoff.
+\end{itemize}
+The choice of bandwidth ($h$) is crucial. A narrow bandwidth reduces bias by only using observations very close to the cutoff but increases variance because it uses less data. In practice, researchers use data-driven methods to select an optimal bandwidth.
+
+\paragraph{Fuzzy RDD as an IV}
+A fuzzy RDD is estimated using a 2SLS approach, where the discontinuity is used as an instrument.
+\begin{itemize}
+    \tightlist
+    \item 
+\textbf{Endogenous Variable:}
+ The actual treatment status, $T_i$ (e.g., whether someone actually enrolled in the program).
+    \item 
+\textbf{Instrumental Variable:}
+ The dummy variable for being above the cutoff, $D_i$. This instrument is relevant (crossing the cutoff changes the probability of treatment) and exogenous (the cutoff itself is arbitrary).
+    \item The resulting 2SLS estimate is the LATE—the causal effect of the treatment for the "compliers," i.e., those who were induced to take up the treatment by crossing the cutoff.
+\end{itemize}
+
+\begin{redblock}
+\textbf{Example: The Effect of Class Size on Student Performance}
+One of the most famous RDD studies is Angrist and Lavy's (1999) analysis of Maimonides' Rule in Israel.
+\begin{itemize}
+    \item \textbf{Rule:} A new class must be created whenever a school's grade enrollment exceeds a multiple of 40 students.
+    \item \textbf{Running Variable:} Grade enrollment.
+    \item \textbf{Cutoff:} Multiples of 40 (41, 81, etc.).
+    \item \textbf{Mechanism:} A grade with 40 students is in one large class. A grade with 41 students is split into two small classes (average size 20.5). This rule creates a sharp, discontinuous drop in average class size at the cutoff.
+    \item \textbf{Finding:} By comparing the test scores of students in schools just above and just below the enrollment cutoffs, the authors found a significant causal effect: smaller class sizes led to higher student achievement.
+\end{itemize}
+\end{redblock}
+
+
+
+
+
+\newpage
+\part{ADVANCED TOPICS} % (fold)
+\label{prt:advanced_ _topics_}
+
+
+\section{Time Series Econometrics}
+\label{sec:time_series}
+
+We now shift gears to a distinct and highly specialized branch of econometrics: the analysis of \textbf{time series data}. Until this point, our primary focus has been on estimating causal effects while battling the problem of endogeneity. Time series econometrics, while also concerned with relationships between variables, often has a different set of primary objectives: \textbf{forecasting}, modeling \textbf{dynamic relationships}, and understanding the impact of \textbf{shocks over time}. The challenges are also different; issues like serial correlation and non-stationarity take center stage.
+
+\subsection{The Nature of Time Series Data}
+\label{sub:ts_nature}
+
+Time series data consists of observations on a variable or set of variables over time (e.g., quarterly GDP, monthly inflation, daily stock prices). A key feature of such data is that the observations are typically \textbf{not independent} across time. The value of GDP today is highly dependent on its value last quarter. This temporal dependence, known as \textbf{autocorrelation} or \textbf{serial correlation}, is not a problem to be fixed but a central feature to be modeled.
+
+\paragraph{Autoregressive (AR) Models}
+The simplest way to model this dependence is with an Autoregressive model. An AR(p) model specifies that the current value of a variable, $Y_t$, depends on its own past values up to $p$ lags. An AR(1) model is:
+\begin{equation}
+    Y_t = \beta_0 + \beta_1 Y_{t-1} + u_t
+\end{equation}
+Here, $\beta_1$ captures the degree of persistence in the series. This type of model is a fundamental building block for time series forecasting.
+
+\subsection{Stationarity: The Foundation of Time Series Analysis}
+\label{sub:stationarity}
+
+The most critical concept in time series analysis is \textbf{stationarity}. A time series is stationary if its statistical properties—mean, variance, and autocorrelation—are all constant over time.
+\begin{itemize}
+    \tightlist
+    \item A stationary series tends to revert to a constant long-run mean.
+    \item The variance of a stationary series is finite and does not depend on time.
+\end{itemize}
+Many economic time series are clearly \textbf{non-stationary}. For example, nominal GDP trends upwards over time and does not have a constant mean. A regression involving non-stationary variables can lead to a \textbf{spurious regression}, where we find a statistically significant relationship between two variables that are in fact unrelated, simply because both are trending over time.
+
+\paragraph{Unit Root Tests for Stationarity}
+How do we formally check for non-stationarity? The most common cause of non-stationarity in economics is the presence of a \textbf{unit root}. In the AR(1) model above, if the coefficient $\beta_1=1$, the series has a unit root and is non-stationary. Such a series is also called a "random walk." Shocks to a unit root process are permanent; the series never reverts to a mean.
+
+To test for this, we use \textbf{unit root tests}. The most common are:
+\begin{itemize}
+    \tightlist
+    \item \textbf{Augmented Dickey-Fuller (ADF) test}
+    \item \textbf{Phillips-Perron (PP) test}
+\end{itemize}
+For these tests, the null hypothesis is that the series has a unit root (it is non-stationary). If we find a small p-value, we reject the null and conclude the series is stationary. If a series is found to be non-stationary, it is common to transform it by taking the first difference ($\Delta Y_t = Y_t - Y_{t-1}$) to make it stationary.
+
+\subsection{Advanced Topics in Time Series}
+\label{sub:ts_advanced}
+
+While the details of advanced time series models are beyond the scope of these introductory notes, it is useful to be aware of the key concepts that practitioners use.
+
+\paragraph{Cointegration: Long-Run Relationships}
+What if we have two or more variables that are themselves non-stationary, but we believe they share a stable, long-run relationship? For example, consumption and income both trend upwards over time, but economic theory suggests they should not drift infinitely far apart. If a linear combination of these non-stationary variables is stationary, they are said to be \textbf{cointegrated}. The \textbf{Johansen test} is a common method for testing for cointegration. This concept is crucial for building valid long-run economic models.
+
+\paragraph{Granger Causality}
+In the context of stationary time series, we can test for a specific, predictive form of causality called \textbf{Granger causality}. The concept is simple: a variable $X$ is said to "Granger-cause" a variable $Y$ if past values of $X$ contain information that helps predict future values of $Y$, over and above the information contained in past values of $Y$ alone. This is tested with an F-test on the lags of $X$ in a regression of $Y$ on its own lags and the lags of $X$. While it is a test of predictive power rather than deep structural causality, it is a valuable tool for understanding dynamic relationships.
+
+\begin{redblock}
+\textbf{Real-World Application: Macroeconomic Forecasting and Policy Analysis}
+Central banks, financial institutions, and governments rely heavily on time series models, particularly \textbf{Vector Autoregressions (VARs)}, which model multiple time series variables as a function of their own and each other's past values.
+\begin{itemize}
+    \item \textbf{Forecasting:} VARs are used to produce forecasts for key macroeconomic variables like inflation, GDP growth, and unemployment.
+    \item \textbf{Impulse Response Functions (IRFs):} A key output of VAR models is the IRF, which traces out the dynamic effect of a one-time "shock" to one variable on all other variables in the system over time. For example, a central bank might use an IRF to estimate the effect of a 1\% interest rate hike on inflation and unemployment over the next three years.
+\end{itemize}
+This highlights the different focus of time series analysis: understanding the dynamic, system-wide interplay of variables over time, which is a different but equally important goal to the microeconometric focus on identifying the causal effect of a single program or variable.
+\end{redblock}
+
+\newpage
+\part{UNIFYING FRAMEWORKS AND STRUCTURAL ESTIMATION}
+
+\section{Structural or Reduced?}
+
+
+\section{The Generalized Method of Moments (GMM)}
+
+
+\section{Introduction to Structural Estimation: Dynamic Discrete Choice}
+
+
+
+\newpage
+\part{MODERN FRONTIERS IN ECONOMETRICS}
+
+\section{Analyzing Heterogeneity: Quantile Regression and Treatment Effects}
+
+
+\section{Econometrics and Machine Learning} % (fold)
+\label{sec:econometrics_and_machine_learning}
+
+
+
+\section{Nonparametric and Semiparametric Methods} % (fold)
+\label{sec:nonparametric_and_semiparametric_methods}
+
+
+
+
+
 
 \end{document}
