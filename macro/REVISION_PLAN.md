@@ -69,4 +69,4 @@
 
 旧推导需要核对后再沿用，尤其是预算与资源约束、利率和贴现符号、稳态与福利判断。保留作者的表达风格不等于保留数学或概念错误。
 
-当前仓库缺少正文引用的 `images/solow_phase_diagram.jpg` 和 `images/ramsey_phase_diagram.jpg`。恢复图源前，完整正文不能正常重新编译；色框可用实际章节摘录及跨页样例单独验证。
+两张缺失相图已从旧版 PDF 无损提取为 `images/solow_phase_diagram.png` 和 `images/ramsey_phase_diagram.png`，来源记录见 `images/README.md`。正文已更新图片引用，可以完整重新编译；色框另经过实际章节摘录及跨页样例验证。
