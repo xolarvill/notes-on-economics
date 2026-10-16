@@ -37,13 +37,24 @@ chapter of Part V.
   - Level accounting and joint determination
   - Connecting TFP to labor-augmenting technology
 
-### 3. Solow Model
+### 3. Harrod--Domar: Investment and Growth
+
+- From a spending equilibrium to a growth problem
+- Domar: demand must keep up with capacity
+  - A flow affects demand; its accumulation affects capacity
+  - Deriving the required investment path
+- Harrod: which growth rate validates investment plans?
+  - Actual and warranted growth
+  - Why a deviation can amplify
+  - Natural growth and the employment constraint
+- Fixed proportions, compatibility, and the route to Solow
+
+### 4. Solow Model
 
 - From the growth question to the model
-  - Start with a puzzle, before choosing a model
-  - Try a simple account, and see where it becomes restrictive
-  - Ask which restriction is doing the work
-  - Turn the question into variables and a closed system
+  - What if production can adjust?
+  - Choose one adjustment mechanism
+  - Close the system and choose a useful intensity
 - Economic environment and assumptions
   - Resources, timing, and behavior
   - Production and normalization
@@ -65,7 +76,7 @@ chapter of Part V.
   - Removing diminishing returns: the AK benchmark
   - Fixed land and the transition to modern growth
 
-### 4. Ramsey Model
+### 5. Ramsey Model
 
 - Assumptions
 - Solution of Ramsey model
@@ -81,7 +92,7 @@ chapter of Part V.
 - Maximizing welfare
 - Taxation and capital accumulation — **planned**
 
-### 5. OLG Model
+### 6. OLG Model
 
 - Assumptions
 - UMP of household
@@ -91,7 +102,7 @@ chapter of Part V.
 - Dynamic inefficiency
 - Population, pensions, and public debt — **planned**
 
-### 6. Endogenous Growth and Resource Allocation — **planned**
+### 7. Endogenous Growth and Resource Allocation — **planned**
 
 - The AK benchmark and human capital
 - Ideas, innovation, and incentives
@@ -99,7 +110,7 @@ chapter of Part V.
 
 ## Part III: Fluctuations
 
-### 7. Real Business Cycle Model
+### 8. Real Business Cycle Model
 
 - UMP of household
 - PMP of firm
@@ -107,7 +118,7 @@ chapter of Part V.
 - Log-linearization
 - Capital accumulation and investment — **planned**
 
-### 8. New Keynesian Model
+### 9. New Keynesian Model
 
 - UMP of household
 - PMP of firm
@@ -120,9 +131,9 @@ chapter of Part V.
 - Analyze exogenous shocks
 - Natural rates, output gaps, and model limits — **planned**
 
-### 9. Sticky Wage Model
+### 10. Sticky Wage Model
 
-### 10. Labor Markets and Unemployment — **planned**
+### 11. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
@@ -130,19 +141,19 @@ chapter of Part V.
 
 ## Part IV: Open Economy
 
-### 11. International Accounts and Intertemporal Trade — **planned**
+### 12. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 12. Trade and Relative Prices — **planned**
+### 13. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 13. Open Economy Fluctuations and Exchange Rates — **planned**
+### 14. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
@@ -150,38 +161,38 @@ chapter of Part V.
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 
-### 14. Money, Banking, and Central Bank Operations — **planned**
+### 15. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 15. Financial Frictions and Aggregate Adjustment — **planned**
+### 16. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 16. Household Heterogeneity and Policy Transmission — **planned**
+### 17. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 17. Monetary Policy
+### 18. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 18. Fiscal Policy — **planned**
+### 19. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 19. Policy Interaction and Constraints — **planned**
+### 20. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
@@ -189,7 +200,7 @@ chapter of Part V.
 
 ## Part VI: Topics
 
-### 20. The Dollar in the International Monetary System — **planned**
+### 21. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -197,7 +208,7 @@ chapter of Part V.
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 21. China's Growth and Adjustment after the Pandemic — **planned**
+### 22. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

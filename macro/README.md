@@ -11,14 +11,15 @@ kept in chapter files rather than mixed into the entry point.
 | `macro.tex` | Shared settings and document assembly |
 | `frontmatter/` | Title page and preface |
 | `parts/` | Six part introductions and the chapter order within each part |
-| `chapters/` | One file for each of the 21 chapters |
+| `chapters/` | One file for each of the 22 chapters |
 | `styles/` | Reusable layouts, including the model-condition cards |
 | `images/` | Figures and their recovery provenance |
 | `legacy/` | Original aggregate-model material, excluded from the main PDF |
 | `OUTLINE.md` | Readable outline with planned content marked |
 
 Part I contains one chapter, Introduction, with four sections. Growth begins
-in Part II. The existing welfare derivation is included directly in
+in Part II, with growth facts, Harrod--Domar (Chapter 3), Solow (Chapter 4),
+and Ramsey (Chapter 5). The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
 ## Headings and page starts
