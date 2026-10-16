@@ -1,14 +1,316 @@
 % !TEX root = ../macro.tex
-\plannedsection{Growth Facts and Growth Accounting}\label{sec:growth-facts}
+\section{Growth Facts and Growth Accounting}\label{sec:growth-facts}
+
+Why are some economies richer than others, and why do living standards grow?
+Before choosing a model, we need to separate the outcomes to be explained.
+This chapter distinguishes income levels from growth rates, then decomposes
+output growth into measured inputs and productivity. The decomposition helps
+locate a question; explaining the underlying decisions requires a growth model.
 
 \subsection{Income levels, growth rates, and convergence}
-Distinguish differences in income levels from differences in growth rates.
-Set out the convergence patterns that the growth models need to explain.
+
+\subsubsection{Which output, and per whom?}
+
+Let $Y$ be real GDP, $N$ the population, $E$ the number of employed people,
+and $L$ total hours worked. For positive quantities,
+\begin{equation}\label{eq:facts-income-identity}
+\frac{Y}{N}=\frac{Y}{L}\frac{L}{E}\frac{E}{N}.
+\end{equation}
+Output per person therefore depends on output per hour, hours per employed
+person, and the employment-to-population ratio. Higher GDP growth need not
+mean faster growth in GDP per person. Likewise, a rise in GDP per person can
+come from more work per person without any rise in output per hour.
+
+Use real output to study changes over time. For cross-country level comparisons,
+purchasing power parities (PPPs) adjust for differences in price levels;
+conversion at market exchange rates can mix output differences with price and
+exchange-rate movements.\footnote{World Bank, ``ICP 2021: Concepts and
+Definitions,'' explains PPP-based comparisons of expenditure volumes.
+\url{https://www.worldbank.org/en/brief/2021/04/30/icp2021-concepts-definitions}.}
+Use a common measure and specify the comparison year. GDP per person measures
+average production, not its distribution or welfare: leisure, health, and
+consumption opportunities also matter.
+
+\subsubsection{A level difference is not a growth-rate difference}
+
+For a positive continuous-time variable $X(t)$, define its instantaneous growth
+rate as
+\begin{equation}\label{eq:facts-growth-rate}
+g_X(t)\equiv\frac{\dot X(t)}{X(t)}=\frac{d\log X(t)}{dt}.
+\end{equation}
+Logarithms turn products into sums. Applying this definition to
+\eqref{eq:facts-income-identity} gives the exact identity
+\begin{equation}\label{eq:facts-income-growth}
+g_{Y/N}=g_{Y/L}+g_{L/E}+g_{E/N}.
+\end{equation}
+The ratios must be defined consistently; employment growth and population
+growth do not enter in the same way.
+
+For observations at dates $t$ and $t+T$, the average annual log growth rate is
+\begin{equation}\label{eq:facts-average-growth}
+\bar g_X=\frac{\log X_{t+T}-\log X_t}{T},
+\qquad
+\frac{X_{t+T}}{X_t}=e^{T\bar g_X}.
+\end{equation}
+The corresponding compound annual percentage change is $e^{\bar g_X}-1$,
+approximately $\bar g_X$ for small rates. Unless stated otherwise, finite-period
+accounting below uses log changes, $\Delta\log X_t=\log X_t-\log X_{t-1}$.
+
+At a constant growth rate $g>0$, doubling takes $T=\log 2/g$. A 2\% annual
+log growth rate doubles output in about 35 years. A one-off 10\% increase in
+output raises its level; it leaves subsequent growth unchanged if the economy
+then returns to its previous growth rate. A lasting increase in the growth
+rate keeps widening the gap relative to the previous path.
+
+\textbf{Facts that guide the models.}
+Jones (2016) documents three useful patterns.\footnote{Charles I. Jones (2016),
+``The Facts of Economic Growth,'' \textit{Handbook of Macroeconomics}, 2A,
+3--69, especially Sections 1, 2, and 4. The empirical statements here describe
+that historical evidence, not a current data release.
+\url{https://doi.org/10.1016/bs.hesmac.2016.03.002}.}
+\begin{itemize}
+\tightlist
+\item Sustained growth is a feature of modern economic history. US GDP per
+person grew at about 2\% per year over 1870--2007, with substantial variation
+across shorter periods.
+\item Income levels differ widely across countries. Some economies catch up;
+others remain far behind or lose ground over particular periods.
+\item A roughly stable capital-output ratio is a useful long-run benchmark.
+Factor shares and growth rates can change, so balanced growth is an
+approximation to be assessed, rather than a universal empirical law.
+\end{itemize}
+A theory must distinguish growth at the frontier from movement toward it.
+Matching a long-run average also does not require every shock to be temporary.
+
+\subsubsection{What does convergence mean?}
+
+Consider a poorer economy $i$ and a richer economy $j$, with per-person outputs
+$y_i$ and $y_j$ measured in comparable units. Their log income gap evolves as
+\begin{align}
+D(t)&\equiv\log y_j(t)-\log y_i(t),\\
+\dot D(t)&=g_{y_j}(t)-g_{y_i}(t),\\
+D(T)-D(0)&=\int_0^T\left[g_{y_j}(t)-g_{y_i}(t)\right]dt.
+\end{align}
+The relative gap narrows when the poorer economy grows faster over the interval.
+Positive growth in both economies is insufficient. Nor does a narrowing
+relative gap necessarily reduce the absolute difference $y_j-y_i$.
+
+\textit{Unconditional convergence} means poorer economies tend to grow faster
+without conditioning on other characteristics. \textit{Conditional convergence}
+allows economies to approach different long-run paths: an economy further
+below its own path tends to grow faster, holding the determinants of that path
+fixed. Saving, population growth, and productivity may differ across economies.
+Diminishing returns to capital alone therefore do not imply that every poor
+country must catch up with every rich country.\footnote{Robert J. Barro,
+N. Gregory Mankiw, and Xavier Sala-i-Martin (1992), ``Capital Mobility in
+Neoclassical Models of Growth,'' NBER Working Paper 4206, discusses convergence
+relative to each economy's steady state. \url{https://doi.org/10.3386/w4206}.}
+
+A tendency for initially poorer economies to grow faster is called
+$\beta$-convergence. A decline in the cross-country dispersion of log income is
+called $\sigma$-convergence. These are different statements: new shocks can
+increase dispersion even when growth tends to be faster at lower initial
+income. The sample and observation period are part of any convergence claim.
 
 \subsection{Capital, labor, and productivity}
-Derive a growth-accounting decomposition and state its measurement assumptions.
-Explain why an accounting contribution is not, by itself, a causal explanation.
+
+\subsubsection{From a production function to growth accounting}
+
+Start with a one-good aggregate production function in continuous time:
+\begin{equation}\label{eq:facts-production}
+Y(t)=B(t)F\bigl(K(t),H(t)\bigr),\qquad H(t)=h(t)L(t).
+\end{equation}
+$K$ is productive physical capital, $L$ hours worked, and $h$ average labor
+quality per hour. Thus $H$ is quality-adjusted labor input. $B$ is
+Hicks-neutral total factor productivity (TFP). It multiplies the whole
+production function; its growth need not equal the growth of labor-augmenting
+technology used in the Solow chapter.
+
+Assume positive inputs, differentiable $F$, constant returns to scale, and no
+additional inputs. The total derivative is
+\begin{equation}
+\dot Y=\dot B F+B F_K\dot K+B F_H\dot H.
+\end{equation}
+Divide by $Y=BF$ and multiply and divide each input term by its input level:
+\begin{align}
+\frac{\dot Y}{Y}
+&=\frac{\dot B}{B}
+ +\frac{BF_KK}{Y}\frac{\dot K}{K}
+ +\frac{BF_HH}{Y}\frac{\dot H}{H},\\
+g_Y&=g_B+\varepsilon_K g_K+\varepsilon_H g_H,
+\quad
+\varepsilon_K\equiv\frac{BF_KK}{Y},\quad
+\varepsilon_H\equiv\frac{BF_HH}{Y}.\label{eq:facts-elasticities}
+\end{align}
+The weights are output elasticities. Constant returns implies
+$F_KK+F_HH=F$, so $\varepsilon_K+\varepsilon_H=1$.
+
+To replace elasticities by observed income shares, we need further assumptions.
+With competitive factor markets and no wedges, let $q$ be the real rental price
+of capital services and $w_H$ the price of one unit of quality-adjusted labor.
+Profit maximization gives
+\begin{equation}
+q=BF_K,\qquad w_H=BF_H.
+\end{equation}
+Consequently,
+\begin{equation}
+s_K\equiv\frac{qK}{Y}=\varepsilon_K,\qquad
+s_H\equiv\frac{w_HH}{Y}=\varepsilon_H=1-s_K.
+\end{equation}
+Here $q$ is a gross rental price before depreciation, not the net interest rate.
+Labor compensation is $w_HH$; with common quality $h$, the wage per hour is
+$w_Hh$. In this benchmark all output is paid to these two inputs. Pure profits,
+markups, taxes, or omitted factors can break the equality between measured
+income shares and output elasticities.
+
+Substitute the shares and use $g_H=g_h+g_L$:
+\begin{equation}\label{eq:facts-accounting}
+\boxed{g_Y=g_B+s_K g_K+(1-s_K)(g_h+g_L).}
+\end{equation}
+This is an exact instantaneous decomposition under the stated production and
+pricing assumptions. It does not yet determine any input's growth rate.
+
+\subsubsection{Labor productivity and finite-period contributions}
+
+Subtract $g_L$ from both sides of \eqref{eq:facts-accounting}:
+\begin{align}
+g_{Y/L}
+&=g_B+s_K g_K+(1-s_K)g_h-s_Kg_L,\\
+&=g_B+s_Kg_{K/L}+(1-s_K)g_h.\label{eq:facts-labor-productivity}
+\end{align}
+Output per hour can rise through capital deepening, better labor quality, or
+higher TFP. Labor productivity $Y/L$ and TFP $B$ are therefore different objects.
+Combining this result with \eqref{eq:facts-income-growth} also separates
+productivity growth from changes in work per person.
+
+For annual data, a common implementation uses average adjacent-year income
+shares, $\bar s_{K,t}=(s_{K,t}+s_{K,t-1})/2$:
+\begin{align}
+\Delta\log Y_t
+&\approx \bar s_{K,t}\Delta\log K_t
+ +(1-\bar s_{K,t})\Delta\log H_t
+ +\Delta\log B_t,\label{eq:facts-discrete-accounting}\\
+\Delta\log B_t^{\mathrm{res}}
+&\equiv\Delta\log Y_t
+ -\bar s_{K,t}\Delta\log K_t
+ -(1-\bar s_{K,t})\Delta\log H_t.\label{eq:facts-residual}
+\end{align}
+The first line approximates the continuous-time decomposition over an interval.
+The second defines the measured residual exactly for the chosen series and
+weights. It need not equal a pure technology change. For Cobb--Douglas
+production with constant exponents, the corresponding log decomposition is
+exact over a finite interval.
+
+\begin{blueblock}
+\textbf{An accounting example.}
+Suppose annual log changes are 0.04 for output, 0.06 for capital, and 0.01 for
+quality-adjusted labor, with capital share $1/3$. Then
+\[
+\Delta\log B^{\mathrm{res}}
+=0.04-\frac13(0.06)-\frac23(0.01)
+=0.013\overline{3}.
+\]
+Capital contributes 2 percentage points, labor about 0.67, and the residual
+about 1.33, when log changes are multiplied by 100. These sum to 4. This is an
+illustration, not an estimate for a country. The calculation does not imply
+that raising investment would cause exactly 2 percentage points of growth.
+\end{blueblock}
+
+\subsubsection{What is inside the residual?}
+
+The measured residual depends on what the inputs capture. Capital services can
+change differently from the value of the capital stock. Hours need not track
+employment, and labor quality need not be constant. Unmeasured utilization,
+input quality, reallocation, and measurement error can all enter the
+residual.\footnote{OECD (2001), \textit{Measuring Productivity: OECD Manual},
+especially Chapters 2, 4, and 5, on interpretation, labor input, and capital
+services. \url{https://doi.org/10.1787/9789264194519-en}.}
+For example, if true labor input is $hL$ but the calculation uses only $L$,
+then \eqref{eq:facts-accounting} implies
+\begin{equation}
+g_B^{\mathrm{res}}=g_Y-s_Kg_K-(1-s_K)g_L
+=g_B+(1-s_K)g_h.
+\end{equation}
+Omitted improvements in labor quality appear as TFP growth in that calculation.
+A change in the residual therefore calls for a mechanism and measurement checks
+before it is interpreted as innovation or technological regress.
 
 \subsection{From accounting to a growth model}
-Use the decomposition to motivate capital accumulation, saving decisions, and
-technology as separate objects of analysis.
+
+\subsubsection{Level accounting and joint determination}
+
+For a transparent benchmark, assume
+\begin{equation}\label{eq:facts-cobb-douglas}
+Y=BK^\alpha(hL)^{1-\alpha},\qquad 0<\alpha<1.
+\end{equation}
+Divide by $L$ and define $y\equiv Y/L$ and $k\equiv K/L$:
+\begin{equation}
+y=Bk^\alpha h^{1-\alpha}.
+\end{equation}
+For two economies using the same $\alpha$ and comparable measurements,
+\begin{align}
+\frac{y_i}{y_j}
+&=\frac{B_i}{B_j}\left(\frac{k_i}{k_j}\right)^\alpha
+  \left(\frac{h_i}{h_j}\right)^{1-\alpha},\\
+\log\frac{y_i}{y_j}
+&=\log\frac{B_i}{B_j}+\alpha\log\frac{k_i}{k_j}
+ +(1-\alpha)\log\frac{h_i}{h_j}.
+\end{align}
+This decomposes a level gap; it is distinct from accounting for growth over
+time. $B_i/B_j$ is inferred after choosing the production function and measuring
+the inputs. The decomposition does not establish three independent causes.
+
+Higher productivity can raise the return to investment and induce more capital
+accumulation. Its effects may then appear in both the productivity and capital
+terms. Similarly, education, saving, and technology adoption may respond to
+common policies or institutions. An accounting contribution records where
+output differences appear; a causal explanation specifies what changes first
+and how the other variables respond.
+
+\subsubsection{Connecting TFP to labor-augmenting technology}
+
+The next chapter writes technology as $Y=F(K,AL)$. To connect the two conventions,
+set $h=1$ in \eqref{eq:facts-cobb-douglas} and use Cobb--Douglas production:
+\begin{align}
+Y&=BK^\alpha L^{1-\alpha},\\
+Y&=K^\alpha(AL)^{1-\alpha}
+  =A^{1-\alpha}K^\alpha L^{1-\alpha}.
+\end{align}
+The two representations describe the same technology when
+\begin{equation}\label{eq:facts-technology-convention}
+B=A^{1-\alpha},\qquad g_B=(1-\alpha)g_A.
+\end{equation}
+This equivalence uses the Cobb--Douglas form and constant $\alpha$; it is not a
+general conversion for every production function.
+
+Suppose a balanced growth path has constant $K/Y$, constant $h=1$, and labor
+growth $n$. A constant capital-output ratio implies $g_K=g_Y$. Substitution into
+\eqref{eq:facts-accounting}, where $s_K=\alpha$, gives
+\begin{align}
+g_Y&=g_B+\alpha g_Y+(1-\alpha)n,\\
+(1-\alpha)(g_Y-n)&=g_B,\\
+g_{Y/L}&=\frac{g_B}{1-\alpha}=g_A.
+\end{align}
+Capital deepening accompanies growth on this path. It does not follow that
+capital accumulation supplies an independent permanent growth engine. We have
+only derived what the growth rates must satisfy \emph{if} this path exists.
+
+\begin{greenblock}
+\textbf{What a growth model must add.}
+Growth accounting leaves saving, capital accumulation, labor supply, and
+productivity unexplained. Solow begins with a given saving rate and technology
+path. Ramsey makes saving an intertemporal choice; OLG changes who saves and
+when; endogenous growth models study the forces sustaining productivity or
+other reproducible inputs.
+\end{greenblock}
+
+For Solow's closed one-good economy without government, feasibility and a
+constant saving rate $s$ imply
+\begin{equation}
+Y=C+I,\qquad I=sY,\qquad \dot K=sY-\delta K.
+\end{equation}
+Here $I$ is gross investment and $\delta$ is the continuous-time depreciation
+rate. Together with production, population growth, and a technology path,
+these assumptions determine capital dynamics from an initial stock. The next
+chapter uses that system to ask when the economy converges, what changes its
+long-run income level, and what can sustain growth in output per person.

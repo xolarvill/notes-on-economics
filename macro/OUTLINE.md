@@ -23,11 +23,19 @@ chapter of Part V.
 
 ## Part II: Growth
 
-### 2. Growth Facts and Growth Accounting — **planned**
+### 2. Growth Facts and Growth Accounting
 
 - Income levels, growth rates, and convergence
+  - Which output, and per whom?
+  - A level difference is not a growth-rate difference
+  - What does convergence mean?
 - Capital, labor, and productivity
+  - From a production function to growth accounting
+  - Labor productivity and finite-period contributions
+  - What is inside the residual?
 - From accounting to a growth model
+  - Level accounting and joint determination
+  - Connecting TFP to labor-augmenting technology
 
 ### 3. Solow Model
 
