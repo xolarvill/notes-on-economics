@@ -1,0 +1,195 @@
+\section{Introduction}\label{sec:introduction}
+
+These notes assume a course in intermediate macroeconomics. We take national
+income accounting, basic growth theory, and aggregate demand and supply as
+familiar. The next step is to explain how aggregate outcomes follow from
+decisions made over time, and how those decisions change with the economic
+environment and policy.
+
+The first three parts cover growth, fluctuations, and the open economy.
+Part IV studies money, finance, and policy; Part V applies these mechanisms to
+the dollar system and China's growth after the pandemic. Chapters marked
+\textit{planned} contain outlines for later development.
+
+\subsection{Growth, fluctuations, and their interaction}
+
+Growth theory asks how productive capacity and living standards evolve. Capital
+accumulation is the starting point. Saving decisions, population, technology,
+and the allocation of resources then explain why accumulation and income differ
+across economies.
+
+Business-cycle theory asks how an economy responds to disturbances. A change in
+productivity, demand, or financing conditions affects consumption, investment,
+employment, and prices. The task is to identify the shock and explain the
+adjustment that follows. A mechanism that amplifies a shock need not be the
+mechanism that caused it.
+
+The questions overlap. A recession can reduce investment and change future
+capital. Population and productivity growth can change the conditions for
+stabilization policy. Growth need not be an unaffected trend, and fluctuations
+can have lasting effects. We begin with separate models to isolate mechanisms,
+then study their interaction.
+
+\subsection{From aggregate relations to individual decisions}
+
+An aggregate consumption function such as $C=C(Y-T)$ summarizes a relationship.
+It does not yet explain how a household responds to an expected tax change,
+uncertain income, or a borrowing limit. To study those questions, we specify
+what the household chooses and what constrains it.
+
+\textbf{A two-period example.}
+Let a household receive real income $y_0$ today and $y_1$ tomorrow. It starts
+with no assets and leaves none after tomorrow. Saving $a_1$ earns a known gross
+real return $R>0$. Negative $a_1$ is borrowing at the same return. The problem is
+\begin{equation}\label{eq:intro-household}
+\begin{split}
+\max_{c_0,c_1,a_1}\;&u(c_0)+\beta u(c_1),\qquad 0<\beta<1,\\
+\text{s.t. }&c_0+a_1=y_0,\\
+&c_1=y_1+Ra_1.
+\end{split}
+\end{equation}
+Assume $u'>0$, $u''<0$, positive consumption, and an interior solution. Substituting
+the constraints leaves one choice:
+\begin{equation}
+\max_{a_1}\;u(y_0-a_1)+\beta u(y_1+Ra_1).
+\end{equation}
+Differentiate with respect to $a_1$, then substitute back for consumption:
+\begin{align}
+-u'(y_0-a_1)+\beta R u'(y_1+Ra_1)&=0,\\
+u'(c_0)&=\beta R u'(c_1).\label{eq:intro-euler-certain}
+\end{align}
+Saving one more unit costs $u'(c_0)$ units of utility today and yields
+$\beta R u'(c_1)$ tomorrow. An interior optimum equates the two.
+
+For marginal utility $u'(c)=c^{-\sigma}$, $\sigma>0$,
+\begin{align}
+c_0^{-\sigma}&=\beta R c_1^{-\sigma},\\
+\left(\frac{c_1}{c_0}\right)^\sigma&=\beta R,\\
+\frac{c_1}{c_0}&=(\beta R)^{1/\sigma}.
+\end{align}
+Thus consumption growth depends on patience and the return to saving. Its
+sensitivity to that return is governed by $1/\sigma$, the elasticity of
+intertemporal substitution in this example. A binding borrowing constraint
+would require an inequality condition instead of this interior equality.
+
+\textbf{Expectations and policy.}
+With uncertainty, the corresponding interior condition for an asset with gross
+real payoff $R_{t+1}$ is
+\begin{equation}\label{eq:intro-euler-uncertain}
+u'(c_t)=\beta E_t\!\left[R_{t+1}u'(c_{t+1})\right],
+\qquad E_t[\cdot]\equiv E[\cdot\mid\mathcal I_t].
+\end{equation}
+Here $\mathcal I_t$ is information available when the household chooses saving.
+An uncertain return stays inside the expectation; its comovement with marginal
+utility matters. Rational expectations require forecasts consistent with the
+model and available information, not knowledge of tomorrow's realization.
+
+The same logic matters for policy. An announced future tax change may alter
+consumption today. A change in a policy rule can change expectations and the
+aggregate relationships observed under the old rule. This is the concern in
+the Lucas critique.\footnote{Robert E. Lucas, Jr. (1976), ``Econometric Policy
+Evaluation: A Critique,'' \textit{Carnegie-Rochester Conference Series on Public
+Policy}, 1, 19--46. \url{https://doi.org/10.1016/S0167-2231(76)80003-6}.}
+Writing down individual decisions makes these responses explicit. It does not,
+by itself, guarantee that the chosen preferences, constraints, or information
+assumptions remain appropriate under every policy change.
+
+\subsection{Reading a dynamic equilibrium}
+
+The household takes income and returns as given. In general equilibrium, they
+must be consistent with production and other agents' choices. A competitive
+equilibrium combines individual optimality, budget constraints, market clearing,
+and policy rules at each date and, under uncertainty, each history.
+
+\textbf{States, choices, and paths.}
+Consider a deterministic economy with fixed labor normalized to one, output
+$f(k_t)$, and no government or foreign trade. Capital $k_t$ is available at the
+start of period $t$. With depreciation $\delta$, feasibility gives
+\begin{equation}\label{eq:intro-capital}
+k_{t+1}=f(k_t)+(1-\delta)k_t-c_t.
+\end{equation}
+Capital is inherited; consumption is chosen and affects tomorrow's capital.
+Here $k_t$ is a state variable and $c_t$ a control variable. The set of states
+depends on the model's timing and assumptions.
+
+If households can save in capital, competitive factor pricing gives the gross
+return $f'(k_{t+1})+1-\delta$. Substituting this return into
+\eqref{eq:intro-euler-certain} yields the intertemporal condition
+\begin{equation}\label{eq:intro-growth-euler}
+u'(c_t)=\beta\left[f'(k_{t+1})+1-\delta\right]u'(c_{t+1}).
+\end{equation}
+Together, \eqref{eq:intro-capital} and \eqref{eq:intro-growth-euler} describe
+feasible accumulation and optimal consumption growth. Given $k_0$, different
+initial choices of $c_0$ generate different candidate paths. Feasibility and
+the Euler equation alone do not establish that each path is an equilibrium.
+The model also needs its boundary conditions, including the appropriate
+transversality condition for this infinite-horizon saving problem. We derive
+these conditions in the Ramsey chapter.
+
+\textbf{A steady state is a particular path.}
+For a positive stationary allocation, set $k_{t+1}=k_t=k^*$ and
+$c_{t+1}=c_t=c^*$ in the two equations. Since $u'(c^*)>0$,
+\begin{align}
+c^*&=f(k^*)-\delta k^*,\\
+1&=\beta\left[f'(k^*)+1-\delta\right].
+\end{align}
+These equations locate a steady state. They do not describe the transition from
+an arbitrary $k_0$, or prove existence or uniqueness of an equilibrium path.
+With sustained technological or population growth, aggregate quantities may
+keep growing on a balanced growth path. A stationary system may then require
+normalization, for example by effective labor, rather than constant levels.
+
+\textbf{Equilibrium and welfare answer different questions.}
+A planner chooses a feasible allocation directly; a competitive equilibrium
+also specifies prices that support individual choices. Under suitable
+conditions, a planner's allocation can be decentralized. Taxes, market power,
+externalities, incomplete markets, or nominal rigidities may prevent that
+equivalence. Market clearing alone establishes neither efficiency nor the
+desirability of a policy. A welfare comparison must state whose utility is
+evaluated, which constraints apply, and what alternative is feasible.
+
+\subsection{Accounting and notation used in these notes}
+
+We need only a few accounting conventions at the outset. In a closed economy,
+using gross investment $I_t$,
+\begin{align}
+Y_t&=C_t+I_t+G_t,\label{eq:intro-resource}\\
+K_{t+1}&=(1-\delta)K_t+I_t.\label{eq:intro-stock-flow}
+\end{align}
+$K_t$ is the stock available at the beginning of the period; $I_t$ is a flow
+during the period. Depreciation already enters \eqref{eq:intro-stock-flow}.
+We do not add it again to \eqref{eq:intro-resource}. A household's purchase of
+a financial claim need not create physical capital; domestic claims and
+liabilities must be consolidated when deriving aggregate feasibility.
+
+Accounting becomes a model only after we specify behavior, technology, and
+equilibrium. Government budgets enter with fiscal policy; international
+accounts enter in Part III.
+
+Capital letters generally denote aggregates. Lower-case letters denote
+per-person or normalized quantities where the chapter defines them. Some
+existing chapters use local notation; the normalization must be checked before
+comparing their equations. Unless stated otherwise, $\beta$ is a discount
+factor, $\rho$ a rate of time preference, $r$ a net real interest rate, and
+$R=1+r$ a gross real return. In discrete time, the convention
+$\beta=1/(1+\rho)$ differs from continuous-time discounting $e^{-\rho t}$.
+
+For a nominal one-period return $1+i_t$, realized inflation
+$\pi_{t+1}=P_{t+1}/P_t-1$ gives the gross real return
+\begin{equation}
+R_{t+1}=\frac{1+i_t}{1+\pi_{t+1}}.
+\end{equation}
+An interest rate quoted in nominal units is therefore not the real return in
+\eqref{eq:intro-euler-uncertain}. Under uncertainty, the realized price change
+must remain inside the relevant expectation.
+
+Finally, for a positive variable $X_t$ and a positive stationary reference
+$\bar X$, define
+\begin{equation}
+\hat x_t\equiv\log X_t-\log\bar X
+\approx\frac{X_t-\bar X}{\bar X}.
+\end{equation}
+The definition is exact; the approximation is local. A deviation from a steady
+state, a growth rate, and an output gap relative to a flexible-price allocation
+are different objects. Each chapter states its reference point before using
+an approximation.
