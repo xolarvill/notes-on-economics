@@ -39,10 +39,23 @@ chapter of Part V.
 
 ### 3. Solow Model
 
-- Economic Environment and Specific Assumptions
+- From the growth question to the model
+  - The problem behind the equations
+  - Choosing what to keep
+- Economic environment and assumptions
+  - Resources, timing, and behavior
+  - Production and normalization
+  - Prices and market clearing
 - Solow model in discrete time
+  - Deriving the law of motion
+  - A steady state and the path toward it
+  - What grows on a balanced growth path?
+  - Saving, rebuilding, and conditional convergence
+  - Local convergence speed
 - Solow model in continuous time
-- Golden Rate
+  - The same mechanism with continuous adjustment
+  - Local approximation and an exact Cobb--Douglas solution
+- The Golden Rule and the cost of saving
 - Extensions
 
 ### 4. Ramsey Model
