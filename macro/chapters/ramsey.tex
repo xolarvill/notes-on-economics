@@ -226,6 +226,8 @@ above this section for comparison.
 
 \subsubsection{No-Ponzi restrictions and transversality}
 
+\begin{blueblock}
+\textbf{Solvency and optimality are different restrictions.}
 A household's total wealth $B$ satisfies
 \begin{equation}
 \dot B=rB+wL-C,
@@ -248,6 +250,7 @@ It rules out leaving resources with positive limiting discounted utility value
 when consuming more would improve the allocation. It does not require the
 capital stock itself to approach zero. Feasibility and an Euler equation alone
 need not select the optimal infinite-horizon path.
+\end{blueblock}
 
 \subsection{Solving the consumption--saving problem}
 
@@ -277,6 +280,40 @@ consolidate into \eqref{eq:ramsey-planner}'s resource constraint. With identical
 preferences, competitive prices, and no taxes, externalities, or financing
 frictions, the planner allocation can be supported as a competitive allocation.
 This equivalence must be checked again when the environment changes.
+
+\begin{redblock}
+\textbf{Question: why do three methods give the same two-period Euler equation?}
+Before solving for a whole path, isolate two dates with $A=L=1$, known incomes
+$y_0,y_1$, and a given gross return $R=1+r>0$. There are no borrowing frictions
+or terminal bequests. For an interior choice of positive consumption, solve
+\[
+\max_{c_0,c_1}\;u(c_0)+\beta u(c_1),\qquad
+c_0+\frac{c_1}{R}=y_0+\frac{y_1}{R}\equiv W.
+\]
+\textit{Elimination.} Substitute $c_1=R(W-c_0)$ into utility and differentiate:
+\[
+u'(c_0)-\beta R u'(c_1)=0.
+\]
+\textit{Geometry.} Along an indifference curve,
+$u'(c_0)dc_0+\beta u'(c_1)dc_1=0$, so its slope is
+$-u'(c_0)/[\beta u'(c_1)]$. The budget line has slope $-R$. Tangency therefore
+requires $u'(c_0)=\beta R u'(c_1)$.
+
+\textit{Lagrangian.} Write
+\[
+\mathscr L=u(c_0)+\beta u(c_1)
+ +\lambda\left(W-c_0-\frac{c_1}{R}\right).
+\]
+The consumption conditions are $u'(c_0)=\lambda$ and
+$\beta u'(c_1)=\lambda/R$. Eliminating $\lambda$ gives the same Euler equation.
+
+All three methods price the same marginal transfer: giving up one unit today
+buys $R$ units tomorrow. The Euler condition fixes the preferred trade-off;
+the budget fixes the affordable consumption levels. In infinite time the
+adjacent-date logic survives, but the full budget and terminal conditions
+still have to be imposed. A binding borrowing constraint would replace the
+interior tangency by the appropriate constrained condition.
+\end{redblock}
 
 \subsubsection{Lagrangian: the adjacent-date trade-off}\label{method-of-lagrangian}
 
@@ -464,6 +501,8 @@ hump-shaped resource locus and $k^*<k_{\mathrm{GR}}$.
 
 \subsubsection{Why consumption can jump while capital cannot}
 
+\begin{blueblock}
+\textbf{A state is inherited; a control is chosen.}
 Capital is a state inherited from previous investment. Consumption is a control:
 a household can change spending immediately, but cannot instantly create a
 new stock of machines. For a given $k(0)$, different initial consumption choices
@@ -471,6 +510,7 @@ produce different candidate paths under \eqref{eq:ramsey-system}. Most fail
 feasibility or the terminal condition. The saddle path selects initial
 consumption as well as the later transition; it does not require every variable
 to start at its steady state.
+\end{blueblock}
 
 A one-time destruction of physical capital, with all other fundamentals
 unchanged, moves the state leftward. Consumption adjusts onto the stable path.
@@ -518,6 +558,24 @@ $m=\eta-\lambda_->0$. The local stable path is therefore
 The positive convergence speed is $-\lambda_-$; its local half-life is
 $\log2/(-\lambda_-)$. The exponential solution is exact for the linearized
 system, and generally approximate for the original nonlinear transition.
+
+\begin{greenblock}
+\textbf{Comparing convergence in Solow and Ramsey.}
+Both local stable paths have exponential decay in effective-worker capital:
+\[
+\begin{aligned}
+\text{Solow:}\quad k(t)-k^*&\approx[k(0)-k^*]e^{-\lambda_Ct},\\
+\text{Ramsey:}\quad k(t)-k^*&\approx[k(0)-k^*]e^{\lambda_-t}.
+\end{aligned}
+\]
+Here $\lambda_C=b-sf'(k^*)>0$ is defined in
+\eqref{eq:solow-continuous-speed}, while $\lambda_-<0$ is Ramsey's stable
+eigenvalue. The positive speeds are therefore $\lambda_C$ and $-\lambda_-$,
+and a negative stable eigenvalue is not a negative convergence speed. Each steady state belongs to
+its own model. In Ramsey, initial consumption must also lie on the stable
+arm; arbitrary consumption does not produce this convergent path. These are
+local approximations to the nonlinear models.
+\end{greenblock}
 
 \subsubsection{The same restriction by undetermined coefficients}
 
@@ -571,12 +629,15 @@ Diminishing marginal product gives the last inequality. If $b=0$, there is no
 finite interior Golden Rule stock under $f'(k)>0$; the Ramsey steady-state
 condition can still determine a finite $k^*$.
 
+\begin{greenblock}
+\textbf{Higher eventual consumption need not mean higher welfare.}
 Why stop before the consumption-maximizing stock? Building extra capital
 requires forgone consumption during the transition. The Golden Rule compares
 steady states without pricing that sacrifice. Ramsey values the sacrifice
 and the later benefit along a common time path. Starting at $k^*$, a policy
 that forces more saving may eventually raise consumption, yet reduce welfare.
 The later gain alone does not settle the comparison.
+\end{greenblock}
 
 This also clarifies the benchmark's policy meaning. With no externalities,
 market power, borrowing frictions, or tax wedges, the competitive allocation
@@ -706,6 +767,8 @@ steady-state formula would therefore differ when $\delta>0$.
 
 \subsubsection{The transition need not resemble the long-run comparison}
 
+\begin{blueblock}
+\textbf{A tax can raise consumption initially and lower it eventually.}
 Suppose the economy starts at the untaxed steady state and an unexpected small
 permanent capital tax is introduced, with full rebates and $G=0$. The
 $\dot c=0$ line shifts left, while the $\dot k=0$ curve is unchanged. Capital
@@ -713,6 +776,7 @@ cannot jump. Consumption can, and locally it jumps \emph{up}: households now
 want a smaller eventual capital stock and begin consuming part of the inherited
 wealth. Then capital and consumption decline along the new stable path.
 The initial consumption increase is consistent with lower long-run consumption.
+\end{blueblock}
 
 To see the local logic, write the new stable path as
 $c-c_\tau\approx m_\tau(k-k_\tau)$, with $m_\tau>0$. At zero tax its slope is

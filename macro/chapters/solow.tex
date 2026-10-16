@@ -442,9 +442,12 @@ Constant returns and Euler's theorem for homogeneous functions give
 \begin{equation}
 Y_t=F_1K_t+F_2A_tL_t=q_tK_t+w_tL_t.
 \end{equation}
+\begin{blueblock}
+\textbf{Zero profits do not mean zero capital income.}
 Economic profits are zero after paying both factors, including capital owned
 by households. This is a property of this competitive constant-returns
 benchmark, not a claim that owners receive no capital income.
+\end{blueblock}
 
 For Cobb--Douglas, $q_t=\alpha k_t^{\alpha-1}$ and
 $w_t=(1-\alpha)A_tk_t^\alpha$. Capital deepening lowers the rental return and
@@ -463,6 +466,17 @@ respond to those returns until we change the household side of the model.
 \subsection{Solow model in discrete time}\label{solow-model-in-discrete-time}
 
 \subsubsection{Deriving the law of motion}
+
+\begin{redblock}
+\textbf{Question: which capital variable makes the problem stationary?}
+Start from $K_{t+1}=(1-\delta)K_t+sY_t$. Dividing by $L_{t+1}$ describes
+capital per worker, but growing labor efficiency still changes production
+at each date. Dividing by $A_{t+1}L_{t+1}$ instead gives a stationary map in
+capital per effective worker when $s,n,g,\delta$ are constant. The derivation
+below keeps the exact growth denominator; the per-worker special case follows
+in the blue note. Choosing a normalization is part of solving the economic
+problem, rather than merely shortening its notation.
+\end{redblock}
 
 Define $D\equiv(1+n)(1+g)$, the gross growth factor of effective labor. Divide
 \eqref{eq:solow-capital} by $A_{t+1}L_{t+1}$:
@@ -546,9 +560,12 @@ value into the next iteration. For $n>0$ or $g>0$, divide the map by $D$ as in
 \end{minipage}
 \end{center}
 
+\begin{blueblock}
+\textbf{A steady state is not the definition of equilibrium.}
 A steady state is one particular equilibrium path. A transition from an
 arbitrary initial stock is also an equilibrium path under the imposed saving
 rule. Convergence does not make the transition cease to be an equilibrium.
+\end{blueblock}
 
 \subsubsection{What grows on a balanced growth path?}
 
@@ -854,9 +871,12 @@ and the activities rewarded by institutions can differ.\footnote{Lant
 Pritchett (2001), ``Where Has All the Education Gone?,'' \textit{World Bank
 Economic Review}, 15(3), 367--391, especially Section II.
 \url{https://doi.org/10.1093/wber/15.3.367}.}
+\begin{greenblock}
+\textbf{What can weak schooling--growth estimates tell us?}
 Weak estimates in a particular specification do not establish that skills have
 no productive value. They call for checking the proposed accumulation
 mechanism, measurement, and identification.
+\end{greenblock}
 
 \subsubsection{Technology adoption and catch-up}
 
