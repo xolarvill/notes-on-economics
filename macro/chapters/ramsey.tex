@@ -1,601 +1,465 @@
 % !TEX root = ../macro.tex
 \section{Ramsey Model}\label{sec:ramsey}
 
-\begin{greenblock}
-See Chapter 5 to Chapter 7 from Acemoglu, 2004 for more mathematical help.
-\end{greenblock}
+Solow determines accumulation from a given saving share. Ramsey asks how much
+to consume and save when households value consumption at different dates.
+The change adds a choice, a price for postponing consumption, and a boundary
+condition that selects an admissible path.
 
-We begin the road to sophiscated macro skyscraper with the most basic frame, the Ramsey model.
+\subsection{From a saving rule to a saving decision}
 
-The Ramsey model\footnote{Ramsey, Frank P. (1928). "A Mathematical Theory of Saving". Economic Journal. 38 (152): 543–559.}, or the RCK model, or the Neoclassical growth model differs from the Solow model in that the choice of consumption is explicitly microfounded at a point in time and so endogenizes the savings rate. Ramsey model is in nature a growth model with consumer optmization.
+Suppose two economies have the same current income. In one, income is expected
+to rise; in the other, a disruption has temporarily reduced production. A rule
+$S=sY$ makes saving move proportionally with current output in both cases.
+It cannot tell us whether households want to smooth a temporary loss, prepare
+for lower future income, or invest in a newly productive opportunity.
 
-The most intuitive change is now we put $S_t$ under $\max$ as $\max\limits_{\{C_t, S_t\}}$.
+One response would be to make $s$ a function of income or the interest rate.
+But then we would still need to explain that function and how it changes when
+expectations or policy change. Instead, specify what consumption is worth,
+what saving buys, and which paths the household can finance. A saving rate
+will emerge from those choices rather than being the starting rule.
 
-\sepline
+Start with the experiment of consuming one unit less today. Saving that unit
+provides a return tomorrow. The household compares the utility lost now with
+the discounted utility of that future consumption. This suggests an optimality
+condition across adjacent dates. It cannot yet determine the level of
+consumption: a household with little wealth cannot finance every path with
+the right slope. We will need feasibility and a terminal restriction as well.
+
+The planner and household formulations then answer related questions. The
+planner allocates real resources; a household takes wages and returns as given.
+Their allocations coincide in the competitive benchmark under the conditions
+stated below. Taxes can separate the private return from the social product,
+which is why decentralization matters for the final section.
+
+Ramsey's original contribution was a saving problem; the presentation here is
+the modern discounted Ramsey--Cass--Koopmans benchmark, rather than a literal
+reproduction of the 1928 objective.\footnote{Frank P. Ramsey (1928), ``A
+Mathematical Theory of Saving,'' \textit{Economic Journal}, 38(152), 543--559.
+\url{https://doi.org/10.2307/2224098}.}
+
+% BEGIN ORIGINAL COURSE ASSUMPTIONS - retained, not typeset
+% \subsection{Assumptions}\label{assumptions}
+% 
+% 
+% 
+% \begin{itemize}
+%   \item Same as Solow Model
+%     \begin{itemize}
+%     \tightlist
+%       \item Production Function in the Harrold neutrality form
+%       \item \textbf{Exogenous Variables:}
+%       \item Population growth rate$=n$
+%       \item Technology growth rate$=g$
+%       \item Depreciation rate$=0$ (for simplicity)
+%       \item And most of all, the technological growth rate is assumed as $a$.
+%     \end{itemize}
+%   \item Firm
+%     \begin{itemize}
+%     \tightlist
+%       \item Perfect competitive firms, or homogenous firms, or representive firms
+%       \item Hire workers and capital in competitive factor markets
+%       \item Each has the production function $Y=F(K,AL)$
+%       \item Firms are owned by the families, meaning the revenue goes straight to
+%       latter
+%     \end{itemize}
+%   \item Household
+%     \begin{itemize}
+%     \tightlist
+%       \item Homogenous families.
+%       \item Population growth of each household is assumed as $n$.
+%       \item Each member in a household provides one unit of labor.
+%       \item Income of a household is the sum of the labor revenue subsum, the capital revenue subsum and the firm revenue share subsum.
+%       \item A household should and must maximize the utility.
+%       \item Degree of patience denoted as discount factor $\beta=\frac{1}{1+\rho}$, and $\rho$ is the discount rate.
+%     \end{itemize}
+% \end{itemize}
+% 
+% 
+% 
+% \begin{blueblock}
+% \begin{note}[Rule of Prohibiting Ponzi Schemes]
+% Conconstraint in Ramsey model is also called Prohibiting Ponzi Schemes Rule. It forbids the household to do a scam of rolling over debt by repeatedly borrowing. Yet in real life, many people are doing this as a harmless way to ralex debt pressure.
+% \end{note}
+% \end{blueblock}
+% 
+% END ORIGINAL COURSE ASSUMPTIONS
+
+\Needspace{34\baselineskip}
 \subsection{Assumptions}\label{assumptions}
 
+The economic environment follows Solow. The new ingredient is a household
+objective, so the map separates its choices from technology and market clearing.
 
+\begin{modelsetup}
+\begin{modelcondition}{01}{Technology and resources}
+A closed, one-good economy without government in the baseline:
+\[
+Y=F(K,AL),\quad Y=C+I.
+\]
+Production has the Solow properties.
+\end{modelcondition}
+\begin{modelcondition}{02}{Given states and paths}
+Positive initial stocks. Labor and technology grow exogenously:
+\[
+\dot L/L=n,\qquad \dot A/A=g.
+\]
+The course benchmark sets $\delta=0$.
+\end{modelcondition}
+\begin{modelcondition}{03}{Households}
+Identical, price-taking dynasties own capital. Each member supplies one unit
+of labor and chooses consumption over time.
+\end{modelcondition}
+\begin{modelcondition}{04}{Preferences}
+Utility is defined over consumption per person, $x=C/L$:
+\[
+\int_0^\infty e^{-\rho t}L(t)u(x(t))\,dt.
+\]
+Patience and curvature affect saving.
+\end{modelcondition}
+\begin{modelcondition}{05}{Firms and prices}
+Competitive firms maximize profits. Rental income and wages go to households;
+profits are zero under constant returns.
+\end{modelcondition}
+\begin{modelcondition}{06}{Feasible optimal paths}
+Capital is inherited; consumption is chosen. Feasibility, optimality, market
+clearing, and terminal conditions jointly select a path.
+\end{modelcondition}
+\end{modelsetup}
 
-\begin{itemize}
-  \item Same as Solow Model
-    \begin{itemize}
-    \tightlist
-      \item Production Function in the Harrold neutrality form
-      \item \textbf{Exogenous Variables:}
-      \item Population growth rate$=n$
-      \item Technology growth rate$=g$
-      \item Depreciation rate$=0$ (for simplicity)
-      \item And most of all, the technological growth rate is assumed as $a$.
-    \end{itemize}
-  \item Firm
-    \begin{itemize}
-    \tightlist
-      \item Perfect competitive firms, or homogenous firms, or representive firms
-      \item Hire workers and capital in competitive factor markets
-      \item Each has the production function $Y=F(K,AL)$
-      \item Firms are owned by the families, meaning the revenue goes straight to
-      latter
-    \end{itemize}
-  \item Household
-    \begin{itemize}
-    \tightlist
-      \item Homogenous families.
-      \item Population growth of each household is assumed as $n$.
-      \item Each member in a household provides one unit of labor.
-      \item Income of a household is the sum of the labor revenue subsum, the capital revenue subsum and the firm revenue share subsum.
-      \item A household should and must maximize the utility.
-      \item Degree of patience denoted as discount factor $\beta=\frac{1}{1+\rho}$, and $\rho$ is the discount rate.
-    \end{itemize}
-\end{itemize}
+\subsubsection{Notation and the course simplifications}
 
+Use $K,C,Y$ for aggregates and $x=C/L$ for consumption per person. Reserve
+$k=K/(AL)$ and $c=C/(AL)$ for quantities per effective worker, so $x=Ac$.
+Technology growth is denoted by $g$ throughout. We retain the course's
+zero-depreciation benchmark; $\delta$ remains visible in the formulas so that
+setting $\delta=0$ is explicit. Full depreciation, $\delta=1$, will be used
+only in a separately labeled discrete-time example.
 
+Preferences have marginal utility $u'(x)=x^{-\theta}$, $\theta>0$:
+\begin{equation}\label{eq:ramsey-utility}
+u(x)=\begin{cases}
+ x^{1-\theta}/(1-\theta),&\theta\ne1,\\
+ \log x,&\theta=1.
+\end{cases}
+\end{equation}
+In this deterministic model, $1/\theta$ measures willingness to substitute
+consumption across time. Higher $\rho$ reduces the weight on future utility.
+Assume $\rho>n\geq0$, $g\geq0$, and
+\begin{equation}\label{eq:ramsey-effective-discount}
+\eta\equiv\rho-n-(1-\theta)g>0.
+\end{equation}
+These are sufficient restrictions for finite utility on the balanced growth
+path used below. Weighting by $L(t)$ means the dynasty values the utility of
+all its members; choosing a different population welfare criterion would change
+the normalization. The original lists are retained in comments immediately
+above this section for comparison.
 
-\begin{blueblock}
-\begin{note}[Rule of Prohibiting Ponzi Schemes]
-Conconstraint in Ramsey model is also called Prohibiting Ponzi Schemes Rule. It forbids the household to do a scam of rolling over debt by repeatedly borrowing. Yet in real life, many people are doing this as a harmless way to ralex debt pressure.
-\end{note}
-\end{blueblock}
+\subsubsection{No-Ponzi restrictions and transversality}
 
-\sepline
-\subsection{Solution of Ramsey model}
-
-\subsubsection{Central Planner's
-Problem}\label{central-planners-problem}
-
-Originally Ramsey set out the model as a social planner's problem of
-maximizing levels of consumption over successive generations. Only later was a model adopted by Cass and Koopmans as a description of a
-decentralized dynamic economy with a representative agent. This is also why the model is called Ramsey-Cass-Koopsman model, yet abbreviated as Ramsey model.
-
-So, chronologically the first thing we should address is central
-planner's problem.
-
-\textbf{Disperssive competition}
-
-UMP
-
+A household's total wealth $B$ satisfies
 \begin{equation}
+\dot B=rB+wL-C,
+\end{equation}
+where $r$ is the net real return and $w$ the wage per person. A no-Ponzi
+restriction requires
+\begin{equation}\label{eq:ramsey-npg}
+\liminf_{T\to\infty}e^{-\int_0^T r(v)\,dv}B(T)\geq0.
+\end{equation}
+Borrowing must ultimately be supported by resources rather than by a negative
+terminal present value of wealth. Refinancing a loan is not, by itself, a
+Ponzi scheme: future income can support repayment.
+
+A transversality condition instead concerns optimality. In the planner's
+normalized problem below it takes the standard form
+\begin{equation}\label{eq:ramsey-tvc}
+\lim_{t\to\infty}e^{-\eta t}u'(c(t))k(t)=0.
+\end{equation}
+It rules out leaving resources with positive limiting discounted utility value
+when consuming more would improve the allocation. It does not require the
+capital stock itself to approach zero. Feasibility and an Euler equation alone
+need not select the optimal infinite-horizon path.
+
+\subsection{Solving the consumption--saving problem}
+
+\subsubsection{The planner's problem and decentralization}\label{central-planners-problem}
+
+For continuous time, the planner chooses consumption with inherited $K(0)$:
+\begin{equation}\label{eq:ramsey-planner}
 \begin{split}
-  &\max_{\{C_{t},K_{t+1}\}_{t=0}^{\infty}} \; \sum\limits_{t=0}^{\infty} \beta^{t}u(C_{t})
-  \\& s.t.  C_{t}+K_{t+1}-(1-\delta)K_{t}=W_t L_{t}+R_t k_{t}+D_{t}
+\max_{\{C(t)\}}\;&\int_0^\infty e^{-\rho t}L(t)u(C(t)/L(t))\,dt,\\
+\text{s.t. }&\dot K=F(K,AL)-\delta K-C,\qquad K\geq0,\ C>0.
 \end{split}
 \end{equation}
+Consumption uses current output; the residual, net of depreciation, changes
+the capital stock. In a decentralized economy, a household uses its budget
+constraint instead. Competitive factor pricing gives
+\begin{equation}\label{eq:ramsey-factor-prices}
+q=f'(k),\qquad r=q-\delta,\qquad
+w=A\left[f(k)-kf'(k)\right].
+\end{equation}
+$q$ is the rental payment before depreciation. The net return $r=q-\delta$
+and a discrete-time gross return $R=1+q-\delta=1+r$ are different objects.
 
-Noticing that the constraint is equivalent to $C_{t}+I_{t}=Y_{t}+D_{t}$
+With constant returns, factor incomes exhaust output. Firms' dividends are
+not an additional source of aggregate goods on top of $Y$. In equilibrium,
+aggregate household wealth equals capital, $B=K$, so the household budgets
+consolidate into \eqref{eq:ramsey-planner}'s resource constraint. With identical
+preferences, competitive prices, and no taxes, externalities, or financing
+frictions, the planner allocation can be supported as a competitive allocation.
+This equivalence must be checked again when the environment changes.
 
-Solving this UMP resulting Euler's equation
+\subsubsection{Lagrangian: the adjacent-date trade-off}\label{method-of-lagrangian}
+
+First isolate discrete time with $A=L=1$ and $n=g=0$. This makes timing visible
+without carrying growing denominators; it is a restricted version of the model.
+The planner solves
 \begin{equation}
+\max_{\{c_t,k_{t+1}\}}\sum_{t=0}^\infty\beta^tu(c_t),\qquad
+c_t+k_{t+1}=f(k_t)+(1-\delta)k_t,
+\end{equation}
+where $k_0$ is given, $0<\beta<1$, and $0\leq\delta\leq1$. Writing
+$\beta=1/(1+\rho)$ defines a discrete-time rate of time preference; the
+continuous-time convention uses $e^{-\rho t}$.
+
+Use current-utility multipliers $\lambda_t$:
+\begin{equation}
+\mathscr L=\sum_{t=0}^\infty\beta^t
+\left\{u(c_t)+\lambda_t[f(k_t)+(1-\delta)k_t-c_t-k_{t+1}]\right\}.
+\end{equation}
+At an interior solution, differentiate with respect to $c_t$ and $k_{t+1}$:
+\begin{align}
+\lambda_t&=u'(c_t),\\
+\lambda_t&=\beta\lambda_{t+1}[f'(k_{t+1})+1-\delta].
+\end{align}
+Substitution gives the Euler equation
+\begin{equation}\label{eq:ramsey-discrete-euler}
+u'(c_t)=\beta R_{t+1}u'(c_{t+1}),\qquad
+R_{t+1}=f'(k_{t+1})+1-\delta.
+\end{equation}
+One unit saved at $t$ earns its return at $t+1$, when the new capital is used.
+The utility cost today equals the discounted marginal gain tomorrow. For CRRA,
+\begin{equation}
+\frac{c_{t+1}}{c_t}=(\beta R_{t+1})^{1/\theta}.
+\end{equation}
+This determines consumption growth given the return, not the entire consumption
+path. With no bequest motive and the usual concavity conditions, the terminal
+condition is $\lim_{t\to\infty}\beta^tu'(c_t)k_{t+1}=0$. In a finite-horizon
+exercise a terminal stock may be set to zero; that is not the same as imposing
+$k_t\to0$ in this infinite-horizon economy.
+
+\subsubsection{Hamiltonian: saving with continuous adjustment}\label{method-of-hamiltonian-equation-optimal-control}
+
+Return to continuous time with population and technology growth. From
+$k=K/(AL)$ and $c=C/(AL)$,
+\begin{equation}\label{eq:ramsey-capital-motion}
+\dot k=f(k)-c-bk,\qquad b\equiv n+g+\delta.
+\end{equation}
+For $\theta\ne1$, substitute $x=Ac$ and $L=L_0e^{nt}$ into utility:
+\begin{equation}
+e^{-\rho t}Lu(Ac)
+=L_0A_0^{1-\theta}e^{-\eta t}\frac{c^{1-\theta}}{1-\theta}.
+\end{equation}
+The positive constant in front does not change choices. For log utility,
+$\log(Ac)=\log A+\log c$; the $\log A$ term is independent of the allocation.
+The normalized problem therefore discounts $u(c)$ at $\eta$ in either case.
+
+Its current-value Hamiltonian is
+\begin{equation}
+\mathcal H=u(c)+\mu[f(k)-c-bk].
+\end{equation}
+The control condition and current-value costate equation are
+\begin{align}
+\mathcal H_c=0&\quad\Longrightarrow\quad \mu=u'(c),\\
+\dot\mu=\eta\mu-\mathcal H_k
+&=\left[\eta+b-f'(k)\right]\mu.
+\end{align}
+$\mu$ is the current utility value of an additional unit of normalized capital.
+The factor $\eta$ belongs in the current-value costate equation; a
+present-value costate would instead absorb the discount factor. These are two
+representations of the same problem, not an assertion that patience is irrelevant.
+
+Differentiate $\mu=c^{-\theta}$ and use
+$\eta+b=\rho+\delta+\theta g$:
+\begin{align}
+\frac{\dot\mu}{\mu}&=-\theta\frac{\dot c}{c}
+ =\eta+b-f'(k),\\
+\frac{\dot c}{c}
+&=\frac{f'(k)-\delta-\rho-\theta g}{\theta}.
+\label{eq:ramsey-normalized-euler}
+\end{align}
+Consumption per person is $x=Ac$, so
+\begin{equation}\label{eq:ramsey-person-euler}
+\frac{\dot x}{x}=g+\frac{\dot c}{c}
+ =\frac{r-\rho}{\theta}.
+\end{equation}
+A high return makes future consumption relatively attractive; impatience favors
+consumption now. Curvature determines how strongly consumption growth responds.
+Population growth affects resources and welfare weights, but cancels from this
+per-person Euler equation under the dynasty objective specified above.
+
+Setting $\delta=0$ recovers the course benchmark. Setting $g=n=0$ also removes
+the growth normalization. At $\rho=0$ the intertemporal trade-off changes, and
+an infinite-horizon undiscounted problem needs its own welfare criterion; it is
+not obtained simply by deleting discounting from every infinite integral.
+
+\subsubsection{Bellman and HJB: valuing the remaining opportunities}\label{method-of-bellman-equation-dynamic-programming}
+
+For the stationary discrete-time version, let $V(k)$ be the value of starting
+with capital $k$. Choose next period's capital $k'$:
+\begin{equation}
+V(k)=\max_{k'}\left\{u(f(k)+(1-\delta)k-k')+\beta V(k')\right\},
+\end{equation}
+with feasible $k'\geq0$ and positive current consumption. At an interior optimum,
+\begin{align}
+u'(c)&=\beta V'(k'),\\
+V'(k)&=u'(c)[f'(k)+1-\delta].
+\end{align}
+The second line is the envelope condition: the effect of the optimal choice's
+response drops out at the optimum. Apply it at $k'$ in the first line to recover
+\eqref{eq:ramsey-discrete-euler}. The Lagrangian and Bellman methods are pricing
+the same marginal transfer of resources between dates.
+
+\textbf{A case with an exact saving rule.}
+Take $u(c)=\log c$, $f(k)=k^\alpha$, and full depreciation $\delta=1$ only for
+this example. Guess $V(k)=a+d\log k$. The first-order condition gives
+\begin{equation}
+\frac{1}{k^\alpha-k'}=\frac{\beta d}{k'},\qquad
+\frac{k'}{k^\alpha}=\frac{\beta d}{1+\beta d}.
+\end{equation}
+Matching the coefficient of $\log k$ in the Bellman equation yields
+$d=\alpha(1+\beta d)$, hence
+\begin{equation}\label{eq:ramsey-exact-saving}
+d=\frac{\alpha}{1-\alpha\beta},\qquad
+k'=\alpha\beta k^\alpha,\qquad c=(1-\alpha\beta)k^\alpha.
+\end{equation}
+A constant saving share can emerge from optimization in this special case. Its
+value depends on preferences and technology; the result does not make a
+constant saving share general once depreciation or utility changes.
+
+In normalized continuous time, dynamic programming gives the HJB equation
+\begin{equation}
+\eta V(k)=\max_c\{u(c)+V'(k)[f(k)-c-bk]\}.
+\end{equation}
+The control condition is $u'(c)=V'(k)$. Differentiate using the envelope theorem:
+\begin{equation}
+\eta V'(k)=V''(k)\dot k+V'(k)[f'(k)-b].
+\end{equation}
+Along the path, $\dot\mu=V''(k)\dot k$ with $\mu=V'(k)$, giving the same
+costate equation and consumption Euler equation as the Hamiltonian. The value
+function summarizes all future opportunities; the terminal and feasibility
+conditions remain part of the underlying problem.
+
+\subsection{Intertemporal equilibrium and economic adjustment}
+
+\subsubsection{Steady state and the two loci}
+
+The continuous-time equilibrium combines
+\begin{equation}\label{eq:ramsey-system}
 \begin{split}
-  \Rightarrow & u'[F(K_{t})-K_{t+1}]=u'(C_{t})=\beta u'(C_{t+1})F'(K_{t+1})\\
-  &\iff \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}
+\dot k&=f(k)-c-bk,\\
+\dot c&=\frac{c}{\theta}[f'(k)-\delta-\rho-\theta g],
 \end{split}
 \end{equation}
-
-PMP at a perfectly competitive market
-\begin{align}
-&\mathop{max}_{K_{t}} \; \pi=F(K_{t},A_{t}L_{t})-(r+\delta)K_{t}-w L_{t}
-\end{align}
-where the $A_{t}L_{t}$ is assumed as a constant in order for model to converge
-\begin{align}
-F.O.C. \Rightarrow r+\delta=R=1+r
-\end{align}
-
-In a conclusion, optimization in the disperssive economy yields
-$\begin{cases}
-  \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}\\
-  r+\delta=R=1+r
-\end{cases}$
-
-
-\textbf{Central Planner's Problem}
-
-\begin{equation}
-\begin{split}
-&\mathop{max}_{\{C_{t},K_{t+1}\}_{t=0}^{\infty}} \; \sum\limits_{t=0}^{\infty} \beta^{t}u(C_{t})
-\\& s.t. \; C_{t}+K_{t+1}=Y_{t}, \text{ where } \delta \text{ is assumed as 1}
-\end{split}
+with given $k(0)$ and \eqref{eq:ramsey-tvc}. A positive normalized steady state
+satisfies
+\begin{equation}\label{eq:ramsey-steady}
+f'(k^*)=\delta+\rho+\theta g,\qquad c^*=f(k^*)-bk^*.
 \end{equation}
+The production assumptions give a unique positive $k^*$. Strict concavity gives
+$f(k^*)/k^*>f'(k^*)>b$, where the second inequality is $\eta>0$, so $c^*>0$.
+On this balanced growth path, consumption per person grows at $g$, aggregate
+consumption at $n+g$, and the net return is $r^*=\rho+\theta g$.
 
-Using Lagranian method and acquire Euler's equation
-\begin{align}
-\begin{split}
-\Rightarrow & u'(F(K_{t})-K_{t+1})=u'(C_{t})=\beta u'(C_{t+1})F'(K+1)
-\\&\iff \frac{u'(C_{t})}{u'(C_{t+1})}=\beta R_{t+1}
-\end{split}
-\end{align}
+For $c>0$, the $\dot c=0$ locus is vertical at $k^*$. Consumption grows to its
+left and falls to its right. The $\dot k=0$ locus is $c=f(k)-bk$; capital grows
+below it and falls above it. If $b>0$, its maximum is the Golden Rule stock,
+where $f'(k_{\mathrm{GR}})=b$. Neither locus, by itself, is an equilibrium path.
 
-\textbf{Conclusion}
+\begin{center}
+\begin{minipage}{\linewidth}
+\centering
+\includegraphics[width=0.48\linewidth]{images/ramsey_phase_diagram.png}
+\par\medskip\RaggedRight
+\noindent\textit{Reading the diagram.} The vertical line is $\dot c=0$; the
+curved resource locus is $\dot k=0$. The blue curve depicts the stable path,
+with arrows toward their intersection. The red paths illustrate departures
+that do not satisfy the required long-run conditions. The sketch assumes a
+hump-shaped resource locus and $k^*<k_{\mathrm{GR}}$.
+\end{minipage}
+\end{center}
 
-Regardless of the economy being disperssive or central planning, we would have the same Euler's equation of consumption. This suggests for simplicity, we might as well use central planner's problem.
+\subsubsection{Why consumption can jump while capital cannot}
 
+Capital is a state inherited from previous investment. Consumption is a control:
+a household can change spending immediately, but cannot instantly create a
+new stock of machines. For a given $k(0)$, different initial consumption choices
+produce different candidate paths under \eqref{eq:ramsey-system}. Most fail
+feasibility or the terminal condition. The saddle path selects initial
+consumption as well as the later transition; it does not require every variable
+to start at its steady state.
 
+A one-time destruction of physical capital, with all other fundamentals
+unchanged, moves the state leftward. Consumption adjusts onto the stable path.
+The low stock supports a high return and rebuilding, while the loss of resources
+constrains current spending. Actual disasters may also damage skills or
+technology, which would change the destination rather than just the initial state.
 
+A credible announcement about future productivity or taxation can change
+consumption before it changes current output: the household evaluates future
+income and returns when choosing today's spending. This model isolates that
+intertemporal mechanism. It omits borrowing constraints, income risk, and
+different marginal propensities to consume, so its representative consumption
+response is not an empirical claim about every household.
 
+\subsection{Linearization and the saddle path}
 
+\subsubsection{The local system and its eigenvalues}
 
-\subsubsection{Method of Lagrangian}\label{method-of-lagrangian}
-
-We start from scratch, then move on to methods like using Hamiltonian equation or using Bellman equation.
-
-\textbf{one-period static optimization}
-
-\begin{equation}
-\begin{split}
-&v=f(x_{1},x_{2})
-\\&s.t. \; g(x_{1},x_{2})=z
-\end{split}
+Let $\Delta k=k-k^*$ and $\Delta c=c-c^*$. In the order $(k,c)$, the first-order
+system is
+\begin{equation}\label{eq:ramsey-jacobian}
+\begin{pmatrix}\dot{\Delta k}\\\dot{\Delta c}\end{pmatrix}
+\approx
+J\begin{pmatrix}\Delta k\\\Delta c\end{pmatrix},\qquad
+J=\begin{pmatrix}\eta&-1\\ z&0\end{pmatrix},\quad
+z\equiv\frac{c^*f''(k^*)}{\theta}<0.
 \end{equation}
-
-
-
-\textbf{two-period dynamic optimization}
-
-A general form is denoted as
+The top-left entry is $f'(k^*)-b=\eta$; the bottom-right entry vanishes because
+the consumption growth bracket is zero at the steady state. Thus
 \begin{equation}
-\begin{split}
-&\max v=f(x_1,x_2)
-\\&s.t. \; g(x_{1},x_{2})=z \text{ (where the subscript is denoted as time periods)}
-\end{split}
+\det(\lambda I-J)=\lambda^2-\eta\lambda+z=0,\qquad
+\lambda_{\pm}=\frac{\eta\pm\sqrt{\eta^2-4z}}{2}.
 \end{equation}
+Since $z<0$, $\lambda_-<0<\lambda_+$. The local system has one stable and one
+unstable direction. This is the mathematical reason a boundary condition is
+needed to select consumption for the inherited capital stock.
 
-
-a two-period consumer maximization problem can be denoted as
+For a stable eigenvector $(1,m)$, the first row implies
+$m=\eta-\lambda_->0$. The local stable path is therefore
 \begin{align}
-\begin{split}
-&\mathop{max}_{C_{1},C_{2}} \; u_{1}=u(C_{1})+\beta u(C_{2})
-\\&s.t. \; \begin{cases}
-C_{1}+S_{1}\leqslant [r+(1-\delta)]S_{0} +Y_{1} \\
-C_{2}+S_{2}\leqslant [r+(1-\delta)]S_{1}+Y_{2}\end{cases}\text{ ,where we assume}\begin{cases}
-S_{0}=S_{2}=0 \\
-C_{1},C_{2}>0\end{cases}
-\end{split}
-\\& \text{The reconstraints}\Rightarrow \color{red} C_{1}+\frac{C_{2}}{1+r}=Y_{1}+\frac{Y_{2}}{1+r} \text{ (intertemporal budget conconstraint)}
+\Delta c(0)&\approx m\Delta k(0),\\
+\Delta k(t)&\approx\Delta k(0)e^{\lambda_-t},\\
+\Delta c(t)&\approx m\Delta k(0)e^{\lambda_-t}.
 \end{align}
+The positive convergence speed is $-\lambda_-$; its local half-life is
+$\log2/(-\lambda_-)$. The exponential solution is exact for the linearized
+system, and generally approximate for the original nonlinear transition.
 
+\subsubsection{The same restriction by undetermined coefficients}
 
-\begin{redblock}
-\begin{question}[How to solve the intertemporal UMP?]
-\end{question}
-
-
-(1). method of elimination
-
-$\frac{du_{1}}{dC_{1}}=0 \Rightarrow \frac{\beta u'(C_{2})}{u'(C_{1})}=\frac{1}{1+r} \text{ ( the Euler's equation of intertemporal consumption)}$
-In which the $\frac{1}{1+r}$ is the comparative price
-
-(2). method of geomotry
-
-On a $C_{1}-C_{2}$ plane, \begin{align}
-&0=u'(C_{1})dC_{1}+\beta u'(C_{2})dC_{2}
-\\&\Rightarrow \frac{dC_{2}}{dC_{1}}=-\frac{u'(C_{1})}{\beta u'(C_{2})}
-\end{align}
-
-(3). method of Lagrangian function
-
-\begin{align}
-& \mathscr{L}=u(C_{1})+\beta u(C_{2})+\lambda[C_{1}+\frac{C_{2}}{1+r}-Y_{1}-\frac{Y_{2}}{1+r}]
-\\&\Rightarrow  \begin{cases}
-\frac{\partial L}{\partial C_{1}}=0 \\
-\frac{\partial L }{\partial  C_{2}}=0 \\
-\frac{\partial L}{\partial \lambda}=0\end{cases}
-\\&\Rightarrow \frac{\beta u'(C_{2})}{u'(C_{1})}=\frac{1}{1+r} \text{ (in the difference equation lies the core of Ramsey model )}
-\end{align}
-\end{redblock}
-
-
-\textbf{t-period dynamic optimization (finite-period)}
-
-1) The original version:
-\begin{align}
-\begin{split}
-&\mathop{max}_{C_{1},C_{2},...,C(T)} \; u_{1}=u(C_{1})+\beta u(C_{2})+\beta^{2}u(C_{3})+...+\beta^{T-1}u(C_{T})
-\\&s.t. \; \begin{cases}
-C_{1}+S_{1} &\leqslant [1+r]S_{0} +Y_{1} \\
-C_{2}+S_{2} &\leqslant [1+r]S_{1}+Y_{2} \\
-&\dots\\
-C_{T}+s_{T}&\leqslant(1+r)S_{T-1}+Y_{T} \end{cases}\text{ ,where we assume}\begin{cases}
-\delta=s_{0}=s_{T}=0 \\
-C_{1},C_{2},...,C_{T}>0\end{cases}
-\end{split}
-\end{align}
-
-where the budget constraints can be condensed into
-\begin{align}
-C_{1}+\frac{C_{2}}{1+r}+...+\frac{C_{T}}{(1+r)^{T-1}}=Y_{1}+\frac{Y_{2}}{1+r}+...+\frac{Y_{T}}{(1+r)^{T-1}}
-\end{align}
-
-2) Or the second version:
-\begin{align}
-\begin{split}
-&\mathop{max}_{\{C_{t}\}^{\infty}_{t=1}} \; u_{1}=\sum\limits_{t=1}^{T}\beta^{t-1}u(C_{t})
-\\&s.t. \; \begin{cases}
-C_{1}+S_{1} &\leqslant [1+r]S_{0} +Y_{1} \\
-C_{2}+S_{2} &\leqslant [1+r]S_{1}+Y_{2} \\
-&\dots\\
-C_{T}+S_{T}&\leqslant(1+r)S_{T-1}+Y_{T} \end{cases}\text{ ,where we assume}\begin{cases}
-S_{0}=S_{T}=0, \delta=0 \\
-C_{1},C_{2},...,C_{T}>0\end{cases}
-\end{split}
-\end{align}
-
-To solve this t-period UMP, using Langranian method: (the $\lambda$ is the shadow price)
-\begin{align}
-&\mathop{max}_{\{C_{t}\}^{\infty}_{t=1},\lambda} \; \mathscr{L}=\sum\limits_{t=1}^{T}\beta^{t-1}u(C_{t})+\lambda[c_{1}+\frac{c_{2}}{1+r}+...+\frac{C_{T}}{(1+r)^{T-1}}-(Y_{1}+\frac{Y_{2}}{1+r}+...+\frac{Y_{T}}{(1+r)^{T-1}}) ]
-\\&\Rightarrow F.O.C.s \begin{cases}\frac{\partial  \mathscr{L}}{\partial  c_{1}}=0 \\
-\frac{\partial  \mathscr{L}}{\partial  C_{2}}=0 \\
-\vdots \\
-\frac{\partial  \mathscr{L}}{\partial  C_{T}}=0
-\end{cases}
-\\&\Rightarrow \frac{\beta u'(C_{t+1})}{u'(C_t)}=\frac{1}{1+r}, t=1,2\dots,T
-\end{align}
-
-3) Another commonly adopted simplified version is
-\begin{align}
-\begin{split}
-&\mathop{max}\limits_{\{C_{t},S_{t}\}_{t=1}^{T}} u_{1}=\sum\limits_{t=1}^{T}\beta^{T-1}u(C_{t})
-\\&s.t. C_{t}+S_{t}\leqslant (1+r)S_{t-1}+Y_{t} \text{, where} \begin{cases}
-C_{t}>0 \\
-S_{0}=S_{T}=0
-\end{cases}
-\end{split}
-\end{align}
-Using Lagrangian function method:
-\begin{align}
-&\Rightarrow u'(C_{t+1})=\lambda_{t+1}
-\\&\Rightarrow \frac{u'(C_{t+1})}{u'(C_{t})}=\frac{\lambda_{t+1}}{\lambda_{t}}=\frac{1}{\beta(1+r)}
-\\&\Rightarrow \frac{\beta u'(C_{t+1})}{u'(C_t)}=\frac{1}{1+r}
-\end{align}
-
-\textbf{infinite-period dynamic optimization}
-
-Using the third version, we delve into infinity
+Alternatively, conjecture a local policy $\Delta c=m\Delta k$. From the first
+linearized equation, $\dot{\Delta k}=(\eta-m)\Delta k$. Differentiating the
+conjecture and using the second equation gives
 \begin{equation}
-\begin{split}
-&\mathop{max}_{\{C_{t}\}_{t=1}^{\infty}}\; u_{1}=\sum\limits_{t=1}^{\infty}\beta^{T-1}u(C_{t})
-\\&s.t. C_{t}+S_{t}\leqslant (1+r)S_{t-1}+Y_{t} \text{, where}
-\begin{cases}
-C_{t}>0 \\
-S_{0}=\lim\limits_{t \rightarrow \infty} S_{T}=0
-\end{cases}
-\end{split}
+m(\eta-m)\Delta k=z\Delta k,\qquad m^2-\eta m+z=0.
 \end{equation}
+Choose the positive root $m=\lambda_+$, so $\eta-m=\lambda_-<0$. This recovers
+the same stable policy. Choosing the decaying direction is not a free change
+to initial capital; it is the restriction on the consumption choice implied
+by admissibility and optimality.
 
-
-Using Lagrangian function method:
-\begin{align}
-& \mathscr{L} \equiv \sum\limits_{t=0}^{\infty} \{\beta^{t}u(c_{t})+\lambda_{t}[(1+r)s_{t-1}+Y_{t}-(c_{t}+s_{t})]\}
-\\&\Rightarrow F.O.C.
-\\&\Rightarrow u'(c_{t+1})=\lambda_{t+1}
-\\&\Rightarrow \frac{u'(c_{t+1})}{u'(c_{t})}=\frac{\lambda_{t+1}}{\lambda_{t}}=\frac{1}{\beta(1+r)}
-\\&\Rightarrow \frac{\beta u'(c_{t+1})}{u'(t)}=\frac{1}{1+r}
-\end{align}
-
-\subsubsection{Method of Hamiltonian Equation (Optimal
-Control)}\label{method-of-hamiltonian-equation-optimal-control}
-Method of Hamiltonian equation is part of the optimal control theory from mathematicals.
-
-\textbf{a) discrete time}
-
-\begin{equation}
-\begin{split}
-&\mathop{max}\limits_{\{c_{t},s_{t}\}_{t=0}^{T}} u_{1}=\sum\limits_{t=1}^{T}\beta^{T-1}u(c_{t})
-\\&s.t. c_{t}+s_{t}\leqslant (1+r)s_{t-1}+Y_{t} \text{, where} \begin{cases}
-c_{t}>0 \\
-s_{-1}=s_{T}=0 \\
-\beta=\frac{1}{1+\rho}
-\end{cases}
-\end{split}
-\end{equation}
-
-
-
-
-
-\textbf{b) continuous time without patience}
-\begin{equation}
-\begin{split}
-&\max_{\{C(t),S(t)\}} \; u=\int_{t=0}^{T}e^{-\rho t}u[C(t)]dt=\int_{t=0}^{T}u[C(t)]dt
-\\& s.t. \; C(t)+\dot{S}(t)=r \cdot S(t)+Y(t) \text{, where } S(0)=S(T)=0
-\end{split}
-\end{equation}
-
-Using Lagrangian
-\begin{align}
-\Rightarrow\mathscr{L}&=\int_{t=0}^{T} \{u[C(t)]+\lambda(t)[C(t)+\dot{S}(t)-r \cdot S(t)-Y(t)]\}dt
-\\&=\int_{t=0}^{T} \{ H(t)-\lambda(t)\dot{S}(t)\}dt \text{ ($H$ is Hamiltonian)}
-\\&=\int_{t=0}^{T} H(t)dt-\int_{t=0}^{T}\lambda(t)\dot{S}(t)dt \text{ (Then applying fractional integral method to latter)}
-\\&=\int_{t=0}^{T} H(t)dt-\{ \lambda(t)S(t)|_{0}^{T} - \int_{t=0}^{T} \dot{\lambda}(t)S(t)dt \}
-\\&=\int_{t=0}^{T} H(t)dt-\dot{\lambda}(t)S(t)dt-[\lambda(t)S(t)]|_{0}^{T}
-\\&=\int_{t=0}^{T} H(t)dt+\dot{\lambda}(t)dt
-\end{align}
-with this simplified version containing Hamiltonian
-\begin{align}
-&\Rightarrow \text{F.O.C. of Lagrangian function:} \begin{cases}
-\frac{\partial \mathscr{L}}{\partial C(t)}=0 \text{ (} C(t)\text{ is the control variable)}  \\
-\frac{\partial \mathscr{L}}{\partial S(t)}=0 \text{ (} S(t)\text{ is the state variable)} \\
-\frac{\partial \mathscr{L}}{\partial  \lambda(t)}=0 \text{ (} \lambda(t)\text{ is the monodromy variable)}\end{cases}
-\\&\Rightarrow \color{red} \text{the optimal control }\begin{cases}
-\frac{\partial \mathcal{H} }{\partial C(t)}=0 \\
-\frac{\partial \mathcal{H}}{\partial S(t)}=-\dot\lambda(t) \\
-\frac{\partial \mathcal{H}}{\partial \lambda(t)}=\dot S(t)\end{cases}
-\end{align}
-
-
-\begin{blueblock}
-\begin{note}[control variable and state variable]
-If a variable is determined in the current period, it is a control variable. If it is determined period(s) before, it is a state variable.
-\end{note}
-\end{blueblock}
-
-\textbf{c) continuous time with patience}
-
-Next we consider the Lagrangian function with subjective discount rate
-
-Right into this version's Lagrangian function
-\begin{align}
-&\mathscr{L}=\int_{t=0}^{T} \{e^{-\rho t}u[C(t)]+\lambda(t)[C(t)+\dot{S}(t)-r \cdot S(t)-Y(t)]\}dt
-\\&=\int_{t=0}^{T} \{e^{-\rho t} u[C(t)]+\lambda(t)[r S(t)+Y(t)-C(t)]-\lambda \dot S(t)\}dt
-\\&=\color{red}\int_{t=0}^{T} \{H(0)-\lambda \dot S(t)\}dt \text{ (} H(0) \text{ is present value Hamiltonian)}
-\\& \Rightarrow H(0)\equiv e^{-\rho t} u[C(t)]+\lambda(t)[r S(t)+Y(t)-C(t)]
-\\& \color{red} \Rightarrow \tilde{H}(t)= e^{\rho t}H(0) \text{ (the current value Hamiltonian)}
-\\& \Rightarrow H(t)=u[C(t)]+\eta(t)[r S(t)+Y(t)-C(t)]
-\end{align}
-
-Comparing the two scenarios (with and without consideration for
-$\rho$), we can see --- regardless of the subjective discount rate, result would be the same.
-
-\subsubsection{Method of Bellman Equation (Dynamic
-Programming)}\label{method-of-bellman-equation-dynamic-programming}
-
-\textbf{a) discrete time}
-
-UMP as below
-\begin{align}
-\begin{split}
-&\max_{\{C_{t}, S_{t}\}_{t=0}^{\infty}} u_{0}=\beta^{t}u(C_{t})
-\\&s.t. \; C_{t}+S_{t}=(1+r)S_{t-1}+Y_{t} \text{, where }S_{1}=\lim_{t \rightarrow \infty} s_{t}=0
-\end{split}
-\end{align}
-
-Using the budget constraint to rewrite utility function
-\begin{align}
-& \Rightarrow C_{t}=(1+r)S_{t-1}+Y_{t}-S_{t}
-\\& \Rightarrow u_{0}=\max_{\{S_{t}\}_{t=0}^{\infty}} \beta^{t}u[(1+r)S_{t-1}+Y_{t}-S_{t}]
-\\&= \max_{S_{0}} \beta^{t}u[(1+r)S_{-1}+Y_{0}-S_{0}]+\beta \max_{\{S_{t}\}_{t=1}^{\infty}}\sum\limits_{t=1}^{\infty}\beta^{t-1}u[(1+r)S_{t-1}+Y_{t}-S_{t}]
-\\&=\max_{s_{0}}u[(1+r)S_{-1}+Y_{0}-S_{0}]+\beta u (S_{0},Y_{1})
-\end{align}
-Upscript $o$ denotes optimal
-\begin{align}
-&\Rightarrow u^{o}(S_{t-1},Y_{t})=\max_{S_{t}}\{u[(1+r)S_{t-1}+Y_{t}-S_{t}]+\beta u^{o}(S_{t},Y_{t+1})\} \text{ (Bellman equation)}
-\\&=\max_{S_{t}} \{u(C_{t})+\beta u^{o}(S_{t},Y_{t+1})\}
-\\&\Rightarrow \text{F.O.C.}: u_{C_{t}} \frac{\partial  C_{t}}{\partial  S_{t}}+\beta \frac{du(S_{t},Y_{t+1})}{dS_{t}}=0
-\end{align}
-Let $\frac{\partial  C_{t}}{\partial  S_{t}}$ be $-1$
-\begin{align}
-\Rightarrow \beta \frac{du(s_{t},Y_{t+1})}{ds_{t}}=u_{c_{t}}
-\end{align}
-Move one period ahead and acquire Euler's equation
-\begin{align}
-\\& u(s_{t},Y_{t+1})=\max_{s_{t+1}}\{u[(1+r)s_{t}+Y_{t}-s_{t+1}]+\beta u(s_{t+1},Y_{t+2})\}
-\\&\Rightarrow \frac{du^{o} (s_{t},Y_{t+1})}{ds_{t}}=\frac{\partial u(\cdot)}{\partial s_{t}}+\frac{\partial u(\cdot)}{\partial s_{t+1}}\frac{ds_{t+1}}{ds_{t}}+\beta \frac{d u^{o}(\cdot)}{ds_{t}}\frac{ds_{t+1}}{ds_{t}}
-\\&=\frac{\partial u(\cdot)}{\partial s_{t}}+[\frac{\partial u(\cdot)}{\partial  s_{t+1}}+\beta \frac{du^{o}(\cdot)}{d_{s_{t+1}}}]\frac{ds_{t+1}}{ds_{t}} \text{ (using optimals' envelope therome )}
-\\&=u_{c,t+1}\frac{dc_{t+1}}{ds_{t}}+0
-\\&=u_{c,t+1} \cdot (1+r)
-\\&\Rightarrow \beta \frac{u_{c,t+1}}{u_{c,t}}=\frac{1}{1+r}
-\end{align}
-Hence the same result as before.
-
-\textbf{b) continuous time (Hamilton-Jacob-Bellman, HJB)}
-
-See in ...
-
-\sepline
-\subsection{Intertemporal Equilibrium of Ramsey model}
-
-\subsubsection{Dynamics of c}
-
-Recalling that
-\begin{align}
-&\frac{\dot{c(t)}}{c(t)}=\frac{r(t)-\rho-\theta g}{\theta}
-\end{align}
-Since we know
-\begin{align}
-&r(t)=f'[k(t)]
-\end{align}
-Combining them as
-\begin{align}
-&\frac{\dot{c(t)}}{c(t)}=\frac{r(t)-\rho-\theta g}{\theta}=\frac{f'[k(t)]-\rho-\theta g}{\theta}
-\end{align}
-Once we assume that
-\begin{align}
-\exists k^{*}\in\mathbb{R},f'[k^{*}]=\rho-\theta g
-\end{align}
-The dynamics of $c$, denoted as $\frac{\dot{c(t)}}{c(t)}$ is purely dependent on the value of $k$ according to Ramsey model.
-
-\subsubsection{Dynamics of k}
-
-Since in Ramsey model we don't assume depreciation of capital $k$, denoted as $\delta=0$. The dynamics of $k$ accordingly is $\dot{k}(t)=f[k(t)]-c(t)-(n+g)k(t)$.
-
-This way, in order for the dynamics of $k$ returning to $0$, the
-model must fulfil the requirement of $c(t)=f[k(t)]-(n+g)k(t)$.
-
-
-\subsubsection{Phase diagram and dynamic efficiency}
-Combining the the two dynamics together, we would have
-\begin{align}
-&\dot{k}=0
-\\ &\dot{c}=0
-\end{align}
-in a coordinate system of $k$ and $c$.
-
-\begin{blueblock}
-\begin{note}[dynamic efficiency in Ramsey model]
-Beware that the equilibrium of two dynamics would always be on the left of golden rate of $\dot{k}$.
-The origin point $(0,0)$ can also be considered a special case of equilibrium.
-\end{note}
-\end{blueblock}
-
-The equilibrium in Ramsey model has given only one equilibrium path.
-
-
-Recalling the Solow presented as model equation of motion \begin{align}
-k_{t+1}-(1-\delta)k_{t}=sF(k_{t})
-\end{align}
-
-RCK model has two equations of motion
-\begin{align}
-&\begin{cases}
-\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[F'(k_{t+1})-(1-\delta)] \\
-k_{t+1}-(1-\delta k_{t})=F(k_{t})-C_{t}\end{cases}
-\end{align}
-
-Acquirring the steady state of Ramsey model
-\begin{align}
-&
-\begin{cases}
- k_{t+1}=k_{t}=k^{*},\triangle k =0
-\\ c_{t+1}=c_{t}=c^{*},\triangle c =0
-\end{cases}
-\\&\Rightarrow F'(k^{*})=\rho+\delta \Rightarrow k^{*}
-\\&\Rightarrow c^{*}=F(k^{*})-\delta k^{*}
-\\&\Rightarrow (k^{*},c^{*}) \text{ is the steady state}
-\\&\Rightarrow\frac{dc^{*}}{dk^{*}}=F'(k)-\delta=R-\delta
-\end{align}
-
-Deriving the derivatives at steady state
-\begin{align}
-&
-\begin{cases}
-\frac{\partial  \triangle c}{\partial  k}<0 \\
-\frac{\partial  \triangle k}{\partial  c}<0
-\end{cases}
-\end{align}
-, meaning there must be seperating line for each
-\begin{align}
-&
-\triangle c =0
-\\&\Rightarrow F'(k^{*})=\rho +\delta \text{ (from the first equation of motion of RCK)}
-\\&\Rightarrow F_{kk}dk=0 dc
-\\&\Rightarrow \frac{dc}{dk}=\frac{F_{kk}}{0} \Rightarrow \text{the seperating line is vertical in C-K plane}
-\\&\triangle k=0
-\\&\Rightarrow C^{*}=F(k^{*})-\delta k^{*}
-\\&\Rightarrow \frac{dc}{dk}=F_{k}-\delta \Rightarrow \text{the seperating line is vertically reversed U shape}
-\end{align}
-
-
-\noindent\includegraphics[width=0.5\textwidth]{images/ramsey_phase_diagram.png}
-
-
-
-\subsection{Linearization}
-
-Comparing Solow and Ramsey:
-
-Solow model's Euler equation
-\begin{align}
-&\dot k(t)+\delta k(t)=sF(k(t))
-\end{align}
-
-Ramsey model's Euler equations
-\begin{align}
-& \dot c(t)=\frac{F'[k(t)-(\delta+\rho)]}{\theta} c(t)\text{, where } \theta=-\frac{c u''(c)}{u'(c)}
-\\& \dot k(t)=F[k(t)]-\delta k(t)-c(t)
-\end{align}
-
-Noticing the two equations of Ramsey are unlinear. This demands a process of linearization.
-
-\textbf{Linearization, method of Taylor expansion}
-
-First method we use the same technique from Solow model's linearization, Taylor's Expansion.
-
-First order Taylor expansion of RCK' Euler equations:
-\begin{align}
-& \begin{bmatrix}\dot c(t) \\ \dot k(t)\end{bmatrix}
-=\begin{bmatrix} \frac{F'[k(t)-(\delta+\rho)]}{\theta} c(t) \\ F[k(t)]-\delta k(t)-c(t)\end{bmatrix}
-=\begin{bmatrix}\phi^{1}[c(t),k(t)] \\ \phi^{2}[c(t),k(t)] \end{bmatrix}
-\\&\Rightarrow
-\begin{bmatrix}\dot c(t) \\ \dot k(t)\end{bmatrix}
-=\begin{bmatrix}\phi^{1}[c^{*},k^{*}] \\ \phi^{2}[c^{*},k^{*}] \end{bmatrix}+
-\begin{bmatrix}\phi_{c}^{1} & \phi_{k}^{1} \\ \phi_{c}^{2} & \phi_{k}^{2}\end{bmatrix} \mid_{c^{*},k^{*}}
-\begin{bmatrix} c(t)-c^{*} \\ k(t)-k^{*}\end{bmatrix}
-\\&=\begin{bmatrix}0 \\ 0\end{bmatrix} + \begin{bmatrix}o & \frac{F''(k^{*})}{\theta} c^{*} \\ -1 & \rho\end{bmatrix} \begin{bmatrix} c(t)-c^{*} \\ k(t)-k^{*}\end{bmatrix}
-\end{align}
-The above deduction use the following conclusions
-\begin{align}
-&\begin{cases}F'(k^{*})-(\delta+\rho)=0\Rightarrow F'(k^{*})=\rho+\delta \Rightarrow k^{*}
-\\c^{*}=F(k^{*})-\delta k^{*} \Rightarrow c^{*}
-\end{cases}
-\end{align}
-Because ...
-\begin{align}
-&Ax=\lambda x
-\\&\Rightarrow \lambda ^{2}-tr(A) \lambda+dt+\lambda =0
-\\&\Rightarrow \lambda^{2}-\rho \lambda+\frac{F'(k^{*})}{\theta}\cdot c^{*}=0
-\\&\Rightarrow \lambda_{1}=\frac{\rho-\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}<0<\lambda_{2}=\frac{\rho+\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}
-\end{align}
-$\Rightarrow$ We choose the negative one which is $\lambda_{1}$  so that $k(t)$ can converge over time
-\begin{align}
-&\Rightarrow \dot k(t)=\lambda_{1}[k(t)-k^{*}]
-\\&\Rightarrow k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
-\end{align}
-
-\textbf{Linearization, method of undetermined coefficients}
-
-The second approach is method of undetermined coefficients
-\begin{align}
-&\dot c(t)=\frac{F''(k^{*})}{\theta}c^{*}=0
-\\& \dot k(t)=\rho [k(t)-k^{*}]-[c(t)-c^{*}]
-\\&\Rightarrow \ddot k(t)=\rho \dot k(t)-\dot c(t)
-\\&=\rho \dot k (t)-\frac{F''(k^{*})}{\theta}\cdot c^{*}[k(t)-k^{*}]
-\end{align}
-We can make an assumption that $\dot k(t)=\lambda [k(t)-k^{*}]$, which is a differential equation in nature
-\begin{align}
-&\Rightarrow \ddot k(t)=\lambda \dot k(t)
-\\&=\lambda ^{2}[k(t)-k^{*}]
-\\&=\rho \dot k(t)-\frac{F''(k^{*})c^{*}[k(t)-k^{*}]}{\theta}
-\\&=\lambda^{2}-\rho \lambda +\frac{F''(k^{*})c^{*}[k(t)-k^{*}]}{\theta}=0
-\\&\Rightarrow \lambda_{1}=\frac{\rho-\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}<0<\lambda_{2}=\frac{\rho+\sqrt{\rho^{2}-4F''(k^{*})c^{*}}}{\theta}
-\end{align}
-Samewise
-\begin{align}
-\Rightarrow k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
-\end{align}
-
-\begin{blueblock}
-\begin{note}[convergence in Ramsey model]
-Recall Solow model's chapter of convergence speed and time, we can compare the two similar results:
-\begin{align}
-&
-\begin{cases}
-\text{Ramsey: }k(t)=k^{*}+e^{\lambda_{1} t }[k(0)-k^{*}]
-\\\text{Solow: }k(t)=k^{*}+e^{[g'(k^{*})t]}[k(0)-k^{*}]
-\end{cases}
-\end{align}
-
-Meaning the $\lambda$ we are trying to derive here is the convergence speed.
-\end{note}
-\end{blueblock}
-
-\sepline
 \subsection{Maximizing welfare}\label{maximizing-welfare}
 
 Similiar to the concept of golden rate in Solow model, Ramsey model also provide a glimpse of maximized consumption.
