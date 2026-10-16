@@ -75,54 +75,259 @@ and a normalization. The full-employment assumption removes demand failures
 from the dynamics being studied; the resulting convergence claim must be read
 within that experiment.
 
-\Needspace{34\baselineskip}
+% BEGIN ORIGINAL SOLOW COURSE ASSUMPTIONS - retained, not typeset
+% \subsection{Economic Environment and Specific Assumptions}\label{economic-environment-and-specific-assumptions}
+%
+% Solow model seems to have simple assumptions, but in which many things are pre-assumed.
+%
+% \textbf{Sections}
+%
+% \begin{itemize}
+%   \item A Solow model assumes only two sections in participation
+% \end{itemize}
+%
+% \begin{align}
+% Y(t)=C(t)+I(t)=C(t)+S(t)
+% \end{align}
+%
+% \textbf{Household}
+%
+% \begin{itemize}
+% \tightlist
+%   \item A large number of non-optimizing homogeneous households (with ad-hoc assumptions) $\Rightarrow$ representative agent
+%   \item Constant saving rate of $s\in [0,1] \Rightarrow S(t)=sY(t)=I(t)$
+% \end{itemize}
+%
+%
+% \textbf{Firm}
+%
+% \begin{itemize}
+% \tightlist
+%   \item A large number of non-optimizing homogeneous firms (with
+% ad-hoc assumptions) $\Rightarrow$ representative agent
+%   \item Since sharing a common production method, it can use an aggregate production function
+% \end{itemize}
+%
+% \textbf{Market structure}
+%
+% \begin{itemize}
+%   \item Competitive $\Rightarrow$ Solow model is a prototypical competitive general equilibrium model
+% \end{itemize}
+%
+% \textbf{Endowment (labor and capital)}
+%
+% \begin{itemize}
+% \tightlist
+%   \item Labor $L(t)$ provided inelastically by households at wage $w(t)$
+%   \item Households also own the capital $K(t)$ and rent it to firms at capital rate $R(t)$
+%   \item The inital capital is given as $K(0)$
+%   \item Capital exponential depreciation is denoted as $\delta \; \Rightarrow$ real interest rate $r(t)=R(t)-\delta$
+%   \item How the capital is distributed is irrelevant to our exploring
+% \end{itemize}
+%
+% \textbf{Market clearing}
+%
+% \begin{itemize}
+% \tightlist
+%   \item Labor market clearing condition is $L(t)=\bar{L}(t)$
+%   \item Capital market clearing condition is $K^{s}(t)=K^{d}(t)$
+% \end{itemize}
+%
+% \textbf{Technology}
+% \begin{itemize}
+%   \item Technology is free and publicly available
+% \end{itemize}
+%
+% \textbf{Production function}
+%
+% The aggregate production function is
+% \begin{itemize}
+% \tightlist
+%   \item continuous
+%   \item differentiable
+%   \item positive
+%   \item diminishing MP
+%   \item CRTS
+% \end{itemize}
+%
+% \textbf{Production function in Harrold form}
+%
+% \begin{align}
+% Y_{t}=F(K_{t},A_{t}L_{t})
+% \end{align}
+%
+% \begin{itemize}
+% \tightlist
+%   \item This format of production function means, in the final, the ratio of capital to production $K/Y$ will be stable.
+%   \item It is convient to make $A_t$ times $L_t$ instead of other ways in Solow Model.
+% \end{itemize}
+%
+% \begin{blueblock}
+% \begin{note}[Production function in Hicks neutrality form]
+% $$Y_{t}=A_{t}F(K_{t},L_{t})$$
+% \end{note}
+% \end{blueblock}
+%
+% \textbf{CRTS}
+%
+% \begin{align}
+% F_t(cK_t,cL_t)=cF(K_t,L_t), \: \forall c \geqslant 0
+% \end{align}
+%
+% \begin{itemize}
+% \tightlist
+%   \item One way to see CRTS as a reasonable requirement is that imagining the scale of economy large enough to cover the potiential benefits of cooperation.
+%   \item Another way is imagining all other factors are compared irrelevant than capital, labor and knowledge.
+%   \item The CRTS assumption can derive the production function to $y=f(k)$.
+% \end{itemize}
+%
+% \textbf{Inada Conditions}
+%
+% \begin{align}
+% &\lim\limits_{x \rightarrow 0} y=\lim\limits_{x \rightarrow 0} f(x)= \infty
+% \\&\lim\limits_{x \rightarrow \infty} y = \lim\limits_{x \rightarrow \infty} f(x)=0
+% \end{align}
+%
+% \begin{itemize}
+% \tightlist
+%   \item Many have argued that Inada conditions are the key limits of Solow model, as well as the exogenosu tech growth rate. \item The purpose of this setting is to confine the model from wild spreading.
+%   \item Cobb-Douglas Function is very suitable in this setting. \textit{It is rather reducted than deducted from the economic nature.}
+% \end{itemize}
+%
+% \begin{blueblock}
+% \begin{note}[No profits for firms]
+% \begin{align}
+% &\Rightarrow \text{PMP:}
+% \\& \mathop{max}_{L(t),K(t)} \; F-w(t)L(t)-R(t)K(t)
+% \\&\Rightarrow \begin{cases}
+% w(t)=F_{L} \\
+% R(t)=F_{K}\end{cases}
+% \\&\Rightarrow Y(t)=w(t)L(t)+R(t)K(t) \text{ (applying Euler's equation)}
+% \\& \text{Meaning the firms make no profits. They are just profit-maximizing.}
+% \end{align}
+% \end{note}
+% \end{blueblock}
+%
+% \textbf{Main equations}
+%
+% All of these above should be considered oversimplication of the real world, but to the favor of an economist.
+% \begin{align}
+% \color{red}
+% \begin{cases}
+% y_{t}=F(K_{t},A_{t}N_{t}) \\
+% I_{t}=S_{t}=sY_{t} \\
+% K_{t+1}=I_{t}+(1-\delta)K_{t}\end{cases}
+% \end{align}
+%
+%
+% END ORIGINAL SOLOW COURSE ASSUMPTIONS
+
+\Needspace{9\baselineskip}
 \subsection{Economic environment and assumptions}\label{economic-environment-and-specific-assumptions}
 
-The map below separates what the model takes as given, how agents behave,
-and which conditions make their decisions consistent. The paragraphs that
-follow explain the assumptions and fix the notation.
+The conditions are grouped by their economic role. The cards give the full
+specification; the following paragraphs explain the notation and implications.
 
-\begin{modelsetup}
-\begin{modelcondition}{01}{Economy}
-A closed, one-good economy. No government or foreign trade; output can be
-consumed or invested.
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Economy and sectors}
+A closed economy contains households and firms, with no government or foreign
+trade. One good can be consumed or invested. Goods-market clearing requires
+$Y_t=C_t+I_t$; in this two-sector economy, aggregate saving equals investment.
 \end{modelcondition}
-\begin{modelcondition}{02}{Technology}
-Constant returns in capital and effective labor; diminishing returns to
-capital intensity.
+\begin{modelcondition}{02}{Households and the saving rule}
+There are many homogeneous households. They own capital and firms, receive
+factor incomes and any distributed profits, and supply labor inelastically.
+Each worker supplies one unit of labor. Consumption and saving follow an
+imposed rule rather than an intertemporal utility-maximization problem:
 \[
-Y_t=F(K_t,A_tL_t).
+S_t=sY_t,\qquad C_t=(1-s)Y_t,\qquad I_t=S_t.
 \]
+The rule permits $s\in[0,1]$. The positive-capital, positive-consumption
+benchmark below uses $0<s<1$; the endpoints are separate limiting cases.
 \end{modelcondition}
-\begin{modelcondition}{03}{Households}
-Own capital and supply labor inelastically. Saving is a given rule, rather
-than an optimal choice:
+\begin{modelcondition}{03}{Firms and competitive markets}
+There are many price-taking firms using the same production technology.
+They hire labor and rent capital in competitive factor markets. A
+representative firm's problem is
 \[
-S_t=sY_t,\qquad 0<s<1.
+\max_{K,L}\;F(K,A_tL)-q_tK-w_tL.
 \]
+Common technology and constant returns allow aggregation into the production
+function below. Household saving is imposed; firms still maximize profits.
+Homogeneity, competition, and optimization are distinct assumptions.
 \end{modelcondition}
-\begin{modelcondition}{04}{Firms}
-Choose capital and labor to maximize profits at competitive factor prices:
+\begin{modelcondition}{04}{Endowments, ownership, and depreciation}
+Initial stocks $K_0,A_0,L_0$ are given and positive. Households provide labor
+at wage $w_t$ and rent their capital to firms at rental price $q_t$.
+Depreciation removes a fraction $\delta$ per discrete period, with
+$0\leq\delta\leq1$; investment is usable next period:
 \[
-\max_{K,L}\ F(K,A_tL)-q_tK-w_tL.
+K_{t+1}=(1-\delta)K_t+I_t.
 \]
+In continuous time, $\dot K=I-\delta K$ and the net capital return is
+$r=q-\delta$. The original course notation $R$ for the rental price corresponds
+to $q$ here. With a common saving share applied to all income and no
+household-specific constraints, the distribution of ownership does not change
+aggregate saving; its distributional consequences are outside this model.
 \end{modelcondition}
-\begin{modelcondition}{05}{Given states and paths}
-Positive initial stocks. Capital is inherited; technology and labor follow
-exogenous paths:
+\begin{modelcondition}{05}{Technology and exogenous paths}
+Technology is freely and publicly available to all firms. There are no
+adoption costs, patents, or research choices in the benchmark. Labor and
+labor efficiency grow exogenously:
 \[
-\frac{A_{t+1}}{A_t}=1+g,\quad
-\frac{L_{t+1}}{L_t}=1+n.
+A_{t+1}=(1+g)A_t,\qquad L_{t+1}=(1+n)L_t,\qquad g,n\geq0.
 \]
+The corresponding continuous-time paths satisfy $\dot A/A=g$ and $\dot L/L=n$;
+rates in the two time conventions need not be numerically identical. The
+interior steady-state analysis assumes $\delta+n+g>0$.
 \end{modelcondition}
-\begin{modelcondition}{06}{Consistency and timing}
-Goods and factor markets clear. Investment becomes usable next period:
+\begin{modelcondition}{06}{Production and its restrictions}
+Technology is labor-augmenting (Harrod-neutral): $Y_t=F(K_t,A_tL_t)$.
+$F$ is continuous, twice differentiable for positive inputs, positive there,
+and has positive, diminishing marginal products of each input. It has constant
+returns to capital and effective labor:
 \[
-\begin{aligned}
-Y_t&=C_t+I_t,\qquad I_t=S_t,\\
-K_{t+1}&=(1-\delta)K_t+I_t.
-\end{aligned}
+F(\lambda K,\lambda AL)=\lambda F(K,AL),\qquad \lambda>0.
 \]
+Write $f(k)=F(k,1)$. The intensive-form restrictions used below are
+\[
+\begin{gathered}
+f(0)=0,\qquad f'(k)>0,\qquad f''(k)<0\quad(k>0),\\
+\lim_{k\downarrow0}f'(k)=\infty,\qquad
+\lim_{k\to\infty}f'(k)=0.
+\end{gathered}
+\]
+The last two are Inada restrictions on marginal products. They are sufficient
+benchmark assumptions, rather than consequences of competition.
+\end{modelcondition}
+\begin{modelcondition}{07}{Market clearing and factor incomes}
+All supplied labor and capital are employed. With bars denoting supplied
+endowments and superscripts denoting supply and demand,
+\[
+L_t^d=L_t^s=\bar L_t,\qquad K_t^d=K_t^s=\bar K_t.
+\]
+Competitive prices equal marginal products, so constant returns implies
+\[
+q_t=F_1(K_t,A_tL_t),\qquad w_t=A_tF_2(K_t,A_tL_t),
+\qquad Y_t=q_tK_t+w_tL_t.
+\]
+Firms are owned by households. Their economic profits are zero after paying
+both factors; the owners still receive capital rental income.
+\end{modelcondition}
+\begin{modelcondition}{08}{Normalization and the closed system}
+Use quantities per effective worker:
+\[
+k_t=\frac{K_t}{A_tL_t},\qquad y_t=\frac{Y_t}{A_tL_t}=f(k_t),
+\qquad c_t=\frac{C_t}{A_tL_t}=(1-s)f(k_t).
+\]
+Given initial stocks and the paths of $A_t,L_t$, the three main equations are
+\[
+Y_t=F(K_t,A_tL_t),\qquad I_t=S_t=sY_t,\qquad
+K_{t+1}=(1-\delta)K_t+I_t.
+\]
+The resource constraint, full employment, and competitive factor prices make
+this a closed aggregate system. They are maintained assumptions of the
+experiment, not conclusions about demand adjustment in actual economies.
 \end{modelcondition}
 \end{modelsetup}
 
@@ -169,6 +374,11 @@ Replicating all inputs replicates output. This rules out a fixed factor, such
 as land, that becomes scarcer as the economy expands. It also rules out
 aggregate increasing returns in these two inputs.
 
+One motivation for constant returns is to treat any gains from organizing
+production at a larger scale as already exhausted at the scale being modeled.
+Another is to abstract from scarce inputs other than capital and effective
+labor. These are ways to motivate the assumption, not proofs that it holds.
+
 Divide by effective labor and define
 \begin{equation}\label{eq:solow-normalization}
 k_t\equiv\frac{K_t}{A_tL_t},\qquad
@@ -179,6 +389,14 @@ Here lower-case variables are \emph{per effective worker}. Output per worker is
 $Y_t/L_t=A_ty_t$, and capital per worker is $K_t/L_t=A_tk_t$. This differs from
 the per-hour normalization used for level accounting in Chapter~\ref{sec:growth-facts}.
 With $A_t=1$, the two capital normalizations coincide.
+
+Labor-augmenting technology also makes a balanced growth path convenient to
+describe. If $k$ settles at a positive constant, then
+$K/Y=k/f(k)$ is constant. The functional form alone does not make that ratio
+constant during a transition. Hicks-neutral technology instead takes the form
+$Y=A_H\widetilde F(K,L)$. It is a different placement of productivity; with
+Cobb--Douglas, $A_H=A^{1-\alpha}$ converts between the two representations.
+The exogenous growth rate must be converted as well.
 
 Assume $f(0)=0$ and, for $k>0$,
 \begin{equation}
@@ -200,6 +418,13 @@ F(K,AL)=K^\alpha(AL)^{1-\alpha},\qquad f(k)=k^\alpha,
 Diminishing returns here means adding machines to a fixed amount of effective
 labor produces progressively smaller additions to output. It does not mean
 that output falls when capital rises.
+
+Cobb--Douglas is a convenient specification satisfying these restrictions;
+it is not deduced uniquely from economic behavior. Its constant factor shares
+are an additional restriction. Likewise, Inada conditions and an exogenous
+technology path delimit the experiment: the former restrict behavior at
+extreme capital intensities, while the latter leaves innovation unexplained.
+Relaxing either calls for a new argument about the resulting dynamics.
 
 \subsubsection{Prices and market clearing}
 

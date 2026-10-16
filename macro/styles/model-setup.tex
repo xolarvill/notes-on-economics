@@ -1,12 +1,12 @@
 % !TEX root = ../macro.tex
-% Compact model maps: one short condition per card, then explanation in prose.
+% Model conditions: preserve the full specification; choose columns to fit content.
 \tcbuselibrary{raster}
 \RequirePackage{needspace}
 
-\newenvironment{modelsetup}{%
+\newenvironment{modelsetup}[1][2]{%
   \par\begingroup
   \begin{tcbraster}[
-    raster columns=2,
+    raster columns=#1,
     raster column skip=10pt,
     raster row skip=8pt,
     raster before skip=8pt,

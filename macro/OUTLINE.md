@@ -56,6 +56,7 @@ chapter of Part V.
   - Choose one adjustment mechanism
   - Close the system and choose a useful intensity
 - Economic environment and assumptions
+  - Complete conditions in eight full-width cards; original retained in TeX comments
   - Resources, timing, and behavior
   - Production and normalization
   - Prices and market clearing
@@ -80,7 +81,7 @@ chapter of Part V.
 
 - From a saving rule to a saving decision
 - Assumptions
-  - Six-card overview; original course conditions retained in TeX comments
+  - Complete conditions in seven full-width cards; original retained in TeX comments
   - Notation, preferences, solvency, and transversality
 - Solving the consumption--saving problem
   - The planner's problem and decentralization

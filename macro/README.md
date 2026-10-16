@@ -42,29 +42,30 @@ Chapter files use `% !TEX root = ../macro.tex` so editors can find the entry poi
 
 ## Model-condition maps
 
-`styles/model-setup.tex` supplies a two-column `modelsetup` layout. Put one
-short condition in each `modelcondition` card, with a sequence marker and a
-meaningful title. A map distinguishes the environment, technology, agents,
-given states, behavior, and equilibrium conditions; categories should follow
-the model rather than a mandatory count of cards.
+`styles/model-setup.tex` supplies `modelsetup` and numbered `modelcondition`
+cards. Preserve every substantive assumption and its qualifications when
+changing the layout. Do not replace a specification by a summary or a reference
+to another model merely to fit the cards on one page.
+
+Use `\begin{modelsetup}[1]` for full-width conditions, as in Solow and Ramsey.
+The default `\begin{modelsetup}` remains available for two columns when the
+complete content fits naturally. Card titles group related conditions by
+economic role; the number of cards follows the content.
 
 ```tex
-\begin{modelsetup}
+\begin{modelsetup}[1]
 \begin{modelcondition}{01}{Technology}
-Constant returns in capital and effective labor.
-\[
-Y_t=F(K_t,A_tL_t).
-\]
+% State the complete technology assumptions and their equations here.
 \end{modelcondition}
-% Add the other short cards here.
+% Continue with the other conditions without deleting details to save space.
 \end{modelsetup}
 ```
 
-Rows have matching heights. Each short card stays intact; the grid can paginate
-between rows. Reserve space before the section heading with `\Needspace` when
-the full overview should be visible together (Solow reserves 34 text lines).
-Keep cards concise instead of forcing a long derivation into an unbreakable
-box. Explain assumptions, notation, and derivations in the following prose.
+Each card stays intact; the layout can paginate between cards. Reserve enough
+space for the heading and first card with `\Needspace`, rather than requiring
+the whole specification to occupy one page. If a card becomes too long, split
+it into meaningful conditions. Explanations and derivations follow the complete
+specification; they do not substitute for omitted assumptions.
 
 For the benchmark's timing, `\modelsequence{K_t,A_t,L_t}{Y_t\to C_t,I_t}{K_{t+1}}`
 shows what is inherited, what happens during the period, and what becomes
@@ -72,10 +73,12 @@ available next period. Use it only when that sequence matches the model;
 uncertainty or a different information structure needs an explicit alternative.
 This layout leaves the existing three breakable note environments unchanged.
 
-The Ramsey chapter retains its original course assumption block as TeX comments,
-between `BEGIN ORIGINAL COURSE ASSUMPTIONS` and `END ORIGINAL COURSE ASSUMPTIONS`.
-The live six-card overview follows it. Compare or restore that block in place;
-do not typeset both versions together, since their assumption labels coincide.
+Both chapters retain their original course condition blocks as TeX comments.
+Ramsey uses `BEGIN ORIGINAL COURSE ASSUMPTIONS`; Solow uses
+`BEGIN ORIGINAL SOLOW COURSE ASSUMPTIONS`, each with a matching `END` marker.
+These are comparison records, not active alternate versions. Their labels
+would conflict if both versions were typeset. See `CONDITION_AUDIT.md` for the
+condition-by-condition restoration and the theoretical qualifications retained.
 
 ## Compile
 
