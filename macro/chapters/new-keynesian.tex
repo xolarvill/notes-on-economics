@@ -1,0 +1,950 @@
+% !TEX root = ../macro.tex
+\section{New Keynesian Model}\label{dnk-model}
+
+DNK is short for Dynamic New Keynesian\footnote{This chapter is mainly based on the Gali, 2015.}
+
+This New keynesian Model contains elements being
+\begin{itemize}
+\tightlist
+  \item dispersive economy, a continuum of agents
+  \item perfect information
+  \item rational expectations, i.e. $E_t(X_{t+1})=E(X_{t+1}|I_t)$
+  \item perfect competitive labor market
+  \item monopolisitc competitive product market, heterogenous products, nominal rigidities
+\end{itemize}
+
+
+
+\sepline
+\subsection{UMP of household}
+
+\textbf{Two stages of optimization}
+
+Goal of UMP is to acquire DIS, which represents demand. Household face two stages of optimization. Since goods are heterogenous, UMP begins by choosing items $i\in I$.
+
+Stage I: choosing goods
+
+One way to choose products is by method of maximization.
+\begin{align}
+\begin{split}
+&\max\limits_{C_{it}} ( \int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}}
+\\&s.t. \int_{0}^{1} P_{it}C_{it}di \leqslant Z_{t}
+\end{split}
+\end{align}
+, in which the $\epsilon$ stands for current substitute elasticity and $\frac{\epsilon-1}{\epsilon}$ is contemporaneous elasticity of substitution. And $Z_t$ stands for endowment.
+
+The other way to choose products is by method of minimization. In this case Lagrangian multiplier could be shadow price.
+\begin{align}
+\begin{split}
+& \min \int_{0}^{1} P_{it}C_{it}di
+\\& s.t. (\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}} \geqslant C_{t}
+\end{split}
+\end{align}
+
+Form a Lagrangian, we would have
+\begin{align}
+&\mathop{\mathscr{L}}\limits_{\{C_{it}\}} =\int_{0}^{1} P_{it}C_{it}di+P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}}-C_{t}]
+\\&\Rightarrow P_{it}=P_{t}\frac{\epsilon}{\epsilon-1}((\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}-1})\frac{\epsilon-1}{\epsilon} C_{it}^{\frac{\epsilon-1}{\epsilon}-1}
+\\&\Rightarrow P_{it}=P_{t}[(\int_{0}^{1}C_{it}^{\frac{\epsilon-1}{\epsilon}}di)^{\frac{\epsilon}{\epsilon-1}})^{\frac{1}{\epsilon}}]C_{it}^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \frac{P_{it}}{P_{t}}=(\frac{C_{it}}{C_{t}})^{\frac{-1}{\epsilon}}
+\\&\Rightarrow \color{red} C_{it}=(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} \text{ (the demand curve)}
+\end{align}
+
+
+From $\int_{0}^{1} P_{it}C_{it}di =P_{t}C_{t}$ we have
+\begin{align}
+&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon}C_{t} di=P_{t}C_{t}
+\\&\Rightarrow \int_{0}^{1} P_{it}(\frac{P_{it}}{P_{t}})^{-\epsilon} di=P_{t}
+\\&\Rightarrow \color{red} P_{t}=(\int_{0}^{1}P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon}} \text{ (the expression of total price level)}
+\end{align}
+
+Apparently
+$\begin{cases}
+\max\limits_{C_{it}}(\frac{1}{I}\sum\limits_{i=1}^{I}C_{it}^{\frac{1}{1+n_{t}}})^{1+n_{t}}=C_{t}
+\\
+s.t. \sum\limits_{i=1}^{I}P_{it} C_{it}\leqslant Z_{t} \\
+\end{cases}$
+and
+$\begin{cases} \min\limits_{C_{it}}\sum\limits_{i=1}^{I}P_{it}C_{it} \\
+s.t. (\frac{1}{I}\sum\limits_{i=1}^{I}C_{it}^{\frac{1}{1+n_{t}}})^{1+n_{t}})\geqslant C_{t}
+\end{cases}$
+are the same. But as mentioned before, the minimization approach is commonly prefered.
+
+
+Using either approach, we can conduct the result that demand curve and expression of total price level being
+\begin{align}
+&C_{it}=(I\cdot \frac{P_{it}}{P_{t}})^{\frac{1+n_{t}}{-\wedge_t}}C_{t}
+\\&P_{t}=I(\frac{1}{I}\sum\limits_{i=1}^{I}P_{it}^\frac{1}{-\wedge_t})^{-\wedge_t}
+\end{align}
+
+After picking products, we enter stage II, UMP at period $t$
+\begin{align}
+\begin{split}
+&\max_{C_{t},N_{t},\frac{M_{t}}{P_{t}}} E_{0} \sum\limits_{t=0}^{\infty} \beta^{t} u\left(C_{t},N_{t},\frac{M_{t}}{P_{t}}\right) \leftarrow\text{ (MIU)}
+\\&s.t. \int_{0}^{1}P_{it}C_{it}di +M_{t}+B_{t}\leqslant M_{t-1}+(1+i_{t-1})B_{t-1}+\int_{o}^{1}W_{it}N_{it}di+T_{t}
+\end{split}
+\end{align}
+
+constraint of this UMP can be rewritten as
+\begin{align}
+\begin{split}
+&\max_{C_{t},N_{t},\frac{M_{t}}{P_{t}}} E_{0} \sum\limits_{t=0}^{\infty} \beta^{t} u\left(C_{t},N_{t},\frac{M_{t}}{P_{t}}\right)
+\\&
+s.t. \;P_{t}C_{t}+M_{t}+B_{t}\leqslant M_{t-1}+(1+i_{t-1})B_{t-1}+W_{t}N_{t}+T_{t}
+\end{split}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Subscript $it$ and $t$]
+$C_{it}\neq C_t \Leftrightarrow $ Monopolistic competitive goods market; $N_{it}= N_t \Leftrightarrow $ Perfect competitve labor market
+\end{note}
+\end{blueblock}
+
+
+Form the Lagrangian
+\begin{align}
+&\mathscr{L}=E_{0}\sum\limits_{t=0}^{\infty}\beta^{t} \{u(C_{t},N_{t},\frac{M_{t}}{P_{t}})+\lambda_{t}[P_{t}C_{t}+M_{t}+B_{t}-M_{t-1}-(1+i_{t-1})B_{t-1}-W_{t}N_{t}+T_{t}]\}
+\end{align}
+
+Solving this will deliver the F.O.C.s., resulting
+\begin{align}
+&\Rightarrow \begin{cases} Q_{t}=\beta E_{t} \cdot (\frac{u_{C,t+1}}{u_{C,t}}\frac{P_{t}}{P_{t+1}}) \\
+\frac{W_{t}}{P_{t}}=-\frac{u_{N_{t}}}{U_{C_t}} \\
+1-Q_{t}=u_{\frac{M_{t}}{P_t}} \\
+\end{cases}
+\end{align}
+This result is basically same as in RBC model with one more equation since money is added to the utility function.
+
+
+\textbf{Linearization}
+
+Linearization specificly focusing on the third equation of the second equation, as the other two are identical in RBC model's linearization.
+\begin{align}
+& 1-\frac{1}{1+i_{t}}=C_{t}^{\sigma}(\frac{M_{t}}{P_{t}})^{-\nu} \text{ (using $Q_t$'s defintion)}
+\\&
+\Rightarrow \frac{i_{t}}{1+i_{t}}=C_{t}^{\sigma}(\frac{M_{t}}{P_{t}})^{-\nu}
+\end{align}
+
+Taking logs
+\begin{align}&
+\log \frac{i_{t}}{1+i_{t}}=\sigma c_{t}-\nu (m_{t}-p_{t}) \text{ (hereafter a lowercase letter $x$ denotes $\log x$)}
+\\&
+\log \frac{i}{1+i}=\sigma c-\nu (m-p)
+\\&
+\Rightarrow \log(\frac{i_{t}}{1+i_{t}})-\log(\frac{i}{1+i})=\sigma \hat c_{t}-\nu(m_{t}-\hat p_{t})
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+\log (\frac{1+i_{t}}{i_{t}})-\log(\frac{1+i}{i})
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+[\log \frac{(\frac{1+i}{i})+1}{\frac{1+i}{i}} \frac{i-(1+i)}{i^{2}}(i_{t}-i)-\log(\frac{1+i}{i})]
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}+ \frac{i}{i+1} \frac{i-(1+i)}{i} \frac{i_{t}-i}{i}
+\\&
+\Rightarrow \nu(m_{t}-\hat p_{t})=\sigma \hat c_{t}-\frac{1}{1+i}\hat i_{t}
+\\&
+\Rightarrow m_{t}-\hat p_{t}=\frac{\sigma}{\nu}\hat c_{t}-\frac{1}{(1+i)\nu}\hat i_{t}
+\\&
+\Rightarrow m_{t}-\hat p_{t}=\hat c_{t}-\eta \hat i_{t}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Must-be in exam: monopolistic competition vs perfect competition]
+Zero market power to finite market power, meaning infinite elasticiy to non-zero positive elasticity.
+\end{note}
+\end{blueblock}
+
+\sepline
+\subsection{PMP of firm}
+
+\begin{blueblock}
+\begin{note}[Two features DNK firm has]
+Monopolistic competitive goods market and stikcy price.
+\end{note}
+\end{blueblock}
+
+\subsubsection{Price-setting behavioral equation}
+
+We first use PMP to acquire price-setting equation then linearize it. Next we use price-setting equation to derive NKPC.
+
+\textbf{PMP and price-setting behavioral equation}
+
+Set base period on the intial period $t=0$ for simplicity
+\begin{align}
+\begin{split}&
+\max_{P_{i0}}\pi_{0}^{n}=E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{P_{i0}Y_{it | 0}-[T C^n_{it|0} (Y_{it|0})]\}
+\\&
+s.t. \; Y_{it|0}=(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t} \text{ (since $C_t =Y_t$ at equilbrium, the constraint is essentially demand curve)}
+\end{split}
+\end{align}
+
+$|0$ means evaluated at prices from period $0$
+
+$Y_{it}$ is total sales of firm $i$ at period $t$
+
+$TC$ is a function of nominal total cost
+
+$Q_{0,t}$ means discount rate from period $0$ to period $t$
+
+$\theta$ means the probability of price adjusting, therefore $1-\theta$ means the probablity to stay put. It's sticky price.
+\footnote{For more of price adjusting, see in Calvo, 1983 for uncertain version; Taylor, 1980 for certain version.}
+
+
+Solving the PMP by putting demand curve into profit function, it would be
+\begin{align}
+\pi_{0}^{n}=E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{P_{i0}(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t}-[T C^n_{it|0} ((\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t})]\}
+\end{align}
+
+then let the F.O.C. be $0$ (fig 1,2)
+\begin{align}
+&\frac{\partial  \pi_{0}^{n}}{\partial  P_{i0}}=0
+\\&\Rightarrow E_{0}\sum\limits_{t=0}^{\infty}Q_{0,t}\cdot (1-\theta)^{t}\{(1-\theta )(\frac{P_{i0}}{P_{t}})^{-\epsilon}Y_{t}-[\frac{\partial T C^n_{it|0}}{\partial   P_{it|0}} \frac{\partial P_{it|0}}{\partial{P_{i0}}}]=0
+\\& \Rightarrow E_0\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon }Y_t -MC^n_{it|0}(-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon-1}Y_t \frac{1}{P_t}]=0
+\\& \Rightarrow E_0\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)Y_t -MC^n_{it|0}(-\epsilon)(\frac{P_{i0}}{P_t})^{-\epsilon-1}Y_t \frac{1}{P_t}]=0
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^\infty(1-\theta)^t Q_{0,t}[(1-\epsilon)Y_{it|0}+ \frac{\epsilon}{P_{t}} MC_{it|0}^{n}(\frac{P_{i0}}{P_{t}})^{-1}]=0
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}Q_{0,t}Y_{it|0}[(1-\epsilon)+\epsilon MC^{n}_{it|0}\cdot (P_{i0})^{-1}]=0
+\\& \Rightarrow E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0}\cdot (1-\epsilon)=-E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0} \cdot \epsilon \cdot MC^{n}_{it|0}\cdot (P_{i0})^{-1}
+\\& \Rightarrow (1-\epsilon)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0}=-\epsilon(P_{i0})^{-1}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\cdot Q_{0,t}\cdot Y_{it|0} \cdot MC^{n}_{it|0}
+\end{align}
+
+restore $Q_{0t}$ and $Y_{it|0}$ back to demand curve
+\begin{align}
+& \Rightarrow (\epsilon-1)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} [(\frac{Y_{0}}{Y_{t} })^{\rho}\frac{P_{0}}{P_{t}}](\frac{P_{i0}}{P_{t}})^{-\epsilon }Y_{t}=(P_{i0})^{-1}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t}\beta^{t}[(\frac{Y_{0}}{Y_{t} })^{\rho}\frac{P_{0}}{P_{t}}](\frac{P_{i0}}{P_{t}})^{-\epsilon }Y_{t}\cdot MC_{it|0}^{n}
+\end{align}
+
+take $P_{i0}$ and $P_0$ out since it can be treated as constants
+\begin{align}
+& \Rightarrow (\epsilon-1)\underline{P_{i0}^{-\epsilon}P_{0}Y_{o}^{\sigma}}E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\rho}=\epsilon \underline{P_{i0}^{-1} P_{i0}^{-\epsilon} P_{0} Y_{0}^{\rho}} E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}
+\end{align}
+
+eliminates the underlined common factors on RH and LH
+\begin{align}
+& \Rightarrow (\epsilon-1)E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\rho}=\epsilon E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}
+\\& \Rightarrow \color{red} P_{i0}^{*}=\frac{\epsilon}{\epsilon-1} \frac{E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1} Y_{t}^{1-\sigma} \cdot MC_{it|0}^{n}}{E_{0}\sum\limits_{t=0}^{\infty}(1-\theta)^{t} \beta^{t} P_{t}^{\epsilon-1}Y_{t}^{1-\sigma}}
+\text{ (sticky price form price-setting equation) }
+\end{align}
+Also acquiring optimal price $p^*$, and $\frac{\epsilon}{\epsilon-1}$ is cost mutltiplier
+
+\begin{align}
+&\color{red} \Rightarrow P_{i0}^{*}=P_{0}^{*}=\frac{\epsilon}{\epsilon-1}\frac{
+[(1-\epsilon)\beta]^{0}P_{o}^{\epsilon-1}Y_{0}^{1-\sigma} MC_{0|0}^{n}
+}{
+(1-\theta)^{0} \beta^{0} P_{0}^{\epsilon-1}Y_{0}^{1-\sigma}
+}=\frac{\epsilon}{\epsilon-1} MC^{n}_{0|0}
+\text{ (elastic form price-setting equation)}
+\end{align}
+
+For elastic form, the intuition is that firms are adjusting price at any time so there is no need to observe profit based on any specific period. So no summation symbol.
+
+
+\begin{redblock}
+\begin{question}[what if price is elastic?]
+\end{question}
+elasticity means adjusting price at all time. it means price sticky price is $0 \Leftrightarrow 1- \theta =0 $.
+\end{redblock}
+
+\begin{blueblock}
+\begin{note}
+monopolistic competition and elasticity are not the same thing
+\end{note}
+\end{blueblock}
+
+next try the period-$t$-based version in textbook (pic 3)
+\begin{align}
+&P_{t}^{*} =\frac{\epsilon}{\epsilon-1}\frac{E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}^{1-\sigma} \cdot MC_{t+k|t}^{n}}{E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t} P_{t+k}^{\epsilon-1}Y_{t+k}^{1-\sigma}}
+\end{align}
+(here the subscript $i$ is gone because all firms are making unanimous decisions)
+\begin{align}
+& P_{t}^{*}=\frac{\epsilon}{\epsilon-1} MC_{t|t}^{n}
+\end{align}
+
+
+\begin{blueblock}
+\begin{note}[CRTS in DNK]
+if production function is CRTS, then all firms would also be making unanimous decisions regardless of time period position
+\end{note}
+\end{blueblock}
+
+\textbf{log-linearization of sticky price form price-setting behavioral equation}
+
+the method is still first order Taylor expansion, though bit trickier (pic 3, 4, 5)
+
+dividing $P_{t-1}$ on both side, and try seperately
+\begin{align}
+& \underbrace{\frac{P_{t}^{*}}{P_{t-1}}E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t} P_{t+k}^{\epsilon-1}Y_{t+k}^{1-\sigma}}_{\text{LHS}}
+=
+\underbrace{\frac{1}{P_{t-1}}\frac{\epsilon}{\epsilon-1}E_{t}\sum\limits_{k=0}^{\infty}(1-\theta)^{k} \beta^{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}^{1-\sigma} \cdot MC_{t+k|t}^{n}}_{\text{RHS}}
+\end{align}
+
+LHS mutil-variate first order Taylor expansion, the constant term is LHS at steady state where all $P$ are equal
+\begin{align}
+\begin{split}
+ \text{LHS's 1st order Taylor expansion}=&\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}
+\\& +\frac{1}{p}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon}Y^{1-\sigma}( \frac{P_{t}^{*}-P}{P})
+\\& - \frac{P}{P^{2}}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{P_{t-1}-P}{P})
+\\& +(\epsilon-1)E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{P_{t+k}-P}{P})
+\\& +(1-\sigma)E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}( \frac{Y_{t+k}-Y}{Y})
+\end{split}
+\end{align}
+
+Like before, we use lowercase letters denotes log version
+\begin{align}
+& \Rightarrow \text{LHS}=P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1+\hat p^{*}_{t}-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}]
+\end{align}
+For RHS,
+\begin{align}
+& \text{RHS}=\dots=\frac{\epsilon}{\epsilon-1} \frac{1}{P} P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}+\hat mc_{t+k|t}^{n}]
+\end{align}
+
+\begin{blueblock}
+\begin{note}[First order Taylor expansion and steady state]
+First term (constant term) of 1st Taylor expansion is steady state
+\end{note}
+\end{blueblock}
+
+
+\begin{redblock}
+\begin{question}[why do we do log-linearization]
+\end{question}
+to simulate a curve with a line, so there would be a foundable or writable solution.
+\end{redblock}
+Now the two sides are log-linearized, let them be in the same equation
+\begin{align}
+&\underbrace{P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1+\hat p^{*}_{t}-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}]}_{\text{log-linear LHS}}=
+\\&\underbrace{\frac{\epsilon}{\epsilon-1} \frac{1}{P} P^{\epsilon-1}Y^{1-\sigma}E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}P^{\epsilon-1}Y^{1-\sigma}[ 1-\hat p_{t-1}+(\epsilon-1)\hat p_{t+k}+(1-\sigma)\hat y_{t+k}+\hat mc_{t+k|t}^{n}]}_{\text{log-linear RHS}}
+\end{align}
+
+Use sticky form price-setting equation at steady state (which because of steadiness looks like elastic form), we have
+\begin{align}
+& \frac{MC^{n}}{P}=\frac{\epsilon-1}{\epsilon}
+\end{align}
+
+Since $E_t$ is followed by an infinite series, it is meaningless. Eliminate it.
+\begin{align}
+& \Rightarrow \hat p_{t}^{*} \cancel{E_{t}}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}=E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k} \hat mc^n_{t+k|t}
+\\& \Rightarrow \frac{\hat p_t^*}{1-(1-\theta)\beta}=E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k}MC^n_{t+k|t}
+\\& \Rightarrow \hat p_t^* =[1-(1-\theta)\beta]E_{t}\sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^{k} \hat mc^n_{t+k|t} \text{ (log-linear sticky price setting equation)}
+\end{align}
+Therefore we have the log-linear optimal-price-setting equation for monopolistic competition and sticky price features firms.
+
+
+\subsubsection{Philips curve}
+
+\textbf{First way to acquire Philips curve}
+
+next we use this log-linearized price-setting equation to acquire NK Philips curve
+
+originally PC is about inflation and employment
+
+step I, inflation (p7,8,9)
+\begin{align}
+& P_{t}=I(\frac{1}{I}\sum\limits_{i=1}^{I}P_{it}^\frac{1}{-\wedge_t})^{-\wedge_t}\text{ (expression of total price)}
+\\& =[\int_{0}^{\theta} (P^{*}_{it})^{1-\epsilon}di+\int_{\theta}^{1} P_{t-1}^{1-\epsilon}di]^{ \frac{1}{1-\epsilon}}
+\text{ ($\theta$ portion of firms don't adjust price)}
+\\& =[\theta (P^{*}_{it})^{1-\epsilon}+(1-\theta) P_{t-1}^{1-\epsilon}]^{ \frac{1}{1-\epsilon}}
+\text{ (expression of total price with $\theta$ firms adjusting price)}
+\\& \Rightarrow P_t^{1-\epsilon}=\theta (P^{*}_{it})^{1-\epsilon}+(1-\theta) P_{t-1}^{1-\epsilon}
+\\& \Rightarrow (\frac{P_t}{P_{t-1}})^{1-\epsilon}=\theta (\frac{P_t^*}{P_{t-1}})^{1-\epsilon}+(1-\theta)
+\\& \Rightarrow \Pi^{1-\epsilon}=\theta (\frac{P_t^*}{P_{t-1}})^{1-\epsilon}+(1-\theta)
+\text{ (the capital letter $\Pi$ is for total inflation $\frac{P_t}{P_{t-1}}$)}
+\end{align}
+Then log-linearization by bi-variate first order Taylor expansion
+\begin{align}
+& \Rightarrow \Pi^{1-\epsilon}+(1-\epsilon)\Pi^{1-\epsilon}(\frac{\Pi_t-\Pi}{\Pi})=\{\theta (\frac{P}{P})^{1-\epsilon}+\theta (1-\epsilon)(\frac{P}{P})^{1-\epsilon}[\frac{1}{P}(P^*_t-P)-\frac{P}{P^2} \frac{(P_{t-1}-P)}{P}]\}^{1-\theta}
+\end{align}
+Since first term of tay exp is steady state, making $\Pi^{1-\epsilon}=1$
+\begin{align}
+& \Rightarrow 1+(1-\epsilon)\hat \Pi_t=\theta+\theta(1-\epsilon)(\hat P_t^*-\hat P_{t-1})+(1-\theta)
+\\& \Rightarrow \hat \Pi_t =\theta(\hat P_t^*-\hat P_{t-1})
+\\& \Rightarrow \frac{1}{\theta}\hat \Pi_t=\hat P_t^*-\hat P_{t-1}
+\end{align}
+Using price-setting equation, which is related to marginal cost, then production.
+(making nominal price combination of real price and $\hat p_{t-1}$)
+\begin{align}
+& \Rightarrow \frac{1}{\theta}\hat \Pi_t=[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat mc^r_{t+k|t}+\hat p_{t+k}-\hat p_{t-1})
+\\& = \underbrace{[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k \hat mc^r_{t+k|t}}_{A} +[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat p_{t+k}-\hat p_{t-1} )
+\end{align}
+Let the untouched part be A for simplicity, open the sum so there will be expression of inflation in log-linearized form
+\begin{align}
+& =A+[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^{\infty}[(1-\theta)\beta]^k (\hat p_{t+k}-\hat p_{t-1})
+\\&
+\begin{autobreak}
+  =A+[1-(1-\theta)\beta]E_t \{(\hat p_t -\hat p_{t-1})+[(1-\theta)\beta](\hat p_{t+1} -\hat p_{t}+\hat p_t -\hat p_{t-1})
+  \quad +[(1-\theta)\beta]^2(\hat p_{t+2} -\hat p_{t+1}+\hat p_{t+1} -\hat p_{t}+\hat p_t -\hat p_{t-1})+\dots \}
+\end{autobreak}
+\\&
+=A+[1-(1-\theta)\beta]E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+\\&
+\begin{autobreak}
+  = A+E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+  \quad -(1-\theta)\beta E_t \{[(\hat \pi_t +[(1-\theta)\beta](\hat \pi_{t+1} +\hat \pi_{t})+[(1-\theta)\beta]^2(\hat \pi_{t+2}+\hat \pi_{t+1} +\hat \pi_t)+\dots \}
+  \text{ (making elimination possible)}
+\end{autobreak}
+\\&
+\begin{autobreak}
+  = A+E_t \{\hat \pi_{t}+[(1-\theta)\beta](\hat \pi_{t+1}+\hat \pi_{t})+[(1-\theta)\beta]^2 (\hat \pi_{t+2} \hat \pi_{t+1}+\hat \pi_{t})+\dots \}
+  \quad -[(1-\theta)\beta]\{\hat \pi_t -[(1-\theta)\beta]^2 E_t (\hat \pi_{t+1}+\hat \pi_{t})-\dots\}
+\end{autobreak}
+\end{align}
+Make format simple by doing iteration form, the first term is when $k=0$, but the second still starts from k=0 so there will be some parameters changed
+\begin{align}
+& =[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^\infty \hat mc^r_{t+k|t}+E_t \sum\limits_{k=0}^\infty \hat \pi_{t+k+1}
+\\& = \underbrace{
+  [1-(1-\theta)\beta] mc^r_{t+k|t} +\pi_t
+}_{k=0}
++[1-(1-\theta)\beta]E_t \sum\limits_{k=0}^\infty [(1-\theta)\beta]^{k+1}\hat mc^r_{t+k+1|t}+E_t \sum\limits_{k=0}^\infty [(1-\theta)\beta]^{k+1}\hat \pi_{t+k}
+\\& = [1-[(1-\theta)\beta]]\hat mc^r_{t|t}+\hat \pi_t +[(1-\theta)\beta]\{\quad \quad \}
+\\& = B \text{ (back to recursive form and let it be B)}
+\\& \Rightarrow \frac{1}{\theta}\hat \pi_t=B
+\\& \Rightarrow \color{red} \hat \pi_t=\underbrace{\frac{\theta[1-(1-\theta)\beta]}{1-\theta}\hat mc^r_t}_{\text{effect of current marginal cost}} +\underbrace{\beta E_t \hat \pi_{t+1}}_{\text{effect of expectation of future inflation}} \text{ (New Keynesian Philips Curve marginal cost version)}
+\end{align}
+
+\begin{redblock}
+\begin{question}[at which variable are we making derivative of Lagrangian function ?]
+\end{question}
+Theoratically we can make derivative of any variable if possible but not proper.
+\end{redblock}
+
+NKPC has another version where marginal cost is substitued with real output, thus measuring the effect of output gap.
+\begin{align}
+\begin{split}
+& \min \frac{W_t}{P_t}N_t
+\\& s.t. Y_t =A_t N_t^{1-\alpha}
+\end{split}
+\end{align}
+
+Form a Lagrangian
+\begin{align}
+& \Rightarrow \mathscr{L}=\frac{W_t}{P_t}N_t +MC_t^r\cdot(Y_t -A_t N_t^{1-\alpha})\text{ (shadow price can also be marginal cost)}
+\end{align}
+
+Take partial derivative of $N_t$ here since labor is decided by market, the firm only can control demand of labor
+\begin{align}
+& \Rightarrow \frac{\partial \mathscr{L}}{\partial N_t}=0
+\\& \Rightarrow \frac{W_t}{P_t}N_t=MC^r_t \cdot MP N_t
+\text{ , where }MPN_t=\frac{\partial Y_t}{\partial N_t}=(1-\alpha)A_t N_t^{-\alpha}
+\\& \Rightarrow MC^r_t=\frac{\frac{W_t}{P_t}}{MPN_t}
+\\& \hat mc^{\sigma}_t=\hat w_t -\hat p_t -(a_t-\alpha \hat n_t)\text{ (log-linearized, and using labor supply equation)}
+\\& =\sigma \hat c_t +\varphi \hat n_t -(a_t-\alpha \hat n_t )
+\\& =\sigma \hat y_t -a_t -(\varphi+\alpha)\frac{\hat y_t -a_t}{1-\alpha}
+\\& =\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t-\frac{1+\varphi}{1-\alpha}a_t
+\end{align}
+
+To acquire natural ratio of output, we use the fact that elastic marginal cost is zero.
+\begin{align}
+& \Rightarrow 0=\hat mc^r_t=\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t^f-\frac{1+\varphi}{1-\alpha}a_t \text{ (upscript $f$ stands for flexible meaning elastic)}
+\\& \Rightarrow \frac{1+\varphi}{1-\alpha}a_t=\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}\hat y_t^f
+\\& \Rightarrow \hat mc_t^r = \frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}(\underbrace{\hat y_t- \hat y_t^f}_{\equiv \tilde y_t \text{, output gap}})
+\text{ (put it back, having the gap of output $\hat y_t - y_t^f=\tilde t$)}
+\end{align}
+
+If we put the last equation back to NKPC marginal cost version, we connect natural output to inflation which is NKPC real output version.
+
+{
+\color{red}
+New Keynesian Philips Curve marginal cost version:
+\begin{align}
+\hat \pi_t=\underbrace{
+\frac{\theta[1-(1-\theta)\beta]}{1-\theta}\hat
+\frac{\sigma(1-\alpha)+(\varphi+\alpha)}{1-\alpha}(\hat y_t- \hat y_t^f)
+}
+_{\text{effect of current output gap}}
++
+\underbrace{
+\beta E_t \hat \pi_{t+1}}_{\text{effect of expectation of future inflation}
+}
+\end{align}
+}
+
+
+another way to acquire the NKPC is to concern monopolistic competition, then sticky price.
+
+\begin{align}
+& \max\limits_{P_{it}} \pi^r =\frac{P_{it}}{P_t}Y_{it}-\frac{W_t}{P_t}N_{it}
+\\& \Rightarrow \frac{P_{it}}{P_t}=\frac{\epsilon}{\epsilon-1}MC^r_t
+\end{align}
+
+\begin{blueblock}
+\begin{note}[indicator of monopolistic competition]
+\end{note}
+
+$\frac{\epsilon}{\epsilon-1}$ means monopolistic competition
+
+integral means perfect competitive labor supply for households
+
+$\epsilon$ is subtitute elasticity
+
+\end{blueblock}
+
+This is real price, where $\epsilon$ is subtitute elasticity. Here $MC_i$ comes without subscript $t$ is because of CRTS production function.
+\begin{align}
+\Rightarrow \frac{P_{it}}{P_t} &=\frac{\epsilon}{\epsilon-1} \frac{W_t/P_t}{A_t}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma N_t^\varphi}{A_t}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t} (\int_0^1 N_{it}di)^\varphi
+\text{ (because of goods market p.c.)}
+\\& =
+\frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t} [\int_0^1 (\frac{Y_{it}}{A_t})di]^\varphi
+\text{ (based on CRTS production function)}
+\\& = \frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t^{1+\varphi}} [\int_0^1 (\frac{P_{it}}{P_t})^{-\epsilon} Y_t di]^\varphi
+\text{ (using demand curve and move $A_t$ out)}
+\\& =
+\frac{\epsilon}{\epsilon-1} \frac{Y_t^\sigma}{A_t^{1+\varphi}} (\frac{P^*_{it}}{P_t})^{-\epsilon\varphi}
+\text{ (star means symmetric and at equil)}
+\end{align}
+
+Since at equilibrium all prices are same
+\begin{align}
+& P^{*}_{it}=P_{t}^{*} \Rightarrow \frac{P^{*}_{it}}{P_t}=\frac{\epsilon}{\epsilon-1} \frac{Y_t^{\sigma+\varphi}}{A_t^{1+\varphi}} (\frac{P^*_{t}}{P_t})^{-\epsilon\varphi}
+\end{align}
+
+Let's consider a situation that
+\begin{align}
+& \text{If } P_{t}^{*}=P_t \text{ (meaning when price elastic)}
+\\& 1=\frac{\epsilon}{\epsilon-1}
+\\& \Rightarrow Y_t^f \text{ or } \hat y_t^f \text{ (to be log-linearized)}
+\end{align}
+
+
+Taking logs
+\begin{align}
+&
+(1+\epsilon \varphi)(P^*_t - P_t)=\ln \frac{\epsilon}{\epsilon-1}-(1+\varphi)a_t+(\sigma+\varphi)y_t
+\\& = (\sigma+\phi)y_t-(1+\phi)a_t+\ln(\frac{\epsilon}{\epsilon-1})
+\text{ (change order)}
+\end{align}
+
+Change order for furthur preparation
+\begin{align}
+& \Rightarrow P_t^*=P_t + \frac{\sigma+\varphi}{1+\epsilon\varphi}y_t - \frac{1+\varphi}{1+\epsilon \varphi} a_t+ \frac{1}{1+\epsilon \varphi}\ln (\frac{\epsilon}{\epsilon-1})
+\\& \Rightarrow  P^*=P+\frac{\sigma+\varphi}{1+\epsilon\varphi}y_t-0+\frac{1}{1+\epsilon \varphi}\ln (\frac{\epsilon}{\epsilon-1})
+\text{ (steady state by definition)}
+\end{align}
+
+Two equations above deducted, having the log-linearized result; elastic price means $p_t^*=\hat p_t$
+\begin{align}
+& \hat p_t^*=\hat p_t + \frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t -\frac{1+\varphi}{1+\epsilon\varphi} a_t
+\\& P_t^*=\hat p_t \text{ (elastic price gives $y$ a $f$ upscript)}
+\\& \Rightarrow 0=\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t -\frac{1+\varphi}{1+\epsilon\varphi} a_t
+\\& \Rightarrow \color{red} \hat y_t^f = \frac{1+\varphi}{\sigma+\varphi}a_t
+\end{align}
+here notice natural output is a function of technology
+
+\begin{align}
+& \Rightarrow \hat p_t^*=\hat p_t +\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t-\frac{\sigma+\varphi}{1+\epsilon\varphi} \hat y_t^f
+\\& \Rightarrow \hat p_t^*=\hat p_t +\gamma (\hat y_t-\hat y_t^f) \text{ ($\gamma$ denotes the bundle of coefficients)}
+\\& \Rightarrow \color{red} \hat p_t^*=\hat p_t +\gamma \tilde y_t \text{ (acceptable price-setting euqation with only assumption of m.c.)}
+\end{align}
+
+\footnote{See Mankiw and Reis 2002 for more details of acceptable price-setting equation}
+
+\begin{blueblock}
+\begin{note}[DNK model is perfect information rational expectation]
+Here $E_t$ is not $\bar E_t$ because of perfect information rational expectation
+\end{note}
+\end{blueblock}
+
+
+\textbf{Second way to acquire NKPC}
+
+We need to know two methods of price-setting:
+\begin{itemize}
+  \item Price adjusting in certainty, Taylor, 1978\footnote{Taylor, John B. “Staggered Wage Setting in a Macro Model.” The American Economic Review 69, no. 2 (1979): 108–13.}
+  \item price adjusting in randomness, Calvo, 1983\footnote{Calvo, Guillermo A., 1983. "Staggered prices in a utility-maximizing framework," Journal of Monetary Economics, Elsevier, vol. 12(3), pages 383-398, September.}
+\end{itemize}
+
+
+\begin{blueblock}
+\begin{note}[Price adjusting in certainty vs in randomness]
+\end{note}
+\textbf{Taylor}
+
+a, b and c denotes three firms in a monopolistic competitive market. they adjust price by turns and one person per period.
+
+Q1: how does one choose price
+
+$P_A^\triangle=\frac{}{3}$, the upscript $\triangle$ stands for staying put in the next three periods.
+
+Q2: what is the total price
+
+$P_t=$
+
+\textbf{Calvo}
+
+each firm adjust price at probablity $\theta^t$ at period $t$.
+
+\end{blueblock}
+
+
+Now sticky price price-adjusting equation
+\begin{align}
+&\hat p_t^\triangle=\underbrace{(1-\theta \beta)\sum\limits_{k=0}^\infty (\theta \beta)^k E_t P_{t+k}^*}_{\text{weighted average}}
+\\\Rightarrow &\color{red} \hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle \text{ (sticky PAE)}
+\end{align}
+
+The $\theta$ is the opposite of the one in previous PAE, here rather is to stay put. price adjusting based on acceptable price setting equation in future periods, $\beta$ mean subjective discount.
+
+With the expression of total price being
+\begin{align}
+&\Rightarrow\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle
+\\&\Rightarrow \color{red} \hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1} \text{ (expression of total price based on APSE and PAE)}
+\end{align}
+
+Based on Acceptable Price-setting Equation (from monopolistic competition) and Total Price (from sticky price), one can quickly conduct NKPC.
+
+\begin{blueblock}
+\begin{note}[prices in DNK]
+\end{note}
+starred price means acceptable price, triangled price means adjusting price
+\end{blueblock}
+
+
+From the first equation $\hat p_t=(1-\theta) \sum\limits_{k=0}^\infty \theta^k \hat p_{t-k}^\triangle$ we have
+\begin{align}
+& \hat p_t =(1-\theta)P_t^\triangle+\theta P_{t-1}
+\\& \Rightarrow (1-\theta)P_t^\triangle=\hat p_t - \theta \hat p_{t-1}
+\\& \Rightarrow (1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t
+\\& \Rightarrow (1-\theta)\beta E_t \hat P_{t+1}^\triangle=\beta E_t \hat p_{t+1} - \theta \beta \hat p_t
+\end{align}
+
+From the second equation $\hat p_t=(1-\theta)\hat p_t^\triangle +\theta \hat p_{t-1}$, first use sticky price price-adjusting equation $\hat p_t^\triangle=(1-\theta \beta) \hat p_t^* +\theta \beta E_t \hat p_{t+1}^\triangle$ to substitute
+\begin{align}
+& \Rightarrow \hat p_t-\theta \hat p_{t-1}=(1-\theta)\hat p_t^\triangle = (1-\theta)(1-\theta \beta)\hat p_t^*
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+then use {\color{red} APSE $\hat p_t^*=\hat p_t+\gamma \tilde y_t$} to substitute
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)
++(1-\theta)\theta \beta E_t P^\triangle_{t+1}
+\end{align}
+use the conclusion $(1-\theta)E_t P_{t+1}^\triangle=E_t \hat p_{t+1} - \theta \hat p_t$ above
+\begin{align}
+& \Rightarrow \hat p_t -\theta \hat p_{t-1}=(1-\theta)(1-\theta \beta)(\hat p_t+\gamma \tilde y_t)+\theta \beta E_t \hat p_{t+1} -\theta^2 \beta \hat p_t
+\\& \Rightarrow [1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}= (1-\theta)(1-\theta \beta) \gamma \tilde y_t +\theta \beta E_t \text{ (break APSE)}
+\\& \Rightarrow
+[1+\theta^2 \beta-(1-\theta)(1-\theta \beta)]\hat p_t -\theta P_{t-1}-\theta \beta \hat p_t = (1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat p_{t+1}-\hat p_t)
+\\& \Rightarrow
+\theta(\hat p_t -\hat p_{t-1})=(1-\theta)(1-\theta \beta)\gamma \tilde y_t +\theta \beta (E_t \hat P_{t+1}-\hat p_t)
+\text{ (match terms so there is inflation)}
+\\& \Rightarrow
+\theta \hat \pi_t = (1-\theta )(1-\theta \beta)\gamma \tilde y_t +\theta \beta E_t \hat \pi_{t+1}
+\text{ (here comes inflation)}
+\\& \Rightarrow \color{red} \hat \pi_t=k \hat y_t+\beta E_t \hat \pi_{t+1} \text{ (NKPC)}
+\end{align}
+
+
+
+\sepline
+\subsubsection{Dynamic IS curve}
+
+Recalling that household
+\begin{align}
+& \hat y_t = E_t \hat y_{t+1} -\frac{1}{\sigma}(\hat i_t -E_t \hat \pi_{t+1})
+\\& \Rightarrow \hat y_t^f= E_t \hat y_{t+1} -\frac{1}{\sigma}(\hat i_t -0)\text{ (inflation elastic form is assumed as $0$)}
+\\& \Rightarrow \color{red} \tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1})\text{ (dynamic IS curve, DIS)}
+\end{align}
+
+
+\sepline
+\subsection{Equilibrium of model}
+
+Now NKPC and DIS each represents supply and demand. The two equations have three unkown variables $\hat \pi_t, \tilde y_t, \hat i_t$, applying the model does not have a solution. It is so that we need to add another variable into the model. There are two ways making DNK model solvable, if not monetary supply rule then Taylor rule.
+
+\subsubsection{DNK with money supply rule}
+\begin{align}
+&\text{DNK }
+\begin{cases}
+\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\
+\tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1}) \text{ (DIS)}
+\\
+\hat m_t=\hat p_t +\hat y_t - \eta \hat i_t
+\text{ (Money supply rule, used to be ad hoc in RBC)}
+\end{cases}
+\end{align}
+Seems now three equations have even more unkown variables $\hat \pi_t, \tilde y_t, \hat i_t, \hat p_t, m_t$.
+
+But hat $\pi_t, \hat p_t$ are the same thing because
+\begin{align}
+& \hat \pi_t=\hat p_t -\hat p_{t-1}
+\\& \Rightarrow  \hat p_t = \hat \pi_t + \hat p_{t-1}
+\\& \Rightarrow \hat m_t = \hat \epsilon_t
+\end{align}
+this transfer works either way.
+
+Let the $m_t$ money supply be exogenous for simplicity.
+
+\begin{blueblock}
+\begin{note}[Exogenous variables in DNK model]
+Only technology and money supply are considered real exogenous variables here.
+\end{note}
+\end{blueblock}
+
+So we are left with three equations and three unkowns, the model is now solutionable. The final result will be a function of $m_t$.
+
+
+\subsubsection{DNK with interest rate rule}
+
+\begin{align}
+&\text{DNK } \begin{cases}
+\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\
+\tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}(\hat i_t - E_t \hat \pi_{t+1}) \text{ (DIS)}
+\\
+\hat i_t = \phi_\pi \hat \pi_t  +\phi_y \hat y_t  +\nu_t \text{ (Interest rate rule)}
+\end{cases}
+\\& \text{where } \nu_t =\rho_v \nu_{t-1}+\epsilon^\nu_t \text{ is the exogenous shock of interest rate, with the feature of AR1}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Interest rate rule]
+\begin{align}
+\hat i_t = \phi_\pi \cdot (\hat \pi_t -\hat \pi^*)+\phi_y \cdot (\hat y_t -y_t^f)+\nu_t
+\end{align}
+\end{note}
+
+If the target parameters $\hat \pi^*$ and $y_t^f$ are given, it is Taylor Rule.
+
+Operation parameters $\phi_\pi$ and $\phi_y$ are decided based on past experience.
+\end{blueblock}
+
+
+\textbf{Acquiring equilibrium and prove it is the only equilibrium}
+
+Rewrite the DIS
+\begin{align}
+&\Rightarrow \tilde y_t=E_t \tilde y_{t+1} -\frac{1}{\sigma}[(\phi_\pi \hat \pi_t  +\phi_y \hat y_t  +\nu_t ) - E_t \hat \pi_{t+1}]
+\text{ (apply interest rate rule to the second equation)}
+\\& = E_t \tilde y_{t+1} -\frac{1}{\sigma}\{[\phi_\pi \cdot (\beta E_t \hat \pi_{t+1}+k \tilde y_t)  +\phi_y \hat y_t  +\nu_t ] - E_t \hat \pi_{t+1}\}
+\text{ (put the first in)}
+\\& = E_t \tilde y_{t+1}+ \frac{1-\beta \phi_\pi}{\sigma}E_t \pi_{t+1}-\frac{\phi_\pi k+\phi_y}{\sigma} \tilde y_t - \frac{\nu_t}{\sigma}
+\\& = \color{red} \frac{1}{\sigma+\phi_\pi k + \phi_y}[\sigma E_t \tilde y_{t+1}+(1-\beta \phi_\pi)E_t \hat \pi_{t+1}-\nu_t]
+\text{ (the relationship of $y_t$ and $y_{t+1}$ and $\pi_{t+1}$)}
+\end{align}
+
+Similarly we can change the NKPC
+\begin{align}
+& \color{red} \hat \pi_t =\frac{1}{\sigma+\phi_\pi k + \phi_y}
+\{k\sigma E_t \tilde y_{t+1}+[k+\beta(\sigma+\phi_y)]E_t \hat \pi_{t+1}-\nu_t\}
+\end{align}
+
+Therefore three equations are two now.
+
+Iteration in vector form
+\begin{align}
+&
+\begin{bmatrix}
+\tilde y_t \\
+\hat \pi_t
+\end{bmatrix}
+=\frac{1}{\sigma+\phi_\pi k + \phi_y}
+\begin{bmatrix}
+\sigma & 1-\beta \phi_\pi
+\\
+k \sigma & k+\beta(\sigma+\phi_y)
+\end{bmatrix}
+\begin{bmatrix}
+E_t \hat y_{t+1}
+\\
+E_t \hat \pi_{t+1}
+\end{bmatrix}
+-\frac{1}{\sigma+\phi_\pi k + \phi_y}
+\begin{bmatrix}
+  1
+  \\
+  k
+\end{bmatrix} \nu_t
+\\& \Rightarrow
+\begin{bmatrix}
+\tilde y_t \\
+\hat \pi_t
+\end{bmatrix}
+=A
+\begin{bmatrix}
+  C_{t-1}
+  \\
+  K_{t-1}
+\end{bmatrix}
+-B \nu_t
+ \text{ (at RHS one period ahead meaning the whole equation is foresight-seeing)}
+\\& \Rightarrow \lambda^2-\frac{\sigma+k+\beta(\sigma+\phi_y)}{\sigma+\phi_\pi k +\phi_y} \lambda+\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y}=0
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Technique in Ramsey and DNK]
+\end{note}
+From the perspective of techniques in persuiing solution, it is greatly similar to the way we did with Ramsey model, where the model is one period backward at RHS.
+\end{blueblock}
+
+
+\begin{blueblock}
+\begin{note}[HNKPC]
+Hybrid New Keynesian Philips Curve
+\end{note}
+
+Since NKPC lacks persistence in practical use (shocks are too slow to effects), we might as well add a 1-period-lagged inflation to the RHS as adpative expectation. This is somehow a nominal shock since it gets into the DNK model through $m_t$.
+
+{\color{red}\begin{align}
+&\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (NKPC)}
+\\&\hat \pi_t = \hat\pi_{t-1} + \beta E_t \hat \pi_{t+1}+k \tilde y_t  \text{ (HNKPC)}
+\end{align}}
+
+$a_t$ is described as real shocks of DNK model. But it shows up too fast.
+
+Later the concept of sticky information is added to the model to solve the problem.
+
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}[BK conditions]
+\end{note}
+First brought up by Blanchard and Kahn, 1980
+\end{blueblock}
+\footnote{Also see Nakajima 2007 for similar techniques.}
+
+\begin{blueblock}
+\begin{note}
+\end{note}
+Lasalle, 1986
+\begin{align}
+& x^2 + b x +c=0
+\\&x_{1},x_{2} <1 \iff
+\begin{cases}
+  |c|<1\\|b|<1+c
+\end{cases}
+\end{align}
+\end{blueblock}
+
+
+If the equilibrium exists and it is the only one, then
+\begin{align}
+&\begin{cases}
+  |\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y}|<1 \Rightarrow \sigma(\beta-1)<0<\phi_\pi k +\phi_y
+  \\
+  |\frac{\sigma+k+\beta(\sigma+\phi_y)}{\sigma+\phi_\pi k +\phi_y}|<1+\frac{\sigma \beta}{\sigma+\phi_\pi k +\phi_y} \Rightarrow k(\phi_\pi-1)+(1-\beta)\phi_y>0
+\end{cases}
+\end{align}
+
+Method of Undetermined Coefficients:
+
+Let's assume
+\begin{align}
+&\begin{cases}
+  \tilde y_t = \psi_{y \nu} \nu_t
+  \\
+  \hat \pi_t = \psi_{\pi \nu} \nu_t
+\end{cases}
+\end{align}
+
+recall that
+\begin{align}
+&\hat \pi_t = \beta E_t \hat \pi_{t+1}+k \hat y_t \text{ (expected inflation)}
+\end{align}
+
+\begin{align}
+& \psi_{\pi \nu} \nu_t= \beta E_t (\psi_{\pi \nu} \nu_{t+1})+k \hat y_t \text{ (iterating)}
+\\& = \beta E_t [\psi_{\pi \nu} (\rho_\nu \nu_t +\epsilon_{t+1}^\nu)]+k \hat y_t
+\text{ (expand $\nu_{t+1}$ since it's AR1 shock of $i_t$)}
+\\& = \beta \psi_{\pi \nu} \rho_\nu \nu_t + k \psi_{y \nu} \nu_t
+\text{ (preassuming expectation of next period noise is $0$)}
+\\& \Rightarrow (1-\beta \rho_\nu)\psi_{\pi \nu}=k \psi_{y \nu}
+\\& \Rightarrow k \psi_{y \nu}=\frac{1-\beta \rho_\nu}{k}\psi_{\pi \nu}
+\text{ (relationship of two undetermined coefficients)}
+\end{align}
+
+Using DIS
+\begin{align}
+& \tilde y_t =E_t \tilde y_{t+1}-\frac{1}{\sigma}[\phi_\pi \hat \pi_t+\phi_y \hat y_t +\nu_t)-E_t \hat \pi_{t+1}]
+\end{align}
+
+using interest rate rule
+\begin{align}
+& \Rightarrow \psi_{y \nu}\nu_t= \psi_{y \nu} E_t \nu_{t+1}-\frac{1}{\sigma}(\phi_\pi \psi_{\pi \nu}\nu_t+\phi_y \psi_{y \nu} \nu_t+\nu_t -\psi_{\pi \nu}E_t \nu_{t+1})
+\\& = \psi_{y \nu}\rho_\nu \nu_t -\frac{1}{\sigma}(\phi_\pi \psi_{\pi \nu}\nu_t+\phi_y \psi_{y \nu} \nu_t+\nu_t -\psi_{\pi \nu}\rho_\nu \nu_t)
+\\& = \frac{\sigma \rho_\nu-\phi_y}{\sigma} \phi_{y \nu}\nu_t-\frac{\phi_\pi-\rho_\nu}{\sigma}\psi_{\pi \nu}\nu_t-\frac{1}{\sigma}\nu_t
+\\& \Rightarrow
+\sigma \psi_{y \nu}=(\sigma \rho_\nu-\phi_y)\psi_{y \nu}-(\phi_\pi-\rho_\nu)\psi_{\pi \nu}-1\text{ (elimination of $\nu_t$)}
+\\& \Rightarrow (\sigma-(\sigma \rho_\nu-\phi_y))
+\psi_{y \nu}+(\phi_\pi-\rho_\nu)\psi_{\pi \nu}=-1
+\\& \Rightarrow \psi_{\pi \nu}=\frac{-k}{\dots}=-k\wedge_\nu
+\\& \Rightarrow \psi_{y \nu}=-(1-\beta \rho_\nu)\wedge_\nu
+\end{align}
+
+\subsection{Analyze exogenous shocks}
+
+Now policy change will reflect in the parameter $\epsilon$, making policy analysis possible.
+
+
+$\begin{rcases}
+  \text{we use }\nu \text{ to denote the exogenous shock}
+  \\
+  \text{last section we have expression of }\nu
+\end{rcases} \Rightarrow$ to analyze the shock would mean fully using it.
+
+\begin{blueblock}
+\begin{note}[what is a shock?]
+\end{note}
+
+In a model with uncertainty, variable has the feature of causing change in variation by change itself can cause a shock.
+
+But it was later broadened as change of exogenous variable in a model without uncertainty.
+
+\end{blueblock}
+
+recall output gap at equilibrium
+\begin{align}
+\hat y_t-\hat y_t^f&=\hat y_t^*=\psi_{y \nu} \nu_t
+\\&=-(1-\beta \rho_\nu)\wedge_\nu \nu_t
+\\&=-(1-\beta \rho_\nu)\wedge_\nu (\rho_\nu \nu_{t-1}+\epsilon^\nu_t)
+\\&=-(1-\beta \rho_\nu)\wedge_\nu \rho_\nu \nu_{t-1}-(1-\beta \rho_\nu)\wedge_\nu \epsilon^\nu_t
+\\&= \rho_\nu \tilde y_{t-1}-(1-\beta \rho_\nu)\wedge_\nu \epsilon_t^\nu \text{ ($\tilde y_{t-1}$ backward one period)}
+\end{align}
+
+\begin{blueblock}
+\begin{note}
+we can only do analysis at equil
+\end{note}
+\end{blueblock}
+
+similiar with inflation at equilibrium
+\begin{align}
+&\hat \pi_t^*=\psi_{\pi \nu} \nu_t
+\\&=-k \wedge_\nu \nu_t
+\\&=-k \wedge_\nu(\rho_\nu \nu_{t-1}+\epsilon_t^\nu)
+\\&=\rho_\nu \pi_{t-1}-k\wedge_\nu \epsilon_t^\nu
+\end{align}
+
+
+
+interest rate at equilibrium
+\begin{align}
+& \hat r_t^*=\hat i_t- E_t \hat \pi_{t+1} \text{ (Real interest rate at equilibrium)}
+\\&= \sigma (E_t \tilde y_{t+1}-\hat y_t)\leftarrow \text{DIS}
+\\& = \sigma (1-\beta \rho_\nu)(1-\rho_\nu)\wedge_\nu \nu_t
+\\& \Rightarrow \hat i_t^*=\hat r_t+E_t \hat \pi_{t+1} \text{Nominal interest rate at equilibrium}
+\\& = [\sigma(1-\beta \rho_\nu)(1-\rho_\nu)-k \rho_\nu]\wedge_\nu \nu_t
+\end{align}
+
+
+moreever we can do analysis with money supply using quantity equation of money
+\begin{align}
+& \hat m_t^*= \hat p_t^*+\hat y_t^*-\eta \hat i_t^*\text{ (LHS is solvable since all variables at RHS has been solved)}
+\\& = \text{ (assuming $\hat y_t^{f*} = 0$)}
+\\& =
+\\& = \text{ use solutions from above}
+\\& \Rightarrow
+\\& =
+\\& \frac{d \hat m^*_t}{d \nu_t}=
+\\& = \text{showing the result is decided by mutiple joint forces}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[quantity equation of money]
+
+$MV=Py$
+
+While this theory was originally formulated by Polish mathematician Nicolaus Copernicus in 1517, it was popularized later by economists Milton Friedman and Anna Schwartz after the publication of their book, "A Monetary History of the United States, 1867-1960," in 1963.
+\end{note}
+\end{blueblock}
+
+\subsection[Natural rates, output gaps, and model limits (planned)]{Natural rates, output gaps, and model limits}
+\textit{Planned section.} Distinguish the natural real interest rate, flexible-price output, and efficient
+output. Check which shocks and distortions enter each object before interpreting
+policy responses or welfare losses.

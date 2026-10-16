@@ -1,0 +1,141 @@
+% !TEX root = ../macro.tex
+\section{Sticky Wage Model}\label{sec:sticky-wages}
+
+Before good market is price-sticky and monopolistic competitive, now the setting goes to labor market.
+\begin{align}
+& Y_{it}=(\frac{P_{it}}{P_t})^{-\epsilon_P}Y_t
+\text{ (good demand curve, $\epsilon$ is substitute elasticity)}
+\\& P_t=(\int_0^1P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon_p}}\text{ (total price)}
+\\& W_t=W_{it}=\int_0^1 W_{it}di
+\\& P^*_{it}=c+\alpha \tilde y_t \text{ (desired price)}
+\end{align}
+
+labor market m.c. (as in classical model) and sticky wage (partial rigidity, in contrary to total rigidity where all wages are rigid).
+
+1)
+labor demand curve and total wage price level
+\begin{equation}
+\begin{split}
+& \min \int_0^1 W_{jt} N_{ijt}dj
+\\& s.t. A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_W-1}{\epsilon_W}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}\geqslant A_t N_{it}^{1-\alpha}
+\end{split}
+\end{equation}
+where $i$ indexing firm, $j$ indexing labor, $t$ is time
+
+
+Form a Lagrangian
+\begin{align}
+& \mathcal{L}=\int_0^1 W_{jt} N_{ijt}dj+W_t\{
+A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_w-1}{\epsilon_w}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}-A_t N_{it}^{1-\alpha}
+\}
+\end{align}
+where Lagrangian multiplier is total wage level
+
+Solving the optimization problem results
+\begin{align}
+& \Rightarrow
+\color{red}
+\begin{cases}
+N_{ijt}=(\frac{W_{jt}}{W_t})^{-\epsilon_W}N_{it} \text{ (labor supply equation)}
+\\
+W_t=(\int_0^1 W_{jt}^{1-\epsilon_W}dj)^{\frac{1}{1-\epsilon_W}} \text{ (expression of total wage level)}
+\end{cases}
+\end{align}
+
+
+
+2)
+UMP of household
+
+in utility function N is labor demand instead of labor supply as before. this is because of m.c. labor market.
+\begin{equation}
+\begin{split}
+&u=u(C_t,N_t)
+\\&=u(C_t,\{N_{jt}\})
+\\&=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\int_0^1 \frac{N_j^{1+\varphi}}{1+\varphi}dj \text{ (CES style)}
+\end{split}
+\end{equation}
+
+the UMP can be rewritten as
+\begin{equation}
+\begin{split}
+\max_{\{C_t,W_t^*\}} \sum\limits_{t-0}^{\infty} \beta^t u(C_t,\int_0^1 N_{jt}dj) \iff \max \sum\limits_{t=0}^{\infty} \beta^t u(C_t,\int_0^1 (\frac{W_t^*}{W_t})^{-\epsilon_W} N_{it} dj)
+\\s.t. P_t C_t+Q_t B_t \leqslant \int_0^1 W_t^* (\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it}dj+B_{t-1}
+\end{split}
+\end{equation}
+here $W_t^*$ instead of original because all wages can be adjusted, eventually they will be the same
+
+
+a simplified version would be
+\begin{equation}
+\begin{split}
+& \max \sum\limits_{t=0}^{\infty}\beta^t u(C_t,(\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it})
+\\& s.t. P_t C_t +Q_t B_t \leqslant W_t^*(\frac{W_t^*}{W_t})^{-\epsilon_W}+B_{t-1}-T_t
+\end{split}
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+& \max\limits_{W^*_0}  \sum\limits_{t=0}^{\infty}\beta^t \theta_W^t u(C_{t|0},N_{t|0})
+\\& s.t.
+\begin{cases}
+C_{t|0}=\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]
+\\
+N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve, left with only $W^*_0$)}
+\end{cases}
+\end{split}
+\end{equation}
+sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole equation to stay put.
+
+
+put two constraints in the max part, now the optimization problem is a unconstrainted one
+\begin{align}
+& \max_{W_0^*} \sum\limits_{t=0}^{\infty} (\beta \theta_W )^t
+u(
+{\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]},
+(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it}
+)
+\\& FOC \Rightarrow E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W)(\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}-
+u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)^{-1}} \frac{1}{W_t} N_{it})
+]
+\\& = E_0 \sum_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W) (\frac{W_0^*}{W_t})^{-\epsilon_W} W_t^{\epsilon_W} N_{it}-
+u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)} W_t^{\epsilon_W} N_{it} \frac{1}{W_0^*})
+]
+\end{align}
+
+move some exogenous variables out since they basically can be treated as constants
+\begin{align}
+& \Rightarrow  (1-\epsilon_W)(W_0^*)^{-\epsilon_W} \dots
+\\& = \epsilon_W (W_0^*)^{-\epsilon_W^{-1}}
+\\& \Rightarrow W_0^*=\frac{\epsilon_W}{1-\epsilon_W}
+\frac{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})W_t^{\epsilon_W}N_{it}}{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}}
+\end{align}
+
+use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the equation is essentially an inflation equation
+\begin{align}
+& W_0^*= \frac{\epsilon_W}{\epsilon_W-1}
+\frac{
+E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})MRS_{t|0} W_t^{\epsilon_W}N_{it}
+}{
+E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}
+}
+\\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no equation above)}
+\end{align}
+
+now based on the perspective at period $t$
+\begin{align}
+& W_t^* = \frac{\epsilon_W}{\epsilon_W-1}
+\frac{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})MRS_{t+k|t}W^{\epsilon_W}_{t+k|t}}{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})\frac{1}{P_{t+k}}W^{\epsilon_W}_{t+k|t}}
+\text{ (at t period instead 0 period)}
+\\& \Rightarrow \frac{W_t^*}{P_t}=\frac{\epsilon_W}{\epsilon_W-1}MRS \text{ (if elasticity wage and monopolistic competitive at t period)}
+\end{align}
+
+
+\begin{blueblock}
+\begin{note}[M.C. firm choice variable for optimization problem]
+MC firm can choose price max or quantity max
+\end{note}
+\end{blueblock}
+
+\clearpage

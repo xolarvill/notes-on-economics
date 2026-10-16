@@ -1,0 +1,265 @@
+% !TEX root = ../macro.tex
+\section{OLG Model}\label{sec:olg}
+
+In contrast to the Ramsey model in which individuals are infinitely-lived, in the OLG model individuals live a finite length of time, long enough to overlap with at least one period of another agent's life.
+
+\begin{blueblock}
+\begin{note}[Meet only once]
+Two generation OLG is particularly simple because it precludes
+intertemporal trade (no one meets twice).
+\end{note}
+\end{blueblock}
+
+\textbf{Solow model, RCK model and OLG model}
+\begin{itemize}
+\tightlist
+  \item All of them are under the assumption of perfect competitive market.
+  \item Solow model has exogenous saving rate, whereas Ramsey model and OLG model has endogenous one.
+  \item OLG model has heterogeneous representative agents.
+\end{itemize}
+
+
+\sepline
+\subsection{Assumptions}
+\begin{align}
+&C_{t}= L_{t} C_{1t}^{\text{young}}+L_{t-1}C_{2t}^{\text{old}} \text{ (where subscript 1 and 2 stands for age)}
+\\&L_{t}=(1+n)L_{t-1} \Rightarrow L_{t}=(1+n)^{t}L_{0}
+\\&S_{t}=s_{t}L(t)
+\end{align}
+
+\sepline
+\subsection{UMP of household}
+A general UMP would be
+\begin{align}
+\begin{split}
+&\max u (C_{1})+\beta u (C_{2,t+1})
+\\&s.t.
+\begin{cases}C_{1t}+S_{t} \leqslant W_{t} \\
+C_{2,t+1}\leqslant R_{t+1} S_{t}
+\end{cases}
+\end{split}
+\end{align}
+Form a Lagrangian and acquire Euler's equation
+\begin{align}
+&\mathscr{L}=u (C_{1})+\beta u (C_{2,t+1})+\lambda_{1t}(c_{1t}+s_{t} - w_{t})+\lambda_{2,t+1}(c_{2,t+1}- R_{t+1} s_{t})
+\\&\Rightarrow \text{F.O.C. }\begin{cases}
+\frac{\partial \mathscr{L}}{\partial C_{1t}}=0 \\
+\frac{\partial \mathscr{L}}{\partial C_{2,t+1}}=0 \\
+\frac{\partial \mathscr{L}}{\partial S_{t}}=0\end{cases}
+\Rightarrow
+\begin{cases}
+u'(C_{1t})=\lambda_{1t} \\
+\beta' u'(C_{2,t+1})=\lambda_{2,t+1} \\
+\frac{\lambda_{1t}}{\lambda_{2,t+1}}=R_{t+1}\end{cases}
+\\&\Rightarrow \color{red} u'(C_{1t})=\beta R_{t+1} u'(C_{2,t+1}) \text{ (Euler's equation in OLG UMP)}
+\end{align}
+
+\begin{greenblock}
+e.g. Given a specific utillity function
+\begin{align}
+&u(C_{gt})=\frac{C_{gt}^{1-\theta}-1}{1-\theta},0<\theta\neq1, g =1,2
+\\&\text{UMP}\Rightarrow
+\begin{cases}
+C_{1t}^{-\theta}=\beta R_{t+1}C_{2,t+1}^{-\theta} \\
+C_{1t}=W_{t}-S_{t} \\
+C_{2,t+1}=R_{t+1}S_{t}\end{cases}
+\\&\Rightarrow(W_{t}-S_{t})^{-\theta}=\beta R_{t+1}(R_{t+1}S_{t} )^{-\theta}
+\\&\Rightarrow (\frac{W_{t}-S_{t}}{S_{t}})^{-\theta}=\beta R^{1-\theta}_{t+1}
+\\&\Rightarrow \frac{W_{t}}{S_{t}}=(\beta R_{t+1}^{1-\theta})^{-\frac{1}{\theta}}+1
+\\&\Rightarrow S_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}<w_{t}
+\\&\Rightarrow S'_{w}=\frac{1}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1} \in (0,1)
+\\&\Rightarrow S'_{R}=\frac{1-\theta}{\theta}\frac{S_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}(\beta R_{t+1})^{-\frac{1}{\theta}}
+\\&\Rightarrow S'_{R} \begin{cases}
+>0, 0<\theta<1 \\
+=0, \theta = 1 \\
+<0, \theta >1\end{cases}
+\end{align}
+\end{greenblock}
+
+
+\sepline
+\subsection{PMP of firm}
+A general PMP would be
+\begin{align}
+&\max_{k_{t},L_{t}} \pi_{t} =Y_{t}-w_{t}L_{t}-R_{t}K_{t}
+\\&\text{Since }
+\pi_{t}=\frac{\Pi_{t}}{L_{t}},y_{t}=\frac{Y_{t}}{L_{t}},k_{t}=\frac{K_{t}}{L_{t}}, \frac{K_{t+1}}{L_{t}}=\frac{K_{t+1}}{L_{t+1}}\frac{L_{t+1}}{L_{t}},s_{t}=\frac{S_{t}}{L_{t}}
+\end{align}
+Rearrange in form of per capita
+\begin{align}
+&\Rightarrow \max_{K_{t}} \pi_{t}=Y_{t}-W_{t}-R_{t}K_{t}
+\\&\Rightarrow \text{F.O.C.}\begin{cases} R_{t}=f'(K_{t}) \\
+W_{t}=f(K_{t})-K_{t}f'(K_{t})
+\end{cases}
+\end{align}
+
+\sepline
+\subsection{Dynamics}
+
+Looking at the motion equation of capital
+\begin{align}
+&K_{t+1}-(1-\delta)K_{t}=I_{t}=S_{t}=s_{t}L_{t}=s(w_{t},R_{t+1}) L_{t}
+\\&\Rightarrow K_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}
+\\&\Rightarrow K_{t+1}=\frac{w_{t}}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (using conditions from UMP and PMP)}
+\\&\Rightarrow \color{red} K_{t+1}=\frac{f(K_{t})-K_{t}f'(K_{t})}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (equation of motion of capital in OLG)}
+\end{align}
+
+The steady states (intertemporal equilibrium) would be
+\begin{align}
+&k_{t+1}=k_{t}=k^{*}
+\\& \Rightarrow k^{*}=\frac{s[f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t}),f'(k^{*})]}{1+n}
+\\&=\frac{f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t})}{(\beta^{-\frac{1}{\theta}}f'(^{*})^{-\frac{1-\theta}{\theta}}+1)(1+n)}
+\\&\Rightarrow \color{red} k_{t+1}=\frac{(1-\alpha)(k^{*})^\alpha}{(\beta^{-\frac{1}{\theta}}[\alpha(k^{*})^{\alpha-1}]^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (capital per capita at steady state in OLG)}
+\\&\Rightarrow k^{*}= \cdot \text{ (thus we have the $k$ at steady state)}
+\end{align}
+
+
+\begin{greenblock}
+e.g., For a utillity function $u=\log c_{1t}+\beta \log c_{2,t+1}$, where $\theta=1$.
+\begin{align}
+&\Rightarrow \frac{c_{2,t+1}}{c_{1t}}=\beta k_{t+1}
+\\&\Rightarrow s_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}
+\\&=\frac{w_{t}}{\beta^{-1}+1}
+\\&=\frac{\beta}{1+\beta}w_{t} \text{ (meaning the saving is a function of wage, instead of endowment)}
+\\&\Rightarrow k_{t+1}=\frac{s_{t}}{1+n}=\frac{\beta w_{t}}{(1+\beta)(1+n)}
+\\&=\frac{\beta (1-\alpha k_{t}^{\alpha})}{(1+\beta)(1+n)}
+\\& \text{steady state demands }k_{t+1}=k_{t}=k^{*} \Rightarrow k^{*}=[\frac{\beta (1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}
+\end{align}
+\end{greenblock}
+
+
+
+\sepline
+\subsection{Comparing three models so far}
+\begin{align}
+&\text{Solow}
+\begin{cases} L_{t}=(1+n)L_{t-1} \\
+\frac{S_{t}}{L_{t}}=s_{t} =sy_{t}=s \frac{Y_{t}}{L_{t}} \\
+k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}
+\end{cases}
+\\&\text{OLG} \begin{cases}
+L_{t}=(1+n)L_{t-1} \\
+k_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}=\frac{s[f(k_{t})-k_{t}f'(k_{t}),f'(k_{t+1})]}{1+n} \\
+\end{cases}
+\\&\text{Ramsey} \begin{cases}L_{t}=(1+n)L_{t-1} \\
+k_{t+1}=\frac{f(k_{t})+c_{t}}{1+n} \Rightarrow 0=F(k^{*})-c^{*}-\rho k^{*} \Rightarrow F'(k^{*}_{G})=\delta\\
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]\Rightarrow 1= \rho [F'(k^{*})+(1-\delta)] \Rightarrow F'(k^{*})=\rho +\delta \Rightarrow k^{*}_{G}>k^{*}
+\end{cases}
+\end{align}
+
+\sepline
+\subsection{Dynamic inefficiency}
+Because of the micro-foundations (patience denoted as $\beta=\frac{1}{1+\rho}$) in Ramsey, there will be no over-accumulation of capital, avoiding dynamic inefficiency. Whereas in Solow model the inefficiency is inevitable. Somehow in OLG model, the dynamic inefficiency returns.
+
+\textbf{Solow}
+
+The model has key equations
+\begin{equation}
+\begin{cases}
+  Y=F(K,L)
+  \\
+  I=S=sY
+  \\
+  L_{t+1}=(1+n)L_t
+  \\
+  k_{t+1}=\frac{(1-\delta)k_t+sf(k_t)}{(1+n)}\iff \dot k=sf(k)-(n+\delta)k
+\end{cases}
+\end{equation}
+
+For a certain production $y=k^a$ at steady state
+
+use $k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}$
+\begin{align}
+&\Rightarrow(1+n)k^*=(1-\delta)k^*+s f(k^*)
+\\&-(n+\delta)k^*=-s f(k^*)
+\\&f(k^*)-(n+\delta)k^*=(1-s) f(k^*)=c^*
+\\&\Rightarrow c^*=f(k^*)-(n+\delta)k^*
+\\&\text{To maximize welfare at steady state} \iff \max c* \iff FOC: k^*_g=(\frac{n+\delta}{\alpha})^{1-\alpha}
+\end{align}
+also at steady state
+\begin{align}
+&(1+n)k^*=(1-\delta)k^*+s f(k^*)
+\\&\Rightarrow k^*=(\frac{n+\delta}{s})^{1-\alpha}
+\end{align}
+
+for certain $\alpha$ and $s$ it could be
+\begin{align}
+\Rightarrow k^*<k^*_{g}
+\end{align}
+meaning there is possible dynamic inefficiency in Solow model
+
+\textbf{Ramsey}
+
+Ramsey has no dynamic inefficiency, here's why
+
+The model has three key equations
+\begin{align}
+&\begin{cases}L_{t}=(1+n)L_{t-1} \\
+k_{t+1}-(1-\delta)k_t=f(k_t)-c_t \\
+\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]
+\end{cases}
+\end{align}
+
+Put $k_{t+1}-(1-\delta)k_t=f(k_t)-c_t$ at steady state
+\begin{align}
+&c^*=f(k^*)-k^*+(1-\delta)k^*=f(k^*)-\delta k^*
+\\& \text{To maxmize welfare at steady state}\Rightarrow \text{FOC: } f'(k^{*}_{G})=\delta
+\end{align}
+
+Put $\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]$ at steady state resulting
+\begin{align}
+&\Rightarrow 1= \beta [f'(k^{*})+(1-\delta)] =\frac{1}{1+\rho} [f'(k^{*})+(1-\delta)]
+\\&\Rightarrow 1+\rho=f'(k^{*})+1- \delta
+\\&\Rightarrow f'(k^{*})=\rho +\delta < f'(k^*_g)
+\\&\Rightarrow k^{*}_{G}>k^{*}
+\end{align}
+Capital per capita at steady state is lower than $k_{gold}$, meaning it is dynamic efficient.
+
+\textbf{OLG}
+
+OLG in central planner form:
+\begin{align}
+\begin{split}
+&\max \sum\limits_{t=0}^{\infty}(\beta_{s})^{t}L_{t}[u(c_{1t})+\beta u(c_{2,t+1})] \text{ ($\beta_s$ is the discount factor)}
+\\&s.t. \;
+c_{1t}+\frac{c_{2t}}{1+n}+(1+n)k_{t+1}=f(k_{t})
+\end{split}
+\end{align}
+
+Equation of motion of capital per capita at the steady states
+\begin{align}
+&c^{*}\equiv c_{1}^{*}+\frac{c_{2}^{*}}{1+n}=f(k^{*})-(1+n)k^{*}
+\end{align}
+
+Since we are maximizing welfare at steady state, let $\frac{\partial  c^{*}}{\partial  k^{*}}=0$ to acquire first order condition
+\begin{align}
+&\Rightarrow f'(k^{*}_{G})=1+n
+\end{align}
+using production function $y=k^\alpha$ at equilibrium
+\begin{align}
+f'(k^{*})&=\alpha (k^{*})^{\alpha-1}
+\\&=\alpha\{[\frac{\beta(1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}\}^{\alpha-1}
+\\&=\frac{\alpha}{1-\alpha}\frac{1+\beta}{\beta}(1+n)
+\end{align}
+for certain value of $\alpha$
+\begin{align}
+&f'(k^{*})<1+n
+\\&\Rightarrow f'(k^{*})<f'(k^{*}_{G})
+\\& \Rightarrow k^{*}>k^{*}_{G}
+\end{align}
+Meaning there can be over-accumulation of capital $\iff$ suffices dynamic inefficiency possible in OLG model.
+
+\textbf{Conclusion}
+\begin{itemize}
+\tightlist
+  \item Due to ad hoc given $s$, Solow model is unable to assure dynamic efficiency.
+  \item Due to endogenous saving decision and discount factor $\beta$, Ramsey model is able to achieve dynamic efficiency.
+  \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
+\end{itemize}
+
+\subsection[Population, pensions, and public debt (planned)]{Population, pensions, and public debt}
+\textit{Planned section.} Extend the two-generation benchmark to population change, pension arrangements,
+and government debt. State the conditions for dynamic inefficiency before
+comparing intergenerational transfers.
+
+\clearpage

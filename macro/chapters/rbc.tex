@@ -1,0 +1,221 @@
+% !TEX root = ../macro.tex
+\section{Real Business Cycle Model}\label{sec:rbc}
+
+Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
+\begin{itemize}
+\tightlist
+  \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
+  \item Stochastic productivity (i.e. real shocks)
+\end{itemize}
+
+
+\begin{blueblock}
+\begin{note}[Two principles of the RBC theory of business cycles]
+
+1. Money is of little importance in business cycles.
+
+2. Business cycles are created by rational agents responding optimally to
+real (not nominal) shocks - mostly fluctuations in productivity growth,
+but also fluctuations in government purchases, import prices, or preferences.
+\end{note}
+\end{blueblock}
+
+
+
+
+\sepline
+\subsection{UMP of household}
+A typical household entails product-consuming for $C_t$ and labor-providing for $N_t$. Only in this model, the agent value leisure $L_t=1-N_t$.
+
+The UMP in RBC model is
+\begin{align}
+&\max\limits_{C_{t},N_{t},B_{t}} E_t \sum\limits_{t=0}^{\infty}\beta^{t}u(C_{t},N_{t})
+\\&
+s.t. \; P_{t}C_{t}+Q_{t}B_{t}\leqslant B_{t-1}+W_{t}N_{t}+D_{t}
+\text{, where }
+\begin{cases}
+\beta \in (0,1) \\
+Q_{t}=\frac{1}{1+i_{t}} \text{ is the price per bond bought today}
+\end{cases}
+\end{align}
+
+Form a Lagrangian and acquire FOCs
+\begin{align}
+&\mathscr{L}=E_{0} \sum\limits_{t=0}^{\infty}\beta^{t}[u(C_{t},N_{t})+\lambda_{t}(P_{t}C_{t}+Q_{t}B_{t}-B_{t-1}-W_{t}N_{t}-D_{t} )]
+\\&
+\Rightarrow
+\begin{cases}\frac{\partial  \mathscr{L}}{\partial C_{t}}=0 \Rightarrow \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \Rightarrow \frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+\frac{\partial  \mathscr{L}}{\partial N_{t}}=0 \Rightarrow \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0 \\
+\frac{\partial  \mathscr{L}}{\partial B_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t}
+\end{cases}
+\end{align}
+
+using these FOCs
+\begin{align}
+&\begin{cases}
+  \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \\
+  \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0
+\end{cases} \Rightarrow \color{red} \text{Labor supply equation} -\frac{u_{N_{t}}}{u_{C_{t}}}=\frac{W_{t}}{P_{t}}
+\\&
+\text{Also} \begin{cases}\frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+\beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t}
+\end{cases}
+\Rightarrow \color{red} \text{Euler's equation } \frac{Q_{t}}{\beta}=E_{t}\cdot
+\frac{\frac{U_{c,t+1}}{P_{t+1}}}{\frac{U_{c,t}}{P_{t}}}
+\end{align}
+
+
+\begin{greenblock}
+e.g. Let utility function be specific
+\begin{align}
+&
+u(C_{t},N_{t})=\begin{cases}
+\frac{c^{1-\sigma}_{t}-1}{1-\sigma}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma\neq 1 \\
+\log C_{t}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma=1\end{cases}
+\\&
+\Rightarrow \begin{cases}
+\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \\
+Q_{t}=\beta E_{t}\cdot (\frac{C_{t+1}}{C_{t}})^{-\sigma}\cdot \frac{P_{t}}{P_{t+1}}
+\end{cases}
+\end{align}
+\end{greenblock}
+
+
+
+\sepline
+\subsection{PMP of firm}
+\begin{align}
+\min\limits_{N_{t}} W_t N_t \Leftrightarrow &\max\limits_{Y_t} P_{t}Y_{t}-W_{t}N_{t}
+\\&s.t. Y_t = A_t K_t^\alpha N_t^{1-\alpha}, \alpha \in [0,1)
+\\&
+\text{where }
+\begin{cases}
+  Y_{t}=A_{t}W_{t}^{1-\alpha}\\
+  A_{t}=A_{t-1}^{\rho\alpha} \epsilon_{t}^{\alpha}, \epsilon_{t}^{\alpha} \overset{iid}{\sim} N(0,\sigma_{\alpha}^{\epsilon})
+  \text{ (technology shocks)}
+\end{cases}
+\\&
+\Rightarrow \text{F.O.C.: } \frac{W_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand equation)}
+\end{align}
+
+\sepline
+\subsection{Economy described by RBC}
+{\color{red}
+The whole economy system is described as the balance of demand and supply
+\begin{align}
+&\text{AS}
+\begin{cases} Y_{t}=A_{t}N_{t}^{1-\alpha} \text{ (total production function)}, A_t=A^{\rho a}_{t-1} e^{\epsilon^a_t} \text{ (technology shocks)}\\
+\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \text{ (labor supply from UMP)}\\
+\frac{w_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand from PMP)}
+\end{cases}
+\\&
+\text{AD}
+\begin{cases}Y_{t}=C_{t}+I_{t} \text{ (accouting equation)}\\
+Q_{t}=\beta E_{t} (\frac{C_{t+1}}{C_{t}})^{-a} \frac{P_{t}}{P_{t+1}}  \text{ (Euler equation from UMP)}\\
+\frac{M_{t}}{P_{t}}=\frac{Y_{t}}{Q_{t}^{-n}}  \text{ (demand of liquidity)}
+\end{cases}
+\end{align}
+}
+
+
+\sepline
+\subsection{Log-linearization}
+
+Two methods we can transform.
+1) The first is
+\begin{align}
+&
+\hat x_{t}=\ln x_{t}-\ln x^{*}
+\\&
+=\ln |\frac{ x_{t}}{x^{*}}|
+\\&
+=\ln |1+ \frac{x_{t}-x^{*}}{x^{*}}| \text{ (percentage of deviation from stable state)}
+\\&
+\approx \ln |1+\frac{1}{x^{*}}(x_{t}-x^{*})|
+\\&
+=\frac{x_{t}-x^{*}}{x^{*}}
+\end{align}
+
+2) Another approach would be
+\begin{align}
+&\ln x^{*}=ln x_{t}-\tilde{x_{t}}\Rightarrow \ln x_{t}=ln x^{*}+\tilde{x_{t}}
+\\&
+\Rightarrow e^{\ln x_{t}}=x_{t}=e^{n x^{*}+\tilde{x_{t}}}=x^{*}e^{\hat{x_{t}}} \approx x^{*} (1+\hat x_{t})
+\end{align}
+
+Now we turn to the linearization of RBC model
+\begin{align}
+&
+\begin{cases}
+y_{t}=a_{t}+(1-\alpha)n_{t}
+\\
+y=a+(1-\alpha)n
+\end{cases}
+\Rightarrow \hat y_{t}=\hat a_{t}+(1-\alpha)\hat n_{t}
+\\&
+\Rightarrow
+\begin{cases}
+\hat w_{t}-\hat p_{t}=\hat a_{t}+(1-\alpha)\hat n_{t} \\
+\hat w_{t}-\hat p_{t}=a\hat c_{t}+\rho \hat n_{t}\end{cases}
+\Rightarrow \hat y_{t}=\hat c_{t}, \; m_{t}-\hat p_{t}=\hat y_{t} -\hat n_{it}
+\\&
+Y_{t}=C_{t}+I_{t}
+\\&
+Y\cdot e^{\hat y_{t}}=C\cdot e^{\hat c_{t}}+I\cdot e^{\hat i_{t}}
+\\&
+Y(1+\hat y_{t})=C(1+\hat c_{t})+I(1+\hat i_{t})
+\\&
+\hat y_{t}=\frac{C}{Y}\hat c_{t}+ \frac{I}{Y} \hat i_{t}\\&
+a_{t}=\rho_{t} a_{t-1}+\epsilon_{t}^{a}
+\\&
+1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a(c_{t+1}-c_{t})-(P_{t+1}-P_{t})}
+\\&
+1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a\triangle c_{t+1}-\pi_{t+1}}
+\\&
+1=E_{t} I[1+(i_{t}-i)-a(\triangle c_{t+1}-\triangle c_{t}]-(\pi_{t+1}-\pi_{t})]
+\end{align}
+
+{\color{red} Therefore a RBC model can be rewritten in linearized log equations
+\begin{align}
+\color{red}&\text{AS:} \begin{cases}
+\hat y_{t}=a_{t}+(1-\alpha)\hat n_{t} \text{ (output)}\\
+\hat w_{t}-\hat p_{t}=a_{t}-\alpha \hat n_{t} \text{ (labor demand)}\\
+\hat w_{t}-\hat p_{t}=a c_{t}+\varphi \hat n_{t} \text{ (labor supply)}\\
+\hat a_{t}=\rho_a \hat a_{t-1}+\epsilon_t^a \text{ (technology)}
+\end{cases}
+\\&
+\text{AD:} \begin{cases}
+\hat y_{t}=\hat c_{t} \text{ (product market clearing)}\\
+\hat c_{t}=E_{t}\hat c_{t+1}-\frac{1}{a}(\hat i_{t}-E_{t}\hat \pi_{t+1}) \\
+\hat m_{t}-\hat p_{t}=\hat y_{t}-\eta \cdot \hat i_{t} \text{ (money demand equation; $\eta$ is interest rate elasticity)}\\
+\hat r_{t}=i_{t}-E_{t} \hat \pi_{t+1} \text{ (Fisherian equation)}
+\end{cases}
+\end{align}
+}
+
+\begin{blueblock}
+\begin{note}[Exceptation for Expectation]
+Notice this method does not apply to equations involving expectations.
+\end{note}
+\end{blueblock}
+
+\begin{blueblock}
+\begin{note}[RBC has neutrality of money]
+The final answer of this standard RBC model is not relevant to any price variable, inferring the model being money-neutral.
+\end{note}
+\end{blueblock}
+
+
+
+
+
+
+
+
+
+\subsection[Capital accumulation and investment (planned)]{Capital accumulation and investment}
+\textit{Planned section.} Extend the current fixed-capital benchmark to endogenous capital accumulation.
+Derive investment dynamics and distinguish the simplified benchmark from a
+full RBC model with a changing capital stock.
+
+\clearpage
