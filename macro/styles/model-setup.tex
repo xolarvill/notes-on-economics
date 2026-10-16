@@ -1,0 +1,53 @@
+% !TEX root = ../macro.tex
+% Compact model maps: one short condition per card, then explanation in prose.
+\tcbuselibrary{raster}
+\RequirePackage{needspace}
+
+\newenvironment{modelsetup}{%
+  \par\begingroup
+  \begin{tcbraster}[
+    raster columns=2,
+    raster column skip=10pt,
+    raster row skip=8pt,
+    raster before skip=8pt,
+    raster after skip=8pt,
+    raster equal height=rows
+  ]%
+}{%
+  \end{tcbraster}
+  \endgroup\par
+}
+
+\newtcolorbox{modelcondition}[2]{
+  enhanced,
+  sharp corners,
+  colback=white,
+  colframe=Green!30!white,
+  colbacktitle=greenshade,
+  coltitle=black,
+  boxrule=0.4pt,
+  borderline west={1.5pt}{0pt}{Green},
+  boxsep=0pt,
+  left=7pt,
+  right=7pt,
+  top=5pt,
+  bottom=5pt,
+  toptitle=4pt,
+  bottomtitle=4pt,
+  fonttitle=\bfseries,
+  title={\textcolor{Green!55!black}{\sffamily\small #1}\quad #2},
+  fontupper=\normalfont,
+  before upper={\setlength{\RaggedRightParindent}{0pt}\RaggedRight},
+  before skip=0pt,
+  after skip=0pt
+}
+
+\newcommand{\modelsequence}[3]{%
+  \begin{equation*}
+    \underbrace{#1}_{\text{Given at }t}
+    \;\longrightarrow\;
+    \underbrace{#2}_{\text{Production and allocation}}
+    \;\longrightarrow\;
+    \underbrace{#3}_{\text{Available at }t+1}.
+  \end{equation*}
+}

@@ -106,7 +106,58 @@ accounting constraint, a production experiment, a saving rule, an exogenous
 labor path, and a useful normalization. The assumptions that follow collect
 these choices so that we can check which conclusion depends on which one.
 
+\Needspace{34\baselineskip}
 \subsection{Economic environment and assumptions}\label{economic-environment-and-specific-assumptions}
+
+The map below separates what the model takes as given, how agents behave,
+and which conditions make their decisions consistent. The paragraphs that
+follow explain the assumptions and fix the notation.
+
+\begin{modelsetup}
+\begin{modelcondition}{01}{Economy}
+A closed, one-good economy. No government or foreign trade; output can be
+consumed or invested.
+\end{modelcondition}
+\begin{modelcondition}{02}{Technology}
+Constant returns in capital and effective labor; diminishing returns to
+capital intensity.
+\[
+Y_t=F(K_t,A_tL_t).
+\]
+\end{modelcondition}
+\begin{modelcondition}{03}{Households}
+Own capital and supply labor inelastically. Saving is a given rule, rather
+than an optimal choice:
+\[
+S_t=sY_t,\qquad 0<s<1.
+\]
+\end{modelcondition}
+\begin{modelcondition}{04}{Firms}
+Choose capital and labor to maximize profits at competitive factor prices:
+\[
+\max_{K,L}\ F(K,A_tL)-q_tK-w_tL.
+\]
+\end{modelcondition}
+\begin{modelcondition}{05}{Given states and paths}
+Positive initial stocks. Capital is inherited; technology and labor follow
+exogenous paths:
+\[
+\frac{A_{t+1}}{A_t}=1+g,\quad
+\frac{L_{t+1}}{L_t}=1+n.
+\]
+\end{modelcondition}
+\begin{modelcondition}{06}{Consistency and timing}
+Goods and factor markets clear. Investment becomes usable next period:
+\[
+\begin{aligned}
+Y_t&=C_t+I_t,\qquad I_t=S_t,\\
+K_{t+1}&=(1-\delta)K_t+I_t.
+\end{aligned}
+\]
+\end{modelcondition}
+\end{modelsetup}
+
+\modelsequence{K_t,A_t,L_t}{Y_t\;\to\; C_t,I_t}{K_{t+1}}
 
 \subsubsection{Resources, timing, and behavior}
 
@@ -287,14 +338,19 @@ monotone and bounded toward $k^*$, and continuity makes its limit a fixed point.
 The unique positive fixed point is the limit for every $k_0>0$.
 
 \begin{center}
-\includegraphics[width=0.85\linewidth]{images/solow_phase_diagram.png}
-\end{center}
+\begin{minipage}{\linewidth}
+\centering
+\includegraphics[width=0.72\linewidth]{images/solow_phase_diagram.png}
+\par\medskip
+\RaggedRight
 \noindent\textit{Reading the diagram.} This diagram shows the special
 case $n=g=0$, with $\delta>0$. The curved map is next period's capital; the
 45-degree line is unchanged capital. Starting on the horizontal axis, move
 vertically to the map, then horizontally to the 45-degree line to carry that
 value into the next iteration. For $n>0$ or $g>0$, divide the map by $D$ as in
 \eqref{eq:solow-discrete-map}.
+\end{minipage}
+\end{center}
 
 A steady state is one particular equilibrium path. A transition from an
 arbitrary initial stock is also an equilibrium path under the imposed saving

@@ -12,6 +12,7 @@ kept in chapter files rather than mixed into the entry point.
 | `frontmatter/` | Title page and preface |
 | `parts/` | Six part introductions and the chapter order within each part |
 | `chapters/` | One file for each of the 21 chapters |
+| `styles/` | Reusable layouts, including the model-condition cards |
 | `images/` | Figures and their recovery provenance |
 | `legacy/` | Original aggregate-model material, excluded from the main PDF |
 | `OUTLINE.md` | Readable outline with planned content marked |
@@ -37,6 +38,38 @@ chapter files; the shared rule handles both existing and planned chapters.
 To add a chapter, create its file in `chapters/` and add one `\input` entry to the
 appropriate part file. Keep each active chapter referenced exactly once.
 Chapter files use `% !TEX root = ../macro.tex` so editors can find the entry point.
+
+## Model-condition maps
+
+`styles/model-setup.tex` supplies a two-column `modelsetup` layout. Put one
+short condition in each `modelcondition` card, with a sequence marker and a
+meaningful title. A map distinguishes the environment, technology, agents,
+given states, behavior, and equilibrium conditions; categories should follow
+the model rather than a mandatory count of cards.
+
+```tex
+\begin{modelsetup}
+\begin{modelcondition}{01}{Technology}
+Constant returns in capital and effective labor.
+\[
+Y_t=F(K_t,A_tL_t).
+\]
+\end{modelcondition}
+% Add the other short cards here.
+\end{modelsetup}
+```
+
+Rows have matching heights. Each short card stays intact; the grid can paginate
+between rows. Reserve space before the section heading with `\Needspace` when
+the full overview should be visible together (Solow reserves 34 text lines).
+Keep cards concise instead of forcing a long derivation into an unbreakable
+box. Explain assumptions, notation, and derivations in the following prose.
+
+For the benchmark's timing, `\modelsequence{K_t,A_t,L_t}{Y_t\to C_t,I_t}{K_{t+1}}`
+shows what is inherited, what happens during the period, and what becomes
+available next period. Use it only when that sequence matches the model;
+uncertainty or a different information structure needs an explicit alternative.
+This layout leaves the existing three breakable note environments unchanged.
 
 ## Compile
 
