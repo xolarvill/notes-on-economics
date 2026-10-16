@@ -5,6 +5,8 @@
 \usepackage{mathrsfs,amsfonts,calrsfs} % Math fonts
 \usepackage{newtxtext}
 \usepackage{geometry} % Formatting
+\usepackage[document]{ragged2e} % Left-aligned text with natural word spacing
+\usepackage{indentfirst} % Indent the first paragraph after a heading too
 \usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable,skins}
@@ -24,7 +26,9 @@
   \end{center}}
 
 
-\setlength{\parindent}{0pt}% cancel indentation before every line
+\setlength{\parindent}{2em}
+\setlength{\RaggedRightParindent}{2em}
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
 \setcounter{tocdepth}{2}% Keep the main contents at chapter and section level.
 
 % right cases
@@ -49,7 +53,8 @@
   before skip=10pt,
   after skip=10pt,
   coltext=black,
-  fontupper=\normalfont
+  fontupper=\normalfont,
+  before upper={\RaggedRight}
 }}
 \newtcolorbox{blueblock}{noteblock,colback=blueshade,
   borderline west={2pt}{0pt}{DarkBlue}}
@@ -337,7 +342,7 @@ k_{t+1}=g(k_t)=\frac{(1-\delta)k_t+s A_0 f(k_t)}{1+n}
 
 With $A_{t}$ and $N_{t}$ being stable (not have to be constant), the solution of difference equations in discrete Solow model is $k_{t+1}=sf(k_{t})+(1-\delta)k_{t}$, which leads to the phase diagram below 
 
-\includegraphics[width=\linewidth]{images/solow_phase_diagram.png}
+\noindent\includegraphics[width=\linewidth]{images/solow_phase_diagram.png}
 
 
 \textbf{Equilibrium dynamics, solving the $k^{*}$} 
@@ -360,7 +365,7 @@ The growth rate of capital is denoted as
 \textbf{Intertemporal equilibrium, convergence speed and convergence
 time} 
 
-\includegraphics[width=0.5\textwidth]{images/solow_phase_diagram.png}
+\noindent\includegraphics[width=0.5\textwidth]{images/solow_phase_diagram.png}
 
 \begin{align}
 &k_{t+1}=g(k_{t})
@@ -1034,7 +1039,7 @@ Deriving the derivatives at steady state
 \end{align}
 
 
-\includegraphics[width=0.5\textwidth]{images/ramsey_phase_diagram.png}
+\noindent\includegraphics[width=0.5\textwidth]{images/ramsey_phase_diagram.png}
 
 
 
