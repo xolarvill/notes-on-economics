@@ -1,32 +1,35 @@
 # Notes on Advanced Macroeconomics: Outline
 
-Introduction is written. Existing model chapters are retained and reorganized;
-chapters and sections marked **planned** specify the scope of later writing.
-The original Classical / Keynesian chapters are preserved in `legacy/aggregate-models.tex`
-outside the main PDF. The existing optimal monetary policy derivation is now in Part V.
+Part I contains one Introduction chapter with four sections. Every chapter starts
+on a new page; sections within a chapter continue normally. Chapters and sections
+marked **planned** specify the scope of later writing.
 
-`macro.tex` remains the compilation entry point, with shared formatting and most
-existing model chapters. New and selected relocated chapters are loaded from `chapters/`.
+`macro.tex` contains shared settings and assembles `frontmatter/` and `parts/`.
+All chapter text is in `chapters/`, with one file per chapter. See `README.md`
+for the file layout and editing conventions.
+
+The original Classical / Keynesian chapters remain in `legacy/aggregate-models.tex`
+outside the main PDF. The existing welfare derivation is in the Monetary Policy
+chapter of Part V.
 
 ## Part I: Introduction
 
-### 1. Growth, fluctuations, and their interaction
+### 1. Introduction
 
-### 2. From aggregate relations to individual decisions
-
-### 3. Reading a dynamic equilibrium
-
-### 4. Accounting and notation used in these notes
+- Growth, fluctuations, and their interaction
+- From aggregate relations to individual decisions
+- Reading a dynamic equilibrium
+- Accounting and notation used in these notes
 
 ## Part II: Growth
 
-### 5. Growth Facts and Growth Accounting — **planned**
+### 2. Growth Facts and Growth Accounting — **planned**
 
 - Income levels, growth rates, and convergence
 - Capital, labor, and productivity
 - From accounting to a growth model
 
-### 6. Solow Model
+### 3. Solow Model
 
 - Economic Environment and Specific Assumptions
 - Solow model in discrete time
@@ -34,7 +37,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Golden Rate
 - Extensions
 
-### 7. Ramsey Model
+### 4. Ramsey Model
 
 - Assumptions
 - Solution of Ramsey model
@@ -50,7 +53,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Maximizing welfare
 - Taxation and capital accumulation — **planned**
 
-### 8. OLG Model
+### 5. OLG Model
 
 - Assumptions
 - UMP of household
@@ -60,7 +63,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Dynamic inefficiency
 - Population, pensions, and public debt — **planned**
 
-### 9. Endogenous Growth and Resource Allocation — **planned**
+### 6. Endogenous Growth and Resource Allocation — **planned**
 
 - The AK benchmark and human capital
 - Ideas, innovation, and incentives
@@ -68,7 +71,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 
 ## Part III: Fluctuations
 
-### 10. Real Business Cycle Model
+### 7. Real Business Cycle Model
 
 - UMP of household
 - PMP of firm
@@ -76,7 +79,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Log-linearization
 - Capital accumulation and investment — **planned**
 
-### 11. New Keynesian Model
+### 8. New Keynesian Model
 
 - UMP of household
 - PMP of firm
@@ -89,9 +92,9 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Analyze exogenous shocks
 - Natural rates, output gaps, and model limits — **planned**
 
-### 12. Sticky Wage Model
+### 9. Sticky Wage Model
 
-### 13. Labor Markets and Unemployment — **planned**
+### 10. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
@@ -99,19 +102,19 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 
 ## Part IV: Open Economy
 
-### 14. International Accounts and Intertemporal Trade — **planned**
+### 11. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 15. Trade and Relative Prices — **planned**
+### 12. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 16. Open Economy Fluctuations and Exchange Rates — **planned**
+### 13. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
@@ -119,38 +122,38 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 
-### 17. Money, Banking, and Central Bank Operations — **planned**
+### 14. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 18. Financial Frictions and Aggregate Adjustment — **planned**
+### 15. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 19. Household Heterogeneity and Policy Transmission — **planned**
+### 16. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 20. Monetary Policy
+### 17. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 21. Fiscal Policy — **planned**
+### 18. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 22. Policy Interaction and Constraints — **planned**
+### 19. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
@@ -158,7 +161,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 
 ## Part VI: Topics
 
-### 23. The Dollar in the International Monetary System — **planned**
+### 20. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -166,7 +169,7 @@ existing model chapters. New and selected relocated chapters are loaded from `ch
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 24. China's Growth and Adjustment after the Pandemic — **planned**
+### 21. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

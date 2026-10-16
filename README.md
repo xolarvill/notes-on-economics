@@ -18,9 +18,10 @@ The revised structure has six parts: Introduction, Growth, Fluctuations,
 Open Economy, Money/Finance/Policy, and Topics. New chapters marked
 *planned* contain outlines for later development. See the [outline](macro/OUTLINE.md).
 
-`macro/macro.tex` remains the compilation entry point. It contains the shared
-formatting and most existing model chapters, and loads separate chapter files
-from `macro/chapters/`.
+`macro/macro.tex` is the compilation entry point and contains shared formatting
+and file references. All chapter text lives in `macro/chapters/`, with one file
+per chapter; `macro/parts/` arranges the chapters into parts. See the
+[editing guide](macro/README.md). Each chapter begins on a new page.
 
 [PDF](macro/macro.pdf)  [TeX](macro/macro.tex)
 

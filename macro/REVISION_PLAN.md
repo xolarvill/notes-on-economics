@@ -11,7 +11,9 @@
 5. **Money, Finance, and Macroeconomic Policy**：综合与扩展，集中讨论金融、异质性、货币和财政政策。
 6. **Topics**：美元主导的国际货币体系；中国疫情后的增长与调整。
 
-精简导论独立为 Part I，Growth 从 Part II 开始。Part II--IV 在首次使用政策规则或政府预算约束时给出必要定义，保持模型自足；Part V 集中扩展和比较，不重复整套基础推导。
+精简导论独立为 Part I，其中只有一个 Introduction chapter，下设四个 sections；Growth 从 Part II 开始。Part II--IV 在首次使用政策规则或政府预算约束时给出必要定义，保持模型自足；Part V 集中扩展和比较，不重复整套基础推导。
+
+所有正文统一按 chapter 拆成子文件，每个 chapter 从新页开始，内部 sections 自然接排。`macro.tex` 只保留公共样式和文件引用，`parts/` 管理篇章顺序，`chapters/` 每章一个文件，`frontmatter/` 保存封面和前言。
 
 ## 细化章节的写作标准
 
@@ -74,7 +76,7 @@
 
 ## 导论与目录落地（2026-10-16）
 
-- 导论已写入 `chapters/introduction.tex`：独立为 Part I，下设四节，包含两期消费选择的完整小推导，以及动态均衡、稳态和必要符号的说明。
+- 导论已写入 `chapters/introduction.tex`：Part I 内的单一 Introduction chapter，下设四节，包含两期消费选择的完整小推导，以及动态均衡、稳态和必要符号的说明。
 - 六篇结构已接入主文件，完整目录见 `OUTLINE.md`。新增章节用 `planned` 标记，并写明各节范围；这些范围说明不代表理论正文已经完成。
 - 原 Classical / Keynesian 章节保存在 `legacy/aggregate-models.tex`，退出增长主线。已有最优货币政策推导移入第五篇。
 - 既有主体推导保留，尚待逐章数学核对。RBC 的资本积累扩展、NK 的自然利率与产出缺口等缺口已在目录中显式列出。

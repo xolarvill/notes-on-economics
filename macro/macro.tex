@@ -25,7 +25,6 @@
     \rule[1ex]{.5\textwidth}{.5pt}
   \end{center}}
 
-
 \setlength{\parindent}{2em}
 \setlength{\RaggedRightParindent}{2em}
 \setlength{\RaggedRightRightskip}{0pt plus 1fil}
@@ -63,7 +62,6 @@
 \newtcolorbox{redblock}{noteblock,colback=redshade,
   borderline west={2pt}{0pt}{LightCoral}}
 
-
 \newtheorem{question}{Question}
 \newtheorem{note}{Note}
 
@@ -77,19 +75,20 @@
   \textit{Planned chapter.}\par
 }
 
+% With article, a top-level section is a chapter; subsections are its sections.
+% Apply the same new-page rule to every chapter, including planned chapters.
+\AddToHook{cmd/section/before}{\clearpage}
+
 \begin{document}
 
 \input{frontmatter/title}
 
-
-\newpage
 \begingroup
 \linespread{0.96}\selectfont
 \tableofcontents
 \par
 \endgroup
 
-\newpage
 \input{frontmatter/preface}
 
 \input{parts/introduction}
