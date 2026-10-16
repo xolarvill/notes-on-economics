@@ -6,8 +6,8 @@
 \usepackage{newtxtext}
 \usepackage{geometry} % Formatting
 \usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[strict]{changepage}
-\usepackage{framed}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
 \usepackage{cancel}
 \usepackage{autobreak}
 \usepackage{hyperref}
@@ -31,75 +31,31 @@
   {\left.\begin{aligned}}
   {\end{aligned}\right\rbrace}
 
-% Blue block
-\definecolor{blueshade}{rgb}{0.95,0.95,1} % blue block color
-\newenvironment{blueblock}{
-\def\FrameCommand{
-  \hspace{1pt}
-    {\color{DarkBlue}
-    \vrule width 2pt}
-    {\color{blueshade}
-    \vrule width 4pt}
-  \colorbox{blueshade}
-}
-\MakeFramed{
-  \advance
-  \hsize-
-  \width
-  \FrameRestore}
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{7pt}
-\vspace{2pt}\vspace{2pt}
-}
-{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
-
-
-% Green block
-\definecolor{greenshade}{rgb}{0.90,0.99,0.91} % green block
-\newenvironment{greenblock}{%
-\def\FrameCommand{%
-  \hspace{1pt}%
-    {\color{Green}%
-    \vrule width 2pt}%
-    {\color{greenshade}%
-    \vrule width 4pt}%
-  \colorbox{greenshade}%
-}%
-\MakeFramed{%
-  \advance%
-  \hsize-%
-  \width%
-  \FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{7pt}%
-\vspace{2pt}\vspace{2pt}%
-}
-{%
-\vspace{2pt}\end{adjustwidth}\endMakeFramed%
-}
-
-
-% Red block
-\definecolor{redshade}{rgb}{1.00,0.90,0.90} % red block
-\newenvironment{redblock}{
-\def\FrameCommand{
-  \hspace{1pt}
-    {\color{LightCoral}
-    \vrule width 2pt}
-    {\color{redshade}
-    \vrule width 4pt}
-  \colorbox{redshade}
-}
-\MakeFramed{
-  \advance
-  \hsize-
-  \width
-  \FrameRestore}
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{7pt}
-\vspace{2pt}\vspace{2pt}
-}
-{\vspace{2pt}\end{adjustwidth}\endMakeFramed}
+% Shared layout keeps the side rule and background joined, including at page breaks.
+\definecolor{blueshade}{rgb}{0.95,0.95,1}
+\definecolor{greenshade}{rgb}{0.90,0.99,0.91}
+\definecolor{redshade}{rgb}{1.00,0.90,0.90}
+\tcbset{noteblock/.style={
+  enhanced jigsaw,
+  breakable,
+  sharp corners,
+  boxrule=0pt,
+  boxsep=0pt,
+  left=8pt,
+  right=7pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=10pt,
+  after skip=10pt,
+  coltext=black,
+  fontupper=\normalfont
+}}
+\newtcolorbox{blueblock}{noteblock,colback=blueshade,
+  borderline west={2pt}{0pt}{DarkBlue}}
+\newtcolorbox{greenblock}{noteblock,colback=greenshade,
+  borderline west={2pt}{0pt}{Green}}
+\newtcolorbox{redblock}{noteblock,colback=redshade,
+  borderline west={2pt}{0pt}{LightCoral}}
 
 
 \newtheorem{question}{Question}
