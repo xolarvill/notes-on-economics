@@ -3,24 +3,30 @@
 Introduction is written. Existing model chapters are retained and reorganized;
 chapters and sections marked **planned** specify the scope of later writing.
 The original Classical / Keynesian chapters are preserved in `legacy/aggregate-models.tex`
-outside the main PDF. The existing optimal monetary policy derivation is now in Part IV.
+outside the main PDF. The existing optimal monetary policy derivation is now in Part V.
 
-## 1. Introduction
+`macro.tex` remains the compilation entry point, with shared formatting and most
+existing model chapters. New and selected relocated chapters are loaded from `chapters/`.
 
-- Growth, fluctuations, and their interaction
-- From aggregate relations to individual decisions
-- Reading a dynamic equilibrium
-- Accounting and notation used in these notes
+## Part I: Introduction
 
-## Part I: Growth
+### 1. Growth, fluctuations, and their interaction
 
-### 2. Growth Facts and Growth Accounting — **planned**
+### 2. From aggregate relations to individual decisions
+
+### 3. Reading a dynamic equilibrium
+
+### 4. Accounting and notation used in these notes
+
+## Part II: Growth
+
+### 5. Growth Facts and Growth Accounting — **planned**
 
 - Income levels, growth rates, and convergence
 - Capital, labor, and productivity
 - From accounting to a growth model
 
-### 3. Solow Model
+### 6. Solow Model
 
 - Economic Environment and Specific Assumptions
 - Solow model in discrete time
@@ -28,7 +34,7 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Golden Rate
 - Extensions
 
-### 4. Ramsey Model
+### 7. Ramsey Model
 
 - Assumptions
 - Solution of Ramsey model
@@ -44,7 +50,7 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Maximizing welfare
 - Taxation and capital accumulation — **planned**
 
-### 5. OLG Model
+### 8. OLG Model
 
 - Assumptions
 - UMP of household
@@ -54,15 +60,15 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Dynamic inefficiency
 - Population, pensions, and public debt — **planned**
 
-### 6. Endogenous Growth and Resource Allocation — **planned**
+### 9. Endogenous Growth and Resource Allocation — **planned**
 
 - The AK benchmark and human capital
 - Ideas, innovation, and incentives
 - Allocation and aggregate productivity
 
-## Part II: Fluctuations
+## Part III: Fluctuations
 
-### 7. Real Business Cycle Model
+### 10. Real Business Cycle Model
 
 - UMP of household
 - PMP of firm
@@ -70,7 +76,7 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Log-linearization
 - Capital accumulation and investment — **planned**
 
-### 8. New Keynesian Model
+### 11. New Keynesian Model
 
 - UMP of household
 - PMP of firm
@@ -83,76 +89,76 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Analyze exogenous shocks
 - Natural rates, output gaps, and model limits — **planned**
 
-### 9. Sticky Wage Model
+### 12. Sticky Wage Model
 
-### 10. Labor Markets and Unemployment — **planned**
+### 13. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
 - Adjustment and persistence
 
-## Part III: Open Economy
+## Part IV: Open Economy
 
-### 11. International Accounts and Intertemporal Trade — **planned**
+### 14. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 12. Trade and Relative Prices — **planned**
+### 15. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 13. Open Economy Fluctuations and Exchange Rates — **planned**
+### 16. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
 - Nominal rigidities and exchange-rate regimes
 
-## Part IV: Money, Finance, and Macroeconomic Policy
+## Part V: Money, Finance, and Macroeconomic Policy
 
-### 14. Money, Banking, and Central Bank Operations — **planned**
+### 17. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 15. Financial Frictions and Aggregate Adjustment — **planned**
+### 18. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 16. Household Heterogeneity and Policy Transmission — **planned**
+### 19. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 17. Monetary Policy
+### 20. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 18. Fiscal Policy — **planned**
+### 21. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 19. Policy Interaction and Constraints — **planned**
+### 22. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
 - Policy combinations in an open economy
 
-## Part V: Topics
+## Part VI: Topics
 
-### 20. The Dollar in the International Monetary System — **planned**
+### 23. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -160,7 +166,7 @@ outside the main PDF. The existing optimal monetary policy derivation is now in 
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 21. China's Growth and Adjustment after the Pandemic — **planned**
+### 24. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

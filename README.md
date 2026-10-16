@@ -14,9 +14,13 @@ Covering MWG
 
 Covering Solow model, Ramsey model, OLG model, RBC model and two DNK models (sticky price and sticky wage)
 
-The revised structure adds an introduction and organizes the notes into Growth,
-Fluctuations, Open Economy, Money/Finance/Policy, and Topics. New chapters marked
+The revised structure has six parts: Introduction, Growth, Fluctuations,
+Open Economy, Money/Finance/Policy, and Topics. New chapters marked
 *planned* contain outlines for later development. See the [outline](macro/OUTLINE.md).
+
+`macro/macro.tex` remains the compilation entry point. It contains the shared
+formatting and most existing model chapters, and loads separate chapter files
+from `macro/chapters/`.
 
 [PDF](macro/macro.pdf)  [TeX](macro/macro.tex)
 
