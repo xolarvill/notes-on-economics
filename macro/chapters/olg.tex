@@ -1,153 +1,517 @@
 % !TEX root = ../macro.tex
 \section{OLG Model}\label{sec:olg}
 
-In contrast to the Ramsey model in which individuals are infinitely-lived, in the OLG model individuals live a finite length of time, long enough to overlap with at least one period of another agent's life.
+Ramsey assigns intertemporal choices to a dynasty that continues indefinitely.
+Now separate a person's lifetime from the economy's lifetime. People work,
+retire, and leave; new people arrive. Saving remains an optimal choice, but
+the ownership of assets and the identity of the people paying for transfers
+must be tracked by generation.
+
+\subsection{From retirement needs to overlapping generations}
+
+\subsubsection{An economy continues after its current savers have died}
+
+Imagine looking at households' balance sheets at one date. Some people are
+building retirement assets from wages; others are spending assets accumulated
+earlier. A single consumption total conceals these opposite positions. A policy
+that taxes workers and pays retirees changes the resources of different people,
+even when it leaves aggregate resources unchanged at the moment of payment.
+
+One response would be to add age labels to the Ramsey household. But if an
+altruistic dynasty still pools all resources and values every descendant,
+those labels need not change the underlying allocation problem. To isolate
+generational turnover, instead let each person value only consumption within
+his or her own finite life. Give the young labor income and the old a need to
+finance consumption without working. Then ask what assets can carry resources
+between these stages, and who supplies the counterpart to those claims.
+
+Two periods are the smallest useful life cycle: one for work and saving, one
+for retirement and spending. New workers arrive while earlier workers retire.
+The approximation does not describe every age or predict a literal retirement
+age. It makes the relation between life-cycle saving, asset ownership, and
+population replacement visible with only two age groups.
+
+\subsubsection{Choose a way to finance retirement, then close the economy}
+
+Start with physical capital as the only asset. A young person acquires capital
+claims; next period those claims pay rental income and the value of surviving
+capital. Retirees consume the proceeds. A wage and a return determine an
+individual saving choice, but they are not arbitrary economy-wide inputs:
+workers' saving determines the next capital stock, which determines the return
+those same workers receive when old. This closes the market model.
+
+An alternative is a transfer from next period's workers. That alternative
+cannot simply be assumed to be a private enforceable contract with people who
+have not yet been born. A pension system or a government issuing debt adds an
+institution capable of continuing across generations. We first solve the
+capital-only economy, then introduce those institutions explicitly.
+
+The production economy follows Diamond's OLG framework; the sequence of
+questions above is a teaching reconstruction, not a claim about the author's
+private thoughts.\footnote{Peter A. Diamond (1965), ``National Debt in a
+Neoclassical Growth Model,'' \textit{American Economic Review}, 55(5),
+1126--1150. Diamond's original model uses no depreciation; we keep general
+$\delta$ and identify the full-depreciation course example separately.
+\url{https://www.aeaweb.org/aer/top20/55.5.1126-1150.pdf}.}
 
 \begin{blueblock}
-\begin{note}[Meet only once]
-Two generation OLG is particularly simple because it precludes
-intertemporal trade (no one meets twice).
-\end{note}
+\textbf{Meeting only once does not rule out intertemporal trade.}
+A young person can save in capital and consume its payoff when old. That is
+already an intertemporal allocation. The important limitation is that currently
+living people cannot make ordinary private contracts with unborn generations.
+Without bequests or altruistic links, no household represents the interests
+of the infinite sequence of future entrants. Finite individual lives and an
+infinite economic horizon can therefore have different welfare implications
+from a single infinite-lived dynasty.
 \end{blueblock}
 
-\textbf{Solow model, RCK model and OLG model}
-\begin{itemize}
-\tightlist
-  \item All of them are under the assumption of perfect competitive market.
-  \item Solow model has exogenous saving rate, whereas Ramsey model and OLG model has endogenous one.
-  \item OLG model has heterogeneous representative agents.
-\end{itemize}
+% BEGIN ORIGINAL OLG COURSE ASSUMPTIONS - retained, not typeset
+% \subsection{Assumptions}
+% \begin{align}
+% &C_{t}= L_{t} C_{1t}^{\text{young}}+L_{t-1}C_{2t}^{\text{old}} \text{ (where subscript 1 and 2 stands for age)}
+% \\&L_{t}=(1+n)L_{t-1} \Rightarrow L_{t}=(1+n)^{t}L_{0}
+% \\&S_{t}=s_{t}L(t)
+% \end{align}
+% END ORIGINAL OLG COURSE ASSUMPTIONS
 
+\Needspace{12\baselineskip}
+\subsection{Assumptions and the cohort timeline}\label{sec:olg-assumptions}
 
-\sepline
-\subsection{Assumptions}
-\begin{align}
-&C_{t}= L_{t} C_{1t}^{\text{young}}+L_{t-1}C_{2t}^{\text{old}} \text{ (where subscript 1 and 2 stands for age)}
-\\&L_{t}=(1+n)L_{t-1} \Rightarrow L_{t}=(1+n)^{t}L_{0}
-\\&S_{t}=s_{t}L(t)
-\end{align}
+The cards state the full environment before solving it. Within a cohort people
+are identical; across ages, their income, remaining lifetime, and asset position
+differ. There is no single representative person for both age groups.
 
-\sepline
-\subsection{UMP of household}
-A general UMP would be
-\begin{align}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Dates, cohorts, and population}
+Time is discrete, $t=0,1,\ldots$. A cohort of $L_t$ people is born at each date,
+lives for two periods with certainty, and dies after its second period.
+At date $t$, $L_t$ young coexist with $L_{t-1}$ old:
+\[
+L_t=NL_{t-1},\qquad N\equiv1+n>0,\qquad L_t=N^tL_0.
+\]
+The baseline takes $n\geq0$; the population comparison later also permits
+$-1<n<0$ when the other conditions remain feasible. Each young person supplies
+one unit of labor inelastically; the old supply none. Labor is $L_t$, whereas
+total population is $L_t+L_{t-1}$. A model period is a life stage, not
+necessarily a calendar year.
+\end{modelcondition}
+\begin{modelcondition}{02}{Goods, capital, and technology growth}
+A closed economy produces one good, usable for consumption and capital.
+There is no government, foreign trade, money, or public debt in the baseline.
+Technology is fixed and normalized to one: $Y_t=F(K_t,L_t)$.
+This is an explicit zero-technology-growth benchmark, so $k_t=K_t/L_t$ is
+capital per worker, not per effective worker. Capital depreciates at
+$0\leq\delta\leq1$ and surviving capital can be sold or consumed:
+\[
+Y_t+(1-\delta)K_t=C_t+K_{t+1}.
+\]
+General formulas retain $\delta$. The numerical and explicit full-depreciation
+examples set $\delta=1$; that restriction is not needed for the general model.
+\end{modelcondition}
+\begin{modelcondition}{03}{Production restrictions}
+Firms share a freely available technology. $F$ is continuous, twice
+differentiable for positive inputs, positive there, with positive diminishing
+marginal products and constant returns:
+\[
+F(\lambda K,\lambda L)=\lambda F(K,L),\qquad
+f(k)\equiv F(k,1),\qquad Y_t/L_t=f(k_t).
+\]
+For $k>0$, assume
+\[
+\begin{gathered}
+f(0)=0,\qquad f'(k)>0,\qquad f''(k)<0,\\
+\lim_{k\downarrow0}f'(k)=\infty,\qquad
+\lim_{k\to\infty}f'(k)=0.
+\end{gathered}
+\]
+Cobb--Douglas, $f(k)=k^\alpha$ with $0<\alpha<1$, is a specified example,
+not the only technology consistent with these conditions.
+\end{modelcondition}
+\begin{modelcondition}{04}{Households, ownership, and initial conditions}
+There are many identical, price-taking people in each cohort. They receive
+wages when young and asset income when old; firms belong to households and
+any profits would accrue to their owners. No one values descendants' utility,
+leaves a bequest, or receives an inheritance. The initially old are the
+exception to the no-inherited-wealth statement: they enter date zero already
+owning the given $K_0>0$, equally within their cohort. The young start with
+labor income and no assets. Initially old consumption must be counted even
+though their earlier saving decision lies outside the model's initial date.
+\end{modelcondition}
+\begin{modelcondition}{05}{Preferences, information, and choices}
+A person born at $t$ chooses saving $a_t$ and consumption at ages one and two:
+\[
+U_t=u(c_{1,t})+\beta u(c_{2,t+1}),\qquad 0<\beta<1,
+\]
+\[
+u(c)=\begin{cases}(c^{1-\theta}-1)/(1-\theta),&\theta>0,\ \theta\ne1,\\
+\log c,&\theta=1.
+\end{cases}
+\]
+There is no aggregate or individual uncertainty; the next return is correctly
+anticipated. People take wages and returns as given, despite their joint
+effect on equilibrium prices. There is no labor choice or liquidity shock.
+Consumption is positive. The baseline interior optimum has $0<a_t<w_t$;
+no borrowing or short sales of physical capital are allowed. Later pension
+formulas must be checked against this asset constraint.
+\end{modelcondition}
+\begin{modelcondition}{06}{Firms, factor prices, and returns}
+Competitive firms rent capital and hire labor at each date:
+\[
+\max_{K,L}\;F(K,L)-q_tK-w_tL.
+\]
+Interior demands imply $q_t=f'(k_t)$ and $w_t=f(k_t)-k_tf'(k_t)$.
+Economic profits are zero under constant returns. The owner of a unit of
+capital receives the rental payment and its remaining capital value:
+\[
+R_t=1-\delta+q_t,\qquad r_t=R_t-1=q_t-\delta.
+\]
+$R_t$ is a gross payoff, $r_t$ a net return, and $q_t$ a rental price.
+Only with $\delta=1$ does $R_t=f'(k_t)$.
+\end{modelcondition}
+\begin{modelcondition}{07}{Budgets and age-specific consumption}
+A person born at $t$ obeys
+\[
+c_{1,t}+a_t=w_t,\qquad c_{2,t+1}=R_{t+1}a_t.
+\]
+The old consume all their wealth and leave no assets after death. At date $t$,
+$c_{2,t}$ is the consumption of cohort $t-1$, not the future consumption of
+cohort $t$. Aggregate consumption and young people's asset purchases are
+\[
+C_t=L_tc_{1,t}+L_{t-1}c_{2,t},\qquad
+\mathcal A_t=L_ta_t.
+\]
+We use $a_t$ for saving per young person to distinguish it from Solow's saving
+share $s$. $\mathcal A_t$ corresponds to the original course notation for
+aggregate young saving; it is not automatically national saving.
+\end{modelcondition}
+\begin{modelcondition}{08}{Market clearing and the equilibrium path}
+Capital and labor demands equal their supplied stocks, $K_t^d=K_t$ and
+$L_t^d=L_t$. Capital is the only asset, so young people's wealth at the end of
+$t$ must equal next period's capital:
+\[
+K_{t+1}=\mathcal A_t=L_ta_t,\qquad Nk_{t+1}=a_t.
+\]
+Goods clearing must also hold:
+\[
+c_{1,t}+\frac{c_{2,t}}{N}+Nk_{t+1}
+=f(k_t)+(1-\delta)k_t.
+\]
+An equilibrium is a path of allocations and prices satisfying household and
+firm optimality, correct return expectations, and these clearing conditions,
+starting from the specified initial ownership. No infinite-lived household's
+transversality condition is imposed on the economy as a whole.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{Read a cohort's lifetime across dates}
+
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+Cohort & Date $t-1$ & Date $t$ & Date $t+1$\\
+\hline
+Born at $t-1$ & Young, saves & Old, consumes & No longer alive\\
+Born at $t$ & Not yet born & Young, saves & Old, consumes\\
+Born at $t+1$ & Not yet born & Not yet born & Young, saves\\
+\hline
+\end{tabular}
+\end{center}
+
+Reading across a row gives one person's lifetime budget. Reading down a
+column gives the economy's resources at one date. This distinction explains
+why $c_{1,t}+c_{2,t+1}/R_{t+1}=w_t$ is an individual present-value budget,
+whereas $c_{1,t}+c_{2,t}/N$ is current aggregate consumption per worker.
+The two formulas combine different people and different dates.
+
+\subsection{Household optimization and life-cycle saving}
+
+\subsubsection{Budgets, multipliers, and the Euler condition}
+
+Take $w_t>0$ and $R_{t+1}>0$ as given. Monotonic utility makes the two budgets
+bind. With multipliers on resources remaining, write
+\begin{equation}
 \begin{split}
-&\max u (C_{1})+\beta u (C_{2,t+1})
-\\&s.t.
-\begin{cases}C_{1t}+S_{t} \leqslant W_{t} \\
-C_{2,t+1}\leqslant R_{t+1} S_{t}
-\end{cases}
+\mathscr L={}&u(c_{1,t})+\beta u(c_{2,t+1})\\
+&+\lambda_{1,t}(w_t-c_{1,t}-a_t)
++\lambda_{2,t+1}(R_{t+1}a_t-c_{2,t+1}).
 \end{split}
-\end{align}
-Form a Lagrangian and acquire Euler's equation
+\end{equation}
+At an interior optimum,
 \begin{align}
-&\mathscr{L}=u (C_{1})+\beta u (C_{2,t+1})+\lambda_{1t}(c_{1t}+s_{t} - w_{t})+\lambda_{2,t+1}(c_{2,t+1}- R_{t+1} s_{t})
-\\&\Rightarrow \text{F.O.C. }\begin{cases}
-\frac{\partial \mathscr{L}}{\partial C_{1t}}=0 \\
-\frac{\partial \mathscr{L}}{\partial C_{2,t+1}}=0 \\
-\frac{\partial \mathscr{L}}{\partial S_{t}}=0\end{cases}
-\Rightarrow
-\begin{cases}
-u'(C_{1t})=\lambda_{1t} \\
-\beta' u'(C_{2,t+1})=\lambda_{2,t+1} \\
-\frac{\lambda_{1t}}{\lambda_{2,t+1}}=R_{t+1}\end{cases}
-\\&\Rightarrow \color{red} u'(C_{1t})=\beta R_{t+1} u'(C_{2,t+1}) \text{ (Euler's equation in OLG UMP)}
+u'(c_{1,t})&=\lambda_{1,t},\\
+\beta u'(c_{2,t+1})&=\lambda_{2,t+1},\\
+\lambda_{1,t}&=R_{t+1}\lambda_{2,t+1}.
 \end{align}
+Eliminating both multipliers gives
+\begin{equation}\label{eq:olg-euler}
+u'(c_{1,t})=\beta R_{t+1}u'(c_{2,t+1}).
+\end{equation}
+Giving up one consumption unit while young buys $R_{t+1}$ units when old.
+The Euler condition prices that marginal transfer. The two budgets still
+supply the levels. No infinite-horizon terminal condition is needed for this
+person: after age two, there is neither consumption nor a bequest to choose.
+
+\subsubsection{CRRA saving: an explicit solution and its derivatives}
+
+Under CRRA, substitute the budgets into \eqref{eq:olg-euler}:
+\begin{align}
+(w_t-a_t)^{-\theta}
+&=\beta R_{t+1}(R_{t+1}a_t)^{-\theta},\\
+\left(\frac{w_t-a_t}{a_t}\right)^{-\theta}
+&=\beta R_{t+1}^{1-\theta}.
+\end{align}
+Define $h(R)\equiv\beta^{-1/\theta}R^{(\theta-1)/\theta}$. Taking powers
+and rearranging, step by step,
+\begin{equation}
+\frac{w_t-a_t}{a_t}=h(R_{t+1}),\qquad
+\frac{w_t}{a_t}=1+h(R_{t+1}),
+\end{equation}
+so the saving function is
+\begin{equation}\label{eq:olg-saving}
+a_t=a(w_t,R_{t+1})
+=\frac{w_t}{1+\beta^{-1/\theta}R_{t+1}^{(\theta-1)/\theta}}.
+\end{equation}
+The utility constant $-1/(1-\theta)$ has no effect on choices. The log case
+will be obtained directly rather than substituting $\theta=1$ into that
+utility expression.
+
+Holding the return fixed, $a_w=1/(1+h)\in(0,1)$. Holding the wage fixed,
+use $h'(R)=(\theta-1)h/(\theta R)$:
+\begin{equation}\label{eq:olg-saving-derivatives}
+a_R=-\frac{wh'(R)}{(1+h)^2}
+=\frac{1-\theta}{\theta}\frac{wh}{R(1+h)^2}.
+\end{equation}
+Thus $a_R$ is positive for $\theta<1$, zero for $\theta=1$, and negative
+for $\theta>1$. These are partial derivatives; an equilibrium price change
+may also change wages and expected future returns together.
 
 \begin{greenblock}
-e.g. Given a specific utillity function
-\begin{align}
-&u(C_{gt})=\frac{C_{gt}^{1-\theta}-1}{1-\theta},0<\theta\neq1, g =1,2
-\\&\text{UMP}\Rightarrow
-\begin{cases}
-C_{1t}^{-\theta}=\beta R_{t+1}C_{2,t+1}^{-\theta} \\
-C_{1t}=W_{t}-S_{t} \\
-C_{2,t+1}=R_{t+1}S_{t}\end{cases}
-\\&\Rightarrow(W_{t}-S_{t})^{-\theta}=\beta R_{t+1}(R_{t+1}S_{t} )^{-\theta}
-\\&\Rightarrow (\frac{W_{t}-S_{t}}{S_{t}})^{-\theta}=\beta R^{1-\theta}_{t+1}
-\\&\Rightarrow \frac{W_{t}}{S_{t}}=(\beta R_{t+1}^{1-\theta})^{-\frac{1}{\theta}}+1
-\\&\Rightarrow S_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}<w_{t}
-\\&\Rightarrow S'_{w}=\frac{1}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1} \in (0,1)
-\\&\Rightarrow S'_{R}=\frac{1-\theta}{\theta}\frac{S_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}(\beta R_{t+1})^{-\frac{1}{\theta}}
-\\&\Rightarrow S'_{R} \begin{cases}
->0, 0<\theta<1 \\
-=0, \theta = 1 \\
-<0, \theta >1\end{cases}
-\end{align}
+\textbf{A higher return need not raise retirement saving.}
+A higher return makes postponing consumption more rewarding, but it also
+allows a given retirement expenditure to be financed with fewer assets.
+For $\theta<1$, willingness to substitute consumption across ages is strong
+and saving rises. For $\theta>1$, the income effect dominates in this
+retirement-only-income specification and saving falls. Under log utility,
+these effects cancel in the saving share out of wages. The result depends
+on the assumed income profile; it is not a universal empirical saving law.
 \end{greenblock}
 
+\subsubsection{The log case: a constant share of wages}
 
-\sepline
-\subsection{PMP of firm}
-A general PMP would be
+For $u(c)=\log c$, \eqref{eq:olg-euler} implies
+\begin{equation}
+\frac{c_{2,t+1}}{c_{1,t}}=\beta R_{t+1}.
+\end{equation}
+Substitute $c_{1,t}=w_t-a_t$ and $c_{2,t+1}=R_{t+1}a_t$:
+\begin{equation}\label{eq:olg-log-saving}
+R_{t+1}a_t=\beta R_{t+1}(w_t-a_t)
+\quad\Longrightarrow\quad
+ a_t=\kappa w_t,\qquad \kappa\equiv\frac{\beta}{1+\beta}.
+\end{equation}
+Saving is endogenous even though this example gives a constant share of
+\emph{wages}. Solow imposes a share of total output; those are different
+income bases. Log utility does not make retirement consumption independent
+of the return: $c_{2,t+1}=R_{t+1}\kappa w_t$ still changes with $R_{t+1}$.
+
+\subsection{Firm optimization and the return to ownership}
+
+At date $t$, firms choose $K,L$ in
+\begin{equation}
+\max_{K,L}\;F(K,L)-q_tK-w_tL.
+\end{equation}
+Differentiate with respect to actual factor inputs before using constant
+returns to express the prices per worker:
+\begin{equation}\label{eq:olg-prices}
+q_t=f'(k_t),\qquad
+w_t=f(k_t)-k_tf'(k_t),\qquad
+R_t=1-\delta+f'(k_t).
+\end{equation}
+Euler's theorem gives $Y_t=q_tK_t+w_tL_t$, so profits are zero after factor
+payments. Capital owners still receive both rental income and the value of
+surviving assets. That second item is an asset sale or liquidation, not
+additional production in GDP.
+
+For Cobb--Douglas,
+\begin{equation}
+q_t=\alpha k_t^{\alpha-1},\qquad
+w_t=(1-\alpha)k_t^\alpha,\qquad
+R_t=1-\delta+\alpha k_t^{\alpha-1}.
+\end{equation}
+A larger inherited capital intensity raises the current wage and lowers the
+current return. A young saver cares about the \emph{next} return, determined
+by $k_{t+1}$, because that is when the retirement payoff is received.
+
+\begin{blueblock}
+\textbf{The course formula $R=f'(k)$ is a full-depreciation case.}
+With $\delta=1$, no capital survives after production, so the gross payoff
+is the rental product alone. With $\delta=0$, the owner also recovers the
+unit of capital and $R=1+f'(k)$. Both conventions can be useful. The
+household Euler equation uses the gross payoff; replacing it by a rental
+price without stating depreciation changes the saving problem.
+\end{blueblock}
+
+\subsection{Capital accumulation and equilibrium dynamics}
+
+\subsubsection{Young wealth versus aggregate saving}
+
+At the start of date $t$, the old own $K_t$. Since
+$K_t=L_{t-1}a_{t-1}$, their aggregate consumption is
+$L_{t-1}c_{2,t}=R_tK_t$; the same relation holds for the initial owners at
+date zero. The young consume $L_t(w_t-a_t)$. Add them:
 \begin{align}
-&\max_{k_{t},L_{t}} \pi_{t} =Y_{t}-w_{t}L_{t}-R_{t}K_{t}
-\\&\text{Since }
-\pi_{t}=\frac{\Pi_{t}}{L_{t}},y_{t}=\frac{Y_{t}}{L_{t}},k_{t}=\frac{K_{t}}{L_{t}}, \frac{K_{t+1}}{L_{t}}=\frac{K_{t+1}}{L_{t+1}}\frac{L_{t+1}}{L_{t}},s_{t}=\frac{S_{t}}{L_{t}}
+C_t&=L_tw_t-L_ta_t+R_tK_t,\\
+&=Y_t-L_ta_t+(1-\delta)K_t.
 \end{align}
-Rearrange in form of per capita
-\begin{align}
-&\Rightarrow \max_{K_{t}} \pi_{t}=Y_{t}-W_{t}-R_{t}K_{t}
-\\&\Rightarrow \text{F.O.C.}\begin{cases} R_{t}=f'(K_{t}) \\
-W_{t}=f(K_{t})-K_{t}f'(K_{t})
-\end{cases}
-\end{align}
+In the second line, substitute $R_t=q_t+1-\delta$ and
+$Y_t=w_tL_t+q_tK_t$. Rearranging gives
+\begin{equation}\label{eq:olg-capital-market}
+K_{t+1}=L_ta_t,\qquad Nk_{t+1}=a_t.
+\end{equation}
+Thus the asset-clearing equation also satisfies goods clearing.
 
-\sepline
-\subsection{Dynamics}
+\begin{blueblock}
+\textbf{Young saving is not national saving.}
+The young acquire assets, while the old liquidate theirs. In this one-good
+model, gross investment and net national saving are respectively
+\[
+I_t\equiv K_{t+1}-(1-\delta)K_t
+=L_ta_t-(1-\delta)K_t,
+\]
+\[
+S_t^{\mathrm{net}}\equiv Y_t-C_t-\delta K_t
+=K_{t+1}-K_t=L_ta_t-K_t.
+\]
+Writing $K_{t+1}=(1-\delta)K_t+L_ta_t$ would count surviving capital twice:
+young people's purchases already include acquiring that capital from the
+old. With full depreciation, gross investment does equal young saving;
+with general depreciation, the distinction must remain visible.
+\end{blueblock}
 
-Looking at the motion equation of capital
-\begin{align}
-&K_{t+1}-(1-\delta)K_{t}=I_{t}=S_{t}=s_{t}L_{t}=s(w_{t},R_{t+1}) L_{t}
-\\&\Rightarrow K_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}
-\\&\Rightarrow K_{t+1}=\frac{w_{t}}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (using conditions from UMP and PMP)}
-\\&\Rightarrow \color{red} K_{t+1}=\frac{f(K_{t})-K_{t}f'(K_{t})}{(\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (equation of motion of capital in OLG)}
-\end{align}
+\subsubsection{An implicit law of motion under general preferences}
 
-The steady states (intertemporal equilibrium) would be
-\begin{align}
-&k_{t+1}=k_{t}=k^{*}
-\\& \Rightarrow k^{*}=\frac{s[f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t}),f'(k^{*})]}{1+n}
-\\&=\frac{f(k^{*}_{t})-k^{*}_{t}f'(k^{*}_{t})}{(\beta^{-\frac{1}{\theta}}f'(^{*})^{-\frac{1-\theta}{\theta}}+1)(1+n)}
-\\&\Rightarrow \color{red} k_{t+1}=\frac{(1-\alpha)(k^{*})^\alpha}{(\beta^{-\frac{1}{\theta}}[\alpha(k^{*})^{\alpha-1}]^{-\frac{1-\theta}{\theta}}+1)(1+n)} \text{ (capital per capita at steady state in OLG)}
-\\&\Rightarrow k^{*}= \cdot \text{ (thus we have the $k$ at steady state)}
-\end{align}
+Substitute the saving function and competitive prices into capital clearing:
+\begin{equation}\label{eq:olg-implicit-map}
+Nk_{t+1}
+=a\!\left(f(k_t)-k_tf'(k_t),\ 1-\delta+f'(k_{t+1})\right).
+\end{equation}
+This is generally implicit in $k_{t+1}$: a larger capital stock changes the
+return that induced people to accumulate it. Solving household saving at an
+arbitrary fixed return is not yet a general-equilibrium solution.
 
+At a positive stationary equilibrium,
+\begin{equation}\label{eq:olg-general-steady}
+Nk^*=a\!\left(f(k^*)-k^*f'(k^*),\ 1-\delta+f'(k^*)\right).
+\end{equation}
+Cobb--Douglas makes this condition
+\begin{equation}
+Nk^*=
+\frac{(1-\alpha)(k^*)^\alpha}
+{1+\beta^{-1/\theta}[1-\delta+\alpha(k^*)^{\alpha-1}]^{(\theta-1)/\theta}}.
+\end{equation}
+This scalar equation replaces the unfinished general steady-state expression
+in the course notes. A numerical root may be needed; the explicit log result
+below is a separate tractable case.
+
+To see why stability needs conditions, differentiate
+\eqref{eq:olg-implicit-map}. Since $w'(k)=-kf''(k)>0$,
+\begin{equation}\label{eq:olg-map-slope}
+\left[N-a_R f''(k_{t+1})\right]\frac{dk_{t+1}}{dk_t}
+=a_w[-k_tf''(k_t)].
+\end{equation}
+If the bracket is nonzero, this gives the local slope. A locally defined map
+is stable at its steady state when the absolute slope is below one.
+For $\theta\leq1$, $a_R\geq0$ makes the bracket positive. For $\theta>1$,
+the return response can overturn that sign or make the equation locally
+singular. The log example's uniqueness and convergence cannot be asserted
+for every OLG specification.
+
+\subsubsection{Log utility and Cobb--Douglas: solve the whole path}
+
+Using \eqref{eq:olg-log-saving}, capital clearing reduces to
+\begin{equation}\label{eq:olg-log-map}
+k_{t+1}=\frac{\kappa(1-\alpha)}{N}k_t^\alpha
+\equiv M k_t^\alpha,
+\qquad M\equiv\frac{\kappa(1-\alpha)}{N}>0.
+\end{equation}
+This formula holds for general $\delta$: log saving does not respond to the
+return, and current wages do not depend on depreciation. Depreciation still
+changes the old's consumption and welfare.
+
+At a positive steady state, divide $k^*=M(k^*)^\alpha$ by $(k^*)^\alpha$:
+\begin{equation}\label{eq:olg-log-steady}
+(k^*)^{1-\alpha}=M,\qquad
+k^*=\left[\frac{\beta(1-\alpha)}{(1+\beta)N}\right]^{1/(1-\alpha)}.
+\end{equation}
+The map is increasing; $k_{t+1}/k_t=Mk_t^{\alpha-1}$ exceeds one below $k^*$
+and is below one above it. It maps either side toward the steady state without
+crossing it. Thus every $k_0>0$ converges monotonically; zero is an absorbing
+boundary, not the initial condition of the positive-capital result.
+
+There is also an exact solution in log deviations. Divide the map by its
+steady-state version and take logarithms:
+\begin{equation}
+\log(k_{t+1}/k^*)=\alpha\log(k_t/k^*),\qquad
+k_t=k^*\left(\frac{k_0}{k^*}\right)^{\alpha^t}.
+\end{equation}
+The local slope is $\alpha\in(0,1)$. Capital-level deviations satisfy
+$k_t-k^*\approx\alpha^t(k_0-k^*)$ only locally; log deviations decay exactly
+at that factor. This separates convergence of a path from efficiency of the
+allocation to which it converges.
 
 \begin{greenblock}
-e.g., For a utillity function $u=\log c_{1t}+\beta \log c_{2,t+1}$, where $\theta=1$.
-\begin{align}
-&\Rightarrow \frac{c_{2,t+1}}{c_{1t}}=\beta k_{t+1}
-\\&\Rightarrow s_{t}=\frac{w_{t}}{\beta^{-\frac{1}{\theta}}R_{t+1}^{-\frac{1-\theta}{\theta}}+1}
-\\&=\frac{w_{t}}{\beta^{-1}+1}
-\\&=\frac{\beta}{1+\beta}w_{t} \text{ (meaning the saving is a function of wage, instead of endowment)}
-\\&\Rightarrow k_{t+1}=\frac{s_{t}}{1+n}=\frac{\beta w_{t}}{(1+\beta)(1+n)}
-\\&=\frac{\beta (1-\alpha k_{t}^{\alpha})}{(1+\beta)(1+n)}
-\\& \text{steady state demands }k_{t+1}=k_{t}=k^{*} \Rightarrow k^{*}=[\frac{\beta (1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}
-\end{align}
+\textbf{What the log example does and does not establish.}
+Young people optimally save a fixed share of wages. Wages depend on the
+inherited stock; their asset purchases become the next stock. This gives a
+unique positive steady state and a stable path in this example. It does not
+show that all OLG economies converge, that capital is socially optimal, or
+that a household's constant saving share equals Solow's imposed output share.
 \end{greenblock}
 
+\subsection{Comparing Solow, Ramsey, and OLG}
 
+Use a common discrete-time benchmark here: fixed technology, population
+factor $N$, and depreciation $\delta$. Let $\sigma$ denote Solow's imposed
+saving share to keep it distinct from individual saving $a_t$.
 
-\sepline
-\subsection{Comparing three models so far}
+\begin{center}
+\begin{tabular}{p{0.14\linewidth}p{0.24\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+\hline
+ & Solow & Ramsey dynasty & Two-period OLG\\
+\hline
+Saving & Given share of output & Chosen for a continuing dynasty & Chosen for each cohort's two ages\\
+People & No age structure in the saving rule & Descendants linked by the objective & New cohorts enter; no altruistic link\\
+Main closure & Accumulation equation & Accumulation, Euler, and terminal conditions & Cohort budgets and asset clearing\\
+Efficiency & Not guaranteed by the saving rule & First-best under its stated assumptions & Overaccumulation is possible\\
+\hline
+\end{tabular}
+\end{center}
+
+The corresponding aggregate resource and accumulation conditions are
 \begin{align}
-&\text{Solow}
-\begin{cases} L_{t}=(1+n)L_{t-1} \\
-\frac{S_{t}}{L_{t}}=s_{t} =sy_{t}=s \frac{Y_{t}}{L_{t}} \\
-k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}
-\end{cases}
-\\&\text{OLG} \begin{cases}
-L_{t}=(1+n)L_{t-1} \\
-k_{t+1}=\frac{s(w_{t},R_{t+1})}{1+n}=\frac{s[f(k_{t})-k_{t}f'(k_{t}),f'(k_{t+1})]}{1+n} \\
-\end{cases}
-\\&\text{Ramsey} \begin{cases}L_{t}=(1+n)L_{t-1} \\
-k_{t+1}=\frac{f(k_{t})+c_{t}}{1+n} \Rightarrow 0=F(k^{*})-c^{*}-\rho k^{*} \Rightarrow F'(k^{*}_{G})=\delta\\
-\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]\Rightarrow 1= \rho [F'(k^{*})+(1-\delta)] \Rightarrow F'(k^{*})=\rho +\delta \Rightarrow k^{*}_{G}>k^{*}
-\end{cases}
+\text{Solow:}\quad
+Nk_{t+1}&=(1-\delta)k_t+\sigma f(k_t),\\
+\text{Ramsey:}\quad
+Nk_{t+1}&=f(k_t)+(1-\delta)k_t-c_t,\\
+\text{OLG:}\quad
+Nk_{t+1}&=a(w_t,R_{t+1})\\
+&=f(k_t)+(1-\delta)k_t-c_{1,t}-c_{2,t}/N.
 \end{align}
+In the Ramsey row, $c_t$ is aggregate dynasty consumption per worker. Its
+population-weighted objective in this discrete convention gives the
+dynasty Euler equation $u'(c_t)=\beta R_{t+1}u'(c_{t+1})$, together with an
+appropriate infinite-horizon terminal condition. The OLG Euler equation
+instead links two ages of one person. The equations look similar but have
+different coverage of future generations.
 
-\sepline
+\begin{blueblock}
+\textbf{The common resource constraint does not make the models identical.}
+In OLG the old spend asset income and the young buy assets, so clearing gives
+$Nk_{t+1}=a_t$. In Ramsey the continuing household chooses its next wealth
+while valuing its members' future consumption. Solow specifies saving without
+that optimization. The distinction is who makes the choice and whose future
+is included, not whether one model respects accounting and another does not.
+\end{blueblock}
+
 \subsection{Dynamic inefficiency}
 Because of the micro-foundations (patience denoted as $\beta=\frac{1}{1+\rho}$) in Ramsey, there will be no over-accumulation of capital, avoiding dynamic inefficiency. Whereas in Solow model the inefficiency is inevitable. Somehow in OLG model, the dynamic inefficiency returns.
 
