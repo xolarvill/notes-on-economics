@@ -20,6 +20,8 @@ Open Economy, Money/Finance/Policy, and Topics.
 
 [PDF](macro/macro.pdf)  [TeX](macro/macro.tex)
 
+[Writing standards](macro/WRITING_GUIDE.md) · [Editing and compilation](macro/README.md)
+
 ### Econometrics & Causal Inference
 
 Covering Stock and Watson, Wooldridge

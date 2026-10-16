@@ -4,6 +4,21 @@ Compile `macro.tex`. It is the single entry point and contains the shared
 formatting, commands, table of contents, and file references. Chapter text is
 kept in chapter files rather than mixed into the entry point.
 
+## Writing and revision standards
+
+Read [WRITING_GUIDE.md](WRITING_GUIDE.md) before revising or adding chapters.
+It fixes the book's agreed style: reconstruct the raw modeling ideas and
+questions, explain economic intuition throughout, connect mechanisms to social
+and economic situations, specify conditions fully, and use visual structure to
+make relationships apparent. Concise prose must retain detailed reasoning;
+layout changes must preserve substantive content.
+
+[AGENTS.md](AGENTS.md) directs future editing work to those standards.
+[REVISION_PLAN.md](REVISION_PLAN.md) records the structure and revision history;
+[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the Solow and Ramsey condition
+comparison. The intended reader has completed intermediate macroeconomics;
+the introduction is a bridge to graduate study, not a repeat of that course.
+
 ## File layout
 
 | Location | Contents |
@@ -16,6 +31,10 @@ kept in chapter files rather than mixed into the entry point.
 | `images/` | Figures and their recovery provenance |
 | `legacy/` | Original aggregate-model material, excluded from the main PDF |
 | `OUTLINE.md` | Readable outline with planned content marked |
+| `WRITING_GUIDE.md` | Agreed writing and visual standards for the whole book |
+| `AGENTS.md` | Entry instructions for future editors |
+| `REVISION_PLAN.md` | Structure, revision decisions, and progress |
+| `CONDITION_AUDIT.md` | Original-to-revised condition comparison |
 
 Part I contains one chapter, Introduction, with four sections. Growth begins
 in Part II, with growth facts, Harrod--Domar (Chapter 3), Solow (Chapter 4),
