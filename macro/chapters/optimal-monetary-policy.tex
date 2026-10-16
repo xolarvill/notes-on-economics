@@ -1,0 +1,120 @@
+% !TEX root = ../macro.tex
+% Existing welfare derivation, moved from the New Keynesian chapter.
+\subsection{Optimal monetary policy}
+
+A significant paper Mankiw and Reis 2002 used a new keynesian macroeconomic model to acquire the optimal monetary policy.
+\footnote{N. Gregory Mankiw, Ricardo Reis, Sticky Information versus Sticky Prices: A Proposal to Replace the New Keynesian Phillips Curve, The Quarterly Journal of Economics, Volume 117, Issue 4, November 2002, Pages 1295–1328, https://doi.org/10.1162/003355302320935034}
+
+
+\begin{blueblock}
+\begin{note}[why is there welfare loss?]
+\end{note}
+monopoly and sticky price cause deviation from Pareto optimality.
+\end{blueblock}
+
+
+
+\begin{blueblock}
+\begin{note}[Optimal monetary policy]
+\end{note}
+No concept of optimality can be found in policy analysis in the perspective of household or firm. But the government can use welfare loss fucntion in its optimality to maximize social welfare. In the process of achieving maximized social welfare, the monetary policy is the so-called optimal monetary policy.
+
+\end{blueblock}
+
+To acquire the optimal monetary policy, the welfare loss function must be previously introduced.
+
+
+To acquire WLF, we use second order taylor expansion
+
+first order Taylor expansion
+\begin{align}
+& \frac{X_t -X}{X}=\ln X_t -\ln X=x_t -x =\hat x_t
+\end{align}
+
+second order Taylor expansion
+\begin{equation}
+\begin{split}
+ \frac{X_t -X}{X}&=\frac{1}{X}e^{x_t}-1
+\\& = (\frac{1}{X}e^x -1)+\frac{1}{X}e^x(x_t -x)+\frac{1}{2}\frac{1}{X}e^x (x_t-x)^2
+\\& = \hat x_t +\frac{1}{2}\hat x_t^2
+\end{split}
+\end{equation}
+
+Similarly
+\begin{align}
+& \Rightarrow
+\begin{cases}
+\frac{C_t -C}{C}\approx \hat c_t +\frac{1}{2} \hat c_t^2
+\\\frac{N_t -N}{N}\approx \hat n_t +\frac{1}{2} \hat n_t^2
+\end{cases}
+\end{align}
+
+Bi-variate 2o taylor expansion for a utility function where people gain utilities from consuming goods and enjoying leisure.
+\begin{align}
+& u(C_t,N_t)\approx u(C,N)+u_C^C (\frac{C_t -C}{C})+u_N^N(\frac{N_t -N}{N})+\frac{1}{2}u_{CC}^{C^2}\frac{(C_t-C)^2}{C}+\frac{1}{2}u_{NN}^{N^2}\frac{(N_t-N)^2}{N}
+\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2(\hat c_t +\frac{1}{2}\hat c_t^2)+\frac{1}{2}u_{NN} N^2(\hat n_t +\frac{1}{2}\hat n_t^2)
+\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2 \hat c_t+\frac{1}{2}u_{NN} N^2 \hat n_t
+\text{ (reservate only to 2o)}
+\\& = u(C,N)+u_C C(\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t)+u_N N(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}N}{2}\hat n_t)
+\end{align}
+
+\begin{align}
+& \Rightarrow \frac{u(C_t,N_t)-u(C,N)}{u_C C}
+= (\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t^2)+\frac{u_N N}{u_C C}(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}}{2}\hat n^2_t)
+\\& \because \hat c_t = \hat y_t \text{ (market clearing at equilibrium)}
+\\&
+u(C_t,N_t)=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\frac{N_t^{1+\varphi}-1}{1+\varphi}
+\iff
+\begin{cases}
+-\frac{u_{CC}}{u_C}C=\sigma\\
+-\frac{u_{NN}}{u_N}N=\varphi
+\end{cases}
+\end{align}
+
+\begin{blueblock}
+\begin{note}[Coefficients of CES function]
+\end{note}
+$\sigma$ is intertemporal substitute elasticy, $\varphi$ is frisch elasticity
+\end{blueblock}
+
+continue to the last taylor expanded equation, introducing $var_i$ as the deviation of each firm's price
+\begin{align}
+\dots &= (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\{\frac{1}{\alpha}(\hat y_t -a_t)+A \cdot var_i P_{it}\}+\frac{1+\varphi}{2}[\frac{1}{\alpha}(\hat y_t - a_t)+A \cdot var_i P_{it}]^2
+\\& = (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\frac{1}{\alpha}\{[(\hat y_t -a)+B \cdot var_i P_{it}]+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}, B\equiv \alpha A
+\end{align}
+, here let's ignore many fluctuation terms from taylor expansion as they are extremely small and irrelevant to monetary policy.
+
+\begin{align}
+& -\frac{U_N}{U_C}=MP \cdot N=\alpha A N^{\alpha-1}
+\\& = \alpha \frac{C}{N} \Rightarrow \frac{u_N N}{u_C C}=-\alpha\text{ (can use this to simplify equation before)}
+\end{align}
+
+go back to before
+\begin{align}
+\Rightarrow \dots & = (\hat y_t -\frac{1-\sigma}{2}\hat y_t^2)-\{(\hat y_t -a_t)+B \cdot var_i P_{it}+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}
+\\& =\frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2
+\\& = \frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t^2-2 \hat y_t a_t +a_t^2)
+\\& = (\frac{1-\sigma}{2}+\frac{1+\varphi}{2 \alpha})\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t a_t -B \cdot var_i P_{it}
+\\& =  \frac{\alpha (1-\alpha)+1+\varphi}{2 \alpha}\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t \hat y_t^f -B \cdot var_i P_{it} \text{ (remember when we work out the $\hat y_t^f$)}
+\\& =
+\color{red}
+\underbrace{
+-\frac{1}{2}[
+\underbrace{
+C(\hat y_t -\hat y_t^f)+
+}_\text{deviation from output}
+\underbrace{
+D(\hat \pi_t - \pi^*)^2
+}_\text{inflation}
+]
+}_\text{welfare loss} \text{ (welfare loss function)}
+\end{align}
+
+the goal is to minimize the whole term
+
+
+\begin{blueblock}
+\begin{note}[paradoxy in welfare loss function]
+\end{note}
+the two goals are contradicated according to philips curve
+\end{blueblock}

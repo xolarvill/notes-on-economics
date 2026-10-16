@@ -25,6 +25,7 @@
 
 
 \setlength{\parindent}{0pt}% cancel indentation before every line
+\setcounter{tocdepth}{2}% Keep the main contents at chapter and section level.
 
 % right cases
 \newenvironment{rcases}
@@ -65,6 +66,12 @@
 \author{Victor Li}
 \date{Spring Semester, 2024}
 
+% Outline chapters remain visible in both the text and table of contents.
+\newcommand{\plannedsection}[1]{%
+  \section[#1 (planned)]{#1}%
+  \textit{Planned chapter.}\par
+}
+
 \begin{document}
 
 \begin{titlepage}
@@ -102,154 +109,18 @@ One can find enormous academical help on advanced macroeconomics from books list
 \clearpage
 \input{chapters/introduction}
 
-\newpage
-\part{Models of Growth}
+\clearpage
+\part{Growth}\label{part:growth}
 
-\begin{itemize}
-\tightlist
-  \item Classical model
-  \item Keynesian model
-  \item Solow-Swan model
-  \item Ramse-Cass-Koopsman model
-  \item Overlapping generations model
-  \item (Endogenous model)
-\end{itemize}
+How does an economy's productive capacity evolve? We begin with growth facts,
+then move from an imposed saving rate to optimal saving, overlapping generations,
+and endogenous technological change.
 
+\clearpage
+\input{chapters/growth-facts}
 
-\newpage
-\section{Classical Model}\label{classical-model}
-
-
-\begin{greenblock}
-Learning points for 23-2 Course: the goal is to understand:
-
-\begin{itemize}
-\tightlist
-  \item motivations for contruction of a model
-  \item the common approach to analyze a model
-  \item how models evolve over time
-  \item target function and constraint
-\end{itemize}
-
-\end{greenblock}
-
-In a perfectly competitive market, the economic system can be described as\footnote{See in Sargint, 1987}: 
-
-\begin{align}
-&\text{AS:}
-\begin{cases}
-Y=A\cdot F(K,N)\text{ (Only N is endogenously chosen; Inada conditions)}
-\\
-\max \pi \Rightarrow \frac{W}{P}=F_{N}(K,N) \\
-N=N(\frac{W}{P}),N'>0\text{ (ad hoc, assuming labor market clearing)}\end{cases}
-\\
-&\text{AD: }
-\begin{cases}
-Y=C+I+G+\delta K \\
-C=C(Y,T-\pi) \\
-I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
-\frac{M}{P}=m(Y,r),m_{1}>0,m_{2}<0
-\end{cases}
-\end{align}
-
-\begin{blueblock}
-\begin{note}[Exogeneous variables in this model would be]
-\end{note}
-\begin{itemize}
-\tightlist
-  \item In AS: $K$
-  \item In AD: $K, G, M, \pi, \delta, T$
-\end{itemize}
-\end{blueblock}
-
-
-At the equilibrium, the endogenous variables could be determined jointly by multiple exo variables. e.g. 
-
-$$
-\text{AS}
- \Rightarrow 
-\begin{cases}
-Y^{*}=f(k) \\
-N^{*}=g(k) \\
-(\frac{W}{P})^{*}=h(k) 
-\end{cases}
-$$
-
-
-\begin{redblock}
-\begin{question}[how to calculate $N$ at the equilibrium?]
-\end{question}
-By using total derivatives, we could have: 
-$$\begin{cases}
-&dY=dY(dK)
-\\&d \frac{W}{P}=d \frac{W}{P}(dK)
-\\&dW=dW(dK)
-\\&dP=dP(dK)
-\end{cases}$$
-\end{redblock}
-
-\begin{blueblock}
-\begin{note}
-All a model can contain are: 
-\begin{itemize}
-\tightlist
-  \item behavioral function 
-    $\begin{cases}
-      \text{by ad hoc} \\
-      \text{by optimization}
-    \end{cases}$
-  \item definitive function 
-  \item equilibrium conditions
-\end{itemize}
-\end{note}
-\end{blueblock}
-
-\begin{blueblock}
-\begin{note}[General way of advanced macroeconomics]
-By method, there are optimization, equilibrium-conducting and comparative analysis. And all of three can do both static analysis and dynamic analysis.
-\end{note}
-\end{blueblock}
-
-
-\begin{blueblock}
-\begin{note}  
-Inada conditions making sure that profit maximization is feasible
-\end{note}
-\end{blueblock}
-
-
-
-
-\newpage
-\section{Keynesian Model}
-In a brief way, a Keynesian model can be seen as two parts:
-
-\begin{align}
-&
-\text{AS: }
-\begin{cases}
-Y=F(K,N) \\
-\frac{W}{P}=F_{N}(K,N) \\
-N_{S}=N_{s}\left(\frac{W}{P}\right)\text{,where in most cases neglected from the equations}
-\end{cases}
-\\&\text{AD: }
-\begin{cases}
-Y=C+I+G+\delta K \\
-C=C(Y,T-\pi) \\
-I=I(q-1), I'>0, q\equiv \frac{F_{k}-(r+\delta-\pi)}{r-\pi} \\
-\frac{M}{P}=m(Y,r),m_{1}>0,m_{2}<0
-\end{cases}
-\end{align}
-
-
-The Keynesian model consists of six equations, instead of seven in
-classical model. Because labor market is not clearing. So the wage is exogenous.
-
-
-
-
-\newpage
-\section{Solow Model}
+\clearpage
+\section{Solow Model}\label{sec:solow}
 
 
 The Solow-Swan model is an economic model of long-run growth, focusing on capital accumulation, population growth, and technological progress. Developed by Robert Solow and Trevor Swan in 1956, it replaced the Keynesian Harrod-Domar model.
@@ -660,7 +531,7 @@ Malthus to Solow (unified growth theory)
 
 
 \newpage
-\section{Ramsey Model}
+\section{Ramsey Model}\label{sec:ramsey}
 
 \begin{greenblock}
 See Chapter 5 to Chapter 7 from Acemoglu, 2004 for more mathematical help.
@@ -1277,8 +1148,12 @@ At the steady state
 
 
 
-\newpage
-\section{OLG Model}
+\subsection[Taxation and capital accumulation (planned)]{Taxation and capital accumulation}
+\textit{Planned section.} Compare lump-sum and distortionary taxes in the neoclassical growth framework.
+Separate effects on steady-state capital from effects along the transition.
+
+\clearpage
+\section{OLG Model}\label{sec:olg}
 
 In contrast to the Ramsey model in which individuals are infinitely-lived, in the OLG model individuals live a finite length of time, long enough to overlap with at least one period of another agent's life.
 
@@ -1536,33 +1411,24 @@ Meaning there can be over-accumulation of capital $\iff$ suffices dynamic ineffi
   \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
 \end{itemize}
 
+\subsection[Population, pensions, and public debt (planned)]{Population, pensions, and public debt}
+\textit{Planned section.} Extend the two-generation benchmark to population change, pension arrangements,
+and government debt. State the conditions for dynamic inefficiency before
+comparing intergenerational transfers.
 
+\clearpage
+\input{chapters/endogenous-growth}
 
+\clearpage
+\part{Fluctuations}\label{part:fluctuations}
 
+How do shocks change production, spending, employment, and prices? We begin with
+a real benchmark, introduce nominal rigidities, and then examine labor-market
+adjustment. Part IV adds financial and distributional mechanisms and develops
+the policy comparison.
 
-
-
-
-\newpage
-\part{Models of Fluctuation}
-In this part, we deal with models that are essentially DSGE models.\footnote{See Gao Xu, 2008 for a brief history of DSGE models.}
-
-\begin{itemize}
-\tightlist
-  \item Real Business Cycle model
-  \item Dynamic New Keynesian model
-\end{itemize}
-
-
-
-
-
-
-
-
-
-\newpage
-\section{RBC Model}
+\clearpage
+\section{Real Business Cycle Model}\label{sec:rbc}
 
 Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
 \begin{itemize}
@@ -1776,8 +1642,13 @@ The final answer of this standard RBC model is not relevant to any price variabl
 
 
 
-\newpage
-\section{DNK Model}\label{dnk-model}
+\subsection[Capital accumulation and investment (planned)]{Capital accumulation and investment}
+\textit{Planned section.} Extend the current fixed-capital benchmark to endogenous capital accumulation.
+Derive investment dynamics and distinguish the simplified benchmark from a
+full RBC model with a changing capital stock.
+
+\clearpage
+\section{New Keynesian Model}\label{dnk-model}
 
 DNK is short for Dynamic New Keynesian\footnote{This chapter is mainly based on the Gali, 2015.}
 
@@ -2722,134 +2593,12 @@ While this theory was originally formulated by Polish mathematician Nicolaus Cop
 \end{note}
 \end{blueblock}
 
+\subsection[Natural rates, output gaps, and model limits (planned)]{Natural rates, output gaps, and model limits}
+\textit{Planned section.} Distinguish the natural real interest rate, flexible-price output, and efficient
+output. Check which shocks and distortions enter each object before interpreting
+policy responses or welfare losses.
 
-
-
-
-
-\subsection{Optimal monetary policy}
-
-A significant paper Mankiw and Reis 2002 used a new keynesian macroeconomic model to acquire the optimal monetary policy.
-\footnote{N. Gregory Mankiw, Ricardo Reis, Sticky Information versus Sticky Prices: A Proposal to Replace the New Keynesian Phillips Curve, The Quarterly Journal of Economics, Volume 117, Issue 4, November 2002, Pages 1295–1328, https://doi.org/10.1162/003355302320935034}
-  
-
-\begin{blueblock}
-\begin{note}[why is there welfare loss?]
-\end{note}
-monopoly and sticky price cause deviation from Pareto optimality.
-\end{blueblock}
-
-
-
-\begin{blueblock}
-\begin{note}[Optimal monetary policy]
-\end{note}
-No concept of optimality can be found in policy analysis in the perspective of household or firm. But the government can use welfare loss fucntion in its optimality to maximize social welfare. In the process of achieving maximized social welfare, the monetary policy is the so-called optimal monetary policy.
-
-\end{blueblock}
-
-To acquire the optimal monetary policy, the welfare loss function must be previously introduced.
-
-
-To acquire WLF, we use second order taylor expansion
-
-first order Taylor expansion
-\begin{align}
-& \frac{X_t -X}{X}=\ln X_t -\ln X=x_t -x =\hat x_t 
-\end{align}
-
-second order Taylor expansion
-\begin{equation}
-\begin{split}
- \frac{X_t -X}{X}&=\frac{1}{X}e^{x_t}-1
-\\& = (\frac{1}{X}e^x -1)+\frac{1}{X}e^x(x_t -x)+\frac{1}{2}\frac{1}{X}e^x (x_t-x)^2
-\\& = \hat x_t +\frac{1}{2}\hat x_t^2
-\end{split}
-\end{equation}
-
-Similarly
-\begin{align}
-& \Rightarrow 
-\begin{cases}
-\frac{C_t -C}{C}\approx \hat c_t +\frac{1}{2} \hat c_t^2 
-\\\frac{N_t -N}{N}\approx \hat n_t +\frac{1}{2} \hat n_t^2 
-\end{cases}
-\end{align}
-
-Bi-variate 2o taylor expansion for a utility function where people gain utilities from consuming goods and enjoying leisure.
-\begin{align}
-& u(C_t,N_t)\approx u(C,N)+u_C^C (\frac{C_t -C}{C})+u_N^N(\frac{N_t -N}{N})+\frac{1}{2}u_{CC}^{C^2}\frac{(C_t-C)^2}{C}+\frac{1}{2}u_{NN}^{N^2}\frac{(N_t-N)^2}{N}
-\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2(\hat c_t +\frac{1}{2}\hat c_t^2)+\frac{1}{2}u_{NN} N^2(\hat n_t +\frac{1}{2}\hat n_t^2)
-\\& = u(C,N)+u_C C(\hat c_t +\frac{1}{2}\hat c_t^2)+u_N N(\hat n_t +\frac{1}{2} \hat n_t^2)+\frac{1}{2}u_{CC} C^2 \hat c_t+\frac{1}{2}u_{NN} N^2 \hat n_t
-\text{ (reservate only to 2o)}
-\\& = u(C,N)+u_C C(\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t)+u_N N(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}N}{2}\hat n_t)
-\end{align}
-
-\begin{align}
-& \Rightarrow \frac{u(C_t,N_t)-u(C,N)}{u_C C}
-= (\hat c_t + \frac{1+\frac{u_{CC}}{u_C}C}{2}\hat c_t^2)+\frac{u_N N}{u_C C}(\hat n_t + \frac{1+\frac{u_{NN}}{u_N}}{2}\hat n^2_t)
-\\& \because \hat c_t = \hat y_t \text{ (market clearing at equilibrium)}
-\\&
-u(C_t,N_t)=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\frac{N_t^{1+\varphi}-1}{1+\varphi}
-\iff 
-\begin{cases}
--\frac{u_{CC}}{u_C}C=\sigma\\
--\frac{u_{NN}}{u_N}N=\varphi
-\end{cases}
-\end{align}
-
-\begin{blueblock}
-\begin{note}[Coefficients of CES function]
-\end{note}
-$\sigma$ is intertemporal substitute elasticy, $\varphi$ is frisch elasticity
-\end{blueblock}
-
-continue to the last taylor expanded equation, introducing $var_i$ as the deviation of each firm's price
-\begin{align}
-\dots &= (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\{\frac{1}{\alpha}(\hat y_t -a_t)+A \cdot var_i P_{it}\}+\frac{1+\varphi}{2}[\frac{1}{\alpha}(\hat y_t - a_t)+A \cdot var_i P_{it}]^2
-\\& = (\hat y_t +\frac{1-\sigma}{2}\hat y_t^2)+\frac{u_N N}{u_C C}\frac{1}{\alpha}\{[(\hat y_t -a)+B \cdot var_i P_{it}]+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}, B\equiv \alpha A
-\end{align}
-, here let's ignore many fluctuation terms from taylor expansion as they are extremely small and irrelevant to monetary policy.
-
-\begin{align}
-& -\frac{U_N}{U_C}=MP \cdot N=\alpha A N^{\alpha-1}
-\\& = \alpha \frac{C}{N} \Rightarrow \frac{u_N N}{u_C C}=-\alpha\text{ (can use this to simplify equation before)}
-\end{align}
-
-go back to before 
-\begin{align}
-\Rightarrow \dots & = (\hat y_t -\frac{1-\sigma}{2}\hat y_t^2)-\{(\hat y_t -a_t)+B \cdot var_i P_{it}+\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2\}
-\\& =\frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t -a_t)^2
-\\& = \frac{1-\sigma}{2}\hat y_t^2 -B \cdot var_i P_{it}-\frac{1+\varphi}{2 \alpha}(\hat y_t^2-2 \hat y_t a_t +a_t^2)
-\\& = (\frac{1-\sigma}{2}+\frac{1+\varphi}{2 \alpha})\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t a_t -B \cdot var_i P_{it}
-\\& =  \frac{\alpha (1-\alpha)+1+\varphi}{2 \alpha}\hat y_t^2 + \frac{\sigma+\varphi}{\alpha}\hat y_t \hat y_t^f -B \cdot var_i P_{it} \text{ (remember when we work out the $\hat y_t^f$)}
-\\& = 
-\color{red}
-\underbrace{
--\frac{1}{2}[
-\underbrace{
-C(\hat y_t -\hat y_t^f)+
-}_\text{deviation from output}
-\underbrace{
-D(\hat \pi_t - \pi^*)^2
-}_\text{inflation}
-]
-}_\text{welfare loss} \text{ (welfare loss function)}
-\end{align}
-
-the goal is to minimize the whole term
-
-
-\begin{blueblock}
-\begin{note}[paradoxy in welfare loss function]
-\end{note}
-the two goals are contradicated according to philips curve
-\end{blueblock}
-
-
-
-\newpage
-\section{Sticky wage model}
+\section{Sticky Wage Model}\label{sec:sticky-wages}
 
 Before good market is price-sticky and monopolistic competitive, now the setting goes to labor market.
 \begin{align}
@@ -2988,7 +2737,10 @@ MC firm can choose price max or quantity max
 \end{note}
 \end{blueblock}
 
-
-
+\clearpage
+\input{chapters/labor-markets}
+\input{chapters/open-economy}
+\input{chapters/policy}
+\input{chapters/topics}
 
 \end{document}

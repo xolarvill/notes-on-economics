@@ -1,28 +1,26 @@
+% !TEX root = ../macro.tex
 \section{Introduction}\label{sec:introduction}
 
-These notes assume a course in intermediate macroeconomics. We take national
-income accounting, basic growth theory, and aggregate demand and supply as
-familiar. The next step is to explain how aggregate outcomes follow from
-decisions made over time, and how those decisions change with the economic
-environment and policy.
+These notes assume intermediate macroeconomics, including national accounts,
+basic growth theory, and aggregate demand and supply. We now ask how aggregate
+outcomes follow from decisions over time, and how those decisions respond to
+the environment and policy.
 
 The first three parts cover growth, fluctuations, and the open economy.
 Part IV studies money, finance, and policy; Part V applies these mechanisms to
-the dollar system and China's growth after the pandemic. Chapters marked
+the dollar system and China's growth after the pandemic. Chapters and sections marked
 \textit{planned} contain outlines for later development.
 
 \subsection{Growth, fluctuations, and their interaction}
 
-Growth theory asks how productive capacity and living standards evolve. Capital
-accumulation is the starting point. Saving decisions, population, technology,
-and the allocation of resources then explain why accumulation and income differ
-across economies.
+Growth theory asks how productive capacity and living standards evolve. Starting
+with capital accumulation, we introduce saving decisions, population, technology,
+and resource allocation to explain differences across economies.
 
-Business-cycle theory asks how an economy responds to disturbances. A change in
-productivity, demand, or financing conditions affects consumption, investment,
-employment, and prices. The task is to identify the shock and explain the
-adjustment that follows. A mechanism that amplifies a shock need not be the
-mechanism that caused it.
+Business-cycle theory asks how an economy responds to disturbances in
+productivity, demand, or financing. We identify the shock, then explain the
+response of spending, employment, and prices. A mechanism that amplifies a
+shock need not be its cause.
 
 The questions overlap. A recession can reduce investment and change future
 capital. Population and productivity growth can change the conditions for
@@ -38,9 +36,9 @@ uncertain income, or a borrowing limit. To study those questions, we specify
 what the household chooses and what constrains it.
 
 \textbf{A two-period example.}
-Let a household receive real income $y_0$ today and $y_1$ tomorrow. It starts
-with no assets and leaves none after tomorrow. Saving $a_1$ earns a known gross
-real return $R>0$. Negative $a_1$ is borrowing at the same return. The problem is
+Let a household receive real income $y_0$ today and $y_1$ tomorrow, with no
+initial or terminal assets. Saving $a_1$ earns a known gross real return $R>0$;
+negative $a_1$ is borrowing at that return. The problem is
 \begin{equation}\label{eq:intro-household}
 \begin{split}
 \max_{c_0,c_1,a_1}\;&u(c_0)+\beta u(c_1),\qquad 0<\beta<1,\\
@@ -73,8 +71,9 @@ intertemporal substitution in this example. A binding borrowing constraint
 would require an inequality condition instead of this interior equality.
 
 \textbf{Expectations and policy.}
-With uncertainty, the corresponding interior condition for an asset with gross
-real payoff $R_{t+1}$ is
+With uncertainty, today's utility cost is known but tomorrow's gain is not.
+Replace that gain by its conditional expectation. For an asset with gross real
+payoff $R_{t+1}$, the interior condition becomes
 \begin{equation}\label{eq:intro-euler-uncertain}
 u'(c_t)=\beta E_t\!\left[R_{t+1}u'(c_{t+1})\right],
 \qquad E_t[\cdot]\equiv E[\cdot\mid\mathcal I_t].
@@ -166,10 +165,9 @@ Accounting becomes a model only after we specify behavior, technology, and
 equilibrium. Government budgets enter with fiscal policy; international
 accounts enter in Part III.
 
-Capital letters generally denote aggregates. Lower-case letters denote
-per-person or normalized quantities where the chapter defines them. Some
-existing chapters use local notation; the normalization must be checked before
-comparing their equations. Unless stated otherwise, $\beta$ is a discount
+Capital letters generally denote aggregates; lower-case letters denote
+per-person or normalized quantities. Check each chapter's normalization before
+comparing equations. Unless stated otherwise, $\beta$ is a discount
 factor, $\rho$ a rate of time preference, $r$ a net real interest rate, and
 $R=1+r$ a gross real return. In discrete time, the convention
 $\beta=1/(1+\rho)$ differs from continuous-time discounting $e^{-\rho t}$.
