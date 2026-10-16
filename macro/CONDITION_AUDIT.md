@@ -1,4 +1,4 @@
-# Solow and Ramsey: condition preservation
+# Model conditions and teaching content: preservation
 
 The layout may change; it must not reduce the model specification to a summary.
 The live conditions below are full-width numbered cards, followed by the
@@ -63,3 +63,35 @@ The modern CRRA objective, effective discount restriction, and planner-market
 equivalence conditions introduced in the preceding revision remain explicit.
 They are not attributed verbatim to the original course list or Ramsey's 1928
 objective. All previously added modeling intuition and derivations remain.
+
+## OLG
+
+Comparison source: `b69162a:macro/chapters/olg.tex`, before the OLG revision.
+Original conditions remain in a commented block before the live eight-card
+specification. The rest of the original chapter remains recoverable in Git.
+
+| Original material | Live location and treatment |
+| --- | --- |
+| Finite lives overlapping at a date | Modeling questions, cards 01 and 04, and the cohort timeline |
+| “Meet only once” note | Blue note retains the contracting question but corrects the claim that overlapping generations preclude intertemporal allocation; capital saving does transfer consumption across a life |
+| Solow, RCK, and OLG comparison | Full comparison section, with a table and equations under a common time, population, and depreciation convention |
+| Aggregate consumption, population law, aggregate saving | Cards 01 and 07 explicitly retain the equations; a denotes saving per young person and mathematical A young asset purchases, avoiding confusion with national saving |
+| Household objective and both budgets | Cards 05 and 07; household section retains both multipliers, all interior conditions, and the Euler derivation with a consistent multiplier sign |
+| CRRA utility, saving formula, wage derivative, return derivative, all three curvature cases | Household section retains and expands every step; green note explains substitution and retirement-resource effects; the log limit is handled separately |
+| Firm profit maximization and factor prices | Card 06 and firm section; aggregate inputs and per-worker prices are distinguished, and zero profits do not erase ownership income |
+| Depreciation and R=f'(k) in the later course formulas | General delta is explicit throughout; R=f'(k) is retained as the full-depreciation special case, alongside the no-depreciation convention |
+| Capital law, implicit saving-return feedback, unfinished general steady state | Capital section derives K_next=L*a from age-specific consumption; it separates young purchases from gross investment and net national saving, states the general scalar steady-state equation, and derives a conditional local slope |
+| Green log example and explicit capital stock | The full log derivation, wage-saving rule, steady state, global positive-stock convergence, and exact log-deviation path remain; a green frame summarizes the mechanism |
+| Solow Golden Rule and dynamic-efficiency comparison | Welfare section derives the correct stock exponents and conditional overaccumulation test; inefficiency is possible, not inevitable |
+| Ramsey stationary Euler and no overaccumulation | Comparison uses the matching discrete dynasty objective and its finite-welfare restriction; it does not treat an Euler equation alone as a welfare theorem |
+| OLG planner and social discounting | Welfare section keeps a planner formulation, distinguishes social cohort weights from private beta, includes the initially old, and derives the multiplier and stationary-return conditions |
+| Golden Rule consumption and the Cobb--Douglas inefficiency inequality | General-delta age-weighted consumption, gross and net return tests, full-depreciation parameter threshold, numerical example, and a feasible all-cohort Pareto improvement |
+| Summary of the three models | Comparison table and closing discussion retain the distinctions without treating finite lives alone as proof of inefficiency |
+| Planned population, pension, and debt section | Expanded into support-ratio accounting, PAYG and funded budgets, saving responses and constraints, transition questions, debt financing and portfolio/resource consolidation |
+
+The original two green calculation boxes become detailed mainline derivations
+with green mechanism summaries, rather than disappearing. Additional blue
+notes separate gross and net returns, young and national saving, and individual
+versus social accounting. A red worked resource experiment establishes why
+an overaccumulating path can permit a Pareto improvement. The complete
+condition cards remain distinct from these callouts.

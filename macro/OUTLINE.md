@@ -102,13 +102,32 @@ chapter of Part V.
 
 ### 6. OLG Model
 
-- Assumptions
-- UMP of household
-- PMP of firm
-- Dynamics
-- Comparing three models so far
-- Dynamic inefficiency
-- Population, pensions, and public debt — **planned**
+- From retirement needs to overlapping generations
+  - Finite lives, continuing economies, and retirement assets
+  - Market closure and contracts with future entrants
+- Assumptions and the cohort timeline
+  - Eight complete condition cards; original course conditions retained in comments
+  - A cohort's lifetime versus a date's resource constraint
+- Household optimization and life-cycle saving
+  - Budgets, multipliers, and the Euler condition
+  - CRRA saving, wage and return derivatives, and the log case
+- Firm optimization and the return to ownership
+  - Rental price, net return, gross payoff, and depreciation conventions
+- Capital accumulation and equilibrium dynamics
+  - Young wealth versus aggregate saving
+  - General implicit equilibrium and local stability
+  - Log/Cobb--Douglas steady state and exact transition path
+- Comparing Solow, Ramsey, and OLG
+- Dynamic efficiency and intergenerational welfare
+  - Cohort-weighted consumption and the Golden Rule
+  - A feasible Pareto improvement from the same initial stock
+  - An illustrative overaccumulation case and two-panel figure
+  - Private discounting versus social cohort weights, including the initially old
+- Population, pensions, and public debt
+  - Support ratios and capital per worker
+  - Pay-as-you-go budgets, saving, and transition conditions
+  - Funded accounts and voluntary-saving offsets
+  - Public debt portfolios, taxes, resource consolidation, and local crowding
 
 ### 7. Endogenous Growth and Resource Allocation — **planned**
 

@@ -512,116 +512,352 @@ that optimization. The distinction is who makes the choice and whose future
 is included, not whether one model respects accounting and another does not.
 \end{blueblock}
 
-\subsection{Dynamic inefficiency}
-Because of the micro-foundations (patience denoted as $\beta=\frac{1}{1+\rho}$) in Ramsey, there will be no over-accumulation of capital, avoiding dynamic inefficiency. Whereas in Solow model the inefficiency is inevitable. Somehow in OLG model, the dynamic inefficiency returns.
+\subsection{Dynamic efficiency and intergenerational welfare}
 
-\textbf{Solow}
+\subsubsection{Count consumption at a date before comparing steady states}
 
-The model has key equations
-\begin{equation}
-\begin{cases}
-  Y=F(K,L)
-  \\
-  I=S=sY
-  \\
-  L_{t+1}=(1+n)L_t
-  \\
-  k_{t+1}=\frac{(1-\delta)k_t+sf(k_t)}{(1+n)}\iff \dot k=sf(k)-(n+\delta)k
-\end{cases}
+Divide goods clearing by $L_t$:
+\begin{equation}\label{eq:olg-resources}
+c_{1,t}+\frac{c_{2,t}}{N}+Nk_{t+1}
+=f(k_t)+(1-\delta)k_t.
 \end{equation}
+The factor $1/N=L_{t-1}/L_t$ counts retirees relative to workers. Define
+$\bar c_t\equiv C_t/L_t=c_{1,t}+c_{2,t}/N$. This is consumption per worker,
+not consumption per resident; the latter is $\bar c_t/(1+1/N)$.
+At a stationary capital intensity,
+\begin{equation}\label{eq:olg-steady-consumption}
+\bar c(k)=f(k)-(n+\delta)k.
+\end{equation}
+When $n+\delta>0$, steady consumption per worker is maximized at
+\begin{equation}\label{eq:olg-golden-rule}
+f'(k_{\mathrm{GR}})=n+\delta,
+\qquad R_{\mathrm{GR}}=1-\delta+f'(k_{\mathrm{GR}})=N.
+\end{equation}
+For Cobb--Douglas,
+$k_{\mathrm{GR}}=[\alpha/(n+\delta)]^{1/(1-\alpha)}$.
+If $n+\delta\leq0$, there is no finite interior maximum under $f'(k)>0$;
+the positive steady-state overaccumulation comparison below then does not apply.
 
-For a certain production $y=k^a$ at steady state
+The course condition $f'(k_{\mathrm{GR}})=1+n$ is exactly
+\eqref{eq:olg-golden-rule} with $\delta=1$. The comparable net-return statement
+is $r_{\mathrm{GR}}=n$, not $R_{\mathrm{GR}}=n$.
 
-use $k_{t+1}=\frac{(1-\delta)k_{t}+s f(k_{t})}{1+n}$
+\subsubsection{Why overaccumulation can make every generation worse off}
+
+Suppose a competitive steady state satisfies $k^*>k_{\mathrm{GR}}$.
+Diminishing marginal product makes this equivalent to
+\begin{equation}\label{eq:olg-inefficiency}
+f'(k^*)<n+\delta
+\quad\Longleftrightarrow\quad R^*<N
+\quad\Longleftrightarrow\quad r^*<n.
+\end{equation}
+The economy gives up so many goods to maintain its capital stock that a
+slightly smaller stock could support more consumption indefinitely. To show
+why this is more than a comparison of eventual outcomes, construct a feasible
+change from the same initial capital.
+
+\begin{redblock}
+\textbf{Question: can consuming more today avoid a sacrifice tomorrow?}
+Start at $k_0=k^*>k_{\mathrm{GR}}$. Choose $\widetilde k=k^*-\varepsilon$
+with $k_{\mathrm{GR}}<\widetilde k<k^*$, and set the next and all later
+capital intensities to $\widetilde k$. At date zero, inherited output and
+capital are unchanged, while required next capital falls by $N\varepsilon$
+per worker. Hence
+\[
+\widetilde{\bar c}_0-\bar c^*=N\varepsilon>0.
+\]
+At all later dates,
+\[
+\widetilde{\bar c}_t-\bar c^*
+=\big[f(\widetilde k)-(n+\delta)\widetilde k\big]
+ -\big[f(k^*)-(n+\delta)k^*\big]>0.
+\]
+The inequality follows because $\bar c(k)$ decreases to the right of
+$k_{\mathrm{GR}}$. At each date, a positive gain $\Delta\bar c_t$ can be
+split as $\Delta c_{1,t}=\Delta\bar c_t/2$ and
+$\Delta c_{2,t}=N\Delta\bar c_t/2$. Both currently living age groups gain,
+and every future cohort gains at both ages. This is a feasible Pareto
+improvement, including for the initially old, rather than a claim that
+higher future consumption compensates losers today.
+\end{redblock}
+
+The construction changes allocations through a coordinated transfer and
+investment policy; it is not the action of one price-taking saver.
+At given prices, each person's saving is optimal. Yet no person chooses
+on behalf of the infinite sequence of entrants. Competitive optimization
+within each finite life therefore does not impose the dynasty terminal
+restriction that rules out this overaccumulation in the Ramsey benchmark.
+An overlapping-generations structure permits inefficiency; it does not
+make every stationary equilibrium inefficient.
+
+\subsubsection{An explicit log example and the three-model comparison}
+
+In the full-depreciation log/Cobb--Douglas example, substitute
+\eqref{eq:olg-log-steady} into the return:
 \begin{align}
-&\Rightarrow(1+n)k^*=(1-\delta)k^*+s f(k^*)
-\\&-(n+\delta)k^*=-s f(k^*)
-\\&f(k^*)-(n+\delta)k^*=(1-s) f(k^*)=c^*
-\\&\Rightarrow c^*=f(k^*)-(n+\delta)k^*
-\\&\text{To maximize welfare at steady state} \iff \max c* \iff FOC: k^*_g=(\frac{n+\delta}{\alpha})^{1-\alpha}
+R^*=\alpha(k^*)^{\alpha-1}
+&=\frac{\alpha N}{\kappa(1-\alpha)},\\
+R^*<N
+&\Longleftrightarrow \alpha<\kappa(1-\alpha)
+\Longleftrightarrow \alpha<\frac{\beta}{1+2\beta}.
 \end{align}
-also at steady state
-\begin{align}
-&(1+n)k^*=(1-\delta)k^*+s f(k^*)
-\\&\Rightarrow k^*=(\frac{n+\delta}{s})^{1-\alpha}
-\end{align}
+Both efficient and overaccumulating cases are possible by changing the
+parameters. This is not an automatic consequence of finite lifetimes.
 
-for certain $\alpha$ and $s$ it could be
-\begin{align}
-\Rightarrow k^*<k^*_{g}
-\end{align}
-meaning there is possible dynamic inefficiency in Solow model
+For illustration, take $\alpha=0.25$, $\beta=0.96$, $N=1.02$, and
+$\delta=1$. The formulas give $k^*\simeq0.2562$,
+$k_{\mathrm{GR}}\simeq0.1534$, and $R^*\simeq0.6942<N$.
+Steady consumption per worker is about $0.4501$ at $k^*$, versus $0.4694$
+at the Golden Rule stock. These are hypothetical life-stage parameters,
+not annual estimates or a calibration to a particular pension system.
+The Pareto argument above supplies the transition comparison; the two
+steady consumption numbers alone would not establish it.
 
-\textbf{Ramsey}
+\begin{center}
+\begin{minipage}{\linewidth}
+\centering
+\includegraphics[width=\linewidth]{images/olg_capital_and_consumption.pdf}
+\par\medskip\RaggedRight
+\noindent\textit{A stable path can lead to overaccumulation.}
+The left panel plots \eqref{eq:olg-log-map} against the 45-degree line.
+The right plots $\bar c(k)=k^{\alpha}-Nk$ under full depreciation, with
+$k^*$ to the right of its consumption-maximizing stock. Stability and
+welfare answer different questions. Both panels use the illustrative
+parameters stated above.
+\end{minipage}
+\end{center}
 
-Ramsey has no dynamic inefficiency, here's why
+For Solow with fixed technology and $n+\delta>0$, the Cobb--Douglas stocks are
+\begin{equation}
+k^*_{S}=\left(\frac{\sigma}{n+\delta}\right)^{1/(1-\alpha)},
+\qquad
+k_{\mathrm{GR}}=\left(\frac{\alpha}{n+\delta}\right)^{1/(1-\alpha)}.
+\end{equation}
+Thus overaccumulation occurs if $\sigma>\alpha$, and is not inevitable.
+For the population-weighted Ramsey dynasty in the common discrete benchmark,
+stationary consumption and its Euler equation instead give
+\begin{equation}
+1=\beta R^*,\qquad R^*=1/\beta.
+\end{equation}
+Under $\beta N<1$, the finite-welfare restriction for this stationary
+benchmark, $R^*>N$ and $k^*<k_{\mathrm{GR}}$. This matches the role of the
+effective-discount restriction in the previous continuous-time chapter.
+The protection comes from the dynasty objective and admissibility conditions,
+not simply from the existence of an Euler equation. OLG has an Euler equation
+too, but it links two different age consumptions, which need not be equal
+even at a stationary equilibrium.
 
-The model has three key equations
-\begin{align}
-&\begin{cases}L_{t}=(1+n)L_{t-1} \\
-k_{t+1}-(1-\delta)k_t=f(k_t)-c_t \\
-\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]
-\end{cases}
-\end{align}
+\subsubsection{A planner needs weights across cohorts, not just within a life}
 
-Put $k_{t+1}-(1-\delta)k_t=f(k_t)-c_t$ at steady state
-\begin{align}
-&c^*=f(k^*)-k^*+(1-\delta)k^*=f(k^*)-\delta k^*
-\\& \text{To maxmize welfare at steady state}\Rightarrow \text{FOC: } f'(k^{*}_{G})=\delta
-\end{align}
-
-Put $\frac{u'(c_{t})}{u'(c_{t+1})}=\beta[f'(k_{t+1})+(1-\delta)]$ at steady state resulting
-\begin{align}
-&\Rightarrow 1= \beta [f'(k^{*})+(1-\delta)] =\frac{1}{1+\rho} [f'(k^{*})+(1-\delta)]
-\\&\Rightarrow 1+\rho=f'(k^{*})+1- \delta
-\\&\Rightarrow f'(k^{*})=\rho +\delta < f'(k^*_g)
-\\&\Rightarrow k^{*}_{G}>k^{*}
-\end{align}
-Capital per capita at steady state is lower than $k_{gold}$, meaning it is dynamic efficient.
-
-\textbf{OLG}
-
-OLG in central planner form:
-\begin{align}
+The private discount factor $\beta$ compares the two ages of one person.
+A planner also needs a rule for weighing different birth cohorts. To retain
+that distinction, let cohort weights be $\omega_t=\chi^t$, with $\chi>0$,
+and consider
+\begin{equation}
 \begin{split}
-&\max \sum\limits_{t=0}^{\infty}(\beta_{s})^{t}L_{t}[u(c_{1t})+\beta u(c_{2,t+1})] \text{ ($\beta_s$ is the discount factor)}
-\\&s.t. \;
-c_{1t}+\frac{c_{2t}}{1+n}+(1+n)k_{t+1}=f(k_{t})
+\max\;&\omega_{-1}\beta L_{-1}u(c_{2,0})\\
+&+\sum_{t=0}^{\infty}\omega_tL_t
+ \big[u(c_{1,t})+\beta u(c_{2,t+1})\big],
 \end{split}
-\end{align}
+\end{equation}
+subject to \eqref{eq:olg-resources}, given $k_0$, and feasible positive
+consumption. The first term explicitly includes the initially old; their
+young-age utility is already sunk. For the stationary comparisons here,
+$\chi N<1$ is a sufficient summability restriction. These weights are a
+normative choice, not a preference inferred from household saving.
 
-Equation of motion of capital per capita at the steady states
+Let $\mu_t$ be the multiplier on the aggregate date-$t$ resource constraint.
+The consumption and capital conditions are
 \begin{align}
-&c^{*}\equiv c_{1}^{*}+\frac{c_{2}^{*}}{1+n}=f(k^{*})-(1+n)k^{*}
+\mu_t&=\omega_tu'(c_{1,t})
+ =\beta\omega_{t-1}u'(c_{2,t}),\\
+\mu_t&=R_{t+1}\mu_{t+1}.
 \end{align}
+Using the age-two condition at $t+1$ recovers the same within-cohort Euler
+equation as household optimization. At an interior stationary planner
+allocation, however, $\mu_{t+1}/\mu_t=\chi$, so its capital condition is
+$R^*=1/\chi$. Changing social cohort weights changes the planner problem.
+Maximizing $\bar c(k)$ across stationary paths supplies the Golden Rule;
+it is not the solution of every weighted lifetime-welfare problem. Moreover,
+a planner optimum under one set of weights and a Pareto improvement for all
+cohorts are different claims.
 
-Since we are maximizing welfare at steady state, let $\frac{\partial  c^{*}}{\partial  k^{*}}=0$ to acquire first order condition
-\begin{align}
-&\Rightarrow f'(k^{*}_{G})=1+n
-\end{align}
-using production function $y=k^\alpha$ at equilibrium
-\begin{align}
-f'(k^{*})&=\alpha (k^{*})^{\alpha-1}
-\\&=\alpha\{[\frac{\beta(1-\alpha)}{(1+\beta)(1+n)}]^{\frac{1}{1-\alpha}}\}^{\alpha-1}
-\\&=\frac{\alpha}{1-\alpha}\frac{1+\beta}{\beta}(1+n)
-\end{align}
-for certain value of $\alpha$
-\begin{align}
-&f'(k^{*})<1+n
-\\&\Rightarrow f'(k^{*})<f'(k^{*}_{G})
-\\& \Rightarrow k^{*}>k^{*}_{G}
-\end{align}
-Meaning there can be over-accumulation of capital $\iff$ suffices dynamic inefficiency possible in OLG model.
+\subsection{Population, pensions, and public debt}\label{sec:olg-policy}
 
-\textbf{Conclusion}
-\begin{itemize}
-\tightlist
-  \item Due to ad hoc given $s$, Solow model is unable to assure dynamic efficiency.
-  \item Due to endogenous saving decision and discount factor $\beta$, Ramsey model is able to achieve dynamic efficiency.
-  \item Due to limited life span of individuals, OLG model fails to achieve dynamic efficiency.
-\end{itemize}
+The benchmark now gives a way to examine how retirement is financed.
+Introduce each arrangement separately. Taxes and benefits below are lump-sum;
+there is still no uncertainty, valued government consumption, or endogenous
+retirement. A more realistic pension system would need those mechanisms
+before making quantitative policy recommendations.
 
-\subsection[Population, pensions, and public debt (planned)]{Population, pensions, and public debt}
-\textit{Planned section.} Extend the two-generation benchmark to population change, pension arrangements,
-and government debt. State the conditions for dynamic inefficiency before
-comparing intergenerational transfers.
+\subsubsection{Population change: a support ratio and a capital effect}
+
+With two age groups, the number of retirees per worker is $1/N$. A lower
+$N$ raises that ratio. In the log/Cobb--Douglas capital-only steady state,
+\begin{equation}
+\frac{\partial\log k^*}{\partial\log N}=-\frac{1}{1-\alpha}.
+\end{equation}
+Lower cohort growth spreads saving over fewer future workers, raising
+long-run capital per worker, increasing wages and reducing returns. With
+$A=1$, this is a comparison of stationary levels; it is not permanently
+faster productivity growth. An unexpected change in cohort size also changes
+labor supply and the ratio $K/L$ while inherited aggregate $K$ is fixed;
+its full transition must track when the affected cohorts enter work.
+
+Real population aging can also reflect longer lives, changing employment,
+migration, and retirement ages. Those channels are not all captured by a
+change in $N$. The support ratio is a useful first accounting step, not a
+complete empirical explanation of aging.
+
+\subsubsection{Pay-as-you-go pensions: current workers finance current retirees}
+
+Let each young person pay $T_t\geq0$ and each old person receive $P_t$.
+A balanced pension budget is
+\begin{equation}\label{eq:olg-payg-budget}
+L_tT_t=L_{t-1}P_t,\qquad P_t=NT_t.
+\end{equation}
+A cohort paying at $t$ receives the benefit at $t+1$, so its budgets become
+\begin{equation}
+c_{1,t}+a_t=w_t-T_t,\qquad
+c_{2,t+1}=R_{t+1}a_t+P_{t+1}.
+\end{equation}
+Private assets still satisfy $Nk_{t+1}=a_t$: the tax paid to retirees is not
+an additional physical asset.\footnote{For the pension budget and the contrast
+with funded accounts, see MIT 14.472, \textit{Public Economics II} (2004),
+``Social Security---OLG Settings,''
+\href{https://ocw.mit.edu/courses/14-472-public-economics-ii-spring-2004/resources/socisecurolgsett-1/}{lecture notes}.}
+
+Under log utility, the interior saving choice follows from
+\begin{align}
+\frac{1}{w_t-T_t-a_t}
+&=\frac{\beta R_{t+1}}{R_{t+1}a_t+P_{t+1}},\\
+(1+\beta)R_{t+1}a_t
+&=\beta R_{t+1}(w_t-T_t)-P_{t+1},\\
+a_t&=\kappa(w_t-T_t)
+-\frac{P_{t+1}}{(1+\beta)R_{t+1}}.
+\label{eq:olg-payg-saving}
+\end{align}
+Current contributions reduce disposable wages, and expected benefits reduce
+the assets needed for retirement. Both lower private saving at given prices.
+If this expression is negative, the no-borrowing restriction binds at $a_t=0$;
+the interior formula must not be used beyond its feasible range.
+
+A permanent, constant contribution $T$ gives a future benefit $NT$.
+At fixed prices its effect on present-value lifetime resources is
+\begin{equation}
+(w_t-T)+\frac{NT}{R_{t+1}}-w_t
+=T\left(\frac{N}{R_{t+1}}-1\right).
+\end{equation}
+This is positive if $N>R_{t+1}$. The initially old can receive a windfall,
+and suitable transfers can improve an overaccumulating allocation. But this
+fixed-price comparison is not a proof that every contribution rate benefits
+every cohort: equilibrium wages, returns, asset constraints, and the entire
+transition must also be checked. In an efficient benchmark, reducing capital
+need not create the resources needed to compensate all generations.
+
+\begin{blueblock}
+\textbf{A pension's implicit return depends on its funding rule.}
+The gross return $N$ above assumes a constant real contribution per worker.
+For a constant wage contribution rate $\tau$, $T_t=\tau w_t$ and
+$P_{t+1}/T_t=Nw_{t+1}/w_t$. Wage growth then matters as well as cohort size.
+Holding benefits fixed instead, \eqref{eq:olg-payg-budget} requires
+$T_t=P_t/N$: fewer workers per retiree raise the required contribution.
+These are accounting relations, not risk-adjusted comparisons with observed
+financial yields. Benefits, wages, and taxes in actual pension systems are
+not all fixed or certain.
+\end{blueblock}
+
+\subsubsection{Funded pensions: distinguish compulsory from total saving}
+
+Suppose a mandatory contribution $D_t$ is invested in capital and earns the
+same return as voluntary assets. Benefits are $R_{t+1}D_t$. The household faces
+\begin{equation}
+c_{1,t}+a_t=w_t-D_t,\qquad
+c_{2,t+1}=R_{t+1}(a_t+D_t).
+\end{equation}
+Define total retirement assets $A_t^h\equiv a_t+D_t$. Substitution gives
+$c_{1,t}+A_t^h=w_t$ and $c_{2,t+1}=R_{t+1}A_t^h$, exactly the original
+lifetime budget. If voluntary saving can adjust without a binding constraint,
+a household offsets a one-unit compulsory contribution by one unit less
+voluntary saving. Total assets, capital, and consumption are unchanged:
+\begin{equation}
+Nk_{t+1}=A_t^h,\qquad A_t^h=\kappa w_t
+\quad\text{under log utility and an interior offset.}
+\end{equation}
+If $a_t\geq0$ binds, the contribution exceeds desired assets, or the account
+has different returns, fees, insurance, or tax treatment, this neutrality need
+not hold. A funded account and a transfer to the current old cannot be treated
+as the same capital-market flow.
+
+Moving from pay-as-you-go to funding also leaves a transition question:
+who finances benefits already promised to existing retirees while workers
+build their own accounts? A comparison of eventual fund balances alone
+cannot determine the welfare of the transition cohorts.
+
+\subsubsection{Public debt: a retirement asset with a fiscal counterpart}
+
+Now consider government bonds instead of a pension program. Let $B_t$ denote
+principal issued at $t-1$, due to its old holders at date $t$. New bonds
+$B_{t+1}$ are sold to the young for their principal amount at date $t$.
+Deterministic bonds and physical capital must offer the same gross payoff
+$R_{t+1}$ if both are held. With no government purchases, a lump-sum tax
+$T_t^D$ per young person satisfies
+\begin{equation}\label{eq:olg-government-debt}
+R_tB_t=L_tT_t^D+B_{t+1}.
+\end{equation}
+A negative tax is a transfer. This budget identifies who pays the old
+bondholders; a bond is not an extra good available for consumption.
+
+Asset clearing and its per-worker version become
+\begin{equation}\label{eq:olg-debt-assets}
+L_ta_t=K_{t+1}+B_{t+1},\qquad
+ a_t=N(k_{t+1}+b_{t+1}),\quad b_t\equiv B_t/L_t.
+\end{equation}
+The fiscal budget is $T_t^D=R_tb_t-Nb_{t+1}$. Consolidating households and
+government still gives \eqref{eq:olg-resources}: public liabilities cancel
+public claims, while physical capital remains a productive resource.
+Debt changes portfolios and intergenerational payments, not the resource
+identity itself. Its financing matters because the young and the old are
+different people without offsetting bequests.
+
+For a constant debt stock per worker, $b_t=b$, the tax is
+$T_t^D=(R_t-N)b$. If $R_t<N$, new issuance can cover debt service and a
+transfer at these model prices; if $R_t>N$, maintaining that debt ratio
+requires a positive tax. This does not establish that an arbitrary debt
+path is feasible: returns respond to capital, and all future budgets and
+household choices must hold.
+
+Under log utility, combine $a_t=\kappa(w_t-T_t^D)$ with asset clearing:
+\begin{equation}
+Nk_{t+1}=\kappa w(k_t)
+-\big[\kappa R(k_t)+(1-\kappa)N\big]b.
+\end{equation}
+Near the no-debt log/Cobb--Douglas steady state, a small permanent increase
+in $b$ reduces stationary capital. Differentiating the stationary equation
+at $b=0$ gives
+\begin{equation}
+\left.\frac{dk^*}{db}\right|_{b=0}
+=-\frac{\kappa R^*+(1-\kappa)N}{N-\kappa w'(k^*)}<0,
+\qquad N-\kappa w'(k^*)=N(1-\alpha)>0.
+\end{equation}
+This is a local result in the stated example, including its tax-financing
+rule, rather than a universal one-for-one displacement of capital by bonds.
+Whether the reduction helps welfare depends on initial accumulation and
+on how gains and costs are distributed along the transition.
+
+\begin{greenblock}
+\textbf{Who holds the asset, and who supplies its payoff?}
+Physical capital pays from production and surviving assets. A funded pension
+owns such assets on the worker's behalf. A pay-as-you-go pension pays from
+current contributors, while government bonds pay from taxes and new issuance.
+All can help a person finance retirement, but they need not have the same
+effect on productive capital or on different generations' consumption.
+Tracing both sides of the balance sheet is the central OLG lesson.
+\end{greenblock}
+
+OLG makes retirement finance and population replacement part of the equilibrium,
+and shows why individually optimal saving need not guarantee intergenerational
+efficiency. It still takes productivity as given and abstracts from realistic
+lifetimes, risk, labor choices, and within-cohort inequality. The next growth
+chapter changes the source of productivity and long-run growth; later fiscal
+chapters can build richer policy problems on the cohort budgets established here.

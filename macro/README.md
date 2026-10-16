@@ -15,8 +15,8 @@ layout changes must preserve substantive content.
 
 [AGENTS.md](AGENTS.md) directs future editing work to those standards.
 [REVISION_PLAN.md](REVISION_PLAN.md) records the structure and revision history;
-[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the Solow and Ramsey condition
-comparison. The intended reader has completed intermediate macroeconomics;
+[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the Solow, Ramsey, and OLG condition
+comparisons. The intended reader has completed intermediate macroeconomics;
 the introduction is a bridge to graduate study, not a repeat of that course.
 
 ## File layout
@@ -92,9 +92,10 @@ available next period. Use it only when that sequence matches the model;
 uncertainty or a different information structure needs an explicit alternative.
 This layout leaves the existing three breakable note environments unchanged.
 
-Both chapters retain their original course condition blocks as TeX comments.
+Solow, Ramsey, and OLG retain their original course condition blocks as TeX comments.
 Ramsey uses `BEGIN ORIGINAL COURSE ASSUMPTIONS`; Solow uses
-`BEGIN ORIGINAL SOLOW COURSE ASSUMPTIONS`, each with a matching `END` marker.
+`BEGIN ORIGINAL SOLOW COURSE ASSUMPTIONS`, each with a matching `END` marker. OLG uses
+`BEGIN ORIGINAL OLG COURSE ASSUMPTIONS` and its matching end marker.
 These are comparison records, not active alternate versions. Their labels
 would conflict if both versions were typeset. See `CONDITION_AUDIT.md` for the
 condition-by-condition restoration and the theoretical qualifications retained.
