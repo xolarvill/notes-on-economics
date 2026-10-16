@@ -72,6 +72,11 @@ available next period. Use it only when that sequence matches the model;
 uncertainty or a different information structure needs an explicit alternative.
 This layout leaves the existing three breakable note environments unchanged.
 
+The Ramsey chapter retains its original course assumption block as TeX comments,
+between `BEGIN ORIGINAL COURSE ASSUMPTIONS` and `END ORIGINAL COURSE ASSUMPTIONS`.
+The live six-card overview follows it. Compare or restore that block in place;
+do not typeset both versions together, since their assumption labels coincide.
+
 ## Compile
 
 From this directory, with the installed TeX Live toolchain:

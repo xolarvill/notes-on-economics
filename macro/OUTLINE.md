@@ -78,19 +78,26 @@ chapter of Part V.
 
 ### 5. Ramsey Model
 
+- From a saving rule to a saving decision
 - Assumptions
-- Solution of Ramsey model
-  - Central Planner's Problem
-  - Method of Lagrangian
-  - Method of Hamiltonian Equation (Optimal Control)
-  - Method of Bellman Equation (Dynamic Programming)
-- Intertemporal Equilibrium of Ramsey model
-  - Dynamics of c
-  - Dynamics of k
-  - Phase diagram and dynamic efficiency
-- Linearization
+  - Six-card overview; original course conditions retained in TeX comments
+  - Notation, preferences, solvency, and transversality
+- Solving the consumption--saving problem
+  - The planner's problem and decentralization
+  - Lagrangian: the adjacent-date trade-off
+  - Hamiltonian: saving with continuous adjustment
+  - Bellman and HJB: valuing the remaining opportunities
+- Intertemporal equilibrium and economic adjustment
+  - Steady state, phase diagram, and adjustment
+- Linearization and the saddle path
+  - The local system and its eigenvalues
+  - The same restriction by undetermined coefficients
 - Maximizing welfare
-- Taxation and capital accumulation — **planned**
+  - Consumption paths, Golden Rule, and consumption-equivalent welfare
+- Taxation and capital accumulation
+  - Consolidated budgets and real resource use
+  - Lump-sum financing versus the capital income tax wedge
+  - Steady states, transitions, and a numerical comparison
 
 ### 6. OLG Model
 
