@@ -1,43 +1,39 @@
-# notes-on-economics
+# Notes on Economics
 
 Notes in .md or .tex format for various courses I took. 
 
-## FOUNDATIONS
+## I. FOUNDATIONS
 
-### MICRO
+### Microeconomics
 
 Covering MWG
 
 [PDF](micro/micro.pdf) [TeX](micro/micro.tex)
 
-### MACRO
-
-Covering Solow model, Ramsey model, OLG model, RBC model and two DNK models (sticky price and sticky wage)
+### Macroeconomics
 
 The revised structure has six parts: Introduction, Growth, Fluctuations,
-Open Economy, Money/Finance/Policy, and Topics. New chapters marked
-*planned* contain outlines for later development. See the [outline](macro/OUTLINE.md).
+Open Economy, Money/Finance/Policy, and Topics. 
 
-`macro/macro.tex` is the compilation entry point and contains shared formatting
-and file references. All chapter text lives in `macro/chapters/`, with one file
-per chapter; `macro/parts/` arranges the chapters into parts. See the
-[editing guide](macro/README.md). Each chapter begins on a new page.
+> New chapters marked *planned* contain outlines for later development. See the [outline](macro/OUTLINE.md).
+
 
 [PDF](macro/macro.pdf)  [TeX](macro/macro.tex)
 
-### METRICS
+### Econometrics & Causal Inference
 
 Covering Stock and Watson, Wooldridge
 
 [PDF](metrics/metrics.pdf) [TeX](metrics/metrics.tex)
 
-### MATH IN ECONOMICS
+### Maths in Economics
 
 Covering basic mathematics
 
 [PDF](math/mathinecon.pdf)
 
-## VARIOUS TOPICS IN ECONOMICS
+## II. Various Topics in Economics
+
 ### DDC
 
 Dynamic discrete choice model is used for modelling an agent's decision making process.
@@ -50,36 +46,12 @@ Backward stochastic differential equation is used for modelling the evolution of
 
 [PDF](BSDE/BSDE.pdf) [Tex](BSDE/BSDE.tex)
 
-### MIGRATION
+### Migration
 
 Migrations are a way of moving people from one place to another. Mainly there are two general methods to describe a migration problem.
 
 [PDF](migration/migration.pdf) [Tex](migration/migration.tex)
 
-## USEFUL PYTHON LIBS
-
-### RESPY
-
-**Respy** is an open source framework written in Python for the simulation and estimation of some finite-horizon discrete choice dynamic programming models.
-
-[IPYNB](python-respy/respy.ipynb)
-
-### MYPY
-
-Mypy is an optional static type checker in python.
-
-[IPYNB](python-mypy/mypy.ipynb)
-
-### PANDAS
-
-Using [marimo](https://github.com/marimo-team/marimo) to replace traditional jupyter notebook, covering basic data analysis cheatsheet.
-
-[PY](python-pandas/visualization.py)  [IPYNB](python-pandas/visualization.ipynb)
-
-### QUIZ
-
-Some inspirational quizs.
-
-## CREDIT
+## III. Credit
 
 This repo is inspired by Dexter Chua's [Cam Notes](https://github.com/dalcde/cam-notes). And many thanks go to everyone giving comments.
