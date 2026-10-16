@@ -8,77 +8,103 @@ its dynamics and examine what it can explain.
 
 \subsection{From the growth question to the model}\label{sec:solow-motivation}
 
-\subsubsection{The problem behind the equations}
+\subsubsection{Start with a puzzle, before choosing a model}
 
-Investment has two roles. It uses current output and adds productive capacity.
-For sustained growth, that capacity must remain compatible with the labor
-available to operate it. The issue is not simply whether more investment raises
-output, but whether saving and labor-force growth can generate a consistent
-long-run path.
+Saving uses output today and finances capital that can produce tomorrow.
+Meanwhile, the labor force grows at a rate that need not depend on saving.
+It seems possible to keep accumulating machines without providing the right
+amount of equipment for the workers who arrive. What, if anything, brings
+these two processes into line?
 
-Solow's 1956 paper challenged the instability associated with the fixed
-production proportions in the Harrod--Domar framework. His question was whether
-that conclusion survived when firms could substitute capital for labor.
-He retained a simple saving rule and studied adjustment under full employment.
-This isolates a long-run mechanism; it does not establish that actual economies
-always maintain full employment.\footnote{Robert M. Solow (1956), ``A
-Contribution to the Theory of Economic Growth,'' \textit{Quarterly Journal of
-Economics}, 70(1), 65--94, especially Sections I--III.
-\url{https://doi.org/10.2307/1884513}. The presentation below uses modern
-notation, gross output, and explicit depreciation.}
+Solow's starting point was a theoretical tension in the Harrod--Domar framework.
+In his later account, he singled out treating the saving rate, labor-force
+growth, and the capital-output ratio as independent constants. His 1956 paper
+asked whether the resulting knife-edge depended on fixed production
+proportions.\footnote{Robert M. Solow (1956), ``A Contribution to the Theory of
+Economic Growth,'' \textit{Quarterly Journal of Economics}, 70(1), 65--94,
+Sections I--III, \url{https://doi.org/10.2307/1884513}; and Solow (1987),
+``Growth Theory and After,'' Nobel lecture,
+\url{https://www.nobelprize.org/prizes/economic-sciences/1987/solow/lecture/}.}
+The sequence below works through that tension as a modeling exercise. It is
+a reconstruction from the published argument, not a record of his private
+thoughts or the order in which he discovered the model.
 
-To see the issue in a simple fixed-proportions example, temporarily omit
-technical change and write
+\subsubsection{Try a simple account, and see where it becomes restrictive}
+
+Start without technical change. A single good lets us measure output and
+investment in common units; let $K$ be the stock built from past investment.
+Give saving a fixed share $s$, rather than trying to explain every household's
+choice immediately. With gross output and explicit depreciation, accumulation
+is $\dot K=sY-\delta K$.
+
+This tracks resources, but it does not tell us how much output the stock can
+produce. A simple next attempt is a fixed production recipe:
 \begin{equation}
 Y=\min\left\{\frac{K}{v},\frac{L}{a}\right\},\qquad v,a>0.
 \end{equation}
 A unit of output requires $v$ units of capital and $a$ units of labor. If both
-inputs are fully used, $K=vY$ and $L=aY$. A constant saving rate and depreciation
-then imply
+inputs are fully used, $K=vY$ and $L=aY$. Substituting the first relation into
+accumulation gives
 \begin{equation}
 \frac{\dot K}{K}=s\frac{Y}{K}-\delta=\frac{s}{v}-\delta.
 \end{equation}
-But full use of both inputs also requires capital and output to grow at the
-labor-force growth rate $n$. Thus
+Full use of both inputs also requires capital and output to grow at the
+labor-force growth rate $n$. Hence
 \begin{equation}\label{eq:solow-knife-edge}
 \frac{s}{v}-\delta=n.
 \end{equation}
-The parameters need not satisfy this equality. If they do not, this fixed
-production recipe cannot keep both inputs fully used along the proposed path.
-This illustrates the compatibility problem, rather than all of Harrod's or
-Domar's analysis.
+Now the tension is visible. Nothing in the saving rule makes its left-hand
+side equal the growth of labor on the right. A small parameter change can
+make this fully utilized growth path impossible under the fixed recipe.
+This example isolates the compatibility problem; it does not reproduce every
+part of Harrod's or Domar's analysis.
 
-Allow substitution and $K/Y$ is no longer fixed by a single recipe. More capital
-per worker can raise output while reducing the extra output from another unit
-of capital. This gives the capital-output ratio room to adjust. The question
-becomes whether that adjustment brings investment into balance with the needs
-of a growing labor force.
+\subsubsection{Ask which restriction is doing the work}
 
-\subsubsection{Choosing what to keep}
+Before concluding that growth is intrinsically unstable, examine what made
+the equality necessary. We required every unit of output to use the same
+amount of capital and labor. Extra machines could not economize on workers,
+and extra workers could not use a less capital-intensive technique.
 
-The following is a way to build the model from that question, rather than a
-reconstruction of the author's private sequence of ideas.
-\begin{itemize}
-\tightlist
-\item \textbf{Keep a stock that carries the past forward.} Buildings, equipment,
-and other productive assets are summarized by $K$. Gross investment adds to
-this stock; depreciation removes part of it.
-\item \textbf{Keep the inputs needed to use that stock.} Labor $L$ and its
-efficiency $A$ enter production with capital. We initially take their paths as
-given, so changes in capital do not also require a theory of fertility,
-participation, or innovation.
-\item \textbf{Close the flow of resources.} A single good can be consumed or
-invested. With no government or foreign trade, saving becomes domestic
-investment. A constant saving share closes this decision without solving a
-household's intertemporal problem.
-\item \textbf{Separate scale from intensity.} A large economy can have more
-capital simply because it has more workers. Capital per effective worker
-isolates whether productive assets are keeping up with labor and technology.
-\end{itemize}
-These choices produce a one-state accumulation model. Full employment removes
-unemployment from the explanation; a common technology removes differences
-across firms; the saving rule leaves preferences outside the model. Those
-omissions make its mechanism visible and define its limits.
+There are several possible responses. Saving might adjust; labor supply or
+employment might change; firms might use different factor proportions. These
+responses would produce different models. Solow kept a simple saving rule
+and an exogenous labor supply, allowed substitution in production, and studied
+paths with full employment. This makes the production restriction the central
+experiment. Full employment is maintained in that experiment, rather than
+proved to hold in the actual economy.
+
+Replace the fixed recipe by $Y=F(K,L)$. More machines per worker can now raise
+output, while diminishing returns reduce output per unit of capital. Thus
+$Y/K$ can fall as capital accumulates. In $\dot K/K=sY/K-\delta$, capital
+growth can slow toward labor-force growth without a change in $s$ or $n$.
+This is a candidate adjustment mechanism. Whether it works still depends on
+the properties of $F$; the dynamics below establish the result.
+
+\subsubsection{Turn the question into variables and a closed system}
+
+Choosing a flexible $F$ is not enough. In $\dot K=sF(K,L)-\delta K$, both
+$K$ and $L$ could vary. To study capital adjustment first, specify
+$L(t)=L_0e^{nt}$ and give $K(0)$. This leaves one inherited stock to solve for.
+An alternative with wage-sensitive labor supply would require another decision
+rule; it is a possible extension, not an algebraic rearrangement.
+
+Next, a large economy has more capital partly because it has more workers.
+The relevant object for this question is $K/L$. Constant returns allows
+$Y/L=F(K/L,1)$, reducing the accumulation problem to a single capital intensity.
+The ratio is selected because it removes scale while preserving the mechanism
+we want to study.
+
+Finally, if labor efficiency rises, even constant equipment per worker may
+fail to keep up with productive opportunities. Introduce labor-augmenting
+technology $A$ and use $K/(AL)$ instead. We can then distinguish accumulating
+capital relative to effective labor from growth in output per worker. We take
+$A$ as given at this stage; explaining innovation would add a different question.
+
+The model has now acquired its structure through successive choices: an
+accounting constraint, a production experiment, a saving rule, an exogenous
+labor path, and a useful normalization. The assumptions that follow collect
+these choices so that we can check which conclusion depends on which one.
 
 \subsection{Economic environment and assumptions}\label{economic-environment-and-specific-assumptions}
 
@@ -217,6 +243,20 @@ The $ng$ term is part of the exact discrete-time expression; dropping it is a
 small-rate approximation. Setting $g=0$ gives $d_D=\delta+n$; setting $g=n=0$
 gives $d_D=\delta$.
 
+\begin{blueblock}
+\textbf{Reading the per-worker version.}
+Let $\bar k_t=K_t/L_t$. Dividing the aggregate accumulation equation by
+$L_{t+1}$ instead gives the exact law
+\[
+\bar k_{t+1}=\frac{(1-\delta)\bar k_t+sF(\bar k_t,A_t)}{1+n}.
+\]
+There is no $1+g$ in this denominator: technology remains inside production.
+With constant $A_t=\bar A$, define $\bar f(\bar k)=F(\bar k,\bar A)$.
+The map is then stationary; setting $n=0$ also removes the population-growth
+denominator. These are valid restricted cases. When technology grows, a
+stationary map in $k=K/(AL)$ requires the effective-labor normalization above.
+\end{blueblock}
+
 \subsubsection{A steady state and the path toward it}
 
 A positive normalized steady state satisfies
@@ -328,8 +368,9 @@ T_{1/2}\approx\frac{\log2}{\lambda_D}.
 \end{equation}
 $\phi$ is persistence; a larger $\phi$ means slower adjustment. $\lambda_D$ is
 the corresponding decay rate per period, and $T_{1/2}$ is the local half-life
-of a deviation. The original nonlinear path need not have this half-life far
-from its steady state.
+of a deviation. The recursion for the linearized system has an exact geometric solution;
+the approximation is in using that system to describe the original model.
+The nonlinear path need not have this half-life far from its steady state.
 
 For Cobb--Douglas, $sf'(k^*)=\alpha d_D$, so
 \begin{equation}
@@ -356,6 +397,9 @@ Log differentiation of the definition of $k$, followed by substitution, gives
 \dot k&=s\frac{Y}{AL}-(n+g+\delta)k
        =sf(k)-bk\equiv G(k).\label{eq:solow-continuous}
 \end{align}
+With $g=0$ and $A=1$, this becomes $\dot k=sf(k)-(n+\delta)k$.
+That familiar constant-technology equation is an exact special case.
+
 New investment increases capital intensity; depreciation, population growth,
 and technical progress reduce it for a given aggregate stock. Technical
 progress still raises productive possibilities: it reduces $k$ here because
@@ -452,8 +496,10 @@ is again $\alpha$ under this timing convention.
 \begin{blueblock}
 \textbf{A welfare boundary.}
 The Golden Rule maximizes consumption \emph{across balanced growth paths}.
-Solow has not specified a utility function, discounting, or how to value the
-consumption losses during a transition. It therefore does not establish that
+With constant technology and strictly increasing utility $u(c)$, maximizing
+stationary consumption also maximizes utility evaluated at that stationary
+consumption. Solow has not specified discounting or how to value consumption
+losses during a transition. It therefore does not establish that
 moving toward the Golden Rule maximizes intertemporal welfare.
 \end{blueblock}
 

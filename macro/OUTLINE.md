@@ -40,8 +40,10 @@ chapter of Part V.
 ### 3. Solow Model
 
 - From the growth question to the model
-  - The problem behind the equations
-  - Choosing what to keep
+  - Start with a puzzle, before choosing a model
+  - Try a simple account, and see where it becomes restrictive
+  - Ask which restriction is doing the work
+  - Turn the question into variables and a closed system
 - Economic environment and assumptions
   - Resources, timing, and behavior
   - Production and normalization
