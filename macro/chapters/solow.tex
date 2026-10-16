@@ -249,7 +249,7 @@ The unique positive fixed point is the limit for every $k_0>0$.
 \begin{center}
 \includegraphics[width=0.85\linewidth]{images/solow_phase_diagram.png}
 \end{center}
-\noindent\textit{Reading the diagram.} This recovered diagram shows the special
+\noindent\textit{Reading the diagram.} This diagram shows the special
 case $n=g=0$, with $\delta>0$. The curved map is next period's capital; the
 45-degree line is unchanged capital. Starting on the horizontal axis, move
 vertically to the map, then horizontally to the 45-degree line to carry that
@@ -467,27 +467,188 @@ welfare criterion. Ramsey will specify preferences and make the transition
 trade-off part of the saving decision; OLG will examine dynamic efficiency in
 an economy with different generations.
 
-\subsection{Extensions}
+\subsection{Extensions: which assumption needs to change?}\label{sec:solow-extensions}
 
-Solow model with money
-\begin{itemize}
-  \item Purvis, Douglas D. “Introducing Useful Money into a Growth Model.” The Canadian Journal of Economics / Revue Canadienne d’Economique 4, no. 3 (1971)
-\end{itemize}
+An extension should answer a question left open by the benchmark. Adding an
+input, changing the investment technology, and explaining productivity are
+different changes; they need not have the same implications for long-run growth.
+The examples below use continuous time.
 
-Augmented Solow model
+\subsubsection{Investment spending and productive capital}
 
-\begin{itemize}
-  \item N. Gregory Mankiw, David Romer, David N. Weil, A Contribution to the Empirics of Economic Growth, The Quarterly Journal of Economics, Volume 107, Issue 2, May 1992, Pages 407–437
-\end{itemize}
+In the baseline, one unit of investment creates one unit of productive capital.
+To separate spending from productive capacity, suppose only a fraction
+$\eta\in(0,1]$ becomes usable capital:
+\begin{equation}
+I=sY,\qquad C=(1-s)Y,\qquad \dot K=\eta I-\delta K.
+\end{equation}
+The unconverted part is lost in installation or implementation; it is not
+additional consumption. With the same labor and technology paths,
+\begin{equation}
+\dot k=\eta sf(k)-bk,\qquad
+k^*=\left(\frac{\eta s}{b}\right)^{1/(1-\alpha)}
+\quad\text{for }f(k)=k^\alpha.
+\end{equation}
+Higher investment spending and more effective conversion into capital both
+raise the steady-state stock, but only the former directly reduces the
+consumption share. Poor project selection or implementation can therefore
+weaken the link between a reported investment share and productive capacity.
+This scalar $\eta$ is an illustrative reduced form: it does not yet explain
+which projects are chosen or how finance allocates resources.
 
-AK model (often treated as a tool to introduce endogeneous growth model)
+At a stationary $k$, maintaining it requires $I/(AL)=bk/\eta$, so
+$c=f(k)-bk/\eta$. The Golden Rule becomes $f'(k)=b/\eta$. Welfare comparisons
+must account for the resources spent creating capital, not only the stock
+that eventually appears in production.
 
-\begin{itemize}
-  \item Romer, Paul M. (1986). "Increasing Returns and Long-Run Growth". Journal of Political Economy. 94 (5): 1002–1037.
-\end{itemize}
+\subsubsection{Accumulating human capital}
 
-Malthus to Solow (unified growth theory)
+Machines need skills to be useful. The augmented Solow model of Mankiw,
+Romer, and Weil adds a reproducible human-capital stock to the production
+function.\footnote{N. Gregory Mankiw, David Romer, and David N. Weil (1992),
+``A Contribution to the Empirics of Economic Growth,'' \textit{Quarterly Journal
+of Economics}, 107(2), 407--437, Section II.
+\url{https://doi.org/10.2307/2118477}.}
+Write
+\begin{equation}
+Y=K^\alpha H^\beta(AL)^{1-\alpha-\beta},\qquad
+\alpha,\beta>0,\quad \alpha+\beta<1.
+\end{equation}
+Here $H$ denotes a stock of human capital, rather than the quality-adjusted
+hours denoted by $H$ in Chapter~\ref{sec:growth-facts}. To keep the distinction
+visible, use $u\equiv H/(AL)$ for human capital per effective worker. Then
+\begin{equation}
+y=k^\alpha u^\beta.
+\end{equation}
+Suppose output can be transformed into either stock, with fixed investment
+shares $s_K,s_H>0$, $s_K+s_H<1$, and the same depreciation rate for both:
+\begin{align}
+\dot K&=s_KY-\delta K,\qquad
+\dot H=s_HY-\delta H,\\
+\dot k&=s_Ky-bk,\qquad
+\dot u=s_Hy-bu.\label{eq:solow-human-dynamics}
+\end{align}
+There are now two state variables. Consumption is
+$c=(1-s_K-s_H)y$; investment in skills uses resources rather than appearing
+costlessly in production.
 
-\begin{itemize}
-  \item Hansen, Gary, D., and Edward C. Prescott. 2002. "Malthus to Solow ." American Economic Review, 92 (4): 1205–1217.
-\end{itemize}
+At a positive steady state, the two accumulation equations imply
+\begin{equation}
+k^*=\frac{s_K}{b}y^*,\qquad u^*=\frac{s_H}{b}y^*.
+\end{equation}
+Substitute both into production and collect the powers of $y^*$:
+\begin{align}
+y^*&=\left(\frac{s_Ky^*}{b}\right)^\alpha
+       \left(\frac{s_Hy^*}{b}\right)^\beta,\\
+(y^*)^{1-\alpha-\beta}
+&=\frac{s_K^\alpha s_H^\beta}{b^{\alpha+\beta}},\\
+y^*&=\left(\frac{s_K^\alpha s_H^\beta}
+ {b^{\alpha+\beta}}\right)^{1/(1-\alpha-\beta)}.
+\end{align}
+The condition $\alpha+\beta<1$ preserves diminishing returns to the two
+accumulated inputs together. The extension can change income levels and
+transition dynamics, while long-run growth per worker on its balanced growth
+path still comes from $A$. A higher human-capital investment share is not, by
+itself, a permanent growth-rate increase in this specification.
+
+Years of schooling are a proxy for skills, not a direct observation of $H$ or
+$s_H$. Pritchett (2001) highlights why schooling expansion need not translate
+uniformly into aggregate growth: learning quality, demand for educated labor,
+and the activities rewarded by institutions can differ.\footnote{Lant
+Pritchett (2001), ``Where Has All the Education Gone?,'' \textit{World Bank
+Economic Review}, 15(3), 367--391, especially Section II.
+\url{https://doi.org/10.1093/wber/15.3.367}.}
+Weak estimates in a particular specification do not establish that skills have
+no productive value. They call for checking the proposed accumulation
+mechanism, measurement, and identification.
+
+\subsubsection{Technology adoption and catch-up}
+
+Giving every economy the same $A$ path assumes away differences in access to
+and use of technology. To illustrate an adoption mechanism, let frontier
+efficiency $A_F$ grow at $g_F$ and posit, for a follower with $A\leq A_F$,
+\begin{equation}
+\frac{\dot A}{A}=g_F+\mu\log\frac{A_F}{A},\qquad \mu>0.
+\end{equation}
+This is an illustrative adoption rule, not a consequence of the original
+saving equation. Define the log technology gap $v=\log(A_F/A)$. Then
+\begin{align}
+\dot v&=g_F-\frac{\dot A}{A}=-\mu v,\\
+v(t)&=v(0)e^{-\mu t}.
+\end{align}
+A larger gap creates scope for faster adoption; $\mu$ governs how quickly that
+scope is used. Technology catch-up differs from rebuilding a low capital stock.
+It can change output directly and also induce capital accumulation.
+
+During catch-up, $\dot A/A$ varies with the gap. The capital equation is now
+\begin{equation}
+\dot k=sf(k)-\left[n+\delta+g_F+\mu v(t)\right]k.
+\end{equation}
+We cannot use the earlier constant-$g$ transition unchanged. As the technology
+gap closes, this equation approaches the benchmark with $g=g_F$.
+Training, organizational changes, and technology access could help determine
+$\mu$, but this rule does not model their costs or incentives. Explaining those
+choices is a further step toward endogenous productivity.
+
+\subsubsection{Removing diminishing returns: the AK benchmark}
+
+What if returns to the reproducible stock do not diminish? Let
+\begin{equation}
+Y=\mathcal A K,\qquad \mathcal A>0\text{ constant},\qquad
+\dot K=(s\mathcal A-\delta)K.
+\end{equation}
+With labor growth $n$, output per worker satisfies
+\begin{equation}
+g_{Y/L}=s\mathcal A-\delta-n.
+\end{equation}
+A permanent increase in saving now raises the growth rate permanently. The
+reason is the changed production assumption: each additional unit of capital
+has the same product. The Solow Inada and strict-concavity conditions no longer
+hold, and there is no positive stationary $K/L$ when this growth rate is positive.
+
+$K$ can be interpreted as a broad reproducible composite only if we explain
+how its components can be accumulated without diminishing aggregate returns.
+The AK equation shows the role of that restriction; it does not by itself
+supply a theory of innovation, externalities, or optimal saving. Those
+mechanisms belong in the endogenous growth chapter.
+
+\subsubsection{Fixed land and the transition to modern growth}
+
+The baseline omits a fixed input that becomes scarce. Add land $X$:
+\begin{equation}
+Y=BK^aL^\ell X^{1-a-\ell},\qquad
+a,\ell>0,\quad a+\ell<1.
+\end{equation}
+$B$ is Hicks-neutral productivity, as in Chapter~\ref{sec:growth-facts}.
+Dividing by labor gives
+\begin{equation}
+\frac{Y}{L}=B\left(\frac{K}{L}\right)^a
+                 \left(\frac{X}{L}\right)^{1-a-\ell}.
+\end{equation}
+At given $B$ and $K/L$, population growth lowers land per worker and hence
+output per worker. If population growth also responds to income, productivity
+gains may support more people rather than persistent gains in living standards.
+The land equation alone does not establish this outcome; it needs a demographic
+mechanism.
+
+Hansen and Prescott (2002) study a transition in which a less land-intensive
+production process becomes profitable as technology advances. Both production
+processes are available throughout; which one is used changes in equilibrium.
+Their analysis retains exogenous technical progress, so it explains a transition
+in production rather than the ultimate source of innovation.\footnote{Gary D.
+Hansen and Edward C. Prescott (2002), ``Malthus to Solow,'' \textit{American
+Economic Review}, 92(4), 1205--1217.
+\url{https://doi.org/10.1257/00028280260344731}.}
+
+\textbf{Where the benchmark ends.}
+Lower labor-force growth reduces dilution in Solow, holding everything else
+fixed. This is not a complete assessment of ageing: participation, pensions,
+and age-specific saving are absent. Likewise, the model contains no money,
+banks, or foreign assets. Monetary, financial, or trade extensions need those
+objects and their decision rules; their effects cannot be inferred merely
+from their absence here.
+
+The main unresolved choice is already inside the model: why should households
+save a fixed share when their income and returns change? Ramsey replaces that
+rule with an intertemporal problem, making consumption, patience, and the return
+to saving jointly determine the accumulation path.

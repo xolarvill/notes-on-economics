@@ -56,7 +56,12 @@ chapter of Part V.
   - The same mechanism with continuous adjustment
   - Local approximation and an exact Cobb--Douglas solution
 - The Golden Rule and the cost of saving
-- Extensions
+- Extensions: which assumption needs to change?
+  - Investment spending and productive capital
+  - Accumulating human capital
+  - Technology adoption and catch-up
+  - Removing diminishing returns: the AK benchmark
+  - Fixed land and the transition to modern growth
 
 ### 4. Ramsey Model
 
