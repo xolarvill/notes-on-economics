@@ -30,6 +30,17 @@
 \setlength{\RaggedRightRightskip}{0pt plus 1fil}
 \setcounter{tocdepth}{2}% Keep the main contents at chapter and section level.
 
+% Table cells start flush left; environment grouping preserves body indentation.
+% ragged2e restores paragraph columns using RaggedRightParindent, not parindent alone.
+\AddToHook{env/tabular/begin}{%
+  \setlength{\parindent}{0pt}%
+  \setlength{\RaggedRightParindent}{0pt}%
+}
+\AddToHook{env/tabular*/begin}{%
+  \setlength{\parindent}{0pt}%
+  \setlength{\RaggedRightParindent}{0pt}%
+}
+
 % right cases
 \newenvironment{rcases}
   {\left.\begin{aligned}}
