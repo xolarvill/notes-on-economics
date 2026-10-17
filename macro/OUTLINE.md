@@ -172,6 +172,10 @@ chapter of Part V.
 - A growth slowdown: work backward from observations
   - Per-person accounting, competing diagnoses, and evidence that would distinguish them
   - Capacity versus utilization; temporary deviations, level losses, and slower trend growth
+- A longer view: learning to exercise economic judgment
+  - Binding constraints, changing complements, and learning from investment outcomes
+  - Resources, financial claims, expectations, and institutional channels
+  - Transition costs, repeatable opportunities, and conditional judgments
 - What we carry into fluctuations
   - Inherited stocks, changing decisions, and the boundary between trends and model benchmarks
 
