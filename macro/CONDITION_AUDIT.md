@@ -121,3 +121,28 @@ Symbols used for different technology coefficients are defined within each
 experiment. Teaching simplifications are distinguished from the full Lucas
 and Romer originals. The two original figures use only stated model equations
 and hypothetical parameters; there are no empirical estimates in the examples.
+
+## RBC
+
+Comparison source: `f54f5c9:macro/chapters/rbc.tex`. The complete original course
+text, including all equations and callouts, remains as TeX comments between
+`BEGIN ORIGINAL RBC COURSE TEXT` and `END ORIGINAL RBC COURSE TEXT`. This is a
+comparison record; the live chapter distinguishes its two economic environments.
+
+| Original material or qualification | Visible treatment |
+| --- | --- |
+| Ramsey plus labor choice and stochastic productivity | Opening modeling questions; cards 01, 02, 04, and 05 distinguish fixed population from variable hours and observations from forecasts |
+| Household objective, nominal bond budget, ownership income, beta and Q | Cards 05--07 and the full nominal-bond derivation; consistent resources-minus-expenditures multiplier sign |
+| Consumption/leisure and both curvature parameters | Full piecewise CRRA/log utility, explicit derivatives, time endowment, interior conditions, chi=1 course case, and Frisch versus equilibrium elasticity |
+| Household labor and bond FOCs | Both date contributions and all substitutions remain visible; random future prices stay inside the expectation |
+| Firm Cobb--Douglas technology and labor FOC | Complete capital-and-labor firm problem before K=1; conditional cost minimization distinguished from unconstrained wage minimization |
+| Original fixed-capital equations and Y=C | Separate benchmark with K=1, no capital choice, zero depreciation and investment, no government or foreign trade; fixed-factor ownership income retained; alpha=0 labor-only limit allowed |
+| Productivity process | Stationary log process with mean-zero iid innovations, full information convention, positivity of A, and reference-versus-stochastic-mean distinction |
+| AS/AD grouping | Exact real equilibrium list and allocation loop retain the relationships while supplying the missing resource and intertemporal closure |
+| Planned capital and investment | Nine-card complete capital economy, household accumulation budget, capital Euler, capital clearing, terminal behavior, and deterministic steady state |
+| Original expectation and money notes | Reworked in the approximation and nominal-closure discussion; their valid teaching questions remain, while expectation algebra and nominal determinacy require explicit qualifications |
+
+The general capital model has no monetary asset, government, or foreign trade.
+The original money-demand equation is an optional nominal attachment, not an
+unstated household first-order condition. Conditions for a local interior
+solution do not promise a global solution under arbitrarily large shocks.

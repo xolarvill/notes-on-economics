@@ -1,219 +1,739 @@
 % !TEX root = ../macro.tex
 \section{Real Business Cycle Model}\label{sec:rbc}
 
-Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
-\begin{itemize}
-\tightlist
-  \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
-  \item Stochastic productivity (i.e. real shocks)
-\end{itemize}
+% BEGIN ORIGINAL RBC COURSE TEXT (pre-revision; comparison only)
+% 
+% Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
+% \begin{itemize}
+% \tightlist
+%   \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
+%   \item Stochastic productivity (i.e. real shocks)
+% \end{itemize}
+% 
+% 
+% \begin{blueblock}
+% \begin{note}[Two principles of the RBC theory of business cycles]
+% 
+% 1. Money is of little importance in business cycles.
+% 
+% 2. Business cycles are created by rational agents responding optimally to
+% real (not nominal) shocks - mostly fluctuations in productivity growth,
+% but also fluctuations in government purchases, import prices, or preferences.
+% \end{note}
+% \end{blueblock}
+% 
+% 
+% 
+% 
+% \sepline
+% \subsection{UMP of household}
+% A typical household entails product-consuming for $C_t$ and labor-providing for $N_t$. Only in this model, the agent value leisure $L_t=1-N_t$.
+% 
+% The UMP in RBC model is
+% \begin{align}
+% &\max\limits_{C_{t},N_{t},B_{t}} E_t \sum\limits_{t=0}^{\infty}\beta^{t}u(C_{t},N_{t})
+% \\&
+% s.t. \; P_{t}C_{t}+Q_{t}B_{t}\leqslant B_{t-1}+W_{t}N_{t}+D_{t}
+% \text{, where }
+% \begin{cases}
+% \beta \in (0,1) \\
+% Q_{t}=\frac{1}{1+i_{t}} \text{ is the price per bond bought today}
+% \end{cases}
+% \end{align}
+% 
+% Form a Lagrangian and acquire FOCs
+% \begin{align}
+% &\mathscr{L}=E_{0} \sum\limits_{t=0}^{\infty}\beta^{t}[u(C_{t},N_{t})+\lambda_{t}(P_{t}C_{t}+Q_{t}B_{t}-B_{t-1}-W_{t}N_{t}-D_{t} )]
+% \\&
+% \Rightarrow
+% \begin{cases}\frac{\partial  \mathscr{L}}{\partial C_{t}}=0 \Rightarrow \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \Rightarrow \frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+% \frac{\partial  \mathscr{L}}{\partial N_{t}}=0 \Rightarrow \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0 \\
+% \frac{\partial  \mathscr{L}}{\partial B_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t}
+% \end{cases}
+% \end{align}
+% 
+% using these FOCs
+% \begin{align}
+% &\begin{cases}
+%   \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \\
+%   \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0
+% \end{cases} \Rightarrow \color{red} \text{Labor supply equation} -\frac{u_{N_{t}}}{u_{C_{t}}}=\frac{W_{t}}{P_{t}}
+% \\&
+% \text{Also} \begin{cases}\frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
+% \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t}
+% \end{cases}
+% \Rightarrow \color{red} \text{Euler's equation } \frac{Q_{t}}{\beta}=E_{t}\cdot
+% \frac{\frac{U_{c,t+1}}{P_{t+1}}}{\frac{U_{c,t}}{P_{t}}}
+% \end{align}
+% 
+% 
+% \begin{greenblock}
+% e.g. Let utility function be specific
+% \begin{align}
+% &
+% u(C_{t},N_{t})=\begin{cases}
+% \frac{c^{1-\sigma}_{t}-1}{1-\sigma}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma\neq 1 \\
+% \log C_{t}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma=1\end{cases}
+% \\&
+% \Rightarrow \begin{cases}
+% \frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \\
+% Q_{t}=\beta E_{t}\cdot (\frac{C_{t+1}}{C_{t}})^{-\sigma}\cdot \frac{P_{t}}{P_{t+1}}
+% \end{cases}
+% \end{align}
+% \end{greenblock}
+% 
+% 
+% 
+% \sepline
+% \subsection{PMP of firm}
+% \begin{align}
+% \min\limits_{N_{t}} W_t N_t \Leftrightarrow &\max\limits_{Y_t} P_{t}Y_{t}-W_{t}N_{t}
+% \\&s.t. Y_t = A_t K_t^\alpha N_t^{1-\alpha}, \alpha \in [0,1)
+% \\&
+% \text{where }
+% \begin{cases}
+%   Y_{t}=A_{t}W_{t}^{1-\alpha}\\
+%   A_{t}=A_{t-1}^{\rho\alpha} \epsilon_{t}^{\alpha}, \epsilon_{t}^{\alpha} \overset{iid}{\sim} N(0,\sigma_{\alpha}^{\epsilon})
+%   \text{ (technology shocks)}
+% \end{cases}
+% \\&
+% \Rightarrow \text{F.O.C.: } \frac{W_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand equation)}
+% \end{align}
+% 
+% \sepline
+% \subsection{Economy described by RBC}
+% {\color{red}
+% The whole economy system is described as the balance of demand and supply
+% \begin{align}
+% &\text{AS}
+% \begin{cases} Y_{t}=A_{t}N_{t}^{1-\alpha} \text{ (total production function)}, A_t=A^{\rho a}_{t-1} e^{\epsilon^a_t} \text{ (technology shocks)}\\
+% \frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \text{ (labor supply from UMP)}\\
+% \frac{w_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand from PMP)}
+% \end{cases}
+% \\&
+% \text{AD}
+% \begin{cases}Y_{t}=C_{t}+I_{t} \text{ (accouting equation)}\\
+% Q_{t}=\beta E_{t} (\frac{C_{t+1}}{C_{t}})^{-a} \frac{P_{t}}{P_{t+1}}  \text{ (Euler equation from UMP)}\\
+% \frac{M_{t}}{P_{t}}=\frac{Y_{t}}{Q_{t}^{-n}}  \text{ (demand of liquidity)}
+% \end{cases}
+% \end{align}
+% }
+% 
+% 
+% \sepline
+% \subsection{Log-linearization}
+% 
+% Two methods we can transform.
+% 1) The first is
+% \begin{align}
+% &
+% \hat x_{t}=\ln x_{t}-\ln x^{*}
+% \\&
+% =\ln |\frac{ x_{t}}{x^{*}}|
+% \\&
+% =\ln |1+ \frac{x_{t}-x^{*}}{x^{*}}| \text{ (percentage of deviation from stable state)}
+% \\&
+% \approx \ln |1+\frac{1}{x^{*}}(x_{t}-x^{*})|
+% \\&
+% =\frac{x_{t}-x^{*}}{x^{*}}
+% \end{align}
+% 
+% 2) Another approach would be
+% \begin{align}
+% &\ln x^{*}=ln x_{t}-\tilde{x_{t}}\Rightarrow \ln x_{t}=ln x^{*}+\tilde{x_{t}}
+% \\&
+% \Rightarrow e^{\ln x_{t}}=x_{t}=e^{n x^{*}+\tilde{x_{t}}}=x^{*}e^{\hat{x_{t}}} \approx x^{*} (1+\hat x_{t})
+% \end{align}
+% 
+% Now we turn to the linearization of RBC model
+% \begin{align}
+% &
+% \begin{cases}
+% y_{t}=a_{t}+(1-\alpha)n_{t}
+% \\
+% y=a+(1-\alpha)n
+% \end{cases}
+% \Rightarrow \hat y_{t}=\hat a_{t}+(1-\alpha)\hat n_{t}
+% \\&
+% \Rightarrow
+% \begin{cases}
+% \hat w_{t}-\hat p_{t}=\hat a_{t}+(1-\alpha)\hat n_{t} \\
+% \hat w_{t}-\hat p_{t}=a\hat c_{t}+\rho \hat n_{t}\end{cases}
+% \Rightarrow \hat y_{t}=\hat c_{t}, \; m_{t}-\hat p_{t}=\hat y_{t} -\hat n_{it}
+% \\&
+% Y_{t}=C_{t}+I_{t}
+% \\&
+% Y\cdot e^{\hat y_{t}}=C\cdot e^{\hat c_{t}}+I\cdot e^{\hat i_{t}}
+% \\&
+% Y(1+\hat y_{t})=C(1+\hat c_{t})+I(1+\hat i_{t})
+% \\&
+% \hat y_{t}=\frac{C}{Y}\hat c_{t}+ \frac{I}{Y} \hat i_{t}\\&
+% a_{t}=\rho_{t} a_{t-1}+\epsilon_{t}^{a}
+% \\&
+% 1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a(c_{t+1}-c_{t})-(P_{t+1}-P_{t})}
+% \\&
+% 1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a\triangle c_{t+1}-\pi_{t+1}}
+% \\&
+% 1=E_{t} I[1+(i_{t}-i)-a(\triangle c_{t+1}-\triangle c_{t}]-(\pi_{t+1}-\pi_{t})]
+% \end{align}
+% 
+% {\color{red} Therefore a RBC model can be rewritten in linearized log equations
+% \begin{align}
+% \color{red}&\text{AS:} \begin{cases}
+% \hat y_{t}=a_{t}+(1-\alpha)\hat n_{t} \text{ (output)}\\
+% \hat w_{t}-\hat p_{t}=a_{t}-\alpha \hat n_{t} \text{ (labor demand)}\\
+% \hat w_{t}-\hat p_{t}=a c_{t}+\varphi \hat n_{t} \text{ (labor supply)}\\
+% \hat a_{t}=\rho_a \hat a_{t-1}+\epsilon_t^a \text{ (technology)}
+% \end{cases}
+% \\&
+% \text{AD:} \begin{cases}
+% \hat y_{t}=\hat c_{t} \text{ (product market clearing)}\\
+% \hat c_{t}=E_{t}\hat c_{t+1}-\frac{1}{a}(\hat i_{t}-E_{t}\hat \pi_{t+1}) \\
+% \hat m_{t}-\hat p_{t}=\hat y_{t}-\eta \cdot \hat i_{t} \text{ (money demand equation; $\eta$ is interest rate elasticity)}\\
+% \hat r_{t}=i_{t}-E_{t} \hat \pi_{t+1} \text{ (Fisherian equation)}
+% \end{cases}
+% \end{align}
+% }
+% 
+% \begin{blueblock}
+% \begin{note}[Exceptation for Expectation]
+% Notice this method does not apply to equations involving expectations.
+% \end{note}
+% \end{blueblock}
+% 
+% \begin{blueblock}
+% \begin{note}[RBC has neutrality of money]
+% The final answer of this standard RBC model is not relevant to any price variable, inferring the model being money-neutral.
+% \end{note}
+% \end{blueblock}
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% \subsection[Capital accumulation and investment (planned)]{Capital accumulation and investment}
+% \textit{Planned section.} Extend the current fixed-capital benchmark to endogenous capital accumulation.
+% Derive investment dynamics and distinguish the simplified benchmark from a
+% full RBC model with a changing capital stock.
+% END ORIGINAL RBC COURSE TEXT
 
+\subsection{From a growth path to changing opportunities}
 
+\subsubsection{What would make a Ramsey household change its working week?}
+
+Imagine a group of factories. Their machines have not changed overnight, but
+an interruption in power supply now makes each working shift less productive.
+Orders, hours, investment, and consumption may all change. Start with questions
+rather than labeling the event a ``technology shock.'' Can the factories produce
+less with the same inputs? Are households poorer? Should they postpone work or
+investment until conditions improve? Would the answer differ if the interruption
+lasted one week rather than several years?
+
+Ramsey already gives a way to compare consumption today and tomorrow. But with
+fixed labor and a known production path, it leaves two margins closed. Households
+cannot move working time toward more rewarding dates, and they never have to
+choose before learning tomorrow's production conditions. Let labor be chosen;
+let future productivity be uncertain. Keep preferences, ownership, production,
+and market clearing explicit. This produces a tractable real business cycle
+(RBC) benchmark.
+
+This is a teaching reconstruction of the modeling questions, not a record of
+any author's private thought process. Kydland and Prescott (1982) and Long and
+Plosser (1983) are foundational contributions. Their actual environments differ;
+the one-sector model below is a simpler teaching economy, without the former's
+multi-period construction technology or the latter's sectoral structure.
+\footnote{Finn E. Kydland and Edward C. Prescott (1982), ``Time to Build and
+Aggregate Fluctuations,'' \textit{Econometrica}, 50(6), 1345--1370,
+\url{https://www.minneapolisfed.org/~/media/files/research/prescott/papers/timetobuild.pdf};
+John B. Long, Jr., and Charles I. Plosser (1983), ``Real Business Cycles,''
+\textit{Journal of Political Economy}, 91(1), 39--69,
+\url{https://doi.org/10.1086/261128}.}
+
+\subsubsection{Choose the disturbance, then explain its transmission}
+
+A scalar $A_t$ summarizes how much output given capital and hours can produce.
+An unexpected change in it is an innovation. The persistence of $A_t$ describes
+how long production opportunities change. Household choices and accumulated
+capital determine how that change travels through the economy. These are three
+different objects: innovation, persistence, and propagation.
+
+A fall in $A_t$ need not mean that engineers forgot a blueprint. A power or
+logistics disruption can reduce effective production opportunities. But treating
+an event as a scalar productivity change is a modeling decision: energy inputs,
+relative prices, network bottlenecks, and distributional losses have been
+suppressed. A credit refusal or an absence of orders cannot automatically be
+reclassified as technology. Their mechanisms need their own constraints.
+
+The growth models explain accumulation and, in some cases, the source of trend
+growth. Here we hold trend productivity constant to isolate fluctuations around
+a stationary reference. This does not assert that actual output has no trend.
+Adding a deterministic trend requires a consistent normalization of production,
+preferences, and Euler conditions; it cannot be hidden inside the shock term.
+
+\Needspace{11\baselineskip}
 \begin{blueblock}
-\begin{note}[Two principles of the RBC theory of business cycles]
-
-1. Money is of little importance in business cycles.
-
-2. Business cycles are created by rational agents responding optimally to
-real (not nominal) shocks - mostly fluctuations in productivity growth,
-but also fluctuations in government purchases, import prices, or preferences.
-\end{note}
+\textbf{A real benchmark is a conditional experiment.}
+The original course principles become two questions. How much joint movement
+can real disturbances produce when agents respond optimally? Which observed
+movements require additional mechanisms? Money and nominal frictions are
+excluded from the real allocation block below. Their exclusion does not
+establish their empirical irrelevance. Government purchases, relative import
+prices, and preference disturbances can be studied in extensions, but are not
+silently included in this one-shock economy.
 \end{blueblock}
 
+\subsection{Complete conditions and the order of decisions}\label{sec:rbc-conditions}
 
+The main model has endogenous capital. The course's fixed-capital benchmark
+will be recovered as a separate restriction in Section~\ref{sec:rbc-fixed}.
+Population is one and does not grow; hours are allowed to vary at every date.
+In particular, zero population growth is not constant labor input.
 
-
-\sepline
-\subsection{UMP of household}
-A typical household entails product-consuming for $C_t$ and labor-providing for $N_t$. Only in this model, the agent value leisure $L_t=1-N_t$.
-
-The UMP in RBC model is
-\begin{align}
-&\max\limits_{C_{t},N_{t},B_{t}} E_t \sum\limits_{t=0}^{\infty}\beta^{t}u(C_{t},N_{t})
-\\&
-s.t. \; P_{t}C_{t}+Q_{t}B_{t}\leqslant B_{t-1}+W_{t}N_{t}+D_{t}
-\text{, where }
+\Needspace{18\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Dates, people, and the time endowment}
+Time is discrete, $t=0,1,\ldots$. A closed economy contains many identical,
+infinite-lived, price-taking households, aggregated to one representative
+household of constant mass one. Each household has one unit of time per date:
+$N_t\in[0,1]$ is work and $L_t=1-N_t$ is leisure. Work denotes an intensive
+hours margin; there is no separate unemployment, participation, matching, or
+involuntary rationing margin. Consumption satisfies $C_t>0$.
+\end{modelcondition}
+\begin{modelcondition}{02}{Goods, states, ownership, and timing}
+One homogeneous good can be consumed or installed as capital at unit resource
+cost. Households own the capital and firm shares. The given initial stock is
+$K_0>0$; $K_t$ was chosen at $t-1$ and is usable at $t$. The current productivity
+$A_t$ is observed before choosing $C_t,N_t,I_t,K_{t+1}$ and financial positions.
+Next period's innovation is not yet observed. Capital is the only accumulated
+productive stock; there are no inventories, skills, adjustment costs,
+installation delays, or variable utilization in this benchmark.
+\end{modelcondition}
+\begin{modelcondition}{03}{Production and competitive firms}
+Firms rent capital and hire labor in competitive spot markets. Their technology
+is $Y_t=A_tK_t^\alpha N_t^{1-\alpha}$, with $A_t>0$ and $0<\alpha<1$.
+It has constant returns in $(K_t,N_t)$, positive marginal products, and diminishing
+marginal products holding the other input fixed. Firms take prices and $A_t$
+as given; there is no markup, externality, or nominal price or wage rigidity.
+\end{modelcondition}
+\begin{modelcondition}{04}{The stochastic process and information}
+Write $a_t=\log(A_t/\bar A)$, where $\bar A>0$, and let
+\[
+a_t=\rho_a a_{t-1}+\varepsilon_t^a,\qquad |\rho_a|<1,\qquad
+E_{t-1}\varepsilon_t^a=0,\quad E[(\varepsilon_t^a)^2]=s_\varepsilon^2<\infty.
+\]
+Innovations are independent and identically distributed, with a distribution
+known to households; Gaussian innovations are an optional specification.
+$E_t$ conditions on the full observed history through $t$ and the equilibrium
+rules, including current $K_t,A_t$. Rational expectations means using this
+conditional law, not knowing the future realization. $a_t=0$ is the deterministic
+reference, not a claim that $E A_t=\bar A$ under uncertainty.
+\end{modelcondition}
+\begin{modelcondition}{05}{Preferences and the household objective}
+The household maximizes $E_0\sum_{t=0}^\infty\beta^t u(C_t,N_t)$, with
+$0<\beta<1$, $\sigma>0$, $\chi>0$, and $\varphi>0$, where
+\[
+u(C,N)=
 \begin{cases}
-\beta \in (0,1) \\
-Q_{t}=\frac{1}{1+i_{t}} \text{ is the price per bond bought today}
+(C^{1-\sigma}-1)/(1-\sigma)-\chi N^{1+\varphi}/(1+\varphi),&\sigma\ne1,\\
+\log C-\chi N^{1+\varphi}/(1+\varphi),&\sigma=1.
 \end{cases}
-\end{align}
+\]
+The original course normalization is $\chi=1$. $\sigma$ governs consumption
+curvature; $\varphi$ governs the curvature of work disutility. We derive local
+interior conditions with $0<N_t<1$. Parameter and shock choices must support
+finite expected welfare and feasible paths; large shocks may activate corners
+that a local solution does not describe.
+\end{modelcondition}
+\begin{modelcondition}{06}{Accumulation, prices, and household resources}
+Capital depreciates at $0<\delta<1$ and satisfies
+$K_{t+1}=(1-\delta)K_t+I_t\geq0$. The baseline permits reversible investment;
+there is no additional $I_t\geq0$ constraint. Let $w_t$ be the real wage,
+$q_t$ the real capital rental payment before depreciation, and $d_t$ real
+profits distributed to households. With no financial trade the household budget is
+\[
+C_t+K_{t+1}=w_tN_t+(q_t+1-\delta)K_t+d_t.
+\]
+Households face no tax, transfer, borrowing wedge, or idiosyncratic uninsured
+risk. Prices and returns are taken as given in individual optimization;
+market clearing is imposed afterward.
+\end{modelcondition}
+\begin{modelcondition}{07}{Financial claims and nominal units}
+For the course's nominal bond calculation, $P_t>0$ is the goods price,
+$W_t=P_tw_t$, and $D_t=P_td_t$. $B_t$ pays one currency unit per unit at $t+1$
+and costs $Q_t>0$ at $t$, so $R_t^n=1/Q_t=1+i_t$ is the gross nominal return.
+The full budget is
+\[
+P_t[C_t+K_{t+1}-(1-\delta)K_t]+Q_tB_t
+ =W_tN_t+P_tq_tK_t+B_{t-1}+D_t.
+\]
+Bonds are in zero aggregate net supply and $B_{-1}=0$. A household's small
+financial trade is allowed when deriving its Euler condition; identical-agent
+market clearing then sets aggregate $B_t=0$. A risk-free \emph{real} claim is
+a separate hypothetical payoff, not the nominal bond deflated by a known
+future price. There is no monetary asset in the core household budget.
+\end{modelcondition}
+\begin{modelcondition}{08}{Market clearing, solvency, and terminal behavior}
+Household labor and capital supplies equal firms' demands. Goods clear as
+$Y_t=C_t+I_t$, and constant returns with competitive pricing imply $d_t=0$.
+Admissible household plans rule out debt rollovers that finance consumption
+without resources. For the capital-only aggregate optimum the transversality
+restriction is
+\[
+\lim_{T\to\infty}E_0[\beta^T C_T^{-\sigma}K_{T+1}]=0.
+\]
+Solvency restricts admissible borrowing; transversality selects optimal terminal
+behavior. Neither follows merely from writing the interior Euler equations.
+No-Ponzi restrictions also apply to any individual financial trades.
+\end{modelcondition}
+\begin{modelcondition}{09}{Equilibrium, reference state, and scope}
+An equilibrium is a collection of history-contingent allocations and prices
+satisfying household optimality and admissibility, firm optimality, the
+productivity law, and all market-clearing conditions for the given initial
+state. We select the locally stable interior solution near its deterministic
+steady state. Money, government, foreign trade, monopoly, financial frictions,
+and household heterogeneity are absent. A nominal policy or quantity closure
+is an extra specification; the real equations alone do not select $P_t$.
+\end{modelcondition}
+\end{modelsetup}
 
-Form a Lagrangian and acquire FOCs
+The within-date sequence is
+\[
+\underbrace{K_t,\ A_t\text{ observed}}_{\text{inherited stock and current information}}
+\ \longrightarrow\
+\underbrace{N_t,\ Y_t,\ C_t,\ I_t}_{\text{work, production, and allocation}}
+\ \longrightarrow\
+\underbrace{K_{t+1}}_{\text{productive next date}}.
+\]
+An announcement about tomorrow can change today's choices; tomorrow's machine
+stock cannot jump retroactively. In the experiment below only unanticipated
+productivity innovations occur.
+
+\subsection{Household choice: working now and transferring consumption}
+
+\subsubsection{Retain the course's nominal bond route}
+
+First suppress capital trade to isolate the original asset calculation. Write
+nominal nonlabor income as $\mathcal D_t$; this includes the fixed factor's
+income in the course benchmark. The budget is
+\begin{equation}\label{eq:rbc-course-budget}
+P_tC_t+Q_tB_t=B_{t-1}+W_tN_t+\mathcal D_t.
+\end{equation}
+Use resources minus expenditures in the multiplier term:
+\begin{equation}
+\mathscr L=E_0\sum_{t=0}^\infty\beta^t
+\{u(C_t,N_t)+\lambda_t[B_{t-1}+W_tN_t+\mathcal D_t-P_tC_t-Q_tB_t]\}.
+\end{equation}
+For an interior choice at a history observed at $t$, the first two derivatives are
 \begin{align}
-&\mathscr{L}=E_{0} \sum\limits_{t=0}^{\infty}\beta^{t}[u(C_{t},N_{t})+\lambda_{t}(P_{t}C_{t}+Q_{t}B_{t}-B_{t-1}-W_{t}N_{t}-D_{t} )]
-\\&
-\Rightarrow
-\begin{cases}\frac{\partial  \mathscr{L}}{\partial C_{t}}=0 \Rightarrow \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \Rightarrow \frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
-\frac{\partial  \mathscr{L}}{\partial N_{t}}=0 \Rightarrow \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0 \\
-\frac{\partial  \mathscr{L}}{\partial B_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t}
-\end{cases}
+u_{C,t}-\lambda_tP_t&=0,
+ &\lambda_t&=u_{C,t}/P_t,\\
+u_{N,t}+\lambda_tW_t&=0,
+ &-u_{N,t}&=\lambda_tW_t.
 \end{align}
-
-using these FOCs
+The common factor $\beta^t$ and the probability of reaching this history cancel
+from the two conditions. Divide the second condition by the first:
 \begin{align}
-&\begin{cases}
-  \beta^{t}[u_{C_{t}} -\lambda_{t}P_{t}]=0 \\
-  \beta^{t}[u_{N_{t}}+\lambda_{t} W_{t}] =0
-\end{cases} \Rightarrow \color{red} \text{Labor supply equation} -\frac{u_{N_{t}}}{u_{C_{t}}}=\frac{W_{t}}{P_{t}}
-\\&
-\text{Also} \begin{cases}\frac{u_{C_{t}}}{E_{t}U_{c,t+1}}=\frac{\lambda_{t}}{E_{t}\lambda_{t+1}} \cdot \frac{P_{t}}{E_{t}{P_{t+1}}} \\
-\beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t}
-\end{cases}
-\Rightarrow \color{red} \text{Euler's equation } \frac{Q_{t}}{\beta}=E_{t}\cdot
-\frac{\frac{U_{c,t+1}}{P_{t+1}}}{\frac{U_{c,t}}{P_{t}}}
+\frac{-u_{N,t}}{u_{C,t}}&=\frac{\lambda_tW_t}{\lambda_tP_t},\\
+-\frac{u_{N,t}}{u_{C,t}}&=\frac{W_t}{P_t}=w_t.\label{eq:rbc-labor-general}
 \end{align}
+The marginal disutility of another working hour equals its consumption-valued
+wage. This is an intratemporal condition: all its objects are known at $t$.
 
+One unit of $B_t$ costs $Q_t$ now and pays one currency unit in every next-date
+state. Its two multiplier contributions give
+\begin{align}
+0&=-\beta^t\lambda_tQ_t+\beta^{t+1}E_t\lambda_{t+1},\\
+\lambda_tQ_t&=\beta E_t\lambda_{t+1},\\
+Q_t\frac{u_{C,t}}{P_t}&=\beta E_t\!\left[\frac{u_{C,t+1}}{P_{t+1}}\right],\\
+Q_t&=\beta E_t\!\left[
+\frac{u_{C,t+1}}{u_{C,t}}\frac{P_t}{P_{t+1}}\right].\label{eq:rbc-nominal-euler}
+\end{align}
+Current $P_t$ and $u_{C,t}$ can leave the expectation; future marginal utility
+and the future price generally cannot. The last line retains the course's
+nominal Euler equation with a consistent sign and information convention.
 
+Differentiate the stated utility explicitly:
+\begin{align}
+\frac{d}{dC}\frac{C^{1-\sigma}-1}{1-\sigma}
+ &=\frac{(1-\sigma)C^{-\sigma}}{1-\sigma}=C^{-\sigma},\\
+\frac{d}{dC}\log C&=1/C=C^{-1},\\
+\frac{\partial u}{\partial N}
+ &=-\frac{\chi(1+\varphi)N^\varphi}{1+\varphi}=-\chi N^\varphi.
+\end{align}
+Substitution into the two optimality conditions yields
+\begin{align}
+-\frac{-\chi N_t^\varphi}{C_t^{-\sigma}}
+ &=\chi C_t^\sigma N_t^\varphi=w_t,\label{eq:rbc-labor}\\
+\frac{u_{C,t+1}}{u_{C,t}}
+ &=\frac{C_{t+1}^{-\sigma}}{C_t^{-\sigma}}
+   =\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma},\\
+Q_t&=\beta E_t\!\left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+1}}\right].\label{eq:rbc-bond-crra}
+\end{align}
+When $C_t$ and thus the marginal value of resources are held fixed,
+\begin{align}
+\log N_t&=\frac{\log w_t-\log\chi-\sigma\log C_t}{\varphi},\\
+\left.\frac{\partial\log N_t}{\partial\log w_t}\right|_{u_{C,t}}
+ &=1/\varphi.
+\end{align}
+This is the Frisch hours elasticity. Along an equilibrium, consumption also
+changes: a higher wage creates both a reward to working and additional wealth.
+The Frisch calculation alone does not determine the total hours response.
+
+\Needspace{12\baselineskip}
+\begin{blueblock}
+\textbf{Keep random prices inside the expectation.}
+In general $E_t(X/Z)\ne E_tX/E_tZ$, and $E_t(XZ)\ne E_tX\,E_tZ$.
+For two equally likely future states with $(X,Z)=(1,1),(3,2)$,
+\[
+E(X/Z)=\tfrac12(1+3/2)=5/4,\qquad EX/EZ=2/(3/2)=4/3.
+\]
+The nominal bond pays a certain currency amount, but its purchasing power
+$1/P_{t+1}$ is uncertain. A risk-free real bond instead has a certain goods
+payoff. Confusing the two loses the connection between prices and consumption
+risk.
+\end{blueblock}
+
+\subsubsection{Capital brings back the Ramsey margin, with uncertain returns}
+
+For the full budget in card 07, consumption and hours have the same derivatives.
+The cost of one extra unit of $K_{t+1}$ is $P_t$ at $t$. Next date it delivers
+rental income $P_{t+1}q_{t+1}$ plus surviving capital $P_{t+1}(1-\delta)$.
+Taking prices as given, the two-date derivative is
+\begin{align}
+0&=-\beta^t\lambda_tP_t
+ +\beta^{t+1}E_t[\lambda_{t+1}P_{t+1}(q_{t+1}+1-\delta)],\\
+\lambda_tP_t
+ &=\beta E_t[\lambda_{t+1}P_{t+1}(q_{t+1}+1-\delta)],\\
+C_t^{-\sigma}
+ &=\beta E_t[C_{t+1}^{-\sigma}(q_{t+1}+1-\delta)].\label{eq:rbc-capital-euler}
+\end{align}
+Let $R^K_{t+1}=q_{t+1}+1-\delta$ and
+$M_{t,t+1}=\beta(C_{t+1}/C_t)^{-\sigma}$. Division by current marginal utility gives
+\begin{align}
+1&=E_t[M_{t,t+1}R^K_{t+1}],\\
+Q_t&=E_t[M_{t,t+1}P_t/P_{t+1}],\\
+R_t^f&=1/E_tM_{t,t+1}.\label{eq:rbc-pricing}
+\end{align}
+The last line prices a hypothetical risk-free real payoff. The bond can help
+price intertemporal transfers even though identical households hold zero bonds
+in aggregate. It cannot make aggregate consumption exceed aggregate resources.
+
+Expected capital returns need not equal the risk-free return. Expanding the
+conditional covariance gives
+\begin{align}
+1&=(E_tM_{t,t+1})(E_tR^K_{t+1})
+       +\operatorname{Cov}_t(M_{t,t+1},R^K_{t+1}),\\
+E_tR^K_{t+1}
+ &=R_t^f-\frac{\operatorname{Cov}_t(M_{t,t+1},R^K_{t+1})}{E_tM_{t,t+1}}.
+\end{align}
+A payoff arriving when consumption is scarce is especially valuable. This
+risk distinction disappears to first order around the deterministic reference;
+it is not absent from the exact model.
+
+\subsection{Firms, resource clearing, and the real equilibrium}
+
+\subsubsection{Differentiate before normalizing the capital stock}
+
+In real goods the firm solves
+\[
+\max_{K_t^d,N_t^d}\;
+ A_t(K_t^d)^\alpha(N_t^d)^{1-\alpha}-w_tN_t^d-q_tK_t^d.
+\]
+The household owns the stock; the firm rents its current services. Thus the
+firm's capital demand is a within-date choice, even though aggregate capital
+supply $K_t$ is predetermined. The input derivatives at an interior optimum are
+\begin{align}
+0&=(1-\alpha)A_t(K_t^d)^\alpha(N_t^d)^{-\alpha}-w_t,\\
+0&=\alpha A_t(K_t^d)^{\alpha-1}(N_t^d)^{1-\alpha}-q_t.
+\end{align}
+Impose $K_t^d=K_t$ and $N_t^d=N_t$ afterward:
+\begin{align}
+w_t&=(1-\alpha)A_tK_t^\alpha N_t^{-\alpha}
+       =(1-\alpha)Y_t/N_t,\label{eq:rbc-wage}\\
+q_t&=\alpha A_tK_t^{\alpha-1}N_t^{1-\alpha}
+       =\alpha Y_t/K_t.\label{eq:rbc-rent}
+\end{align}
+For a prescribed output $Y_t$, cost minimization over labor alone, with fixed
+$K_t$, delivers the same conditional labor requirement. It is not an
+unconstrained minimization of wage payments with no output requirement.
+The stock cannot be replaced by the wage in the production function.
+
+Factor income exhausts output:
+\begin{align}
+w_tN_t&=(1-\alpha)Y_t,\qquad q_tK_t=\alpha Y_t,\\
+d_t&=Y_t-w_tN_t-q_tK_t
+ =Y_t-(1-\alpha)Y_t-\alpha Y_t=0.
+\end{align}
+Zero profit does not remove households' capital income. Use the household
+budget, zero bond supply, and these payments to obtain
+\begin{align}
+C_t+K_{t+1}&=w_tN_t+q_tK_t+(1-\delta)K_t+d_t,\\
+ &=Y_t+(1-\delta)K_t,\\
+Y_t-C_t&=K_{t+1}-(1-\delta)K_t=I_t,\\
+Y_t&=C_t+I_t.\label{eq:rbc-resources}
+\end{align}
+Saving allocates current goods to capital; bond trade only rearranges claims
+between households. The labor condition, resource constraint, and capital
+Euler equation play different roles and must all hold.
+
+\subsubsection{The planner route checks the same allocation}
+
+With the stated competition, ownership, and absence of wedges, a planner can
+choose the aggregate allocation under the same technology and information:
+\begin{align}
+\mathscr L^P=E_0\sum_{t=0}^\infty\beta^t\{u(C_t,N_t)
+ +\mu_t[A_tK_t^\alpha N_t^{1-\alpha}+(1-\delta)K_t-C_t-K_{t+1}]\}.
+\end{align}
+Its derivatives are
+\begin{align}
+u_{C,t}-\mu_t&=0,\\
+u_{N,t}+\mu_t(1-\alpha)A_tK_t^\alpha N_t^{-\alpha}&=0,\\
+-\mu_t+\beta E_t[\mu_{t+1}
+ (\alpha A_{t+1}K_{t+1}^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta)]&=0.
+\end{align}
+Substituting $\mu_t=C_t^{-\sigma}$ recovers
+\eqref{eq:rbc-labor} and \eqref{eq:rbc-capital-euler}, with the competitive
+factor prices. Concavity, feasibility, and the terminal restriction accompany
+these interior conditions. The equivalence must be reconsidered when a wedge,
+externality, markup, or market incompleteness changes the environment.
+
+\Needspace{12\baselineskip}
 \begin{greenblock}
-e.g. Let utility function be specific
-\begin{align}
-&
-u(C_{t},N_{t})=\begin{cases}
-\frac{c^{1-\sigma}_{t}-1}{1-\sigma}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma\neq 1 \\
-\log C_{t}-\frac{N_{t}^{1+\varphi}}{1+\varphi},\sigma=1\end{cases}
-\\&
-\Rightarrow \begin{cases}
-\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \\
-Q_{t}=\beta E_{t}\cdot (\frac{C_{t+1}}{C_{t}})^{-\sigma}\cdot \frac{P_{t}}{P_{t+1}}
-\end{cases}
-\end{align}
+\textbf{The equilibrium is a loop, not two independent curves.}
+Observed productivity and inherited capital determine productive opportunities.
+Households choose hours and consumption jointly, using both current wages and
+expected future returns. Hours change output and factor prices; the consumption
+choice leaves investment; investment changes tomorrow's capital. Prices must
+support all of these choices at once. An AS/AD grouping can organize the
+original equations, but cannot close the economy without its resource,
+accumulation, expectations, and terminal conditions.
 \end{greenblock}
 
-
-
-\sepline
-\subsection{PMP of firm}
+A compact list of the \emph{exact} real conditions is therefore
 \begin{align}
-\min\limits_{N_{t}} W_t N_t \Leftrightarrow &\max\limits_{Y_t} P_{t}Y_{t}-W_{t}N_{t}
-\\&s.t. Y_t = A_t K_t^\alpha N_t^{1-\alpha}, \alpha \in [0,1)
-\\&
-\text{where }
-\begin{cases}
-  Y_{t}=A_{t}W_{t}^{1-\alpha}\\
-  A_{t}=A_{t-1}^{\rho\alpha} \epsilon_{t}^{\alpha}, \epsilon_{t}^{\alpha} \overset{iid}{\sim} N(0,\sigma_{\alpha}^{\epsilon})
-  \text{ (technology shocks)}
-\end{cases}
-\\&
-\Rightarrow \text{F.O.C.: } \frac{W_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand equation)}
+Y_t&=A_tK_t^\alpha N_t^{1-\alpha},\\
+\chi C_t^\sigma N_t^\varphi&=(1-\alpha)Y_t/N_t,\\
+C_t^{-\sigma}&=\beta E_t[C_{t+1}^{-\sigma}
+ (\alpha Y_{t+1}/K_{t+1}+1-\delta)],\\
+Y_t&=C_t+I_t,\\
+K_{t+1}&=(1-\delta)K_t+I_t,\\
+a_t&=\rho_a a_{t-1}+\varepsilon_t^a.
 \end{align}
+The initial state and transversality condition remain part of the model even
+when they are not repeated in this list. Wages, rentals, and bond prices are
+then recovered from their pricing equations. No nominal variable is required
+to solve this real block.
 
-\sepline
-\subsection{Economy described by RBC}
-{\color{red}
-The whole economy system is described as the balance of demand and supply
+\subsection{Recover the course's fixed-capital benchmark}\label{sec:rbc-fixed}
+
+Freeze productive capital at $\bar K=1$, remove its investment choice, and
+assume no depreciation, government purchases, or foreign trade. There is no
+replacement expenditure, so $I_t=0$ and $C_t=Y_t$. This is a separate classroom
+restriction, not the full model with its capital Euler equation still imposed.
+Owners receive fixed-factor income $\mathcal D_t/P_t=\alpha Y_t$; the labor-only
+firm's residual pays that factor. The course's $\chi=1$ may also be imposed.
+The limit $\alpha=0$ recovers labor-only production, as allowed in the course;
+the main capital model uses $0<\alpha<1$.
+
+The real equations become
 \begin{align}
-&\text{AS}
-\begin{cases} Y_{t}=A_{t}N_{t}^{1-\alpha} \text{ (total production function)}, A_t=A^{\rho a}_{t-1} e^{\epsilon^a_t} \text{ (technology shocks)}\\
-\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\varphi} \text{ (labor supply from UMP)}\\
-\frac{w_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand from PMP)}
-\end{cases}
-\\&
-\text{AD}
-\begin{cases}Y_{t}=C_{t}+I_{t} \text{ (accouting equation)}\\
-Q_{t}=\beta E_{t} (\frac{C_{t+1}}{C_{t}})^{-a} \frac{P_{t}}{P_{t+1}}  \text{ (Euler equation from UMP)}\\
-\frac{M_{t}}{P_{t}}=\frac{Y_{t}}{Q_{t}^{-n}}  \text{ (demand of liquidity)}
-\end{cases}
+Y_t&=A_tN_t^{1-\alpha},\qquad C_t=Y_t,\\
+w_t&=(1-\alpha)A_tN_t^{-\alpha},\\
+w_t&=\chi C_t^\sigma N_t^\varphi.
 \end{align}
-}
-
-
-\sepline
-\subsection{Log-linearization}
-
-Two methods we can transform.
-1) The first is
+Solve this restricted allocation without skipping the wealth effect. Equate
+wages and replace consumption by production:
 \begin{align}
-&
-\hat x_{t}=\ln x_{t}-\ln x^{*}
-\\&
-=\ln |\frac{ x_{t}}{x^{*}}|
-\\&
-=\ln |1+ \frac{x_{t}-x^{*}}{x^{*}}| \text{ (percentage of deviation from stable state)}
-\\&
-\approx \ln |1+\frac{1}{x^{*}}(x_{t}-x^{*})|
-\\&
-=\frac{x_{t}-x^{*}}{x^{*}}
+\chi C_t^\sigma N_t^\varphi
+ &=(1-\alpha)A_tN_t^{-\alpha},\\
+\chi(A_tN_t^{1-\alpha})^\sigma N_t^\varphi
+ &=(1-\alpha)A_tN_t^{-\alpha},\\
+N_t^{\sigma(1-\alpha)+\varphi+\alpha}
+ &=\frac{1-\alpha}{\chi}A_t^{1-\sigma}.
 \end{align}
-
-2) Another approach would be
+Let $d_N=\sigma(1-\alpha)+\varphi+\alpha>0$. At an interior solution,
 \begin{align}
-&\ln x^{*}=ln x_{t}-\tilde{x_{t}}\Rightarrow \ln x_{t}=ln x^{*}+\tilde{x_{t}}
-\\&
-\Rightarrow e^{\ln x_{t}}=x_{t}=e^{n x^{*}+\tilde{x_{t}}}=x^{*}e^{\hat{x_{t}}} \approx x^{*} (1+\hat x_{t})
+N_t&=\left[\frac{1-\alpha}{\chi}A_t^{1-\sigma}\right]^{1/d_N},\\
+\log N_t&=\frac{\log(1-\alpha)-\log\chi}{d_N}
+              +\frac{1-\sigma}{d_N}\log A_t,\\
+\frac{d\log N_t}{d\log A_t}&=\frac{1-\sigma}{d_N},\\
+\frac{d\log Y_t}{d\log A_t}
+ &=1+(1-\alpha)\frac{1-\sigma}{d_N}
+ =\frac{1+\varphi}{d_N}.
 \end{align}
+The last equality follows by collecting
+$d_N+(1-\alpha)(1-\sigma)=\varphi+\alpha+1-\alpha=1+\varphi$.
+The formulas apply while $0<N_t<1$; they do not bypass the time endowment.
 
-Now we turn to the linearization of RBC model
+\Needspace{11\baselineskip}
+\begin{redblock}
+\textbf{Question: does better productivity necessarily raise work?}
+In this fixed-factor economy, $\sigma=1$ gives
+$N_t=[(1-\alpha)/\chi]^{1/(1+\varphi)}$, independent of $A_t$.
+Higher productivity raises the wage and income, but the work-reward and wealth
+margins exactly offset. For $\sigma<1$ hours rise; for $\sigma>1$ they fall,
+provided the solution is interior. Endogenous labor is not by itself a
+prediction that hours always move with output. The investment margin in the
+full model changes this experiment.
+\end{redblock}
+
+There is no endogenous capital memory here. With serially independent $A_t$,
+the real allocation depends only on the current shock. A persistent $A_t$
+produces persistence mechanically; zero-net-supply bond prices do not create
+another aggregate resource state. This is precisely why the planned capital
+section matters.
+
+\subsection{Capital accumulation and the deterministic reference}\label{sec:rbc-steady}
+
+\subsubsection{Find the steady state in the order the conditions determine it}
+
+Switch innovations off and set $A_t=\bar A$. A deterministic steady state has
+constant $K^*,C^*,N^*,Y^*,I^*$. It is a reference for local expansion, not the
+unconditional mean of the nonlinear stochastic economy. The Euler equation gives
 \begin{align}
-&
-\begin{cases}
-y_{t}=a_{t}+(1-\alpha)n_{t}
-\\
-y=a+(1-\alpha)n
-\end{cases}
-\Rightarrow \hat y_{t}=\hat a_{t}+(1-\alpha)\hat n_{t}
-\\&
-\Rightarrow
-\begin{cases}
-\hat w_{t}-\hat p_{t}=\hat a_{t}+(1-\alpha)\hat n_{t} \\
-\hat w_{t}-\hat p_{t}=a\hat c_{t}+\rho \hat n_{t}\end{cases}
-\Rightarrow \hat y_{t}=\hat c_{t}, \; m_{t}-\hat p_{t}=\hat y_{t} -\hat n_{it}
-\\&
-Y_{t}=C_{t}+I_{t}
-\\&
-Y\cdot e^{\hat y_{t}}=C\cdot e^{\hat c_{t}}+I\cdot e^{\hat i_{t}}
-\\&
-Y(1+\hat y_{t})=C(1+\hat c_{t})+I(1+\hat i_{t})
-\\&
-\hat y_{t}=\frac{C}{Y}\hat c_{t}+ \frac{I}{Y} \hat i_{t}\\&
-a_{t}=\rho_{t} a_{t-1}+\epsilon_{t}^{a}
-\\&
-1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a(c_{t+1}-c_{t})-(P_{t+1}-P_{t})}
-\\&
-1=E_{t} e^{\ln \beta + +\ln \frac{1}{Q_{t}}-a\triangle c_{t+1}-\pi_{t+1}}
-\\&
-1=E_{t} I[1+(i_{t}-i)-a(\triangle c_{t+1}-\triangle c_{t}]-(\pi_{t+1}-\pi_{t})]
+(C^*)^{-\sigma}&=\beta(C^*)^{-\sigma}(q^*+1-\delta),\\
+1&=\beta(q^*+1-\delta),\\
+q^*&=\beta^{-1}-1+\delta.
 \end{align}
-
-{\color{red} Therefore a RBC model can be rewritten in linearized log equations
+Let $v=Y^*/K^*=q^*/\alpha>0$. Capital stationarity and goods clearing imply
 \begin{align}
-\color{red}&\text{AS:} \begin{cases}
-\hat y_{t}=a_{t}+(1-\alpha)\hat n_{t} \text{ (output)}\\
-\hat w_{t}-\hat p_{t}=a_{t}-\alpha \hat n_{t} \text{ (labor demand)}\\
-\hat w_{t}-\hat p_{t}=a c_{t}+\varphi \hat n_{t} \text{ (labor supply)}\\
-\hat a_{t}=\rho_a \hat a_{t-1}+\epsilon_t^a \text{ (technology)}
-\end{cases}
-\\&
-\text{AD:} \begin{cases}
-\hat y_{t}=\hat c_{t} \text{ (product market clearing)}\\
-\hat c_{t}=E_{t}\hat c_{t+1}-\frac{1}{a}(\hat i_{t}-E_{t}\hat \pi_{t+1}) \\
-\hat m_{t}-\hat p_{t}=\hat y_{t}-\eta \cdot \hat i_{t} \text{ (money demand equation; $\eta$ is interest rate elasticity)}\\
-\hat r_{t}=i_{t}-E_{t} \hat \pi_{t+1} \text{ (Fisherian equation)}
-\end{cases}
+K^*&=(1-\delta)K^*+I^*,&I^*&=\delta K^*,\\
+C^*&=Y^*-\delta K^*,&s_I\equiv I^*/Y^*&=\delta/v,\\
+s_C\equiv C^*/Y^*&=1-\delta/v,&s_C+s_I&=1.
 \end{align}
-}
+Here $v>\delta$ since $q^*>\delta$ and $\alpha<1$, so $s_C>0$.
+The steady capital--hours ratio $x=K^*/N^*$ follows from the rental equation:
+\begin{align}
+q^*&=\alpha\bar A(K^*)^{\alpha-1}(N^*)^{1-\alpha}
+ =\alpha\bar A x^{\alpha-1},\\
+x^{1-\alpha}&=\alpha\bar A/q^*,\\
+x&=(\alpha\bar A/q^*)^{1/(1-\alpha)}.
+\end{align}
+Define $z=Y^*/N^*=\bar A x^\alpha$. Then $C^*=s_CzN^*$ and
+$w^*=(1-\alpha)z$. The labor condition pins down the scale:
+\begin{align}
+\chi(s_CzN^*)^\sigma(N^*)^\varphi&=(1-\alpha)z,\\
+(N^*)^{\sigma+\varphi}
+ &=\frac{(1-\alpha)z}{\chi(s_Cz)^\sigma},\\
+N^*&=\left[\frac{(1-\alpha)z}{\chi(s_Cz)^\sigma}\right]^{1/(\sigma+\varphi)},\\
+K^*&=xN^*,\quad Y^*=zN^*,\quad C^*=s_CzN^*,\quad I^*=\delta xN^*.
+\end{align}
+If this $N^*$ is outside $(0,1)$, the interior formula is inapplicable. One can
+instead choose an intended interior $N^*$ and solve the same equation for
+$\chi$; that is a stated calibration, not an extra equilibrium condition.
 
-\begin{blueblock}
-\begin{note}[Exceptation for Expectation]
-Notice this method does not apply to equations involving expectations.
-\end{note}
-\end{blueblock}
+\subsubsection{Why current investment and current capital must not be confused}
 
-\begin{blueblock}
-\begin{note}[RBC has neutrality of money]
-The final answer of this standard RBC model is not relevant to any price variable, inferring the model being money-neutral.
-\end{note}
-\end{blueblock}
-
-
-
-
-
-
-
-
-
-\subsection[Capital accumulation and investment (planned)]{Capital accumulation and investment}
-\textit{Planned section.} Extend the current fixed-capital benchmark to endogenous capital accumulation.
-Derive investment dynamics and distinguish the simplified benchmark from a
-full RBC model with a changing capital stock.
+A factory can change operating hours after learning $A_t$, but the stock
+$K_t$ is already installed. Investment uses goods today and changes
+$K_{t+1}$. Even after $A_t$ returns to its reference, the economy can inherit
+a different capital stock. A single innovation can therefore have effects
+lasting beyond the disturbance itself. The equations must determine whether
+the stock builds up or runs down; the accounting identity alone does not
+choose investment.
