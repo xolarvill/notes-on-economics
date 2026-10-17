@@ -75,8 +75,10 @@ reset chapter numbering. Keep equation labels and use `\eqref`, not literal numb
 
 Every figure and table needs a numbered caption and a unique label immediately
 after it. Put figure captions below the image and table captions above the
-table. Shared caption styling uses small, left-aligned text without first-line
-indentation and a bold label. Retain explanatory notes, sources, and scope.
+table. Shared caption styling uses small, centered text without first-line
+indentation and a bold label. The caption block must not exceed the actual
+image or table width; long captions wrap and remain centered within that width.
+Retain explanatory notes, sources, and scope.
 The shared caption hook resets both paragraph-indent settings before a caption
 box opens; its local scope preserves the body's 2em indentation afterward.
 
@@ -87,7 +89,7 @@ object rather than below it:
 ```tex
 \begin{center}
 \begin{minipage}{\linewidth}
-\captionsetup{type=figure}
+\captionsetup{type=figure,width=0.9\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth]{example.pdf}
 \caption{A short descriptive title.}
@@ -96,7 +98,33 @@ object rather than below it:
 \end{center}
 ```
 
-For a table use `type=table` and place the caption and label before `tabular`.
+Match the caption width to the image width in the same enclosing scope. For
+side-by-side layouts, put the caption below the image inside its own column;
+the reading guide in the adjacent column is not part of the image width.
+
+For a table use `type=table` and wrap its caption, label, and `tabular` in
+`threeparttable`, with the caption and label above `tabular`. The package
+measures the typeset table, including column padding, and uses that width for
+the caption. Keep the original surrounding line width and font size when
+measuring, so existing paragraph-column widths remain unchanged. For example:
+
+```tex
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering
+\begin{threeparttable}
+\caption{A short descriptive title.}
+\label{tab:example}
+\begin{tabular}{lc}
+\tableheading{Variable} & \tableheading{Value}\\
+Output & 1.0\\
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+```
+
 Existing floating `figure` and `table` environments use ordinary `\caption`
 and `\label` without a manual type. Do not force a floating layout solely to
 obtain a caption or allow a caption to detach from its object.
