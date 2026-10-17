@@ -686,8 +686,8 @@ full model changes this experiment.
 There is no endogenous capital memory here. With serially independent $A_t$,
 the real allocation depends only on the current shock. A persistent $A_t$
 produces persistence mechanically; zero-net-supply bond prices do not create
-another aggregate resource state. This is precisely why the planned capital
-section matters.
+another aggregate resource state. This is why adding the capital choice
+changes the model.
 
 \subsection{Capital accumulation and the deterministic reference}\label{sec:rbc-steady}
 
@@ -884,6 +884,7 @@ E_ta_{t+h}&=\rho_a^h a_t.
 A higher $\rho_a$ changes what households expect before they choose, not just
 the shape of productivity after they have chosen.
 
+\Needspace{16\baselineskip}
 \subsection{Solve the model before drawing its responses}\label{sec:rbc-solve}
 
 \subsubsection{An exact special case checks the consumption--investment logic}
@@ -1090,18 +1091,6 @@ raises the value of lifetime resources more, supporting a larger initial
 consumption increase. This comparison includes both the changed opportunity
 path and the reoptimized household response.
 
-\subsubsection{Follow the goods and the inherited stock}
-
-\Needspace{32\baselineskip}
-\begin{center}
-\includegraphics[width=0.94\linewidth]{rbc_impulse_responses.pdf}
-\end{center}
-\textit{Model-generated, first-order responses to one positive productivity
-innovation.} Both paths start with the same capital and $a_0=0.01$. All later
-innovations are zero; the consumption rule is solved separately for each
-persistence parameter. The plot uses only the equations and hypothetical
-parameters above, not estimated responses or observed data.
-
 Output rises immediately because the existing machines and chosen work are
 more productive. Consumption rises less in this example: households spread
 resources across dates. Investment absorbs more of the extra output and changes
@@ -1113,6 +1102,17 @@ because investment is a smaller steady-state share of output. From resources,
 a modest goods reallocation can be a large percentage of $I^*$.
 This arithmetic helps interpret relative volatility; an impact ratio is not
 itself a simulated standard-deviation ratio.
+
+\Needspace{40\baselineskip}
+\subsubsection{Follow the goods and the inherited stock}
+\begin{center}
+\includegraphics[width=0.94\linewidth]{rbc_impulse_responses.pdf}
+\end{center}
+\textit{Model-generated, first-order responses to one positive productivity
+innovation.} Both paths start with the same capital and $a_0=0.01$. All later
+innovations are zero; the consumption rule is solved separately for each
+persistence parameter. The plot uses only the equations and hypothetical
+parameters above, not estimated responses or observed data.
 
 In the dashed path, productivity is back at its reference at date 1, but capital
 is then above its reference. Output and consumption can remain above it. Hours
