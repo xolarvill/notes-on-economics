@@ -285,15 +285,24 @@ This equivalence must be checked again when the environment changes.
 \textbf{Question: why do three methods give the same two-period Euler equation?}
 Before solving for a whole path, isolate two dates with $A=L=1$, known incomes
 $y_0,y_1$, and a given gross return $R=1+r>0$. There are no borrowing frictions
-or terminal bequests. For an interior choice of positive consumption, solve
+or terminal bequests. With zero initial and terminal assets, the budgets give
+\begin{align*}
+c_0+a_1&=y_0,\qquad c_1=y_1+Ra_1,\\
+a_1&=y_0-c_0,\\
+c_1&=y_1+R(y_0-c_0),\\
+c_0+c_1/R&=y_0+y_1/R\equiv W.
+\end{align*}
+For an interior choice of positive consumption, solve
 \[
 \max_{c_0,c_1}\;u(c_0)+\beta u(c_1),\qquad
 c_0+\frac{c_1}{R}=y_0+\frac{y_1}{R}\equiv W.
 \]
 \textit{Elimination.} Substitute $c_1=R(W-c_0)$ into utility and differentiate:
-\[
-u'(c_0)-\beta R u'(c_1)=0.
-\]
+\begin{align*}
+\frac{d}{dc_0}[u(c_0)+\beta u(R(W-c_0))]
+ &=u'(c_0)+\beta u'(c_1)(-R)=0,\\
+u'(c_0)&=\beta R u'(c_1).
+\end{align*}
 \textit{Geometry.} Along an indifference curve,
 $u'(c_0)dc_0+\beta u'(c_1)dc_1=0$, so its slope is
 $-u'(c_0)/[\beta u'(c_1)]$. The budget line has slope $-R$. Tangency therefore
@@ -304,8 +313,13 @@ requires $u'(c_0)=\beta R u'(c_1)$.
 \mathscr L=u(c_0)+\beta u(c_1)
  +\lambda\left(W-c_0-\frac{c_1}{R}\right).
 \]
-The consumption conditions are $u'(c_0)=\lambda$ and
-$\beta u'(c_1)=\lambda/R$. Eliminating $\lambda$ gives the same Euler equation.
+Differentiate each choice:
+\begin{align*}
+\mathscr L_{c_0}&=u'(c_0)-\lambda=0,\\
+\mathscr L_{c_1}&=\beta u'(c_1)-\lambda/R=0,\\
+\mathscr L_\lambda&=W-c_0-c_1/R=0,\\
+u'(c_0)&=\lambda=\beta R u'(c_1).
+\end{align*}
 
 All three methods price the same marginal transfer: giving up one unit today
 buys $R$ units tomorrow. The Euler condition fixes the preferred trade-off;
@@ -317,6 +331,68 @@ interior tangency by the appropriate constrained condition.
 
 \subsubsection{Lagrangian: the adjacent-date trade-off}\label{method-of-lagrangian}
 
+\textbf{From two dates to a finite horizon.}
+First keep the household exercise separate from production. Dates are
+$t=1,\ldots,T$, with $T\geq2$, known incomes $y_t$, a constant gross return
+$R>0$, $0<\beta<1$, and no borrowing limit. Let $a_t$ be assets after date
+$t$ consumption. Set $a_0=a_T=0$, assume an interior positive-consumption
+solution, and write
+\begin{align}
+\max\;&\sum_{t=1}^T\beta^{t-1}u(c_t),\\
+c_1+a_1&=Ra_0+y_1=y_1,\\
+c_2+a_2&=Ra_1+y_2,\\
+&\ \vdots\nonumber\\
+c_T+a_T&=Ra_{T-1}+y_T.
+\end{align}
+Divide each date-$t$ budget by $R^{t-1}$ and sum. The asset terms telescope:
+\begin{align}
+\sum_{t=1}^T\frac{c_t}{R^{t-1}}
+&=\sum_{t=1}^T\frac{y_t}{R^{t-1}}
+ +\sum_{t=1}^T\left(\frac{a_{t-1}}{R^{t-2}}
+                         -\frac{a_t}{R^{t-1}}\right),\\
+&=\sum_{t=1}^T\frac{y_t}{R^{t-1}}+Ra_0-\frac{a_T}{R^{T-1}},\\
+&=\sum_{t=1}^T\frac{y_t}{R^{t-1}}\equiv W_T.
+\end{align}
+The single present-value constraint gives the Lagrangian
+\[
+\mathscr L_T=\sum_{t=1}^T\beta^{t-1}u(c_t)
+ +\Lambda\left(W_T-\sum_{t=1}^T\frac{c_t}{R^{t-1}}\right).
+\]
+Differentiate separately at adjacent dates:
+\begin{align}
+\frac{\partial\mathscr L_T}{\partial c_t}
+ &=\beta^{t-1}u'(c_t)-\frac{\Lambda}{R^{t-1}}=0,\\
+\frac{\partial\mathscr L_T}{\partial c_{t+1}}
+ &=\beta^tu'(c_{t+1})-\frac{\Lambda}{R^t}=0,\\
+\Lambda&=(\beta R)^{t-1}u'(c_t)
+       =(\beta R)^tu'(c_{t+1}),\\
+u'(c_t)&=\beta R u'(c_{t+1}),\qquad t=1,\ldots,T-1.
+\end{align}
+The last Euler comparison is between $T-1$ and $T$; there is no consumption
+date $T+1$ in this problem.
+
+We can obtain the same condition without first collapsing the budgets:
+\[
+\mathscr L_T=\sum_{t=1}^T\beta^{t-1}
+ \{u(c_t)+\lambda_t[Ra_{t-1}+y_t-c_t-a_t]\}.
+\]
+For $t<T$, $a_t$ enters two adjacent budgets. Its derivative shows both terms:
+\begin{align}
+\frac{\partial\mathscr L_T}{\partial c_t}
+ &=\beta^{t-1}[u'(c_t)-\lambda_t]=0,\\
+\frac{\partial\mathscr L_T}{\partial a_t}
+ &=-\beta^{t-1}\lambda_t+\beta^tR\lambda_{t+1}=0,\\
+\lambda_t&=u'(c_t),\qquad
+\lambda_t=\beta R\lambda_{t+1},\\
+u'(c_t)&=\beta R u'(c_{t+1}).
+\end{align}
+The finite endpoint $a_T=0$ is given here, not another interior asset choice.
+In an infinite horizon, adjacent-date conditions remain, but the endpoint
+must be replaced by the appropriate solvency and transversality restrictions.
+Taking $T\to\infty$ does not mean requiring the economy's physical capital
+to approach zero.
+
+\textbf{The infinite-horizon production economy.}
 First isolate discrete time with $A=L=1$ and $n=g=0$. This makes timing visible
 without carrying growing denominators; it is a restricted version of the model.
 The planner solves
@@ -335,6 +411,11 @@ Use current-utility multipliers $\lambda_t$:
 \end{equation}
 At an interior solution, differentiate with respect to $c_t$ and $k_{t+1}$:
 \begin{align}
+\frac{\partial\mathscr L}{\partial c_t}
+ &=\beta^t[u'(c_t)-\lambda_t]=0,\\
+\frac{\partial\mathscr L}{\partial k_{t+1}}
+ &=-\beta^t\lambda_t
+   +\beta^{t+1}\lambda_{t+1}[f'(k_{t+1})+1-\delta]=0,\\
 \lambda_t&=u'(c_t),\\
 \lambda_t&=\beta\lambda_{t+1}[f'(k_{t+1})+1-\delta].
 \end{align}
@@ -345,9 +426,12 @@ R_{t+1}=f'(k_{t+1})+1-\delta.
 \end{equation}
 One unit saved at $t$ earns its return at $t+1$, when the new capital is used.
 The utility cost today equals the discounted marginal gain tomorrow. For CRRA,
-\begin{equation}
-\frac{c_{t+1}}{c_t}=(\beta R_{t+1})^{1/\theta}.
-\end{equation}
+\begin{align}
+c_t^{-\theta}&=\beta R_{t+1}c_{t+1}^{-\theta},\\
+\frac{c_t^{-\theta}}{c_{t+1}^{-\theta}}&=\beta R_{t+1},\\
+\left(\frac{c_{t+1}}{c_t}\right)^\theta&=\beta R_{t+1},\\
+\frac{c_{t+1}}{c_t}&=(\beta R_{t+1})^{1/\theta}.
+\end{align}
 This determines consumption growth given the return, not the entire consumption
 path. With no bequest motive and the usual concavity conditions, the terminal
 condition is $\lim_{t\to\infty}\beta^tu'(c_t)k_{t+1}=0$. In a finite-horizon
@@ -362,15 +446,70 @@ $k=K/(AL)$ and $c=C/(AL)$,
 \dot k=f(k)-c-bk,\qquad b\equiv n+g+\delta.
 \end{equation}
 For $\theta\ne1$, substitute $x=Ac$ and $L=L_0e^{nt}$ into utility:
-\begin{equation}
+\begin{align}
 e^{-\rho t}Lu(Ac)
-=L_0A_0^{1-\theta}e^{-\eta t}\frac{c^{1-\theta}}{1-\theta}.
-\end{equation}
+ &=e^{-\rho t}L_0e^{nt}\frac{(A_0e^{gt}c)^{1-\theta}}{1-\theta},\\
+ &=L_0A_0^{1-\theta}e^{[-\rho+n+(1-\theta)g]t}
+       \frac{c^{1-\theta}}{1-\theta},\\
+ &=L_0A_0^{1-\theta}e^{-\eta t}\frac{c^{1-\theta}}{1-\theta},\\
+\eta&=\rho-n-(1-\theta)g.
+\end{align}
 The positive constant in front does not change choices. For log utility,
 $\log(Ac)=\log A+\log c$; the $\log A$ term is independent of the allocation.
 The normalized problem therefore discounts $u(c)$ at $\eta$ in either case.
 
-Its current-value Hamiltonian is
+\textbf{Where the costate equation comes from.}
+Write $h(k,c)=f(k)-c-bk$. To derive interior conditions, first use a finite
+interval $[0,T]$ with both capital endpoints held fixed. Let $p(t)$ be a
+present-value multiplier. The augmented objective is
+\begin{align}
+\mathscr A
+ &=\int_0^T\{e^{-\eta t}u(c)+p[h(k,c)-\dot k]\}\,dt,\\
+ &=\int_0^T\mathcal H^P\,dt-\int_0^Tp\dot k\,dt,\\
+\mathcal H^P&=e^{-\eta t}u(c)+ph(k,c).
+\end{align}
+Integration by parts keeps the boundary term visible:
+\begin{align}
+\int_0^Tp\dot k\,dt
+ &=[pk]_0^T-\int_0^T\dot p\,k\,dt,\\
+\mathscr A
+ &=\int_0^T[\mathcal H^P+\dot p\,k]\,dt-[pk]_0^T.
+\end{align}
+Let $v_c(t)$ and $v_k(t)$ be small variations, with
+$v_k(0)=v_k(T)=0$. The boundary variation vanishes, leaving
+\[
+\delta\mathscr A=\int_0^T
+ [\mathcal H^P_c v_c+(\mathcal H^P_k+\dot p)v_k]\,dt.
+\]
+For arbitrary interior variations, the two coefficients must vanish.
+Variation of $p$ also imposes the original resource equation:
+\begin{align}
+\mathcal H^P_c&=e^{-\eta t}u'(c)-p=0,\\
+\mathcal H^P_k+\dot p&=p[f'(k)-b]+\dot p=0,\\
+\mathcal H^P_p&=h(k,c)=\dot k.
+\end{align}
+Thus $p=e^{-\eta t}u'(c)$ and $\dot p=-p[f'(k)-b]$.
+Holding endpoints fixed was used only to derive the interior conditions.
+The infinite-horizon optimum still needs its own feasibility and
+transversality condition; a boundary term must not be discarded by asserting
+that the capital stock tends to zero.
+
+Now convert units from present utility to date-$t$ utility. Define
+$\mu=e^{\eta t}p$ and multiply the Hamiltonian by $e^{\eta t}$:
+\begin{align}
+e^{\eta t}\mathcal H^P
+ &=u(c)+e^{\eta t}p\,h(k,c)
+  =u(c)+\mu h(k,c)\equiv\mathcal H,\\
+\dot\mu
+ &=\eta e^{\eta t}p+e^{\eta t}\dot p,\\
+ &=\eta\mu-e^{\eta t}p[f'(k)-b],\\
+ &=[\eta+b-f'(k)]\mu.
+\end{align}
+With zero discounting on this finite interval, $\eta=0$ makes $p=\mu$ and
+$\dot\mu=-\mathcal H_k$. With discounting, the additional $\eta\mu$ term
+comes from differentiating $e^{\eta t}$; it is not an optional convention.
+
+The current-value Hamiltonian is therefore
 \begin{equation}
 \mathcal H=u(c)+\mu[f(k)-c-bk].
 \end{equation}
@@ -388,16 +527,28 @@ representations of the same problem, not an assertion that patience is irrelevan
 Differentiate $\mu=c^{-\theta}$ and use
 $\eta+b=\rho+\delta+\theta g$:
 \begin{align}
+\dot\mu&=-\theta c^{-\theta-1}\dot c,\\
+\frac{\dot\mu}{\mu}
+ &=-\theta\frac{c^{-\theta-1}}{c^{-\theta}}\dot c
+  =-\theta\frac{\dot c}{c},\\
 \frac{\dot\mu}{\mu}&=-\theta\frac{\dot c}{c}
  =\eta+b-f'(k),\\
+\theta\frac{\dot c}{c}&=f'(k)-\eta-b,\\
+\eta+b&=\rho-n-(1-\theta)g+n+g+\delta
+        =\rho+\theta g+\delta,\\
 \frac{\dot c}{c}
 &=\frac{f'(k)-\delta-\rho-\theta g}{\theta}.
 \label{eq:ramsey-normalized-euler}
 \end{align}
 Consumption per person is $x=Ac$, so
 \begin{equation}\label{eq:ramsey-person-euler}
-\frac{\dot x}{x}=g+\frac{\dot c}{c}
- =\frac{r-\rho}{\theta}.
+\begin{aligned}
+\frac{\dot x}{x}
+ &=\frac{\dot A}{A}+\frac{\dot c}{c}\\
+ &=g+\frac{f'(k)-\delta-\rho-\theta g}{\theta}\\
+ &=\frac{\theta g+f'(k)-\delta-\rho-\theta g}{\theta}
+  =\frac{r-\rho}{\theta}.
+\end{aligned}
 \end{equation}
 A high return makes future consumption relatively attractive; impatience favors
 consumption now. Curvature determines how strongly consumption growth responds.
@@ -412,49 +563,143 @@ not obtained simply by deleting discounting from every infinite integral.
 \subsubsection{Bellman and HJB: valuing the remaining opportunities}\label{method-of-bellman-equation-dynamic-programming}
 
 For the stationary discrete-time version, let $V(k)$ be the value of starting
-with capital $k$. Choose next period's capital $k'$:
-\begin{equation}
-V(k)=\max_{k'}\left\{u(f(k)+(1-\delta)k-k')+\beta V(k')\right\},
-\end{equation}
-with feasible $k'\geq0$ and positive current consumption. At an interior optimum,
+with capital $k$. Write $k_0=k$ and
+$c_t=f(k_t)+(1-\delta)k_t-k_{t+1}>0$, with feasible $k_{t+1}\geq0$.
+Splitting off the first date gives
 \begin{align}
-u'(c)&=\beta V'(k'),\\
-V'(k)&=u'(c)[f'(k)+1-\delta].
+V(k)
+ &=\max_{\{k_{t+1}\}}\sum_{t=0}^{\infty}\beta^tu(c_t),\\
+ &=\max_{\{k_{t+1}\}}
+    \left\{u(c_0)+\sum_{t=1}^{\infty}\beta^tu(c_t)\right\},\\
+ &=\max_{k_1}\left\{u(c_0)+\beta
+       \max_{\{k_{t+1}\}_{t\geq1}}
+        \sum_{j=0}^{\infty}\beta^ju(c_{j+1})\right\},\\
+ &=\max_{k_1}\{u(f(k)+(1-\delta)k-k_1)+\beta V(k_1)\}.
 \end{align}
-The second line is the envelope condition: the effect of the optimal choice's
-response drops out at the optimum. Apply it at $k'$ in the first line to recover
-\eqref{eq:ramsey-discrete-euler}. The Lagrangian and Bellman methods are pricing
-the same marginal transfer of resources between dates.
+The continuation problem has the same technology and preferences, starting
+from $k_1$. Write $k'=k_1$. Its first-order condition is
+\begin{align}
+0&=u'(f(k)+(1-\delta)k-k')(-1)+\beta V'(k'),\\
+u'(c)&=\beta V'(k').
+\end{align}
+
+\textbf{Show the policy derivative before canceling it.}
+Let the optimal next-capital policy be $k'=\psi(k)$, assumed differentiable
+at the interior point being considered. On that policy,
+\[
+V(k)=u(f(k)+(1-\delta)k-\psi(k))+\beta V(\psi(k)).
+\]
+Differentiate the entire expression, including the response of the choice:
+\begin{align}
+V'(k)
+ &=u'(c)[f'(k)+1-\delta-\psi'(k)]
+      +\beta V'(\psi(k))\psi'(k),\\
+ &=u'(c)[f'(k)+1-\delta]
+   +[\beta V'(\psi(k))-u'(c)]\psi'(k),\\
+ &=u'(c)[f'(k)+1-\delta]+0\cdot\psi'(k),\\
+ &=u'(c)[f'(k)+1-\delta].
+\end{align}
+The bracket is zero by the first-order condition. This cancellation is the
+envelope theorem in this calculation; it is not an instruction to ignore
+$\psi'(k)$ before differentiating.
+
+Now write the two conditions at their actual dates:
+\begin{align}
+u'(c_t)&=\beta V'(k_{t+1}),\\
+V'(k_{t+1})&=u'(c_{t+1})[f'(k_{t+1})+1-\delta],\\
+u'(c_t)&=\beta u'(c_{t+1})[f'(k_{t+1})+1-\delta],\\
+\frac{u'(c_t)}{u'(c_{t+1})}
+ &=\beta[f'(k_{t+1})+1-\delta]=\beta R_{t+1}.
+\end{align}
+This recovers \eqref{eq:ramsey-discrete-euler}. The Lagrangian and Bellman
+methods price the same marginal transfer of resources between dates.
 
 \textbf{A case with an exact saving rule.}
-Take $u(c)=\log c$, $f(k)=k^\alpha$, and full depreciation $\delta=1$ only for
-this example. Guess $V(k)=a+d\log k$. The first-order condition gives
-\begin{equation}
-\frac{1}{k^\alpha-k'}=\frac{\beta d}{k'},\qquad
-\frac{k'}{k^\alpha}=\frac{\beta d}{1+\beta d}.
-\end{equation}
-Matching the coefficient of $\log k$ in the Bellman equation yields
-$d=\alpha(1+\beta d)$, hence
+Take $u(c)=\log c$, $f(k)=k^\alpha$, $0<\alpha<1$, and full depreciation
+$\delta=1$ only for this example. Guess $V(k)=a+d\log k$. Substitute the
+guess before differentiating:
+\begin{align}
+a+d\log k
+ &=\max_{k'}\{\log(k^\alpha-k')+\beta[a+d\log k']\},\\
+0&=-\frac{1}{k^\alpha-k'}+\frac{\beta d}{k'},\\
+k'&=\beta d(k^\alpha-k'),\\
+(1+\beta d)k'&=\beta d k^\alpha,\\
+k'&=s k^\alpha,\qquad
+s\equiv\frac{\beta d}{1+\beta d},\qquad c=(1-s)k^\alpha.
+\end{align}
+Insert that policy into the Bellman equation and expand both logarithms:
+\begin{align}
+a+d\log k
+ &=\log[(1-s)k^\alpha]+\beta[a+d\log(sk^\alpha)],\\
+ &=\log(1-s)+\alpha\log k+\beta a
+    +\beta d\log s+\alpha\beta d\log k,\\
+ &=\log(1-s)+\beta a+\beta d\log s
+    +\alpha(1+\beta d)\log k.
+\end{align}
+Equality for every $k>0$ requires equal coefficients of $\log k$:
+\begin{align}
+d&=\alpha(1+\beta d),\\
+d-\alpha\beta d&=\alpha,\\
+d&=\frac{\alpha}{1-\alpha\beta},\\
+s&=\frac{\beta\alpha/(1-\alpha\beta)}
+        {1+\beta\alpha/(1-\alpha\beta)}=\alpha\beta.
+\end{align}
+The constant term also has to match:
+\begin{align}
+a&=\log(1-s)+\beta a+\beta d\log s,\\
+a&=\frac{\log(1-\alpha\beta)
+     +\dfrac{\alpha\beta}{1-\alpha\beta}\log(\alpha\beta)}{1-\beta}.
+\end{align}
+Thus the complete policy is
 \begin{equation}\label{eq:ramsey-exact-saving}
 d=\frac{\alpha}{1-\alpha\beta},\qquad
 k'=\alpha\beta k^\alpha,\qquad c=(1-\alpha\beta)k^\alpha.
 \end{equation}
-A constant saving share can emerge from optimization in this special case. Its
-value depends on preferences and technology; the result does not make a
-constant saving share general once depreciation or utility changes.
+A constant saving share can emerge from optimization in this special case.
+Its value depends on preferences and technology; the result does not make
+a constant saving share general once depreciation or utility changes.
 
-In normalized continuous time, dynamic programming gives the HJB equation
-\begin{equation}
-\eta V(k)=\max_c\{u(c)+V'(k)[f(k)-c-bk]\}.
-\end{equation}
-The control condition is $u'(c)=V'(k)$. Differentiate using the envelope theorem:
-\begin{equation}
-\eta V'(k)=V''(k)\dot k+V'(k)[f'(k)-b].
-\end{equation}
-Along the path, $\dot\mu=V''(k)\dot k$ with $\mu=V'(k)$, giving the same
-costate equation and consumption Euler equation as the Hamiltonian. The value
-function summarizes all future opportunities; the terminal and feasibility
-conditions remain part of the underlying problem.
+\textbf{Build the continuous-time HJB from a short interval.}
+In effective-worker units let $h(k,c)=f(k)-c-bk$. Over a short interval
+$\Delta t$, hold the chosen control fixed to first order. Then
+\begin{align}
+k(t+\Delta t)&=k+h(k,c)\Delta t+o(\Delta t),\\
+e^{-\eta\Delta t}&=1-\eta\Delta t+o(\Delta t),\\
+V(k(t+\Delta t))&=V(k)+V'(k)h(k,c)\Delta t+o(\Delta t).
+\end{align}
+The dynamic-programming identity over this interval becomes
+\begin{align}
+V(k)&=\max_c\{u(c)\Delta t
+              +e^{-\eta\Delta t}V(k(t+\Delta t))+o(\Delta t)\},\\
+&=\max_c\{V(k)+[u(c)+V'(k)h(k,c)-\eta V(k)]\Delta t
+                    +o(\Delta t)\}.
+\end{align}
+Subtract $V(k)$, divide by $\Delta t$, and take the limit:
+\begin{align}
+0&=\max_c\{u(c)+V'(k)[f(k)-c-bk]-\eta V(k)\},\\
+\eta V(k)&=\max_c\{u(c)+V'(k)[f(k)-c-bk]\}.
+\end{align}
+The control derivative is $u'(c)-V'(k)=0$. To obtain the costate equation,
+write the optimal control as $c=\gamma(k)$ and differentiate the HJB:
+\begin{align}
+\eta V'(k)
+ &=u'(c)\gamma'(k)+V''(k)h(k,c)
+    +V'(k)[f'(k)-b-\gamma'(k)],\\
+ &=V''(k)h(k,c)+V'(k)[f'(k)-b]
+    +[u'(c)-V'(k)]\gamma'(k),\\
+ &=V''(k)\dot k+V'(k)[f'(k)-b].
+\end{align}
+Finally, with $\mu=V'(k)$, the chain rule along the path gives
+\begin{align}
+\dot\mu&=V''(k)\dot k,\\
+\dot\mu&=[\eta+b-f'(k)]\mu,\\
+\mu=c^{-\theta}
+&\quad\Longrightarrow\quad
+-\theta\frac{\dot c}{c}=\eta+b-f'(k).
+\end{align}
+The value function therefore yields the same costate and consumption
+conditions as the Hamiltonian. Feasibility and terminal restrictions remain
+part of the underlying problem.
 
 \subsection{Intertemporal equilibrium and economic adjustment}
 
@@ -469,6 +714,13 @@ The continuous-time equilibrium combines
 \end{equation}
 with given $k(0)$ and \eqref{eq:ramsey-tvc}. A positive normalized steady state
 satisfies
+\begin{align}
+0&=\frac{c^*}{\theta}[f'(k^*)-\delta-\rho-\theta g],\\
+0&=f'(k^*)-\delta-\rho-\theta g\qquad(c^*>0),\\
+f'(k^*)&=\delta+\rho+\theta g,\\
+0&=f(k^*)-c^*-bk^*,\\
+c^*&=f(k^*)-bk^*.
+\end{align}
 \begin{equation}\label{eq:ramsey-steady}
 f'(k^*)=\delta+\rho+\theta g,\qquad c^*=f(k^*)-bk^*.
 \end{equation}
@@ -481,6 +733,14 @@ For $c>0$, the $\dot c=0$ locus is vertical at $k^*$. Consumption grows to its
 left and falls to its right. The $\dot k=0$ locus is $c=f(k)-bk$; capital grows
 below it and falls above it. If $b>0$, its maximum is the Golden Rule stock,
 where $f'(k_{\mathrm{GR}})=b$. Neither locus, by itself, is an equilibrium path.
+The shape of the resource locus follows by differentiation:
+\[
+\frac{dc}{dk}=f'(k)-b,\qquad
+\frac{d^2c}{dk^2}=f''(k)<0.
+\]
+Its slope is positive below the Golden Rule stock and negative above it.
+The $\dot c=0$ locus fixes $k=k^*$ for every $c>0$, which is why it is
+vertical; no division by a zero derivative is needed.
 
 \begin{center}
 \begin{minipage}{\linewidth}
@@ -530,7 +790,20 @@ response is not an empirical claim about every household.
 \subsubsection{The local system and its eigenvalues}
 
 Let $\Delta k=k-k^*$ and $\Delta c=c-c^*$. In the order $(k,c)$, the first-order
-system is
+system follows by differentiating both right-hand sides. Write
+$P=f(k)-c-bk$ and $Q=c[f'(k)-\delta-\rho-\theta g]/\theta$:
+\begin{align}
+P_k^*&=f'(k^*)-b
+ =(\delta+\rho+\theta g)-(n+g+\delta)=\eta,\\
+P_c^*&=-1,\\
+Q_k^*&=\frac{c^*}{\theta}f''(k^*)\equiv z<0,\\
+Q_c^*&=\frac{f'(k^*)-\delta-\rho-\theta g}{\theta}=0,\\
+\dot{\Delta k}&\approx P_k^*\Delta k+P_c^*\Delta c
+                 =\eta\Delta k-\Delta c,\\
+\dot{\Delta c}&\approx Q_k^*\Delta k+Q_c^*\Delta c=z\Delta k.
+\end{align}
+The constant terms vanish because $P(k^*,c^*)=Q(k^*,c^*)=0$.
+In matrix form, the system is
 \begin{equation}\label{eq:ramsey-jacobian}
 \begin{pmatrix}\dot{\Delta k}\\\dot{\Delta c}\end{pmatrix}
 \approx
@@ -540,23 +813,57 @@ z\equiv\frac{c^*f''(k^*)}{\theta}<0.
 \end{equation}
 The top-left entry is $f'(k^*)-b=\eta$; the bottom-right entry vanishes because
 the consumption growth bracket is zero at the steady state. Thus
-\begin{equation}
-\det(\lambda I-J)=\lambda^2-\eta\lambda+z=0,\qquad
-\lambda_{\pm}=\frac{\eta\pm\sqrt{\eta^2-4z}}{2}.
-\end{equation}
+\begin{align}
+\det(\lambda I-J)
+ &=\det\begin{pmatrix}\lambda-\eta&1\\-z&\lambda\end{pmatrix},\\
+ &=(\lambda-\eta)\lambda-(1)(-z),\\
+ &=\lambda^2-\eta\lambda+z=0,\\
+\lambda_{\pm}&=\frac{\eta\pm\sqrt{(-\eta)^2-4z}}{2}
+              =\frac{\eta\pm\sqrt{\eta^2-4z}}{2}.
+\end{align}
 Since $z<0$, $\lambda_-<0<\lambda_+$. The local system has one stable and one
 unstable direction. This is the mathematical reason a boundary condition is
 needed to select consumption for the inherited capital stock.
 
-For a stable eigenvector $(1,m)$, the first row implies
-$m=\eta-\lambda_->0$. The local stable path is therefore
+For a stable eigenvector $(1,m)$, multiply the matrix explicitly:
+\begin{align}
+J\begin{pmatrix}1\\m\end{pmatrix}
+ &=\begin{pmatrix}\eta-m\\z\end{pmatrix}
+  =\lambda_-\begin{pmatrix}1\\m\end{pmatrix},\\
+\eta-m&=\lambda_-,\qquad z=\lambda_-m,\\
+m&=\eta-\lambda_->0.
+\end{align}
+In the linearized system, the two modes have
+$m_\pm=\eta-\lambda_\pm$ and constants $A_-,A_+$:
+\begin{align}
+\Delta k(t)&=A_-e^{\lambda_-t}+A_+e^{\lambda_+t},\\
+\Delta c(t)&=m_-A_-e^{\lambda_-t}+m_+A_+e^{\lambda_+t}.
+\end{align}
+Convergence to this steady state requires $A_+=0$, because $\lambda_+>0$.
+Then $A_-=\Delta k(0)$ and $\Delta c(0)=m_-\Delta k(0)$.
+On the stable direction, separate the scalar differential equation:
+\begin{align}
+\dot{\Delta k}&=\lambda_-\Delta k,\\
+\int_{\Delta k(0)}^{\Delta k(t)}\frac{dv}{v}
+ &=\int_0^t\lambda_-\,ds,\\
+\log\left|\frac{\Delta k(t)}{\Delta k(0)}\right|&=\lambda_-t,\\
+\Delta k(t)&=\Delta k(0)e^{\lambda_-t}.
+\end{align}
+The integration assumes $\Delta k(0)\ne0$; if it is zero, the stable
+linearized path remains at zero. Translating back to the nonlinear model,
+the local stable path is therefore
 \begin{align}
 \Delta c(0)&\approx m\Delta k(0),\\
 \Delta k(t)&\approx\Delta k(0)e^{\lambda_-t},\\
 \Delta c(t)&\approx m\Delta k(0)e^{\lambda_-t}.
 \end{align}
-The positive convergence speed is $-\lambda_-$; its local half-life is
-$\log2/(-\lambda_-)$. The exponential solution is exact for the linearized
+To halve the absolute deviation, solve
+\begin{align}
+e^{\lambda_-T_{1/2}}&=\tfrac12,\\
+\lambda_-T_{1/2}&=-\log2,\\
+T_{1/2}&=\frac{\log2}{-\lambda_-}.
+\end{align}
+The positive convergence speed is $-\lambda_-$. The exponential solution is exact for the linearized
 system, and generally approximate for the original nonlinear transition.
 
 \begin{greenblock}
@@ -579,11 +886,39 @@ local approximations to the nonlinear models.
 
 \subsubsection{The same restriction by undetermined coefficients}
 
+\textbf{Recover the original second-order route.}
+In this calculation all equalities refer to the linearized system. Differentiate
+its first equation and substitute its second:
+\begin{align}
+\dot{\Delta k}&=\eta\Delta k-\Delta c,\\
+\ddot{\Delta k}&=\eta\dot{\Delta k}-\dot{\Delta c},\\
+ &=\eta\dot{\Delta k}-z\Delta k,\\
+\ddot{\Delta k}-\eta\dot{\Delta k}+z\Delta k&=0.
+\end{align}
+Conjecture a nonzero mode $\Delta k(t)=Be^{\lambda t}$. Its derivatives are
+$\dot{\Delta k}=\lambda Be^{\lambda t}$ and
+$\ddot{\Delta k}=\lambda^2Be^{\lambda t}$. Substitution gives
+\begin{align}
+\lambda^2Be^{\lambda t}-\eta\lambda Be^{\lambda t}
+      +zBe^{\lambda t}&=0,\\
+Be^{\lambda t}(\lambda^2-\eta\lambda+z)&=0,\\
+\lambda^2-\eta\lambda+z&=0.
+\end{align}
+The roots are exactly $\lambda_-$ and $\lambda_+$ above. Keeping only the
+decaying mode and using $k(0)$ gives
+$k(t)=k^*+[k(0)-k^*]e^{\lambda_-t}$ for the linearized transition.
+
+\textbf{The equivalent policy-slope route.}
 Alternatively, conjecture a local policy $\Delta c=m\Delta k$. From the first
 linearized equation, $\dot{\Delta k}=(\eta-m)\Delta k$. Differentiating the
 conjecture and using the second equation gives
 \begin{equation}
-m(\eta-m)\Delta k=z\Delta k,\qquad m^2-\eta m+z=0.
+\begin{aligned}
+\dot{\Delta c}&=m\dot{\Delta k}=m(\eta-m)\Delta k=z\Delta k,\\
+m(\eta-m)&=z,\\
+m\eta-m^2-z&=0,\\
+m^2-\eta m+z&=0.
+\end{aligned}
 \end{equation}
 Choose the positive root $m=\lambda_+$, so $\eta-m=\lambda_-<0$. This recovers
 the same stable policy. Choosing the decaying direction is not a free change
@@ -659,17 +994,24 @@ the scaled baseline need not itself be feasible under the original resources.
 For $\theta\ne1$, let
 $J_i=\int_0^\infty e^{-\eta t}c_i(t)^{1-\theta}\,dt$, for $i=A,B$.
 Substitution into CRRA utility gives
-\begin{equation}
-(1+\lambda)^{1-\theta}J_B=J_A,
-\qquad
-\lambda=\left(\frac{J_A}{J_B}\right)^{1/(1-\theta)}-1.
-\end{equation}
+\begin{align}
+W[(1+\lambda)c_B]
+ &=\frac{1}{1-\theta}\int_0^\infty e^{-\eta t}
+                 [(1+\lambda)c_B(t)]^{1-\theta}\,dt,\\
+ &=\frac{(1+\lambda)^{1-\theta}}{1-\theta}J_B
+  =\frac{1}{1-\theta}J_A,\\
+(1+\lambda)^{1-\theta}&=J_A/J_B,\\
+1+\lambda&=(J_A/J_B)^{1/(1-\theta)},\\
+\lambda&=(J_A/J_B)^{1/(1-\theta)}-1.
+\end{align}
 For $\theta=1$, use $\int_0^\infty e^{-\eta t}dt=1/\eta$ to obtain
-\begin{equation}
-W[(1+\lambda)c_B]=W[c_B]+\frac{\log(1+\lambda)}{\eta},
-\qquad
-\lambda=\exp\!\left(\eta\{W[c_A]-W[c_B]\}\right)-1.
-\end{equation}
+\begin{align}
+W[(1+\lambda)c_B]
+ &=\int_0^\infty e^{-\eta t}[\log(1+\lambda)+\log c_B(t)]\,dt,\\
+ &=\frac{\log(1+\lambda)}{\eta}+W[c_B]=W[c_A],\\
+\log(1+\lambda)&=\eta\{W[c_A]-W[c_B]\},\\
+\lambda&=\exp\!\left(\eta\{W[c_A]-W[c_B]\}\right)-1.
+\end{align}
 For example, if consumption is 1\% higher at every date, both formulas give
 $\lambda=0.01$. A 1\% difference only in eventual steady consumption generally
 does not: the transition also enters the integral.
@@ -693,6 +1035,14 @@ The household budget and government budget are
 \end{align}
 In equilibrium $B=K$ and $rK+wL=Y-\delta K$. Substitute the government budget
 into the household budget:
+\begin{align}
+\mathcal R&=\tau rK+T_L-G,\\
+\dot K&=(1-\tau)rK+wL-C-T_L+(\tau rK+T_L-G),\\
+ &=rK-\tau rK+wL-C-T_L+\tau rK+T_L-G,\\
+ &=rK+wL-C-G=Y-\delta K-C-G,\\
+\dot k&=\frac{\dot K}{AL}-(n+g)k,\\
+ &=f(k)-\delta k-c-\mathcal G-(n+g)k.
+\end{align}
 \begin{equation}\label{eq:ramsey-government-resources}
 \dot K=Y-\delta K-C-G,
 \qquad
@@ -731,7 +1081,19 @@ Now set $T_L=0$ and rebate capital tax revenue as lump-sum transfers, with
 $G=0$. There are many identical price-taking dynasties. Each takes the transfer
 as given: saving an extra unit does not give that household the entire
 increase in aggregate tax rebates. Its marginal return is $(1-\tau)r$.
-Consequently,
+To obtain the household Euler condition, use consumption per person $x$
+and private assets per person $a_h$. The private budget has
+$\dot a_h=[(1-\tau)r-n]a_h+w-x+\mathcal R/L$.
+The dynasty discounts per-person utility at $\rho-n$. With marginal value
+$\nu=u'(x)=x^{-\theta}$, its costate condition gives
+\begin{align}
+\frac{\dot\nu}{\nu}
+ &=(\rho-n)-[(1-\tau)r-n]=\rho-(1-\tau)r,\\
+\dot\nu&=-\theta x^{-\theta-1}\dot x,\\
+-\theta\frac{\dot x}{x}&=\rho-(1-\tau)r,\\
+\frac{\dot x}{x}&=\frac{(1-\tau)r-\rho}{\theta}.
+\end{align}
+Since $x=Ac$, $\dot c/c=\dot x/x-g$. Substitute $r=f'(k)-\delta$:
 \begin{align}
 \frac{\dot x}{x}&=\frac{(1-\tau)r-\rho}{\theta},\\
 \frac{\dot c}{c}&=
@@ -744,6 +1106,11 @@ representative household as if it chose aggregate rebates would erase this
 wedge and would solve a different problem.
 
 For a permanent constant tax, the interior steady state satisfies
+\begin{align}
+0&=(1-\tau)[f'(k_\tau)-\delta]-\rho-\theta g,\\
+(1-\tau)[f'(k_\tau)-\delta]&=\rho+\theta g,\\
+f'(k_\tau)-\delta&=\frac{\rho+\theta g}{1-\tau}.
+\end{align}
 \begin{equation}
 f'(k_\tau)=\delta+\frac{\rho+\theta g}{1-\tau},
 \qquad c_\tau=f(k_\tau)-bk_\tau.
@@ -754,6 +1121,11 @@ f''(k_\tau)\frac{dk_\tau}{d\tau}
 =\frac{\rho+\theta g}{(1-\tau)^2},
 \qquad \frac{dk_\tau}{d\tau}<0.
 \end{equation}
+Explicitly, division by the negative marginal-product derivative gives
+\[
+\frac{dk_\tau}{d\tau}
+ =\frac{\rho+\theta g}{(1-\tau)^2f''(k_\tau)}<0.
+\]
 A lower after-tax share requires a higher pre-tax marginal product to support
 zero growth of $c$. With diminishing returns, that means less capital. Since
 $k_\tau<k^*<k_{\mathrm{GR}}$ when $b>0$, steady private consumption also falls.
@@ -785,10 +1157,32 @@ A small fall in the target stock therefore places the new stable path above
 the old steady-state consumption at the inherited $k^*$. This argument is
 local and uses the stated rebate rule; government spending, announcements,
 or other tax bases require their own transition analysis.
+Write $\Delta k_\tau=k_\tau-k^*<0$ for a small tax. Expanding the resource
+curve and the new local policy around zero tax makes the sign calculation
+explicit:
+\begin{align}
+c_\tau-c^*&=[f'(k^*)-b]\Delta k_\tau+O(\tau^2)
+             =\eta\Delta k_\tau+O(\tau^2),\\
+c(0^+)&=c_\tau+m_\tau(k^*-k_\tau)+O(\tau^2),\\
+c(0^+)-c^*&=\eta\Delta k_\tau-m\Delta k_\tau+O(\tau^2),\\
+ &=(\eta-m)\Delta k_\tau+O(\tau^2)
+  =\lambda_-\Delta k_\tau+O(\tau^2)>0.
+\end{align}
+Here $m_\tau=m+O(\tau)$, so multiplying its change by
+$\Delta k_\tau=O(\tau)$ contributes only at second order. Both
+$\lambda_-$ and the first-order $\Delta k_\tau$ are negative.
 
 For a numerical level comparison, take $f(k)=k^{1/3}$, $\delta=0$,
 $\rho=0.04$, $\theta=2$, $n=0.01$, and $g=0.02$. Then $b=0.03$ and
 $\eta=0.05$. The steady-state formulas give
+\begin{align}
+f'(k)&=\tfrac13k^{-2/3}=q,\\
+k^{-2/3}&=3q,\qquad k=(3q)^{-3/2},\\
+q_0&=0.04+2(0.02)=0.08,\\
+q_{0.20}&=\frac{0.04+2(0.02)}{1-0.20}=0.10,\\
+c&=k^{1/3}-0.03k.
+\end{align}
+Evaluating these expressions gives
 \begin{center}
 \begin{tabular}{lccc}
 \hline
