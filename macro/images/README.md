@@ -55,3 +55,26 @@ repository root, using numpy and matplotlib in the uv-managed environment:
 ```
 
 The generator embeds fonts and omits PDF creation/modification timestamps.
+
+## Growth-synthesis diagnostic paths
+
+`growth_path_diagnosis.pdf` is an original two-panel vector illustration.
+There are no data inputs or estimated model responses. The benchmark is
+Y(t)=100 exp(0.03 t). All changes occur at model date 10. The temporary path
+multiplies the benchmark by 1-0.10 exp(-(t-10)/4) after that date (baseline
+utilization 0.90, impact utilization 0.81, unchanged capacity). The lasting
+level loss multiplies it by 0.90. The slower-trend path multiplies it by
+exp(-0.015(t-10)), lowering growth from 3% to 1.5% without an initial jump.
+The panels show log output relative to initial output and the percentage
+deviation from the common benchmark. These are distinct constructed cases,
+not an identified decomposition of observed GDP.
+
+Regenerate with the uv-managed environment, numpy, and matplotlib:
+
+```sh
+.venv/bin/python macro/images/growth_path_diagnosis.py
+```
+
+The generator checks the initial paths, impact change, subsequent slopes,
+and utilization recovery before saving the figure with embedded fonts and
+without PDF creation/modification timestamps.

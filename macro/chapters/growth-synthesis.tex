@@ -1,0 +1,552 @@
+% !TEX root = ../macro.tex
+\section{Growth Models: Mechanisms, Comparisons, and Reality}\label{sec:growth-synthesis}
+
+A region builds factories, trains workers, starts research laboratories, and
+eventually faces slower growth and an older population. Which growth model
+describes it? Several may help, because each isolates a different question.
+The useful comparison is between mechanisms, rather than between labels for
+countries or stages of development.
+
+This chapter follows that region through a sequence of questions. The region
+is a teaching construction, not a disguised account of a particular country.
+We add mechanisms as the questions require them, keep their assumptions
+visible, and use historical evidence at specific points to connect the
+construction to actual experience. The aim is to learn how to move from an
+observation to a model and then back to an observation that could test it.
+
+\subsection{A map of the questions, not a ranking of the models}
+
+Growth accounting asks where measured output growth appears: capital,
+labor, or a residual. A growth model asks why those quantities change.
+Harrod and Domar ask whether spending and capacity expansion remain
+compatible. Solow asks how capital intensity adjusts when inputs can
+substitute. Ramsey asks who gives up consumption to finance accumulation.
+OLG changes who is alive, who owns assets, and which generations can trade.
+Endogenous-growth models ask what keeps the return to reproducible inputs
+or new knowledge from fading.
+
+\Needspace{23\baselineskip}
+\noindent\textbf{Production, saving, and ownership.}
+\begin{center}
+\small
+\begin{tabular}{p{0.17\linewidth}p{0.32\linewidth}p{0.37\linewidth}}
+\hline
+Framework & Question it closes & Situation that makes the question concrete\\
+\hline
+Growth accounting & Which measured inputs and residual accompany growth? &
+Output rises, but employment and capital also rise. How much is left to explain?\\[4pt]
+Harrod--Domar & Which investment path keeps demand, capacity, and plans compatible? &
+Building factories creates spending today and capacity that needs customers later.\\[4pt]
+Solow & How does capital per effective worker adjust under a given saving rule? &
+More machines initially help a capital-scarce region; their marginal contribution then falls.\\[4pt]
+Ramsey & How do households choose consumption and saving over time? &
+Higher expected returns make postponing consumption more attractive, but the sacrifice has a cost.\\[4pt]
+OLG & How do life-cycle saving and trade between living cohorts determine assets? &
+Workers buy retirement assets from older owners; future workers cannot sign contracts today.\\
+\hline
+\end{tabular}
+\end{center}
+
+\Needspace{23\baselineskip}
+\noindent\textbf{Skills, ideas, and the use of resources.}
+\begin{center}
+\small
+\begin{tabular}{p{0.17\linewidth}p{0.32\linewidth}p{0.37\linewidth}}
+\hline
+Mechanism & What must be explained & Situation that makes the question concrete\\
+\hline
+AK & Why can a reproducible stock retain its marginal return? &
+Machines, skills, or other complementary inputs may expand together; the aggregate linearity still needs a justification.\\[4pt]
+Human capital & How much time goes to work rather than learning? &
+A technician leaves production for training, reducing output now to improve future capability.\\[4pt]
+Innovation & Who pays to create a reusable idea, and who receives its return? &
+A firm funds a design team; rivals may benefit from knowledge that the firm cannot fully charge for.\\[4pt]
+Semi-endogenous growth & How does research effort interact with the difficulty of discovery? &
+More researchers can be needed just to maintain a previous pace of technical improvement.\\[4pt]
+Allocation & Which producers use the existing inputs? &
+A productive workshop cannot expand while a less productive firm retains equipment or financing.\\
+\hline
+\end{tabular}
+\end{center}
+
+These are distinct dimensions. OLG does not follow Ramsey because it has
+more technology; it changes the household structure. An OLG economy can
+also innovate. A Ramsey economy can face demand constraints once the
+required market mechanisms are added. An allocation problem can matter
+at low or high income. Combining them requires a new, consistent equilibrium,
+not the addition of conclusions obtained under incompatible assumptions.
+
+\Needspace{11\baselineskip}
+\begin{greenblock}
+\textbf{Add the mechanism that answers the next question.}
+Start with what is scarce, who chooses its use, and what prevents adjustment.
+Then ask whether the unresolved issue concerns demand, saving, generations,
+skills, discovery, or allocation. A later model in these notes is not a claim
+that every economy must pass through the same development sequence.
+\end{greenblock}
+
+\subsection{A region builds factories: demand, capacity, and diminishing returns}
+
+\subsubsection{First thought: more investment should mean more growth}
+
+Suppose the region has workers, basic skills, and access to an existing
+production method, but few machines. A factory project employs construction
+workers and buys equipment. Once completed, it can produce goods for years.
+It is natural to start with investment as the driver of growth. Two questions
+are already hidden in that statement: will the new capacity be used, and how
+much output will another unit of equipment add?
+
+Harrod--Domar makes the first question visible. In Domar's experiment,
+\[
+\dot Q=\kappa I,\qquad Y^d=I/s,\qquad \dot Y^d=\dot I/s,
+\]
+where $Q$ is capacity, $Y^d$ is demand-supported output, $s$ is a fixed
+saving propensity, and $\kappa$ is a constant capacity increment per unit of
+investment. With no depreciation in this experiment, constant positive
+investment keeps adding capacity but leaves demand-supported output
+unchanged. Maintaining an initially matched path requires
+$\dot I/I=s\kappa$. Section~\ref{sec:harrod-domar} derives the conditions;
+the relation is a compatibility requirement, not a forecast of investment.
+
+Harrod adds a related planning question: does realized growth justify the
+capacity that firms intended to install? With fixed saving propensity $s$
+and desired capital--output ratio $v_r>0$, his no-depreciation benchmark
+gives warranted growth $g_w=s/v_r$. Labor and labor productivity instead
+set natural growth $g_n=n+g_A$. Matching these rates is an additional
+condition, not an identity. If sales disappoint and firms cut investment,
+the resulting loss of spending can further undermine sales. That feedback
+depends on the stated investment response; fixed proportions alone do not
+prove instability.
+
+The real counterpart is a new industrial park whose construction creates
+business for local suppliers, but whose finished factories still need buyers.
+A factory is a productive asset; construction spending is a flow of demand.
+Confusing them makes it easy to count the spending effect and silently assume
+that all future output will be sold. Whether customers are domestic or foreign,
+and whether prices or credit adjust, requires additional mechanisms.
+
+\subsubsection{Second thought: can every new factory be as productive as the first?}
+
+Now suppose demand is sufficient and markets clear. The region can alter
+its mix of workers and equipment. Solow isolates this different question:
+with $k=K/(AL)$ and $y=Y/(AL)$,
+\[
+y=f(k),\qquad \dot k=sf(k)-(n+g_A+\delta)k.
+\]
+Here $A$ is labor efficiency, $L$ grows at rate $n$, $A$ grows at an
+exogenous rate $g_A$, and $\delta$ is depreciation. Diminishing $f'(k)$ means
+that another machine adds less output when each effective worker already
+has more equipment. Capital intensity adjusts rather than requiring one
+fixed capital--output ratio to remain compatible with every growth path.
+
+For a numerical check, hold $A$ and $L$ fixed at a date and let
+$f(k)=k^{1/3}$. A 20\% increase in $k$ raises $y$ by
+\[
+\frac{y_1}{y_0}=1.2^{1/3}\simeq1.0627,
+\qquad
+\frac{f'(k_1)}{f'(k_0)}=1.2^{-2/3}\simeq0.8855.
+\]
+Output rises by about 6.27\%, while the marginal product falls by about
+11.45\%. There is no contradiction: total output and the return to the next
+unit of capital are different objects. These are illustrative quantities,
+not estimates of an industrialization program.
+
+Solow does not prove that newly built capacity always finds buyers.
+Harrod--Domar does not prove that substitution and price adjustment never
+occur. The region can have a short-run utilization problem and a long-run
+capital-intensity problem at the same time. The models differ in the
+adjustment mechanism they choose to expose.
+
+\subsection{Someone must save: from an investment target to household choices}
+
+\subsubsection{A higher eventual income is not a free transition}
+
+Suppose officials propose raising the saving rate from $0.20$ to $0.30$.
+In the continuous-time Cobb--Douglas Solow benchmark,
+\[
+k^*=\left(\frac{s}{n+g_A+\delta}\right)^{1/(1-\alpha)},
+\qquad
+y^*=\left(\frac{s}{n+g_A+\delta}\right)^{\alpha/(1-\alpha)}.
+\]
+With $\alpha=1/3$, unchanged technology growth, and
+$n+g_A+\delta>0$, the eventual ratio of output per effective worker is
+\[
+\frac{y^*_{\mathrm{new}}}{y^*_{\mathrm{old}}}
+=\left(\frac{0.30}{0.20}\right)^{1/2}\simeq1.2247.
+\]
+But capital is inherited at the policy date. If the saving change is imposed
+immediately, output initially stays fixed and consumption changes by
+\[
+\frac{c(0^+)_{\mathrm{new}}}{c(0^-)_{\mathrm{old}}}
+=\frac{1-0.30}{1-0.20}=0.875.
+\]
+An eventual output gain of about 22.47\% comes with an initial consumption
+cut of 12.5\%. This calculation compares two imposed saving rules. It does
+not establish the welfare ranking of their entire consumption paths.
+
+The next question is unavoidable: whose consumption falls, and why would
+they agree? Ramsey replaces the saving instruction with preferences,
+resources, prices, and a choice. In the fixed-population, fixed-technology,
+competitive CRRA benchmark, with $c$ and $k$ per person,
+\[
+\frac{\dot c}{c}=\frac{f'(k)-\delta-\rho}{\theta},
+\qquad \rho>0,\quad\theta>0.
+\]
+A unit not consumed today can earn a net return. Consumption grows when
+that return exceeds impatience, with $\theta$ governing the response.
+The Euler condition must still be combined with the resource constraint,
+initial capital, feasibility, and the terminal condition. It is not a saving
+rate by itself.
+
+In both the Solow and standard Ramsey benchmarks, continued growth of
+output per worker on a balanced path still comes from the specified growth
+of labor efficiency. Optimizing saving changes the accumulation path and
+its welfare interpretation; it does not remove that technological assumption.
+The OLG benchmark changes generations rather than supplying a new technology
+engine. This is the gap addressed by endogenous growth.
+
+For the region, a credible improvement in future production opportunities
+may change desired saving. A temporary income loss may instead encourage
+households to use assets to protect consumption. Taxes, borrowing limits,
+and uncertainty can alter both responses. The basic Ramsey model supplies
+the intertemporal trade-off; it does not establish every household's response
+when its omitted constraints become important.
+
+\subsubsection{The same residents are also different generations}
+
+Now let the region have young workers, retirees, and future entrants.
+The question is no longer only how one continuing household spreads
+consumption over time. Workers must acquire claims that will pay in
+retirement, while current retirees sell assets or receive transfers.
+
+In the two-period OLG benchmark, cohort $t$ chooses $c_{1,t}$ and
+$c_{2,t+1}$ with lifetime utility $u(c_{1,t})+\beta u(c_{2,t+1})$,
+where $\beta>0$. Without taxes, transfers, or bequests, its budgets are
+\[
+c_{1,t}+a_{t+1}=w_t,
+\qquad c_{2,t+1}=R_{t+1}a_{t+1}.
+\]
+Here $a_{t+1}$ is saving per young worker, $w_t$ is labor income, and
+$R_{t+1}$ is the gross payoff on saving. A worker's saving can become the
+next period's physical capital, but the economy's net saving also reflects
+retirees' decumulation. The number and resources of each cohort matter.
+
+A pension reform therefore has several margins: contributions reduce
+workers' disposable income, expected benefits may replace private retirement
+saving, and the first recipients and transition cohorts face different
+budgets. Fewer future workers can also lower a pay-as-you-go system's
+support ratio. None of these observations alone fixes the effect of aging
+on aggregate saving or capital: longevity, retirement ages, wages, transfers,
+and behavior must be specified.
+
+\Needspace{11\baselineskip}
+\begin{blueblock}
+\textbf{An aging economy is not automatically dynamically inefficient.}
+In the deterministic, stationary OLG benchmark with no technology growth,
+overaccumulation means $r<n$, equivalently $R<1+n$, under the chapter's
+depreciation convention. Age structure or a low observed safe interest rate
+alone does not verify that condition. Risky capital returns, government
+claims, and a changing population are not interchangeable objects.
+\end{blueblock}
+
+Ramsey and OLG thus offer different ownership and welfare comparisons for
+the same investment program. Ramsey tracks a continuing household's
+consumption path. OLG asks which living and future cohorts gain or lose,
+including the initially old. Greater eventual output need not compensate
+those who finance the transition.
+
+\subsection{The next machine needs a skill; the next skill needs an idea}
+
+\subsubsection{A machine shortage becomes a capability question}
+
+The region now has equipment, but technicians cannot maintain it, managers
+cannot coordinate production, and workers need time to master new methods.
+Buying the same machine again may not solve these problems. What looked
+like a capital shortage can include missing complementary capabilities.
+
+Human capital makes one part explicit. In the two-sector benchmark,
+\[
+Y=K^\alpha(vH)^{1-\alpha},\qquad
+\dot H=[\eta(1-v)-\delta_H]H,
+\]
+where $H$ is the skill stock, $v\in[0,1]$ is the fraction of time spent
+working, $1-v$ is learning time, $0<\alpha<1$, $\eta>0$ is learning
+productivity, and $\delta_H\geq0$ is skill depreciation. Moving time into
+learning reduces current production but raises future productive capability.
+The model's two shadow values put that opportunity cost next to its benefit.
+
+This helps distinguish three interventions. More training hours changes
+$1-v$; more effective instruction changes $\eta$; a better inherited skill
+base changes $H(0)$. They are different experiments. School enrollment or a
+training budget does not directly measure acquired skills or learning
+productivity. Credit constraints, teaching quality, and employer incentives
+would need to be added to explain those gaps.
+
+AK provides a useful warning at this point. Writing $Y=BK$ assumes that
+the reproducible aggregate retains its marginal product. It does not explain
+why installing more identical machines is sufficient. Joint skill and capital
+accumulation can provide one mechanism, under the conditions derived in
+Section~\ref{sec:endogenous-growth}. An aggregate externality provides
+another, but then private and social returns differ. The equation alone
+cannot choose between them.
+
+\subsubsection{Learning an existing method differs from creating a new one}
+
+Suppose local engineers learn a production method already used abroad.
+This improves local productivity without expanding the world's stock of
+ideas. Adoption requires capability and often costly adaptation; the
+distance from existing best practice matters. At the frontier, the engineers
+must instead discover a method that is not yet available.
+
+Korea provides a historical connection. A 2007 World Bank--Korea Development
+Institute study describes learning through imported equipment, production
+arrangements, training, and reverse engineering, followed by a greater role
+for domestic innovation.\footnote{Joonghae Suh and Derek H. C. Chen, eds.
+(2007), \textit{Korea as a Knowledge Economy: Evolutionary Process and
+Lessons Learned}, World Bank, especially Chapters 6--8 and pp.~168--169
+on technological adoption and innovation.
+\href{https://documents1.worldbank.org/curated/en/923361468327364601/pdf/409300PAPER0KR101OFFICIAL0USE0ONLY1.pdf}{World Bank report}.}
+This illustrates why equipment, absorptive skills, and research can be
+complements. It does not identify one model as the complete explanation of
+Korean growth, or turn the sequence into a causal estimate. Trade, finance,
+institutions, and policy also belong in that account.
+
+Return to our region. A design team uses workers who could have produced
+goods today. Once created, an idea may be usable by many producers without
+being depleted. A patent or another means of earning revenue can fund the
+team, but its private return need not capture all future knowledge benefits.
+This is the additional question in the innovation model: research effort
+must be supported by expected rewards and market entry, not just entered
+as a positive term in a production function.
+
+\Needspace{11\baselineskip}
+\begin{greenblock}
+\textbf{Three objects that a productivity residual can hide.}
+Adoption brings an existing method into local use. Human capital enables
+people to use or develop methods. Innovation adds new ideas. A measured
+productivity improvement may contain all three, as well as allocation and
+measurement effects. Growth accounting locates a residual; it does not
+separate these mechanisms without further information.
+\end{greenblock}
+
+\subsubsection{More researchers need not mean permanently faster growth}
+
+In the earlier linear research technology, $\dot A/A=\eta L_R$, a
+permanently larger research workforce $L_R$ permanently raises idea growth.
+Changing the technology to
+\[
+\dot A=\eta A^\phi L_R^\lambda,
+\qquad \phi<1,\quad0<\lambda\leq1,
+\]
+changes that conclusion. With a fixed positive research share and labor
+growing at $n>0$, a balanced path instead has
+$g_A=\lambda n/(1-\phi)$. A larger research share then raises the level
+path and changes the transition, while this balanced growth rate is unchanged.
+The calculation is conditional on the research share; it is not a new
+solution for optimal research entry.
+
+Bloom, Jones, Van Reenen, and Webb (2020) examine research effort and
+research productivity in historical aggregate and sectoral evidence. Their
+finding that rising effort can accompany declining research productivity
+motivates checking the research technology rather than assuming a constant
+return per researcher.\footnote{Nicholas Bloom, Charles I. Jones, John
+Van Reenen, and Michael Webb (2020), ``Are Ideas Getting Harder to Find?''
+\textit{American Economic Review}, 110(4), 1104--1144.
+\url{https://doi.org/10.1257/aer.20180338}.}
+It does not prove that one value of $\phi$ explains every industry or period.
+The practical question is how much effective research is needed to sustain
+the next improvement, not simply how many laboratories are built.
+
+\subsection{The same resources can produce more, but who gains?}
+
+Even after new factories, training, and research, the region can waste
+productive opportunities. Imagine two firms with different technologies.
+One has idle equipment; the other could use additional equipment productively
+but faces an explicit tax or financing obstacle. More aggregate investment
+is only one possible response. Moving the existing stock can also raise
+output, provided the gain exceeds movement, adjustment, and other costs.
+
+The static allocation experiment in Section~\ref{sec:endogenous-growth}
+holds total capital and complementary inputs fixed. With
+$Y=2\sqrt{k_1}+\sqrt{k_2}$ and $k_1+k_2=1$, equal allocation gives
+$Y=3/\sqrt{2}$; the efficient allocation $(0.8,0.2)$ gives $Y=\sqrt{5}$.
+No new equipment or idea is required. The mechanism is a change in where
+capital operates. Repeating an already completed reallocation does not
+generate another permanent increase in the growth rate.
+
+Hsieh and Klenow's study of manufacturing in China and India makes the
+allocation question empirical by constructing counterfactuals under a
+specified firm-level model.\footnote{Chang-Tai Hsieh and Peter J. Klenow
+(2009), ``Misallocation and Manufacturing TFP in China and India,''
+\textit{Quarterly Journal of Economics}, 124(4), 1403--1448.
+\url{https://doi.org/10.1162/qjec.2009.124.4.1403}.}
+The connection is the distinction between available technologies and the
+allocation of inputs across producers. The counterfactual remains conditional
+on how productivity, prices, markups, and wedges are measured. A difference
+in observed revenue per unit of capital is not sufficient to diagnose a
+credit distortion.
+
+For residents, a productive reallocation can still create losers. Workers
+may need to move, existing asset values can fall, and a firm owner may lose
+a protected position. Our static calculation has neither relocation costs
+nor a distributional account. Those costs must be introduced before claiming
+that every observed obstacle is removable at no sacrifice.
+
+\Needspace{11\baselineskip}
+\begin{blueblock}
+\textbf{Three comparisons that must stay separate.}
+More output from given inputs is a production comparison. More consumption
+after replacement and accumulation is a resource comparison. A preferred
+consumption path, or an improvement for every cohort, is a welfare comparison.
+Solow's Golden Rule, Ramsey welfare, and OLG Pareto improvements answer
+different questions. None follows from an investment or GDP target alone.
+\end{blueblock}
+
+At the research frontier, allocation and growth can interact. Moving skilled
+workers toward research may alter future knowledge creation, while raising
+the rewards to incumbent firms may weaken entry. To sign a growth effect,
+specify those margins and solve the resulting decisions. The static output
+gain itself does not settle the dynamic incentive question.
+
+\subsection{A growth slowdown: work backward from observations}
+
+Suppose the region's GDP growth falls after years of expansion. One account
+says it has exhausted capital accumulation; another blames aging; another
+calls for more research. All are hypotheses. Start by asking what actually
+slowed and which observations would distinguish the mechanisms.
+
+\subsubsection{Separate production per person from the number of people working}
+
+For total hours $L$, employment $E$, and population $N$,
+\[
+\frac{Y}{N}=\frac{Y}{L}\frac{L}{E}\frac{E}{N},\qquad
+g_{Y/N}=g_{Y/L}+g_{L/E}+g_{E/N}.
+\]
+The identity does not require a growth model. Falling employment per resident
+can reduce output per person even if output per hour continues improving.
+Aging can affect that ratio, but participation and retirement behavior can
+also change. A decline in total GDP growth could additionally reflect slower
+population growth. Specify the denominator before choosing the explanation.
+
+\Needspace{27\baselineskip}
+\noindent\textbf{Different diagnoses of the same headline.}
+\begin{center}
+\small
+\begin{tabular}{p{0.27\linewidth}p{0.28\linewidth}p{0.31\linewidth}}
+\hline
+Observation to investigate & Candidate mechanism & What would help distinguish it?\\
+\hline
+Capital per worker keeps rising; its additional output contribution falls &
+Solow transition toward a conditional balanced path &
+Capital quality, effective labor, returns, and the distance from the conditional target\\[4pt]
+Output per person slows more than output per hour &
+Employment, hours, and demographic composition &
+Participation, age-specific employment, hours, and population measures\\[4pt]
+Equipment is installed, but cannot be used effectively &
+Skills, complementary inputs, or adoption costs &
+Training outcomes, vacancies, maintenance, and technology use\\[4pt]
+Research effort rises without a matching pace of improvement &
+Research productivity, duplication, or measurement &
+Effective research inputs and comparable measures of useful innovation\\[4pt]
+Productive firms remain small while others retain inputs &
+Allocation wedges, adjustment costs, or market power &
+Firm prices, quantities, costs, risk, and a specified counterfactual\\[4pt]
+Orders and utilization fall before installed capacity changes much &
+Spending, expectations, or short-run adjustment &
+Orders, inventories, hours, credit conditions, and the timing of capacity changes\\
+\hline
+\end{tabular}
+\end{center}
+
+The last column contains useful evidence, not automatic causal tests. For
+example, low measured returns can reflect expectations or risk, and unfilled
+vacancies can reflect wages as well as skills. A diagnosis becomes stronger
+when a proposed mechanism explains several observations and survives a
+counterfactual comparison.
+
+\subsubsection{Separate using capacity from expanding it}
+
+For a simple diagnostic illustration, define $Q$ as output capacity under
+a stated operating convention and $u=Y/Q>0$ as utilization. Then
+\[
+Y=uQ,\qquad \Delta\log Y=\Delta\log u+\Delta\log Q.
+\]
+This is an identity once $Q$ is defined, not an independent measure of
+capacity or a behavioral theory. If capacity grows by 3\% over a year but
+utilization falls from $0.90$ to $0.81$, actual output changes by
+\[
+\frac{Y_1}{Y_0}=\frac{0.81}{0.90}\times1.03=0.927.
+\]
+Output falls by 7.3\% although capacity rises. If utilization subsequently
+recovers, fast observed growth need not mean that the growth rate of capacity
+has permanently increased. The chosen numbers are an accounting example.
+
+Figure~\ref{fig:growth-path-diagnosis} compares three distinct changes in
+output paths. They are deliberately constructed illustrations, not estimated
+responses. In an actual economy, capacity and utilization are difficult to
+separate and can affect one another: prolonged weak sales can discourage
+investment, training, or entry. The short run can leave a long-run trace.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{growth_path_diagnosis.pdf}
+\caption{A temporary utilization decline, a lasting level loss, and slower
+trend growth produce different paths relative to the same benchmark. The
+shock occurs at model date 10. Both panels show constructed output series;
+they are not a decomposition estimated from data.}
+\label{fig:growth-path-diagnosis}
+\end{figure}
+
+\Needspace{11\baselineskip}
+\begin{redblock}
+\textbf{Question: what would your explanation predict next?}
+If the slowdown is mainly a closing catch-up gap, restoring yesterday's
+investment share need not restore yesterday's growth. If it is mainly weak
+utilization, installing more capacity may not solve the immediate problem.
+If it reflects a weaker innovation mechanism, a temporary spending recovery
+does not by itself repair that mechanism. State a counterfactual and follow
+the quantities, decisions, and returns that it changes.
+\end{redblock}
+
+\subsection{What we carry into fluctuations}
+
+Growth models leave us with inherited stocks, resource constraints, decision
+rules, and a benchmark path. Fluctuation models ask how production and choices
+respond when opportunities or spending conditions change over time. The
+same physical accounting continues to hold. In a closed, one-good economy
+without government, in discrete time,
+\[
+Y_t=A_tF(K_t,\ell_t),\qquad
+K_{t+1}=(1-\delta)K_t+Y_t-C_t,
+\]
+where $A_t$ is productivity, $\ell_t$ is labor input, and $C_t$ is aggregate
+consumption. Here $A_t$ denotes a multiplicative productivity shifter, rather
+than necessarily the labor-efficiency index in Solow. An inherited $K_t$
+cannot jump because households revise their expectations; consumption,
+hours, utilization where modeled, and investment can respond sooner.
+
+The RBC benchmark adds changing real opportunities and intertemporal
+responses, with flexible prices and market clearing. New Keynesian models
+then add nominal adjustment restrictions and policy transmission. In neither
+case is a statistical trend automatically productive capacity, an efficient
+allocation, or the model's natural-output path. Those are different objects
+whose relationship must be established.
+
+The region may also import equipment, export its products, or borrow abroad.
+Our closed-economy resource examples deliberately abstracted from those
+transactions. Adding them changes the goods and asset accounts and introduces
+relative prices and external financing. The open-economy part will develop
+those links; the domestic saving rate then need not equal the domestic
+investment rate.
+
+The region's factories, skills, ideas, and age structure remain relevant
+when demand falls or productivity changes. Conversely, a recession can
+change those stocks and future opportunities. Moving to fluctuations changes
+the question and the adjustment mechanisms under examination; it does not
+require assuming that all shocks wash out or that long-run growth happens
+outside the economy's decisions.
+
+When reading a new episode, first measure the outcome, then identify the
+margin of adjustment, the decision-maker, and the missing constraint.
+Choose a model that closes those relationships. Its value is the mechanism
+it makes explicit and the observations it helps us interpret.

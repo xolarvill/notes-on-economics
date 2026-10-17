@@ -156,9 +156,28 @@ chapter of Part V.
 - How to read an endogenous-growth claim
   - Model comparison and the distinction between levels, transitions, and growth
 
+### 8. Growth Models: Mechanisms, Comparisons, and Reality
+
+- A map of the questions, not a ranking of the models
+  - Production, saving, and ownership compared with skills, ideas, and allocation
+- A region builds factories: demand, capacity, and diminishing returns
+  - Investment spending versus usable capacity; marginal versus total output
+- Someone must save: from an investment target to household choices
+  - Transition costs, Ramsey choices, OLG ownership, pensions, and welfare
+- The next machine needs a skill; the next skill needs an idea
+  - Training inputs, learning productivity, adoption, innovation, and research difficulty
+  - Korea as a historical connection, with the limits of a model-based interpretation
+- The same resources can produce more, but who gains?
+  - Allocation, adjustment costs, distribution, and the distinction between output and welfare
+- A growth slowdown: work backward from observations
+  - Per-person accounting, competing diagnoses, and evidence that would distinguish them
+  - Capacity versus utilization; temporary deviations, level losses, and slower trend growth
+- What we carry into fluctuations
+  - Inherited stocks, changing decisions, and the boundary between trends and model benchmarks
+
 ## Part III: Fluctuations
 
-### 8. Real Business Cycle Model
+### 9. Real Business Cycle Model
 
 - UMP of household
 - PMP of firm
@@ -166,7 +185,7 @@ chapter of Part V.
 - Log-linearization
 - Capital accumulation and investment — **planned**
 
-### 9. New Keynesian Model
+### 10. New Keynesian Model
 
 - UMP of household
 - PMP of firm
@@ -179,9 +198,9 @@ chapter of Part V.
 - Analyze exogenous shocks
 - Natural rates, output gaps, and model limits — **planned**
 
-### 10. Sticky Wage Model
+### 11. Sticky Wage Model
 
-### 11. Labor Markets and Unemployment — **planned**
+### 12. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
@@ -189,19 +208,19 @@ chapter of Part V.
 
 ## Part IV: Open Economy
 
-### 12. International Accounts and Intertemporal Trade — **planned**
+### 13. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 13. Trade and Relative Prices — **planned**
+### 14. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 14. Open Economy Fluctuations and Exchange Rates — **planned**
+### 15. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
@@ -209,38 +228,38 @@ chapter of Part V.
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 
-### 15. Money, Banking, and Central Bank Operations — **planned**
+### 16. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 16. Financial Frictions and Aggregate Adjustment — **planned**
+### 17. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 17. Household Heterogeneity and Policy Transmission — **planned**
+### 18. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 18. Monetary Policy
+### 19. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 19. Fiscal Policy — **planned**
+### 20. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 20. Policy Interaction and Constraints — **planned**
+### 21. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
@@ -248,7 +267,7 @@ chapter of Part V.
 
 ## Part VI: Topics
 
-### 21. The Dollar in the International Monetary System — **planned**
+### 22. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -256,7 +275,7 @@ chapter of Part V.
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 22. China's Growth and Adjustment after the Pandemic — **planned**
+### 23. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

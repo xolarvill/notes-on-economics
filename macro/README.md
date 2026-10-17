@@ -26,7 +26,7 @@ the introduction is a bridge to graduate study, not a repeat of that course.
 | `macro.tex` | Shared settings and document assembly |
 | `frontmatter/` | Title page and preface |
 | `parts/` | Six part introductions and the chapter order within each part |
-| `chapters/` | One file for each of the 22 chapters |
+| `chapters/` | One file for each of the 23 chapters |
 | `styles/` | Reusable layouts, including the model-condition cards |
 | `images/` | Figures and their recovery provenance |
 | `legacy/` | Original aggregate-model material, excluded from the main PDF |
@@ -38,7 +38,9 @@ the introduction is a bridge to graduate study, not a repeat of that course.
 
 Part I contains one chapter, Introduction, with four sections. Growth begins
 in Part II, with growth facts, Harrod--Domar (Chapter 3), Solow (Chapter 4),
-and Ramsey (Chapter 5). The existing welfare derivation is included directly in
+and Ramsey (Chapter 5). OLG and endogenous growth follow; Chapter 8 closes
+Growth with model comparisons and concrete economic situations. Fluctuations
+begins with RBC in Chapter 9. The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
 ## Headings and page starts
