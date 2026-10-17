@@ -240,11 +240,22 @@ bind. With multipliers on resources remaining, write
 \end{equation}
 At an interior optimum,
 \begin{align}
+\frac{\partial\mathscr L}{\partial c_{1,t}}
+ &=u'(c_{1,t})-\lambda_{1,t}=0,\\
+\frac{\partial\mathscr L}{\partial c_{2,t+1}}
+ &=\beta u'(c_{2,t+1})-\lambda_{2,t+1}=0,\\
+\frac{\partial\mathscr L}{\partial a_t}
+ &=-\lambda_{1,t}+R_{t+1}\lambda_{2,t+1}=0,\\
 u'(c_{1,t})&=\lambda_{1,t},\\
 \beta u'(c_{2,t+1})&=\lambda_{2,t+1},\\
 \lambda_{1,t}&=R_{t+1}\lambda_{2,t+1}.
 \end{align}
 Eliminating both multipliers gives
+\[
+u'(c_{1,t})=\lambda_{1,t}
+ =R_{t+1}\lambda_{2,t+1}
+ =\beta R_{t+1}u'(c_{2,t+1}).
+\]
 \begin{equation}\label{eq:olg-euler}
 u'(c_{1,t})=\beta R_{t+1}u'(c_{2,t+1}).
 \end{equation}
@@ -264,6 +275,16 @@ Under CRRA, substitute the budgets into \eqref{eq:olg-euler}:
 \end{align}
 Define $h(R)\equiv\beta^{-1/\theta}R^{(\theta-1)/\theta}$. Taking powers
 and rearranging, step by step,
+\begin{align}
+\left(\frac{w_t-a_t}{a_t}\right)^{-\theta}
+ &=\beta R_{t+1}^{1-\theta},\\
+\frac{w_t-a_t}{a_t}
+ &=(\beta R_{t+1}^{1-\theta})^{-1/\theta},\\
+ &=\beta^{-1/\theta}R_{t+1}^{-(1-\theta)/\theta}
+  =h(R_{t+1}),\\
+\frac{w_t}{a_t}-1&=h(R_{t+1}),\\
+w_t&=a_t[1+h(R_{t+1})].
+\end{align}
 \begin{equation}
 \frac{w_t-a_t}{a_t}=h(R_{t+1}),\qquad
 \frac{w_t}{a_t}=1+h(R_{t+1}),
@@ -277,8 +298,19 @@ The utility constant $-1/(1-\theta)$ has no effect on choices. The log case
 will be obtained directly rather than substituting $\theta=1$ into that
 utility expression.
 
-Holding the return fixed, $a_w=1/(1+h)\in(0,1)$. Holding the wage fixed,
-use $h'(R)=(\theta-1)h/(\theta R)$:
+Holding the return fixed, differentiate only $w$. Holding the wage fixed,
+differentiate the denominator through $h(R)$:
+\begin{align}
+a_w&=\frac{\partial}{\partial w}[w(1+h(R))^{-1}]
+       =(1+h(R))^{-1}\in(0,1),\\
+h'(R)&=\beta^{-1/\theta}\frac{\theta-1}{\theta}
+                 R^{(\theta-1)/\theta-1},\\
+ &=\frac{\theta-1}{\theta R}
+       [\beta^{-1/\theta}R^{(\theta-1)/\theta}]
+  =\frac{\theta-1}{\theta R}h(R),\\
+a_R&=w[-(1+h)^{-2}]h'(R),\\
+ &=-\frac{w}{(1+h)^2}\frac{\theta-1}{\theta R}h.
+\end{align}
 \begin{equation}\label{eq:olg-saving-derivatives}
 a_R=-\frac{wh'(R)}{(1+h)^2}
 =\frac{1-\theta}{\theta}\frac{wh}{R(1+h)^2}.
@@ -305,6 +337,12 @@ For $u(c)=\log c$, \eqref{eq:olg-euler} implies
 \frac{c_{2,t+1}}{c_{1,t}}=\beta R_{t+1}.
 \end{equation}
 Substitute $c_{1,t}=w_t-a_t$ and $c_{2,t+1}=R_{t+1}a_t$:
+\begin{align}
+R_{t+1}a_t&=\beta R_{t+1}(w_t-a_t),\\
+a_t&=\beta w_t-\beta a_t\qquad(R_{t+1}>0),\\
+(1+\beta)a_t&=\beta w_t,\\
+a_t&=\frac{\beta}{1+\beta}w_t.
+\end{align}
 \begin{equation}\label{eq:olg-log-saving}
 R_{t+1}a_t=\beta R_{t+1}(w_t-a_t)
 \quad\Longrightarrow\quad
@@ -323,6 +361,13 @@ At date $t$, firms choose $K,L$ in
 \end{equation}
 Differentiate with respect to actual factor inputs before using constant
 returns to express the prices per worker:
+\begin{align}
+F(K,L)&=Lf(K/L)=Lf(k),\\
+\pi_K&=Lf'(k)(1/L)-q_t=f'(k)-q_t=0,\\
+\pi_L&=f(k)+Lf'(k)(-K/L^2)-w_t=0,\\
+q_t&=f'(k_t),\qquad w_t=f(k_t)-k_tf'(k_t),\\
+R_t&=(1-\delta)+q_t.
+\end{align}
 \begin{equation}\label{eq:olg-prices}
 q_t=f'(k_t),\qquad
 w_t=f(k_t)-k_tf'(k_t),\qquad
@@ -367,6 +412,14 @@ C_t&=L_tw_t-L_ta_t+R_tK_t,\\
 \end{align}
 In the second line, substitute $R_t=q_t+1-\delta$ and
 $Y_t=w_tL_t+q_tK_t$. Rearranging gives
+\begin{align}
+Y_t-C_t&=L_ta_t-(1-\delta)K_t,\\
+K_{t+1}&=(1-\delta)K_t+(Y_t-C_t),\\
+ &=(1-\delta)K_t+L_ta_t-(1-\delta)K_t=L_ta_t,\\
+\frac{K_{t+1}}{L_{t+1}}\frac{L_{t+1}}{L_t}
+ &=\frac{L_ta_t}{L_t},\\
+Nk_{t+1}&=a_t.
+\end{align}
 \begin{equation}\label{eq:olg-capital-market}
 K_{t+1}=L_ta_t,\qquad Nk_{t+1}=a_t.
 \end{equation}
@@ -418,6 +471,15 @@ below is a separate tractable case.
 
 To see why stability needs conditions, differentiate
 \eqref{eq:olg-implicit-map}. Since $w'(k)=-kf''(k)>0$,
+\begin{align}
+w'(k)&=f'(k)-[f'(k)+kf''(k)]=-kf''(k),\\
+N\frac{dk_{t+1}}{dk_t}
+ &=a_w w'(k_t)+a_R R'(k_{t+1})\frac{dk_{t+1}}{dk_t},\\
+ &=a_w[-k_tf''(k_t)]
+    +a_R f''(k_{t+1})\frac{dk_{t+1}}{dk_t},\\
+\left[N-a_Rf''(k_{t+1})\right]\frac{dk_{t+1}}{dk_t}
+ &=a_w[-k_tf''(k_t)].
+\end{align}
 \begin{equation}\label{eq:olg-map-slope}
 \left[N-a_R f''(k_{t+1})\right]\frac{dk_{t+1}}{dk_t}
 =a_w[-k_tf''(k_t)].
@@ -442,6 +504,13 @@ return, and current wages do not depend on depreciation. Depreciation still
 changes the old's consumption and welfare.
 
 At a positive steady state, divide $k^*=M(k^*)^\alpha$ by $(k^*)^\alpha$:
+\begin{align}
+\frac{k^*}{(k^*)^\alpha}&=M,\\
+(k^*)^{1-\alpha}&=M,\\
+k^*&=M^{1/(1-\alpha)},\\
+M&=\frac{\kappa(1-\alpha)}{N}
+   =\frac{\beta(1-\alpha)}{(1+\beta)N}.
+\end{align}
 \begin{equation}\label{eq:olg-log-steady}
 (k^*)^{1-\alpha}=M,\qquad
 k^*=\left[\frac{\beta(1-\alpha)}{(1+\beta)N}\right]^{1/(1-\alpha)}.
@@ -453,6 +522,15 @@ boundary, not the initial condition of the positive-capital result.
 
 There is also an exact solution in log deviations. Divide the map by its
 steady-state version and take logarithms:
+\begin{align}
+\frac{k_{t+1}}{k^*}
+ &=\frac{Mk_t^\alpha}{M(k^*)^\alpha}
+  =\left(\frac{k_t}{k^*}\right)^\alpha,\\
+\log(k_{t+1}/k^*)&=\alpha\log(k_t/k^*),\\
+\log(k_t/k^*)&=\alpha^t\log(k_0/k^*),\\
+k_t/k^*&=\exp[\alpha^t\log(k_0/k^*)]
+        =(k_0/k^*)^{\alpha^t}.
+\end{align}
 \begin{equation}
 \log(k_{t+1}/k^*)=\alpha\log(k_t/k^*),\qquad
 k_t=k^*\left(\frac{k_0}{k^*}\right)^{\alpha^t}.
@@ -602,6 +680,21 @@ make every stationary equilibrium inefficient.
 In the full-depreciation log/Cobb--Douglas example, substitute
 \eqref{eq:olg-log-steady} into the return:
 \begin{align}
+(k^*)^{1-\alpha}&=\frac{\kappa(1-\alpha)}{N},\\
+(k^*)^{\alpha-1}&=\frac{N}{\kappa(1-\alpha)},\\
+R^*&=\frac{\alpha N}{\kappa(1-\alpha)}.
+\end{align}
+All quantities divided below are positive. Thus
+\begin{align}
+R^*<N
+&\Longleftrightarrow\frac{\alpha}{\kappa(1-\alpha)}<1,\\
+&\Longleftrightarrow\alpha<\kappa(1-\alpha),\\
+&\Longleftrightarrow\alpha(1+\beta)<\beta(1-\alpha),\\
+&\Longleftrightarrow\alpha+\alpha\beta<\beta-\alpha\beta,\\
+&\Longleftrightarrow\alpha(1+2\beta)<\beta,\\
+&\Longleftrightarrow\alpha<\frac{\beta}{1+2\beta}.
+\end{align}
+\begin{align}
 R^*=\alpha(k^*)^{\alpha-1}
 &=\frac{\alpha N}{\kappa(1-\alpha)},\\
 R^*<N
@@ -641,11 +734,28 @@ k^*_{S}=\left(\frac{\sigma}{n+\delta}\right)^{1/(1-\alpha)},
 k_{\mathrm{GR}}=\left(\frac{\alpha}{n+\delta}\right)^{1/(1-\alpha)}.
 \end{equation}
 Thus overaccumulation occurs if $\sigma>\alpha$, and is not inevitable.
+The stock comparisons use the same positive power $1-\alpha$:
+\begin{align}
+\sigma(k_S^*)^\alpha&=(n+\delta)k_S^*,\\
+(k_S^*)^{1-\alpha}&=\frac{\sigma}{n+\delta},\\
+\alpha k_{\mathrm{GR}}^{\alpha-1}&=n+\delta,\\
+k_{\mathrm{GR}}^{1-\alpha}&=\frac{\alpha}{n+\delta},\\
+k_S^*>k_{\mathrm{GR}}&\Longleftrightarrow\sigma>\alpha.
+\end{align}
 For the population-weighted Ramsey dynasty in the common discrete benchmark,
 stationary consumption and its Euler equation instead give
 \begin{equation}
 1=\beta R^*,\qquad R^*=1/\beta.
 \end{equation}
+In the course special case $N=1$, the algebra also reads
+\begin{align}
+1&=\beta[1-\delta+f'(k^*)],\\
+1+\rho&=1-\delta+f'(k^*)\qquad(\beta=1/(1+\rho)),\\
+f'(k^*)&=\rho+\delta>\delta=f'(k_{\mathrm{GR}}),\\
+k^*&<k_{\mathrm{GR}}\qquad(f''<0).
+\end{align}
+With population growth restored, compare $R^*=1/\beta$ with
+$R_{\mathrm{GR}}=N$, rather than keeping the $N=1$ Golden Rule unchanged.
 Under $\beta N<1$, the finite-welfare restriction for this stationary
 benchmark, $R^*>N$ and $k^*<k_{\mathrm{GR}}$. This matches the role of the
 effective-discount restriction in the previous continuous-time chapter.
@@ -674,16 +784,34 @@ $\chi N<1$ is a sufficient summability restriction. These weights are a
 normative choice, not a preference inferred from household saving.
 
 Let $\mu_t$ be the multiplier on the aggregate date-$t$ resource constraint.
-The consumption and capital conditions are
+The aggregate resource constraint gives the following derivatives:
+\begin{align}
+0&=\omega_tL_tu'(c_{1,t})-\mu_tL_t,\\
+0&=\beta\omega_{t-1}L_{t-1}u'(c_{2,t})-\mu_tL_{t-1},\\
+0&=-\mu_t+\mu_{t+1}[f'(k_{t+1})+1-\delta].
+\end{align}
+Cancel $L_t$ from the first equation and $L_{t-1}$ from the second. Then
 \begin{align}
 \mu_t&=\omega_tu'(c_{1,t})
  =\beta\omega_{t-1}u'(c_{2,t}),\\
 \mu_t&=R_{t+1}\mu_{t+1}.
 \end{align}
-Using the age-two condition at $t+1$ recovers the same within-cohort Euler
-equation as household optimization. At an interior stationary planner
+Using the age-two condition at $t+1$ recovers the within-cohort Euler equation:
+\begin{align}
+\mu_{t+1}&=\beta\omega_tu'(c_{2,t+1}),\\
+\omega_tu'(c_{1,t})&=R_{t+1}\beta\omega_tu'(c_{2,t+1}),\\
+u'(c_{1,t})&=\beta R_{t+1}u'(c_{2,t+1}).
+\end{align}
+At an interior stationary planner
 allocation, however, $\mu_{t+1}/\mu_t=\chi$, so its capital condition is
 $R^*=1/\chi$. Changing social cohort weights changes the planner problem.
+The ratio follows directly from constant young consumption:
+\begin{align}
+\frac{\mu_{t+1}}{\mu_t}
+ &=\frac{\omega_{t+1}u'(c_1^*)}{\omega_tu'(c_1^*)}=\chi,\\
+1&=R^*\frac{\mu_{t+1}}{\mu_t}=R^*\chi,\\
+R^*&=1/\chi.
+\end{align}
 Maximizing $\bar c(k)$ across stationary paths supplies the Golden Rule;
 it is not the solution of every weighted lifetime-welfare problem. Moreover,
 a planner optimum under one set of weights and a Pareto improvement for all
@@ -738,6 +866,10 @@ Under log utility, the interior saving choice follows from
 \begin{align}
 \frac{1}{w_t-T_t-a_t}
 &=\frac{\beta R_{t+1}}{R_{t+1}a_t+P_{t+1}},\\
+R_{t+1}a_t+P_{t+1}
+ &=\beta R_{t+1}(w_t-T_t-a_t),\\
+R_{t+1}a_t+\beta R_{t+1}a_t
+ &=\beta R_{t+1}(w_t-T_t)-P_{t+1},\\
 (1+\beta)R_{t+1}a_t
 &=\beta R_{t+1}(w_t-T_t)-P_{t+1},\\
 a_t&=\kappa(w_t-T_t)
@@ -835,6 +967,11 @@ path is feasible: returns respond to capital, and all future budgets and
 household choices must hold.
 
 Under log utility, combine $a_t=\kappa(w_t-T_t^D)$ with asset clearing:
+\begin{align}
+N(k_{t+1}+b)&=\kappa[w(k_t)-(R(k_t)-N)b],\\
+Nk_{t+1}&=\kappa w(k_t)-\kappa R(k_t)b+\kappa Nb-Nb,\\
+ &=\kappa w(k_t)-[\kappa R(k_t)+(1-\kappa)N]b.
+\end{align}
 \begin{equation}
 Nk_{t+1}=\kappa w(k_t)
 -\big[\kappa R(k_t)+(1-\kappa)N\big]b.
@@ -842,11 +979,25 @@ Nk_{t+1}=\kappa w(k_t)
 Near the no-debt log/Cobb--Douglas steady state, a small permanent increase
 in $b$ reduces stationary capital. Differentiating the stationary equation
 at $b=0$ gives
+the following chain. Differentiate before setting $b$ to zero:
+\begin{align}
+N\frac{dk^*}{db}
+ &=\kappa w'(k^*)\frac{dk^*}{db}
+   -\kappa R'(k^*)b\frac{dk^*}{db}
+   -[\kappa R(k^*)+(1-\kappa)N],\\
+\left[N-\kappa w'(k^*)\right]
+ \left.\frac{dk^*}{db}\right|_{b=0}
+ &=-[\kappa R^*+(1-\kappa)N].
+\end{align}
 \begin{equation}
 \left.\frac{dk^*}{db}\right|_{b=0}
 =-\frac{\kappa R^*+(1-\kappa)N}{N-\kappa w'(k^*)}<0,
 \qquad N-\kappa w'(k^*)=N(1-\alpha)>0.
 \end{equation}
+Indeed, $w'(k)=\alpha(1-\alpha)k^{\alpha-1}$ and the no-debt steady
+state gives $\kappa(1-\alpha)(k^*)^{\alpha-1}=N$.
+Thus $\kappa w'(k^*)=\alpha N$ and the denominator is
+$N-\alpha N=N(1-\alpha)$.
 This is a local result in the stated example, including its tax-financing
 rule, rather than a universal one-for-one displacement of capital by bonds.
 Whether the reduction helps welfare depends on initial accumulation and

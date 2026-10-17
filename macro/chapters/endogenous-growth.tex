@@ -135,10 +135,19 @@ a formal Euler solution alone need not be a well-posed optimum.
 The current-value Hamiltonian and its control and costate conditions are
 \begin{align}
 \mathcal H&=u(c)+\mu[(B-\delta)k-c],\\
+\mathcal H_c&=u'(c)-\mu=0,\\
+\mathcal H_k&=\mu(B-\delta),\\
+\dot\mu&=\rho\mu-\mathcal H_k=[\rho-(B-\delta)]\mu,\\
 \mu&=c^{-\theta},\qquad
 \dot\mu=[\rho-(B-\delta)]\mu.
 \end{align}
 Since $\dot\mu/\mu=-\theta\dot c/c$,
+the growth equation follows by
+\begin{align}
+\dot\mu&=-\theta c^{-\theta-1}\dot c,\\
+-\theta\frac{\dot c}{c}&=\rho-(B-\delta),\\
+\theta\frac{\dot c}{c}&=B-\delta-\rho.
+\end{align}
 \begin{equation}\label{eq:eg-ak-growth}
 \frac{\dot c}{c}=\frac{B-\delta-\rho}{\theta}=g.
 \end{equation}
@@ -151,6 +160,20 @@ The Euler equation gives $c(t)=c_0e^{gt}$ but not $c_0$. Set
 $a\equiv B-\delta$ and integrate $\dot k=ak-c_0e^{gt}$, using
 $\xi=a-g=\rho-(1-\theta)g>0$:
 \begin{align}
+\frac{\dot c}{c}&=g,
+ \qquad\log(c(t)/c_0)=gt,\qquad c(t)=c_0e^{gt},\\
+\dot k-ak&=-c_0e^{gt},\\
+e^{-at}\dot k-ae^{-at}k&=-c_0e^{-(a-g)t},\\
+\frac{d}{dt}(e^{-at}k)&=-c_0e^{-\xi t},\\
+e^{-at}k(t)-k_0&=-c_0\int_0^t e^{-\xi v}\,dv,\\
+\int_0^t e^{-\xi v}\,dv
+ &=\left[-\frac{e^{-\xi v}}{\xi}\right]_0^t
+   =\frac{1-e^{-\xi t}}{\xi}.
+\end{align}
+Also $\theta g=a-\rho$ gives
+$a-g=\rho+\theta g-g=\rho-(1-\theta)g$.
+Multiplying the integrated capital equation by $e^{at}$ yields
+\begin{align}
 k(t)&=e^{at}\left[k_0-c_0\int_0^t e^{-(a-g)v}\,dv\right],\\
 &=\left(k_0-\frac{c_0}{\xi}\right)e^{at}
   +\frac{c_0}{\xi}e^{gt}.
@@ -158,6 +181,18 @@ k(t)&=e^{at}\left[k_0-c_0\int_0^t e^{-(a-g)v}\,dv\right],\\
 If $c_0>\xi k_0$, the first term eventually makes capital negative. If
 $c_0<\xi k_0$, capital grows at the faster rate $a$ and its limiting discounted
 utility value is positive: the household leaves valuable resources unused.
+The terminal expression makes that last statement explicit:
+\begin{align}
+e^{-\rho t}u'(c(t))k(t)
+ &=c_0^{-\theta}\left[
+   \left(k_0-\frac{c_0}{\xi}\right)e^{(a-\rho-\theta g)t}
+   +\frac{c_0}{\xi}e^{[(1-\theta)g-\rho]t}\right],\\
+ &=c_0^{-\theta}\left[k_0-\frac{c_0}{\xi}
+                       +\frac{c_0}{\xi}e^{-\xi t}\right],\\
+\lim_{t\to\infty}e^{-\rho t}u'(c(t))k(t)
+ &=c_0^{-\theta}\left(k_0-\frac{c_0}{\xi}\right).
+\end{align}
+Here $a-\rho-\theta g=0$ and $(1-\theta)g-\rho=-\xi<0$.
 Feasibility and transversality therefore select
 \begin{equation}\label{eq:eg-ak-path}
 c_0=\xi k_0,\qquad k(t)=k_0e^{gt},\qquad c(t)=\xi k(t).
@@ -232,6 +267,22 @@ factor prices and $\bar k$ as given. In a symmetric allocation with the same
 capital per worker across firms, aggregate output is $Y=BK$.
 
 Differentiate the firm's own technology before imposing symmetry. Then
+\begin{align}
+\frac{\partial y_i}{\partial k_i}
+ &=\alpha Bk_i^{\alpha-1}(\bar k\ell_i)^{1-\alpha},\\
+\frac{\partial y_i}{\partial\ell_i}
+ &=(1-\alpha)Bk_i^\alpha\bar k^{1-\alpha}\ell_i^{-\alpha}.
+\end{align}
+At a common capital intensity $k_i=\bar k\ell_i$, these become
+\begin{align}
+q_D&=\alpha B(\bar k\ell_i)^{\alpha-1}
+                     (\bar k\ell_i)^{1-\alpha}=\alpha B,\\
+w&=(1-\alpha)B(\bar k\ell_i)^\alpha
+                      \bar k^{1-\alpha}\ell_i^{-\alpha}
+     =(1-\alpha)B\bar k.
+\end{align}
+Since $L=1$, $\bar k=K$. Also $y_i=B\bar k\ell_i$, so
+$\sum_i y_i=B\bar k\sum_i\ell_i=BK$.
 \begin{equation}
 q_D=\alpha B,\qquad w=(1-\alpha)BK,\qquad
 r_D=\alpha B-\delta.
@@ -330,6 +381,15 @@ Write the current-value Hamiltonian as
 \end{equation}
 The consumption condition is $\lambda=C^{-\theta}$. The work-time condition
 and the physical-capital costate equation are
+obtained by differentiating each use of the two stocks and of work time:
+\begin{align}
+Y_v&=(1-\alpha)Y/v,\quad Y_K=\alpha Y/K,\quad
+Y_H=(1-\alpha)Y/H,\\
+\mathcal H_C&=u'(C)-\lambda=C^{-\theta}-\lambda=0,\\
+\mathcal H_v&=\lambda(1-\alpha)Y/v-\mu\eta H=0,\\
+\dot\lambda&=\rho\lambda-\lambda[\alpha Y/K-\delta],\\
+\dot\lambda/\lambda&=\rho+\delta-\alpha Y/K.
+\end{align}
 \begin{align}
 \lambda(1-\alpha)Y/v&=\mu\eta H,\label{eq:eg-human-time}\\
 \dot\lambda/\lambda&=\rho+\delta-\alpha Y/K.
@@ -345,6 +405,14 @@ For the skill stock,
 \end{equation}
 Use \eqref{eq:eg-human-time} to replace
 $\lambda(1-\alpha)Y/H$ by $\mu\eta v$. Then
+\begin{align}
+\lambda(1-\alpha)Y/v&=\mu\eta H,\\
+\lambda(1-\alpha)Y/H&=\mu\eta v,\\
+\dot\mu&=\rho\mu-\mu\eta v-\mu[\eta(1-v)-\delta_H],\\
+\frac{\dot\mu}{\mu}
+ &=\rho-\eta v-\eta+\eta v+\delta_H
+  =\rho-\eta+\delta_H.
+\end{align}
 \begin{equation}\label{eq:eg-human-costate}
 \frac{\dot\mu}{\mu}=\rho-\eta+\delta_H.
 \end{equation}
@@ -358,6 +426,21 @@ On a balanced path, $K,H,C$ grow at the same rate $g$ and $v$ is constant.
 Equation~\eqref{eq:eg-human-time} then makes $\mu/\lambda$ constant, because
 $Y/H$ is constant. Therefore $\dot\mu/\mu=\dot\lambda/\lambda=-\theta g$.
 Using \eqref{eq:eg-human-costate} and the skill law gives
+the following sequence:
+\begin{align}
+\frac{\mu}{\lambda}&=\frac{(1-\alpha)Y}{\eta vH}
+                     \quad\text{constant on the balanced path},\\
+\frac{\dot\mu}{\mu}-\frac{\dot\lambda}{\lambda}&=0,\\
+\frac{\dot\lambda}{\lambda}
+ &=-\theta\frac{\dot C}{C}=-\theta g,\\
+-\theta g&=\rho-\eta+\delta_H,\\
+g&=(\eta-\delta_H-\rho)/\theta,\\
+g=\dot H/H&=\eta(1-v^*)-\delta_H,\\
+\eta v^*&=\eta-\delta_H-g
+          =\rho+\theta g-g,\\
+v^*&=1-(g+\delta_H)/\eta
+    =[\rho-(1-\theta)g]/\eta.
+\end{align}
 \begin{equation}\label{eq:eg-human-growth}
 g=\frac{\eta-\delta_H-\rho}{\theta},\qquad
 v^*=1-\frac{g+\delta_H}{\eta}
@@ -369,7 +452,16 @@ resource constraint also require
 \alpha Y/K=\rho+\delta+\theta g,\qquad
 C/K=Y/K-\delta-g>0.
 \end{equation}
+Indeed, $\dot K=Y-C-\delta K$ and $\dot K/K=g$ imply
+$g=Y/K-C/K-\delta$; moving $C/K$ to the other side gives the second relation.
 Since $Y/K=(vH/K)^{1-\alpha}$, the balanced stock ratio is
+obtained by isolating that ratio before taking powers:
+\begin{align}
+\alpha(vH/K)^{1-\alpha}&=\rho+\delta+\theta g,\\
+(vH/K)^{1-\alpha}&=(\rho+\delta+\theta g)/\alpha,\\
+vH/K&=[(\rho+\delta+\theta g)/\alpha]^{1/(1-\alpha)},\\
+K/H&=v[\alpha/(\rho+\delta+\theta g)]^{1/(1-\alpha)}.
+\end{align}
 \begin{equation}
 (K/H)^*=v^*\left(\frac{\alpha}{\rho+\delta+\theta g}\right)^{1/(1-\alpha)}.
 \end{equation}
@@ -487,12 +579,29 @@ cover its cost, a zero-research corner replaces the interior formula.
 
 Final firms maximize $Y-wL_Y-\int_0^A p_jx_j\,dj$.
 Demand for input $j$ satisfies
+\begin{align}
+0&=\frac{\partial Y}{\partial x_j}-p_j
+   =\alpha L_Y^{1-\alpha}x_j^{\alpha-1}-p_j,\\
+p_jx_j^{1-\alpha}&=\alpha L_Y^{1-\alpha},\\
+x_j^{1-\alpha}&=(\alpha/p_j)L_Y^{1-\alpha},\\
+x_j&=L_Y(\alpha/p_j)^{1/(1-\alpha)}.
+\end{align}
 \begin{equation}
 p_j=\alpha L_Y^{1-\alpha}x_j^{\alpha-1},\qquad
 x_j=L_Y(\alpha/p_j)^{1/(1-\alpha)}.
 \end{equation}
 The input owner maximizes $(p_j-1)x_j(p_j)$. Since demand has price elasticity
 $1/(1-\alpha)>1$, its marginal-revenue condition gives
+the following explicit calculation in quantities:
+\begin{align}
+\pi(x)&=[p(x)-1]x=\alpha L_Y^{1-\alpha}x^\alpha-x,\\
+\pi'(x)&=\alpha^2L_Y^{1-\alpha}x^{\alpha-1}-1=0,\\
+\alpha^2L_Y^{1-\alpha}x^{\alpha-1}&=1,\\
+x^{1-\alpha}&=\alpha^2L_Y^{1-\alpha},\\
+x_D&=\alpha^{2/(1-\alpha)}L_Y=\zeta_D L_Y,\\
+p_D&=\alpha L_Y^{1-\alpha}x_D^{\alpha-1}
+     =\alpha/\alpha^2=1/\alpha.
+\end{align}
 \begin{equation}\label{eq:eg-idea-markup}
 p_D=1/\alpha,\qquad x_D=\zeta_D L_Y,\qquad
 \zeta_D\equiv\alpha^{2/(1-\alpha)}.
@@ -500,6 +609,19 @@ p_D=1/\alpha,\qquad x_D=\zeta_D L_Y,\qquad
 Equivalently, differentiating profit in $x$ gives
 $\alpha^2L_Y^{1-\alpha}x^{\alpha-1}=1$. Labor's marginal product and profit
 per patent are therefore
+computed by
+\begin{align}
+w&=(1-\alpha)L_Y^{-\alpha}\int_0^A x_j^\alpha\,dj,\\
+ &=(1-\alpha)L_Y^{-\alpha}A(\zeta_D L_Y)^\alpha
+  =(1-\alpha)A\zeta_D^\alpha,\\
+\pi&=(p_D-1)x_D
+   =(1/\alpha-1)\zeta_D L_Y
+   =\frac{1-\alpha}{\alpha}\zeta_D L_Y,\\
+Y&=L_Y^{1-\alpha}A(\zeta_D L_Y)^\alpha
+  =AL_Y\zeta_D^\alpha,\\
+C&=Y-Ax_D=AL_Y\zeta_D^\alpha-AL_Y\zeta_D
+  =AL_Y(\zeta_D^\alpha-\zeta_D).
+\end{align}
 \begin{equation}\label{eq:eg-idea-wage-profit}
 w=(1-\alpha)A\zeta_D^\alpha,\qquad
 \pi=\frac{1-\alpha}{\alpha}\zeta_D L_Y.
@@ -524,6 +646,15 @@ V=\frac{w}{\eta A}
 \end{equation}
 Asset pricing reduces to $r=\pi/V$. Since
 $\zeta_D^{1-\alpha}=\alpha^2$,
+division of profit by patent value gives
+\begin{align}
+r=\pi/V
+ &=\frac{[(1-\alpha)/\alpha]\zeta_D L_Y}
+         {(1-\alpha)\zeta_D^\alpha/\eta},\\
+ &=\frac{\eta L_Y}{\alpha}\zeta_D^{1-\alpha}
+  =\frac{\eta L_Y}{\alpha}\alpha^2
+  =\alpha\eta L_Y.
+\end{align}
 \begin{equation}\label{eq:eg-idea-return}
 r=\eta L_Y\frac{\zeta_D^{1-\alpha}}{\alpha}
 =\alpha\eta L_Y.
@@ -532,6 +663,8 @@ Consumption grows at the rate of designs on this path. Combine the household
 Euler equation, research technology, and labor clearing:
 \begin{align}
 g_D=\eta L_R&=\frac{\alpha\eta(L-L_R)-\rho}{\theta},\\
+\theta\eta L_R&=\alpha\eta L-\alpha\eta L_R-\rho,\\
+\theta\eta L_R+\alpha\eta L_R&=\alpha\eta L-\rho,\\
 \eta(\theta+\alpha)L_R&=\alpha\eta L-\rho,\\
 L_R^D&=\frac{\alpha\eta L-\rho}{\eta(\theta+\alpha)},\qquad
  g_D=\frac{\alpha\eta L-\rho}{\theta+\alpha}.
@@ -568,16 +701,35 @@ A planner does not need the monopoly markup to finance discovery. At given
 $A,L_Y$, it first maximizes net output,
 $L_Y^{1-\alpha}\int x_j^\alpha dj-\int x_jdj$.
 The optimal input use satisfies
+\begin{align}
+0&=\frac{\partial}{\partial x_j}
+ [L_Y^{1-\alpha}x_j^\alpha-x_j]
+ =\alpha L_Y^{1-\alpha}x_j^{\alpha-1}-1,\\
+x_P^{1-\alpha}&=\alpha L_Y^{1-\alpha},\\
+x_P&=\alpha^{1/(1-\alpha)}L_Y=\zeta_P L_Y.
+\end{align}
 \begin{equation}
 \alpha L_Y^{1-\alpha}x_P^{\alpha-1}=1,\qquad
 x_P=\zeta_P L_Y,\quad \zeta_P\equiv\alpha^{1/(1-\alpha)}>\zeta_D.
 \end{equation}
 Let $D_P\equiv\zeta_P^\alpha-\zeta_P>0$. Its remaining resource constraint is
 $C=D_PA(L-L_R)$. Solve it for $L_R$ and substitute into research:
+\begin{align}
+C/(D_PA)&=L-L_R,\\
+L_R&=L-C/(D_PA),\\
+\dot A&=\eta A[L-C/(D_PA)]
+       =\eta LA-\frac{\eta}{D_P}C.
+\end{align}
 \begin{equation}
 \dot A=\eta LA-\frac{\eta}{D_P}C.
 \end{equation}
 Define a transformed state $Z\equiv D_PA/\eta$. Then
+\begin{align}
+\dot Z&=\frac{D_P}{\eta}\dot A,\\
+ &=\frac{D_P}{\eta}
+   \left(\eta LA-\frac{\eta}{D_P}C\right),\\
+ &=D_PLA-C=\eta LZ-C.
+\end{align}
 \begin{equation}\label{eq:eg-idea-planner-map}
 \dot Z=\eta LZ-C.
 \end{equation}
@@ -585,12 +737,29 @@ This is exactly the one-stock AK resource equation, with net return $\eta L$.
 $Z$ is a planner's transformed state, not the market patent wealth $AV$.
 Reusing the earlier optimization, rather than maximizing growth as a separate
 objective, gives
+the Hamiltonian conditions
+\begin{align}
+\mathcal H_P&=u(C)+\nu(\eta LZ-C),\\
+\mathcal H_{P,C}&=C^{-\theta}-\nu=0,\\
+\dot\nu&=\rho\nu-\eta L\nu=(\rho-\eta L)\nu,\\
+-\theta\dot C/C&=\dot\nu/\nu=\rho-\eta L,\\
+g_P=\dot C/C&=(\eta L-\rho)/\theta.
+\end{align}
 \begin{equation}\label{eq:eg-idea-planner-growth}
 g_P=\frac{\eta L-\rho}{\theta},\qquad L_R^P=g_P/\eta,
 \end{equation}
 provided $0<g_P<\eta L$ and $\rho-(1-\theta)g_P>0$.
 With $\alpha\eta L>\rho$ and both interior admissible paths,
-$g_P>g_D$. Private innovation rewards omit part of the value of future knowledge,
+$g_P>g_D$. The sign can be checked without comparing two complicated fractions by eye:
+\begin{align}
+g_P-g_D
+ &=\frac{(\eta L-\rho)(\theta+\alpha)
+          -\theta(\alpha\eta L-\rho)}{\theta(\theta+\alpha)},\\
+ &=\frac{\theta\eta L(1-\alpha)+\alpha(\eta L-\rho)}
+          {\theta(\theta+\alpha)}>0.
+\end{align}
+Here $\alpha\eta L>\rho$ implies $\eta L>\rho$.
+Private innovation rewards omit part of the value of future knowledge,
 and monopoly pricing also restricts input use. The growth comparison belongs
 to this specified welfare problem; it does not establish that any intervention
 raising measured research must improve welfare.
@@ -636,6 +805,15 @@ problem. Since
 g_A\equiv\dot A/A=\eta A^{\phi-1}(s_RL)^\lambda,
 \end{equation}
 a positive constant $g_A$ on a balanced path requires
+the logarithmic differentiation
+\begin{align}
+\log g_A&=\log\eta+(\phi-1)\log A
+                       +\lambda\log s_R+\lambda\log L,\\
+\frac{\dot g_A}{g_A}&=(\phi-1)\frac{\dot A}{A}
+                         +\lambda\frac{\dot L}{L},\\
+0&=(\phi-1)g_A+\lambda n,\\
+(1-\phi)g_A&=\lambda n.
+\end{align}
 \begin{equation}
 0=\frac{d\log g_A}{dt}=(\phi-1)g_A+\lambda n,
 \qquad g_A=\frac{\lambda n}{1-\phi}.
@@ -651,6 +829,15 @@ is not evidence that research is useless.
 
 When $n=0$ and $L_R$ is constant, integrate
 \eqref{eq:eg-semi-technology} directly:
+\begin{align}
+A^{-\phi}\dot A&=\eta L_R^\lambda,\\
+\frac{d}{dt}A^{1-\phi}
+ &=(1-\phi)A^{-\phi}\dot A=(1-\phi)\eta L_R^\lambda,\\
+\int_0^t\frac{d}{dv}A(v)^{1-\phi}\,dv
+ &=(1-\phi)\eta L_R^\lambda\int_0^t dv,\\
+A(t)^{1-\phi}-A(0)^{1-\phi}
+ &=(1-\phi)\eta L_R^\lambda t.
+\end{align}
 \begin{equation}
 A(t)^{1-\phi}=A(0)^{1-\phi}
  +(1-\phi)\eta L_R^\lambda t.
@@ -710,17 +897,45 @@ not derive a credit constraint. Market clearing still requires $k_1+k_2=K$.
 \subsubsection{Equalize marginal products, not capital quantities}
 
 With multiplier $\nu$ on the capital stock, the planner's interior conditions
-are
+come from
+\begin{align}
+\mathscr L&=z_1k_1^\alpha+z_2k_2^\alpha+\nu(K-k_1-k_2),\\
+\mathscr L_{k_1}&=\alpha z_1k_1^{\alpha-1}-\nu=0,\\
+\mathscr L_{k_2}&=\alpha z_2k_2^{\alpha-1}-\nu=0.
+\end{align}
+Thus
 \begin{equation}
 \alpha z_1k_1^{\alpha-1}=\nu
 =\alpha z_2k_2^{\alpha-1}.
 \end{equation}
 Rearrange the ratio, then use resource clearing:
+\begin{align}
+z_1k_1^{\alpha-1}&=z_2k_2^{\alpha-1},\\
+(k_1/k_2)^{\alpha-1}&=z_2/z_1,\\
+(k_1/k_2)^{1-\alpha}&=z_1/z_2,\\
+k_1/k_2&=(z_1/z_2)^{1/(1-\alpha)}.
+\end{align}
+Set $b_i=z_i^{1/(1-\alpha)}$ and $S=b_1+b_2$. Since
+$k_1/k_2=b_1/b_2$ and $k_1+k_2=K$,
+\begin{align}
+k_1&=(b_1/b_2)k_2,\\
+K&=(1+b_1/b_2)k_2,\\
+k_2&=Kb_2/S,\qquad k_1=Kb_1/S.
+\end{align}
 \begin{equation}\label{eq:eg-efficient-allocation}
 \frac{k_1}{k_2}=\left(\frac{z_1}{z_2}\right)^{1/(1-\alpha)},\qquad
 k_i=K\frac{z_i^{1/(1-\alpha)}}{z_1^{1/(1-\alpha)}+z_2^{1/(1-\alpha)}}.
 \end{equation}
 Substituting into output and collecting terms gives
+the full sum
+\begin{align}
+Y^*&=\sum_{i=1}^2z_i(Kb_i/S)^\alpha,\\
+ &=K^\alpha S^{-\alpha}\sum_{i=1}^2z_i b_i^\alpha,\\
+z_i b_i^\alpha&=z_i^{1+\alpha/(1-\alpha)}
+                  =z_i^{1/(1-\alpha)}=b_i,\\
+Y^*&=K^\alpha S^{-\alpha}(b_1+b_2)
+     =K^\alpha S^{1-\alpha}.
+\end{align}
 \begin{equation}\label{eq:eg-aggregate-allocation}
 Y^*=K^\alpha
 \left[z_1^{1/(1-\alpha)}+z_2^{1/(1-\alpha)}\right]^{1-\alpha}.
@@ -730,6 +945,12 @@ products match. Equal capital would be efficient only if the technologies
 and complementary inputs make that allocation satisfy the same condition.
 
 Distorted private choices instead satisfy
+\begin{align}
+0&=\frac{d}{dk_i}[z_i k_i^\alpha-(1+\tau_i)qk_i]
+    =\alpha z_i k_i^{\alpha-1}-(1+\tau_i)q,\\
+q&=\alpha\frac{z_i}{1+\tau_i}k_i^{\alpha-1}.
+\end{align}
+Applying the same ratio calculation to $z_i/(1+\tau_i)$ gives
 \begin{equation}
 \frac{\alpha z_i k_i^{\alpha-1}}{1+\tau_i}=q,\qquad
 \frac{k_1}{k_2}=

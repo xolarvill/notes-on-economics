@@ -34,8 +34,64 @@ All condition cards, intuition, examples, figures, and table formatting remain.
 | Original second-order method | Differentiate capital motion, substitute consumption motion, construct the second-order ODE, differentiate an exponential guess, and recover the characteristic polynomial; retain the policy-slope method as an additional route |
 | Welfare and taxation | CRRA/log consumption-equivalent algebra, household-government budget cancellations, private after-tax Euler, tax steady state and derivative, initial-consumption perturbation, and numerical stock calculation |
 
-## Remaining stages in this restoration
+## Solow: restored calculations
 
-Solow, OLG, and the new endogenous-growth derivations are being expanded next.
-Compilation and mathematical/layout verification are recorded after the stages
-have actually passed; the table above describes the routes written in source.
+- Factor-price first-order derivatives, the scale derivative behind Euler's
+  theorem, factor exhaustion, and differentiation of the intensive production function.
+- Exact next-date normalization, subtraction over a common denominator,
+  steady-state rearrangement, Cobb--Douglas powers, and the level elasticity.
+- Explicit iterations, relative deviations, logarithmic target times and
+  half-lives, integer dates, and the distinction between a local model and
+  the nonlinear path.
+- Product/quotient rules for effective-worker capital, separation and
+  integration of the local ODE, and an integrating-factor solution of the
+  exact Cobb--Douglas transformed ODE, including its initial condition.
+- Golden Rule powers and saving share; resource cost under imperfect capital
+  conversion; collection of powers in the augmented human-capital example.
+
+## OLG: restored calculations
+
+- Individual Lagrangian derivatives and elimination of both multipliers;
+  CRRA powers, intermediate saving ratios, full return-derivative chain rule,
+  and the log case's rearrangement.
+- Firm derivatives before normalization, liquidation/resource accounting,
+  division by next-period cohort size, implicit differentiation of the
+  capital law, steady-state powers, and the exact log transition.
+- Reciprocal powers for the stationary return, each inequality in the
+  dynamic-inefficiency threshold, and matching Solow/Ramsey stock comparisons.
+- Aggregate planner derivatives with cohort sizes, within-cohort cancellation,
+  stationary social multiplier weights, PAYG cross-multiplication, and
+  debt-financed asset clearing/differentiation.
+
+## Endogenous growth: newly expanded calculations
+
+- AK Hamiltonian derivatives, consumption integration, capital integrating
+  factor, evaluation of the integral, and the full candidate terminal value
+  before imposing the restriction on initial consumption.
+- Firm-specific spillover derivatives before symmetry; two-stock production
+  derivatives, time-choice cancellation, equal shadow-value growth, the work
+  fraction, and the balanced physical/human-capital ratio.
+- Final-demand inversion, monopoly profit differentiation, input quantity and
+  markup, wage and profit substitution, patent-value division, and the research
+  labor equation.
+- Planner input choice, elimination of research labor, transformed-state
+  differentiation, optimizing growth conditions, and a common-denominator
+  comparison of decentralized and planner growth.
+- Log differentiation of semi-endogenous idea growth, chain rule and integration
+  at fixed research labor, allocation multipliers, capital-share powers,
+  explicit output aggregation, and private wedge derivatives.
+
+## Verification scope
+
+Numerical checks independently evaluate finite budgets and Euler conditions,
+Bellman identities and envelope derivatives, short-interval HJB residuals,
+integration by parts including endpoints, the Ramsey Jacobian/eigenvectors,
+tax perturbation signs, consumption-equivalent formulas, the exact Solow path,
+OLG utility maximization and derivative formulas, debt steady states, AK
+terminal expressions, human-capital costates, patent pricing and income
+accounting, planner transformations, and efficient allocation.
+
+All complete condition-card bodies and original course comment lines were
+compared byte for byte with the pre-restoration source. They remain unchanged.
+This record names the routes checked; it does not use total page count as
+proof of preservation. Final rendering checks are recorded in REVISION_PLAN.md.

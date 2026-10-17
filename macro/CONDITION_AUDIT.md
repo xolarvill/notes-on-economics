@@ -6,6 +6,10 @@ existing explanations and derivations. Original course wording remains in
 commented blocks within each chapter for comparison, including statements that
 need theoretical qualification. These comments are not alternate active sources.
 
+This is a condition/topic map, not proof that each algebraic step was retained.
+The 2026-10-17 derivation restoration and its route-by-route coverage are recorded
+separately in `DERIVATION_AUDIT.md`.
+
 ## Solow
 
 Comparison source: `862ae0e^:macro/chapters/solow.tex`, the original

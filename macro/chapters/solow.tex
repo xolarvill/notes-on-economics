@@ -435,13 +435,30 @@ per worker. A price-taking firm solves
 \end{equation}
 At an interior solution, denoting derivatives with respect to the two arguments
 of $F$ by $F_1,F_2$,
+\begin{align}
+\frac{\partial\pi}{\partial K}&=F_1(K,A_tL)-q_t=0,\\
+\frac{\partial\pi}{\partial L}&=A_tF_2(K,A_tL)-w_t=0.
+\end{align}
 \begin{equation}
 q_t=F_1(K_t,A_tL_t),\qquad w_t=A_tF_2(K_t,A_tL_t).
 \end{equation}
 Constant returns and Euler's theorem for homogeneous functions give
+the following calculation. For scale $v>0$,
+\begin{align}
+F(vK,vAL)&=vF(K,AL),\\
+F_1(vK,vAL)K+F_2(vK,vAL)AL&=F(K,AL),\\
+F_1(K,AL)K+F_2(K,AL)AL&=F(K,AL)\qquad(v=1).
+\end{align}
 \begin{equation}
 Y_t=F_1K_t+F_2A_tL_t=q_tK_t+w_tL_t.
 \end{equation}
+Hence $\pi_t=Y_t-q_tK_t-w_tL_t=0$. To express the same prices in intensive
+units, differentiate $F(K,AL)=ALf(K/(AL))$:
+\begin{align}
+F_K&=ALf'(k)\frac{1}{AL}=f'(k),\\
+F_L&=Af(k)+ALf'(k)\left(-\frac{K}{AL^2}\right),\\
+ &=A[f(k)-kf'(k)].
+\end{align}
 \begin{blueblock}
 \textbf{Zero profits do not mean zero capital income.}
 Economic profits are zero after paying both factors, including capital owned
@@ -483,6 +500,7 @@ Define $D\equiv(1+n)(1+g)$, the gross growth factor of effective labor. Divide
 \begin{align}
 k_{t+1}
 &=\frac{(1-\delta)K_t+sY_t}{A_{t+1}L_{t+1}},\\
+&=\frac{(1-\delta)K_t+sY_t}{(1+g)A_t(1+n)L_t},\\
 &=\frac{(1-\delta)K_t/(A_tL_t)+sY_t/(A_tL_t)}{D},\\
 &=\frac{(1-\delta)k_t+sf(k_t)}{D}\equiv\Phi(k_t).
 \label{eq:solow-discrete-map}
@@ -493,6 +511,14 @@ workers need equipment, and increasing labor efficiency requires more equipment
 per worker to keep $k$ constant.
 
 Subtract $k_t$ and define $d_D\equiv D-1+\delta$:
+\begin{align}
+k_{t+1}-k_t
+ &=\frac{(1-\delta)k_t+sf(k_t)}{D}-\frac{Dk_t}{D},\\
+ &=\frac{sf(k_t)+[1-\delta-D]k_t}{D},\\
+ &=\frac{sf(k_t)-(D-1+\delta)k_t}{D},\\
+D-1+\delta&=(1+n)(1+g)-1+\delta
+             =\delta+n+g+ng.
+\end{align}
 \begin{equation}\label{eq:solow-discrete-change}
 k_{t+1}-k_t=\frac{sf(k_t)-d_Dk_t}{D},\qquad
  d_D=\delta+n+g+ng.
@@ -519,6 +545,13 @@ stationary map in $k=K/(AL)$ requires the effective-labor normalization above.
 \subsubsection{A steady state and the path toward it}
 
 A positive normalized steady state satisfies
+\begin{align}
+k^*&=\frac{(1-\delta)k^*+sf(k^*)}{D},\\
+Dk^*-(1-\delta)k^*&=sf(k^*),\\
+(D-1+\delta)k^*&=sf(k^*),\\
+d_Dk^*&=sf(k^*),\\
+\frac{k^*}{f(k^*)}&=\frac{s}{d_D}.
+\end{align}
 \begin{equation}\label{eq:solow-discrete-steady}
 k^*=\Phi(k^*),\qquad sf(k^*)=d_Dk^*,\qquad
 \frac{K}{Y}=\frac{k^*}{f(k^*)}=\frac{s}{d_D}.
@@ -580,6 +613,14 @@ at $D$. With no technical progress, there is no sustained growth per worker on
 this path, even if the population and total output keep growing.
 
 For Cobb--Douglas, solve $s(k^*)^\alpha=d_Dk^*$:
+\begin{align}
+s&=d_D(k^*)^{1-\alpha}\qquad(k^*>0),\\
+(k^*)^{1-\alpha}&=s/d_D,\\
+k^*&=(s/d_D)^{1/(1-\alpha)},\\
+y^*&=(k^*)^\alpha
+     =[(s/d_D)^{1/(1-\alpha)}]^\alpha
+     =(s/d_D)^{\alpha/(1-\alpha)}.
+\end{align}
 \begin{equation}\label{eq:solow-cd-steady}
 k^*=\left(\frac{s}{d_D}\right)^{1/(1-\alpha)},\qquad
 y^*=\left(\frac{s}{d_D}\right)^{\alpha/(1-\alpha)}.
@@ -587,6 +628,10 @@ y^*=\left(\frac{s}{d_D}\right)^{\alpha/(1-\alpha)}.
 A higher saving rate raises the long-run level of output per effective worker.
 Holding the technology path fixed, it does not change the long-run growth rate
 of output per worker. Its steady-state level elasticity is
+obtained from
+\[
+\log y^*=\frac{\alpha}{1-\alpha}(\log s-\log d_D).
+\]
 \begin{equation}
 \frac{\partial\log y^*}{\partial\log s}=\frac{\alpha}{1-\alpha}.
 \end{equation}
@@ -628,18 +673,51 @@ x_{t+1}&\approx\phi x_t,\qquad
 \end{align}
 Because $sf'(k^*)<sf(k^*)/k^*=d_D$, we have $0<\phi<1$. Iterating the
 linearized system yields
+\begin{align}
+x_1&=\phi x_0,\\
+x_2&=\phi x_1=\phi(\phi x_0)=\phi^2x_0,\\
+x_3&=\phi x_2=\phi^3x_0,\\
+x_t&=\phi^t x_0.
+\end{align}
+These equalities solve the linearized recursion; for the nonlinear model
+the path below is a local approximation. The course's relative deviation
+$\hat k_t=(k_t-k^*)/k^*=x_t/k^*$ obeys the same recursion:
+\[
+\hat k_{t+1}=\frac{x_{t+1}}{k^*}
+ =\frac{\phi x_t}{k^*}=\phi\hat k_t.
+\]
 \begin{equation}\label{eq:solow-discrete-speed}
 x_t\approx\phi^t x_0,\qquad
 \lambda_D=-\log\phi>0,\qquad
 T_{1/2}\approx\frac{\log2}{\lambda_D}.
 \end{equation}
+To find the time to a target fraction $0<\varepsilon<1$ of a nonzero
+initial deviation, take logarithms explicitly:
+\begin{align}
+\frac{|x_T|}{|x_0|}&=\phi^T=\varepsilon,\\
+T\log\phi&=\log\varepsilon,\\
+T_\varepsilon&=\frac{\log\varepsilon}{\log\phi},\\
+T_{1/2}&=\frac{\log(1/2)}{\log\phi}
+        =\frac{\log2}{-\log\phi}.
+\end{align}
+For integer dates, round $T_\varepsilon$ up to obtain the first date at
+or below that fraction in the linearized model. Setting $\varepsilon=0$
+would require an infinite time rather than a logarithm of zero.
 $\phi$ is persistence; a larger $\phi$ means slower adjustment. $\lambda_D$ is
 the corresponding decay rate per period, and $T_{1/2}$ is the local half-life
 of a deviation. The recursion for the linearized system has an exact geometric solution;
 the approximation is in using that system to describe the original model.
 The nonlinear path need not have this half-life far from its steady state.
 
-For Cobb--Douglas, $sf'(k^*)=\alpha d_D$, so
+For Cobb--Douglas, the steady-state equation gives
+\begin{align}
+s(k^*)^\alpha&=d_Dk^*,\\
+s(k^*)^{\alpha-1}&=d_D,\\
+sf'(k^*)&=s\alpha(k^*)^{\alpha-1}=\alpha d_D,\\
+\phi&=\frac{1-\delta+\alpha d_D}{D}
+      =\frac{D-d_D+\alpha d_D}{D}.
+\end{align}
+Here $1-\delta=D-d_D$. Therefore
 \begin{equation}
 \phi=1-\frac{(1-\alpha)d_D}{D}.
 \end{equation}
@@ -657,6 +735,15 @@ they are not numerically identical to finite-period percentage changes. Write
 \dot K=sF(K,AL)-\delta K,\qquad k=\frac{K}{AL},\qquad y=f(k).
 \end{equation}
 Log differentiation of the definition of $k$, followed by substitution, gives
+the same result as the quotient rule. First display the latter:
+\begin{align}
+\frac{d(AL)}{dt}&=\dot A L+A\dot L,\\
+\dot k&=\frac{\dot K(AL)-K(\dot A L+A\dot L)}{(AL)^2},\\
+ &=\frac{\dot K}{AL}-\frac{K}{AL}
+    \left(\frac{\dot A}{A}+\frac{\dot L}{L}\right),\\
+ &=\frac{sY-\delta K}{AL}-(g+n)k.
+\end{align}
+Dividing by $k=K/(AL)>0$ also gives the log-differentiation form:
 \begin{align}
 \frac{\dot k}{k}
 &=\frac{\dot K}{K}-\frac{\dot A}{A}-\frac{\dot L}{L},\\
@@ -692,14 +779,30 @@ instantaneous real return is $r=f'(k)-\delta$.
 
 Linearizing the law of motion around its steady state gives
 \begin{align}
+G(k)&=G(k^*)+G'(k^*)(k-k^*)+O((k-k^*)^2),\\
+G(k^*)&=0,\qquad G'(k^*)=sf'(k^*)-b.
+\end{align}
+\begin{align}
 \dot k&\approx G'(k^*)(k-k^*),\\
 G'(k^*)&=sf'(k^*)-b<0,\\
 k(t)-k^*&\approx[k(0)-k^*]e^{-\lambda_Ct},
 \qquad \lambda_C\equiv b-sf'(k^*)>0.\label{eq:solow-continuous-speed}
 \end{align}
-The exponential expression solves the \emph{linearized} system. It is generally
+The exponential expression solves the \emph{linearized} system. Obtain it
+by setting $x=k-k^*$ and separating variables:
+\begin{align}
+\dot x&=-\lambda_Cx,\\
+\int_{x(0)}^{x(t)}\frac{dv}{v}&=-\lambda_C\int_0^t ds,\\
+\log|x(t)|-\log|x(0)|&=-\lambda_Ct,\\
+\left|\frac{x(t)}{x(0)}\right|&=e^{-\lambda_Ct},\\
+x(t)&=x(0)e^{-\lambda_Ct}.
+\end{align}
+The sign of a nonzero $x(0)$ is preserved in this scalar linear equation;
+if $x(0)=0$, its solution is zero. The exponential path is generally
 only a local approximation to the original nonlinear equation. For
-Cobb--Douglas, $\lambda_C=(1-\alpha)b$ and the local half-life is
+Cobb--Douglas, $s(k^*)^{\alpha-1}=b$ implies
+$sf'(k^*)=\alpha b$, so $\lambda_C=b-\alpha b=(1-\alpha)b$.
+Its local half-life is
 $\log2/[(1-\alpha)b]$.
 
 Cobb--Douglas also permits an exact solution using a different variable. Set
@@ -711,7 +814,17 @@ $z(t)=k(t)^{1-\alpha}$ and differentiate:
  =(1-\alpha)(s-bz).
 \end{align}
 This is a linear equation in $z$, with steady state $z^*=s/b$. Its solution
-and the implied capital path are
+can also be obtained without quoting a linear-ODE formula. With
+$a=(1-\alpha)b>0$, multiply $\dot z+az=(1-\alpha)s$ by $e^{at}$:
+\begin{align}
+e^{at}\dot z+ae^{at}z&=(1-\alpha)se^{at},\\
+\frac{d}{dt}(e^{at}z)&=(1-\alpha)se^{at},\\
+e^{at}z(t)-z(0)&=(1-\alpha)s\int_0^t e^{av}\,dv,\\
+ &=\frac{(1-\alpha)s}{a}(e^{at}-1)
+  =\frac{s}{b}(e^{at}-1),\\
+z(t)&=z(0)e^{-at}+\frac{s}{b}(1-e^{-at}).
+\end{align}
+Regrouping the constants and taking the power $1/(1-\alpha)$ gives
 \begin{align}
 z(t)&=\frac{s}{b}+\left[z(0)-\frac{s}{b}\right]
  e^{-(1-\alpha)bt},\\
@@ -752,6 +865,12 @@ s_{\mathrm{GR}}=\frac{bk_{\mathrm{GR}}}{f(k_{\mathrm{GR}})}.
 \end{equation}
 For Cobb--Douglas, substitute
 $\alpha k_{\mathrm{GR}}^{\alpha-1}=b$:
+\begin{align}
+k_{\mathrm{GR}}^{1-\alpha}&=\alpha/b,\\
+k_{\mathrm{GR}}&=(\alpha/b)^{1/(1-\alpha)},\\
+s_{\mathrm{GR}}&=\frac{bk_{\mathrm{GR}}}{k_{\mathrm{GR}}^\alpha}
+ =bk_{\mathrm{GR}}^{1-\alpha}=b(\alpha/b)=\alpha.
+\end{align}
 \begin{equation}
 k_{\mathrm{GR}}=\left(\frac{\alpha}{b}\right)^{1/(1-\alpha)},
 \qquad s_{\mathrm{GR}}=\alpha.
@@ -810,7 +929,14 @@ This scalar $\eta$ is an illustrative reduced form: it does not yet explain
 which projects are chosen or how finance allocates resources.
 
 At a stationary $k$, maintaining it requires $I/(AL)=bk/\eta$, so
-$c=f(k)-bk/\eta$. The Golden Rule becomes $f'(k)=b/\eta$. Welfare comparisons
+$c=f(k)-bk/\eta$. The calculation is
+\begin{align}
+0&=\eta I/(AL)-bk,\\
+I/(AL)&=bk/\eta,\\
+c&=y-I/(AL)=f(k)-bk/\eta,\\
+dc/dk&=f'(k)-b/\eta=0.
+\end{align}
+The Golden Rule becomes $f'(k)=b/\eta$. Welfare comparisons
 must account for the resources spent creating capital, not only the stock
 that eventually appears in production.
 
@@ -853,6 +979,8 @@ Substitute both into production and collect the powers of $y^*$:
 \begin{align}
 y^*&=\left(\frac{s_Ky^*}{b}\right)^\alpha
        \left(\frac{s_Hy^*}{b}\right)^\beta,\\
+ &=\frac{s_K^\alpha s_H^\beta}{b^{\alpha+\beta}}
+        (y^*)^{\alpha+\beta},\\
 (y^*)^{1-\alpha-\beta}
 &=\frac{s_K^\alpha s_H^\beta}{b^{\alpha+\beta}},\\
 y^*&=\left(\frac{s_K^\alpha s_H^\beta}
