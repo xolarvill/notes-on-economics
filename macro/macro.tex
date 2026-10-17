@@ -7,7 +7,7 @@
 \usepackage{geometry} % Formatting
 \usepackage[document]{ragged2e} % Left-aligned text with natural word spacing
 \usepackage{indentfirst} % Indent the first paragraph after a heading too
-\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[table,dvipsnames,svgnames]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable,skins}
 \usepackage{cancel}
@@ -32,13 +32,17 @@
 
 % Table cells start flush left; environment grouping preserves body indentation.
 % ragged2e restores paragraph columns using RaggedRightParindent, not parindent alone.
+\definecolor{tablerowshade}{gray}{0.97}
+\newcommand{\tableheading}[1]{{\bfseries\boldmath #1}}
 \AddToHook{env/tabular/begin}{%
   \setlength{\parindent}{0pt}%
   \setlength{\RaggedRightParindent}{0pt}%
+  \rowcolors{2}{white}{tablerowshade}% Header is white; first body row is shaded.
 }
 \AddToHook{env/tabular*/begin}{%
   \setlength{\parindent}{0pt}%
   \setlength{\RaggedRightParindent}{0pt}%
+  \rowcolors{2}{white}{tablerowshade}%
 }
 
 % right cases

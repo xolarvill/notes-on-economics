@@ -62,6 +62,18 @@ To add a chapter, create its file in `chapters/` and add one `\input` entry to t
 appropriate part file. Keep each active chapter referenced exactly once.
 Chapter files use `% !TEX root = ../macro.tex` so editors can find the entry point.
 
+## Table formatting
+
+The shared `tabular` and `tabular*` hooks keep cell indentation at zero and
+alternate body rows between a very light gray (3% black) and white. The header
+remains white, and the first body row is gray. Each table restarts the pattern;
+the settings remain local to the environment.
+
+Wrap each nonempty header cell in `\tableheading{...}`. This makes its text
+and any mathematical symbols bold without changing the body rows or their
+column alignment. Keep existing column widths and all substantive content;
+check the PDF if a longer bold heading changes the wrapping.
+
 ## Model-condition maps
 
 `styles/model-setup.tex` supplies `modelsetup` and numbered `modelcondition`
