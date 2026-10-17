@@ -77,6 +77,8 @@ Every figure and table needs a numbered caption and a unique label immediately
 after it. Put figure captions below the image and table captions above the
 table. Shared caption styling uses small, left-aligned text without first-line
 indentation and a bold label. Retain explanatory notes, sources, and scope.
+The shared caption hook resets both paragraph-indent settings before a caption
+box opens; its local scope preserves the body's 2em indentation afterward.
 
 For an existing in-place object, keep it and its caption in one minipage. Set
 the local type **before** the image or table so hyperlink anchors point to the

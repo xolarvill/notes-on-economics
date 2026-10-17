@@ -19,6 +19,9 @@
 \numberwithin{table}{section}
 \usepackage{hyperref}
 
+% Reset before caption boxes open; ragged2e otherwise restores the body's indent.
+\AtBeginCaption{%
+  \setlength{\RaggedRightParindent}{0pt}\setlength{\parindent}{0pt}}
 \captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
 \captionsetup[figure]{position=below,skip=6pt}
 \captionsetup[table]{position=above,skip=6pt}
