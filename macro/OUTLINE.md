@@ -129,11 +129,32 @@ chapter of Part V.
   - Funded accounts and voluntary-saving offsets
   - Public debt portfolios, taxes, resource consolidation, and local crowding
 
-### 7. Endogenous Growth and Resource Allocation — **planned**
+### 7. Endogenous Growth and Resource Allocation
 
-- The AK benchmark and human capital
-- Ideas, innovation, and incentives
-- Allocation and aggregate productivity
+- From intermediate macroeconomics and Ramsey to a growth engine
+  - Familiar claims, missing accumulation mechanisms, and endogenous saving versus growth
+- AK: retain Ramsey's choice, change the return
+  - Complete conditions and the inherited stock
+  - Hamiltonian, growth, feasibility, and transversality
+  - Level changes, permanent return changes, and a tax wedge
+  - Private returns versus aggregate AK with a spillover
+- Human capital: explain the reproducible composite
+  - Complete two-sector conditions and the work--learning choice
+  - Two shadow values and an interior balanced growth path
+  - Joint reproducibility versus diminishing returns to one input
+- Ideas: from a research share to innovation incentives
+  - Nonrivality, production rights, and a complete expanding-variety experiment
+  - Input demand, markups, wages, and patent profits
+  - Free entry, household pricing, and endogenous research effort
+  - Planner research as a transformed AK problem
+- What changes when ideas become harder to find?
+  - Scale effects and the research-technology assumption
+  - Conditional semi-endogenous growth, levels, and transitions
+- Allocation: more output from the same stocks
+  - Full conditions for a static two-firm experiment
+  - Efficient capital allocation, wedges, and a numerical comparison
+- How to read an endogenous-growth claim
+  - Model comparison and the distinction between levels, transitions, and growth
 
 ## Part III: Fluctuations
 

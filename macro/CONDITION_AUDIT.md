@@ -95,3 +95,25 @@ notes separate gross and net returns, young and national saving, and individual
 versus social accounting. A red worked resource experiment establishes why
 an overaccumulating path can permit a Pareto improvement. The complete
 condition cards remain distinct from these callouts.
+
+## Endogenous Growth and Resource Allocation
+
+The original chapter (`8306854:macro/chapters/endogenous-growth.tex`) contained
+only a planned outline: AK/human capital; ideas, innovation and incentives;
+allocation and aggregate productivity. It contained no existing assumption
+list, worked derivation, or callout to archive. All three topics are developed,
+with explicit bridges from intermediate macroeconomics and the Ramsey chapter.
+
+| Specification | Complete conditions and scope |
+| --- | --- |
+| Optimizing AK | Five cards specify continuous time, fixed population, ownership, one-good linear technology, CRRA choice, competitive returns, feasibility, transversality, positive growth and finite-welfare restrictions |
+| AK spillover construction | Text states firm technology, common capital/knowledge spillover, price-taking behavior, labor clearing, symmetric aggregation, and the private/social return distinction; growing solutions are conditional on admissibility |
+| Human capital | Four cards specify two inherited stocks, work and learning time, production, goods and skill laws, skill depreciation, objective, terminal conditions and interior balanced-path restrictions; arbitrary transitions are not claimed to be solved |
+| Expanding varieties | Five cards specify fixed labor and population, patent ownership, final demand, flow intermediate resource costs, exclusive rights, symmetric monopoly, research labor, knowledge spillovers, free entry, asset pricing, household budgets and terminal restrictions |
+| Semi-endogenous technology experiment | The altered research law, growing labor, and fixed positive research share are explicit; the earlier endogenous share is not carried over, and the calculation is not represented as the complete new competitive equilibrium |
+| Static allocation | Three cards specify two firms, fixed complementary inputs and capital, technologies, competitive rental choice, rebated tax wedges and resource clearing; this is a one-date allocation comparison, not a standalone growth engine |
+
+Symbols used for different technology coefficients are defined within each
+experiment. Teaching simplifications are distinguished from the full Lucas
+and Romer originals. The two original figures use only stated model equations
+and hypothetical parameters; there are no empirical estimates in the examples.

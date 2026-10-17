@@ -65,6 +65,11 @@ terminal conditions. Changing notation from an exogenous $g$ to a function
 called $g$ does not provide those mechanisms.
 \end{blueblock}
 
+The following models are separate experiments. Technology coefficients such
+as $\eta$ and $\alpha$ are defined within each specification; a training
+efficiency, a production elasticity, and a research efficiency are not assumed
+to be the same empirical parameter.
+
 \subsection{AK: retain Ramsey's choice, change the return}
 
 \Needspace{12\baselineskip}
@@ -184,6 +189,20 @@ $g=0.02$, $c/k=0.06$, and $s^*=0.40$. Raising $k_0$ by 10\% raises the whole
 path by 10\%. Raising $B$ to $0.12$ instead gives $g=0.03$ and $c/k=0.07$.
 These are illustrative model numbers, not empirical return estimates.
 
+\begin{center}
+\begin{minipage}{\linewidth}
+\centering
+\includegraphics[width=0.92\linewidth]{images/endogenous_ak_paths.pdf}
+\par\medskip\RaggedRight
+\noindent\textit{Levels versus growth rates.} Parallel log-consumption paths
+have the same growth rate. A larger inherited stock shifts the path, whereas
+a higher $B$ changes its slope and its optimal initial consumption ratio.
+Each path starts at date zero with its stated parameters; this is not a
+simulation of an unanticipated policy change partway through a transition.
+The numbers are the hypothetical AK example above.
+\end{minipage}
+\end{center}
+
 A tax rate $\tau$ on net capital income, rebated as a lump-sum transfer,
 leaves aggregate resources unchanged but changes the household's marginal
 return. For an interior admissible growing equilibrium,
@@ -223,12 +242,16 @@ same household preferences and appropriate admissibility restrictions,
 g_D=\frac{\alpha B-\delta-\rho}{\theta},\qquad
  g_P=\frac{B-\delta-\rho}{\theta}.
 \end{equation}
+\Needspace{12\baselineskip}
+\begin{blueblock}
+\textbf{An aggregate AK equation does not identify the private return.}
 Where both growing solutions are feasible, $g_D<g_P$. These are two different
 interpretations of the same aggregate $Y=BK$: either $B$ is privately earned,
 or part of the social return is external. Aggregate linearity alone cannot
 tell us which policy problem is present. Learning during investment or shared
 production experience can motivate a spillover, but its size has to be
 specified and measured rather than inferred from the AK notation.
+\end{blueblock}
 
 \subsection{Human capital: explain the reproducible composite}
 
@@ -374,10 +397,420 @@ it does not imply that every extra school year permanently raises a country's
 growth rate. Shared ideas introduce another issue: unlike a person's time,
 the same design can be used in many places at once.
 
-\subsection{Ideas, innovation, and incentives}
-\textit{This section is being developed from the original outline.}
-Separate nonrival ideas, private innovation rewards, and the social return.
+\subsection{Ideas: from a research share to innovation incentives}
 
-\subsection{Allocation and aggregate productivity}
-\textit{This section is being developed from the original outline.}
-Connect the allocation of a given capital stock to productivity and growth.
+\subsubsection{Nonrival use and costly invention are different margins}
+
+A trained engineer cannot supply the same hour to two laboratories at once.
+A design can guide production in both laboratories without being depleted by
+its first use. That is nonrivalry. Whether others are allowed to use it without
+paying is a separate question of excludability. The distinction motivates
+Romer's innovation framework.\footnote{Paul M. Romer (1990), ``Endogenous
+Technological Change,'' \textit{Journal of Political Economy}, 98(5), Part 2,
+S71--S102. \url{https://doi.org/10.1086/261725}.}
+
+If every additional use can be supplied at negligible cost, competitive pricing
+of use alone may not recover the original discovery cost. Patent rents,
+research contracts, public funding, or other institutions could supply the
+reward. We specify one arrangement instead of assuming that a positive research
+share appears without someone bearing its cost.
+
+The worked model adds varieties of a differentiated input. It uses flow inputs
+and labor-based research to keep the accounting transparent; it is a
+Romer-style teaching model, not a literal reproduction of all sectors in the
+1990 paper.\footnote{For expanding-variety constructions and alternative
+research technologies, see Daron Acemoglu, MIT, \textit{Advanced Economic Growth},
+Lecture 2 (September 10, 2007),
+\href{https://economics.mit.edu/sites/default/files/inline-files/Advanced\%20Economic\%20Growth\%20-\%20Lecture\%202\%2C\%20Review\%20of\%20Endogenous\%20Growth\%2C\%20Explaining\%20Variety\%20Models.pdf}{lecture notes}.}
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Household, population, states, and ownership}
+Time is continuous and the population $L>0$ is constant. A continuing household
+supplies labor inelastically, owns firms and patents, and chooses consumption
+and financial saving under the earlier CRRA objective. Total consumption is
+$C$; since $L$ is constant, using $C$ rather than $C/L$ does not change optimal
+growth. The inherited state is the number of designs $A(0)>0$. There is no
+aggregate uncertainty, physical storage stock, population growth, or leisure
+choice in this worked model.
+\end{modelcondition}
+\begin{modelcondition}{02}{Final production and intermediate resource use}
+Competitive final-good firms use production labor $L_Y$ and a continuum of
+input flows indexed by their designs:
+\[
+Y=L_Y^{1-\alpha}\int_0^A x_j^\alpha\,dj,\qquad 0<\alpha<1.
+\]
+Each unit of $x_j$ costs one unit of the final good to produce and is fully
+used within the period. It is not a durable capital stock. Final goods left
+for consumption satisfy $C=Y-\int_0^A x_j\,dj$. There are no government
+purchases or other goods uses. Gross output and net consumption must not
+be confused when calculating the cost of innovation.
+\end{modelcondition}
+\begin{modelcondition}{03}{Exclusive production rights and pricing}
+Each design has a perpetual patent with one producer of its input, no expiry,
+and no creative destruction. The owner chooses the input price taking final
+firms' demand as given; marginal production cost is one. Designs are symmetric
+but their producers have monopoly power over their own inputs. Final-good
+firms and factor markets are competitive. Patents protect production rights;
+existing knowledge is available to researchers without a separate royalty.
+\end{modelcondition}
+\begin{modelcondition}{04}{Research, free entry, and labor clearing}
+Research employs $L_R$ workers and produces designs at
+\[
+\dot A=\eta A L_R,\qquad \eta>0,\qquad L_Y+L_R=L.
+\]
+Each research firm takes the common stock $A$, wage $w$, and value $V$ per
+new patent as given. Positive research with free entry requires
+$\eta A V=w$: the value of new designs per worker equals its wage cost.
+Knowledge does not depreciate. The linear dependence on $A$ and the absence
+of congestion are substantive accumulation assumptions, not definitions.
+\end{modelcondition}
+\begin{modelcondition}{05}{Asset pricing, budgets, and the interior path}
+A patent pays flow profit $\pi$. With no risk or displacement,
+$rV=\pi+\dot V$, where $r$ is the instantaneous net financial return.
+Household financial wealth is $W=AV$ and obeys
+\[
+\dot W=rW+wL-C,\qquad
+\frac{\dot C}{C}=\frac{r-\rho}{\theta}.
+\]
+Impose solvency and
+$\lim_{t\to\infty}e^{-\rho t}C(t)^{-\theta}W(t)=0$.
+The interior balanced path below requires $\alpha\eta L>\rho$ and
+$\rho-(1-\theta)g_D>0$. Planner comparisons also require the stated planner
+interiority and finite-welfare restrictions. If profitable research does not
+cover its cost, a zero-research corner replaces the interior formula.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{Demand, the markup, wages, and patent profits}
+
+Final firms maximize $Y-wL_Y-\int_0^A p_jx_j\,dj$.
+Demand for input $j$ satisfies
+\begin{equation}
+p_j=\alpha L_Y^{1-\alpha}x_j^{\alpha-1},\qquad
+x_j=L_Y(\alpha/p_j)^{1/(1-\alpha)}.
+\end{equation}
+The input owner maximizes $(p_j-1)x_j(p_j)$. Since demand has price elasticity
+$1/(1-\alpha)>1$, its marginal-revenue condition gives
+\begin{equation}\label{eq:eg-idea-markup}
+p_D=1/\alpha,\qquad x_D=\zeta_D L_Y,\qquad
+\zeta_D\equiv\alpha^{2/(1-\alpha)}.
+\end{equation}
+Equivalently, differentiating profit in $x$ gives
+$\alpha^2L_Y^{1-\alpha}x^{\alpha-1}=1$. Labor's marginal product and profit
+per patent are therefore
+\begin{equation}\label{eq:eg-idea-wage-profit}
+w=(1-\alpha)A\zeta_D^\alpha,\qquad
+\pi=\frac{1-\alpha}{\alpha}\zeta_D L_Y.
+\end{equation}
+Every design can be used alongside the same production labor. Consequently
+$Y=A L_Y\zeta_D^\alpha$ and total intermediate cost is $A L_Y\zeta_D$.
+Net consumption is
+\begin{equation}\label{eq:eg-idea-net-output}
+C=A L_Y(\zeta_D^\alpha-\zeta_D)>0.
+\end{equation}
+The production firm's wage payment and the input owners' profits sum to this
+net product. A larger set of designs expands productive possibilities; the
+markup limits how intensively each is used.
+
+\subsubsection{Free entry and Ramsey pricing determine research effort}
+
+On a balanced path with constant $L_Y,L_R$, wages grow with $A$, while profit
+\emph{per patent} is constant. Free entry then makes patent value constant:
+\begin{equation}
+V=\frac{w}{\eta A}
+=\frac{(1-\alpha)\zeta_D^\alpha}{\eta}.
+\end{equation}
+Asset pricing reduces to $r=\pi/V$. Since
+$\zeta_D^{1-\alpha}=\alpha^2$,
+\begin{equation}\label{eq:eg-idea-return}
+r=\eta L_Y\frac{\zeta_D^{1-\alpha}}{\alpha}
+=\alpha\eta L_Y.
+\end{equation}
+Consumption grows at the rate of designs on this path. Combine the household
+Euler equation, research technology, and labor clearing:
+\begin{align}
+g_D=\eta L_R&=\frac{\alpha\eta(L-L_R)-\rho}{\theta},\\
+\eta(\theta+\alpha)L_R&=\alpha\eta L-\rho,\\
+L_R^D&=\frac{\alpha\eta L-\rho}{\eta(\theta+\alpha)},\qquad
+ g_D=\frac{\alpha\eta L-\rho}{\theta+\alpha}.
+\label{eq:eg-idea-growth}
+\end{align}
+The research share has now been derived from incentives, not inserted into
+$\dot A/A$ as a given number. Under the stated restriction it lies strictly
+between zero and $L$. If $\alpha\eta L\leq\rho$, the interior expression
+would be nonpositive; the no-research corner has $L_R=0$, rather than negative
+research employment.
+
+\Needspace{13\baselineskip}
+\begin{blueblock}
+\textbf{Research uses labor even when no research goods appear in the budget.}
+New patents cost $V\dot A=wL_R$. That expenditure pays research workers,
+whose time is no longer available to final production. Household saving buys
+new equity: with constant $V$, $\dot W=V\dot A$. Indeed,
+$rW+wL-C=A\pi+w(L_Y+L_R)-(A\pi+wL_Y)=wL_R$.
+The financial transaction and the labor opportunity cost describe the same
+allocation. Treating all $L$ as production labor while also employing $L_R$
+in research would manufacture resources that the economy does not have.
+\end{blueblock}
+
+This mechanism connects to laboratories, software development, and design
+work: people must be paid before there is a product to sell, and the expected
+claim on future profits helps finance that cost. Patent duration, imitation,
+entry barriers, or the ability to sell a design would change that claim.
+Those margins are deliberately fixed here; the formula is not a measured
+return to every kind of research.
+
+\subsubsection{The planner's research problem is another AK problem}
+
+A planner does not need the monopoly markup to finance discovery. At given
+$A,L_Y$, it first maximizes net output,
+$L_Y^{1-\alpha}\int x_j^\alpha dj-\int x_jdj$.
+The optimal input use satisfies
+\begin{equation}
+\alpha L_Y^{1-\alpha}x_P^{\alpha-1}=1,\qquad
+x_P=\zeta_P L_Y,\quad \zeta_P\equiv\alpha^{1/(1-\alpha)}>\zeta_D.
+\end{equation}
+Let $D_P\equiv\zeta_P^\alpha-\zeta_P>0$. Its remaining resource constraint is
+$C=D_PA(L-L_R)$. Solve it for $L_R$ and substitute into research:
+\begin{equation}
+\dot A=\eta LA-\frac{\eta}{D_P}C.
+\end{equation}
+Define a transformed state $Z\equiv D_PA/\eta$. Then
+\begin{equation}\label{eq:eg-idea-planner-map}
+\dot Z=\eta LZ-C.
+\end{equation}
+This is exactly the one-stock AK resource equation, with net return $\eta L$.
+$Z$ is a planner's transformed state, not the market patent wealth $AV$.
+Reusing the earlier optimization, rather than maximizing growth as a separate
+objective, gives
+\begin{equation}\label{eq:eg-idea-planner-growth}
+g_P=\frac{\eta L-\rho}{\theta},\qquad L_R^P=g_P/\eta,
+\end{equation}
+provided $0<g_P<\eta L$ and $\rho-(1-\theta)g_P>0$.
+With $\alpha\eta L>\rho$ and both interior admissible paths,
+$g_P>g_D$. Private innovation rewards omit part of the value of future knowledge,
+and monopoly pricing also restricts input use. The growth comparison belongs
+to this specified welfare problem; it does not establish that any intervention
+raising measured research must improve welfare.
+
+A subsidy to invention and a policy changing input markups address different
+margins. Their financing, targeting, and effect on entry would have to be
+modeled before proposing an optimal instrument. In settings with duplication,
+displacement of existing innovators, or other external effects, the welfare
+comparison would need to be redone. Nonrivality alone does not identify one
+universally correct patent or subsidy policy.
+
+\subsection{What changes when ideas become harder to find?}
+
+\subsubsection{The scale prediction is an assumption worth testing}
+
+The worked model has $\dot A/A=\eta L_R$: a permanently larger research
+workforce supports a permanently faster growth rate. In particular,
+\eqref{eq:eg-idea-growth} makes the scale $L$ matter. This follows from linear
+research productivity in existing knowledge and no congestion. It is not
+implied by the definition of a nonrival idea.
+
+Jones (1995) questioned the scale predictions of early R\&D models using the
+historical evidence available in that paper.\footnote{Charles I. Jones (1995),
+``R\&D-Based Models of Economic Growth,'' \textit{Journal of Political Economy},
+103(4), 759--784. The comparison concerns that paper's models and evidence,
+not a claim that current data settle every innovation mechanism.
+\url{https://doi.org/10.1086/262002}.}
+One way to investigate the restriction is to change the research technology:
+\begin{equation}\label{eq:eg-semi-technology}
+\dot A=\eta A^\phi L_R^\lambda,\qquad
+\phi<1,\quad 0<\lambda\leq1.
+\end{equation}
+These are new assumptions. The preceding optimal research-share and patent
+formulas must not be carried over unchanged.
+
+\subsubsection{A conditional balanced-growth calculation}
+
+For this calculation, allow labor to grow at exogenous rate $n\geq0$ and
+hold the research share $s_R=L_R/L$ constant and positive. This is a
+technology experiment; it does not yet solve the new household and entry
+problem. Since
+\begin{equation}
+g_A\equiv\dot A/A=\eta A^{\phi-1}(s_RL)^\lambda,
+\end{equation}
+a positive constant $g_A$ on a balanced path requires
+\begin{equation}
+0=\frac{d\log g_A}{dt}=(\phi-1)g_A+\lambda n,
+\qquad g_A=\frac{\lambda n}{1-\phi}.
+\end{equation}
+For $n>0$, the corresponding balanced-path relation is
+\begin{equation}
+A^{1-\phi}=\frac{\eta s_R^\lambda}{g_A}L^\lambda.
+\end{equation}
+A permanent increase in the research share changes this level relation and
+the transition, while the balanced growth rate in this specification is
+unchanged. Research remains a costly productive activity; a level effect
+is not evidence that research is useless.
+
+When $n=0$ and $L_R$ is constant, integrate
+\eqref{eq:eg-semi-technology} directly:
+\begin{equation}
+A(t)^{1-\phi}=A(0)^{1-\phi}
+ +(1-\phi)\eta L_R^\lambda t.
+\end{equation}
+New ideas keep arriving, but their percentage addition to a growing stock
+shrinks and $g_A$ tends to zero. This illustrates why a model can endogenize
+research decisions or technological change without making every permanent
+research policy change alter the asymptotic growth rate.
+
+\subsection{Allocation: more output from the same stocks}
+
+\subsubsection{A distinct question from inventing or accumulating inputs}
+
+Two economies with the same total capital and available production methods
+need not use them equally well. Capital might be tied to a less productive
+firm while a more productive firm cannot finance expansion. This changes
+aggregate productivity without creating another machine or design. Separate
+that allocation margin from the growth engines already studied.
+
+The example below is a static resource-allocation problem, not a new balanced
+growth model. It isolates a mechanism used in research on misallocation.
+Hsieh and Klenow (2009) apply a richer framework to manufacturing
+establishments; the simple numbers below are not their empirical estimates.
+\footnote{Chang-Tai Hsieh and Peter J. Klenow (2009), ``Misallocation and
+Manufacturing TFP in China and India,'' \textit{Quarterly Journal of Economics},
+124(4), 1403--1448. \url{https://doi.org/10.1162/qjec.2009.124.4.1403}.}
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Firms, fixed resources, and technology}
+At one date there are two firms with fixed labor and other complementary
+inputs. They produce the same good at price one:
+\[
+y_i=z_i k_i^\alpha,\qquad z_i>0,\quad0<\alpha<1,\quad i=1,2.
+\]
+The total available stock is $k_1+k_2=K>0$, with $k_i\geq0$.
+There is no investment, research, uncertainty, or adjustment cost in this
+one-date experiment. The $z_i$ and the complementary inputs are held fixed.
+\end{modelcondition}
+\begin{modelcondition}{02}{Efficient allocation and the private problem}
+A planner maximizes $y_1+y_2$ subject to the fixed stock. In an undistorted
+competitive rental market, firms maximize $z_i k_i^\alpha-qk_i$ at the common
+rental price $q$. Households own the stock and firms. Labor costs and incomes
+can be suppressed because their quantities are fixed here; they cannot be
+inferred to be absent from a full growth economy.
+\end{modelcondition}
+\begin{modelcondition}{03}{A precisely specified allocation wedge}
+For the distorted comparison, firm $i$ faces user cost $(1+\tau_i)q$, with
+$1+\tau_i>0$. It chooses capital to maximize
+$z_i k_i^\alpha-(1+\tau_i)qk_i$. Think of a rental tax rebated lump-sum to
+owners, so the payment itself is not a resource loss. Different effective
+financing costs could motivate a wedge, but this simple tax experiment does
+not derive a credit constraint. Market clearing still requires $k_1+k_2=K$.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{Equalize marginal products, not capital quantities}
+
+With multiplier $\nu$ on the capital stock, the planner's interior conditions
+are
+\begin{equation}
+\alpha z_1k_1^{\alpha-1}=\nu
+=\alpha z_2k_2^{\alpha-1}.
+\end{equation}
+Rearrange the ratio, then use resource clearing:
+\begin{equation}\label{eq:eg-efficient-allocation}
+\frac{k_1}{k_2}=\left(\frac{z_1}{z_2}\right)^{1/(1-\alpha)},\qquad
+k_i=K\frac{z_i^{1/(1-\alpha)}}{z_1^{1/(1-\alpha)}+z_2^{1/(1-\alpha)}}.
+\end{equation}
+Substituting into output and collecting terms gives
+\begin{equation}\label{eq:eg-aggregate-allocation}
+Y^*=K^\alpha
+\left[z_1^{1/(1-\alpha)}+z_2^{1/(1-\alpha)}\right]^{1-\alpha}.
+\end{equation}
+Capital goes to the firm with the higher marginal product until the marginal
+products match. Equal capital would be efficient only if the technologies
+and complementary inputs make that allocation satisfy the same condition.
+
+Distorted private choices instead satisfy
+\begin{equation}
+\frac{\alpha z_i k_i^{\alpha-1}}{1+\tau_i}=q,\qquad
+\frac{k_1}{k_2}=
+\left[\frac{z_1/(1+\tau_1)}{z_2/(1+\tau_2)}\right]^{1/(1-\alpha)}.
+\end{equation}
+Both firms optimize, but their physical marginal products differ when their
+wedges differ. Removing the wedge changes where capital works; it does not
+change the given total stock.
+
+For $\alpha=1/2$, $z_1=2$, $z_2=1$, and $K=1$, the efficient allocation is
+$(k_1,k_2)=(0.8,0.2)$ and $Y^*=\sqrt5\simeq2.2361$. If
+$\tau_1=1,\tau_2=0$, both adjusted productivities are one, so market clearing
+gives $(0.5,0.5)$ and $Y=3/\sqrt2\simeq2.1213$. The output loss is about
+5.13\% of the efficient level, despite identical total capital and unchanged
+firm technologies. This is a hypothetical accounting comparison, not an
+estimate of the loss from a specific financial institution.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\centering
+\includegraphics[width=0.92\linewidth]{images/endogenous_allocation.pdf}
+\par\medskip\RaggedRight
+\noindent\textit{Allocation changes output without changing total capital.}
+The stock is one throughout. Moving capital toward the more productive firm
+raises total output until marginal products match at $k_1=0.8$. The peak
+is an allocation at one date, not a growth rate or a new stock of knowledge.
+\end{minipage}
+\end{center}
+
+\Needspace{10\baselineskip}
+\begin{greenblock}
+\textbf{A productivity level gain is not automatically a permanent growth gain.}
+Reallocating the existing stock can raise output now. Repeating that comparison
+with an unchanged efficient allocation does not create ever faster growth.
+To affect trend growth, the allocation change must also alter a continuing
+mechanism such as research entry, learning, or the return to reproducible
+inputs. A measured productivity residual can reflect allocation as well as
+available technology; identifying its source requires more evidence.
+\end{greenblock}
+
+Observed differences in marginal revenue products are not by themselves a
+complete diagnosis of financing distortions. Market power, adjustment costs,
+risk, prices, product quality, and measurement can matter. A wedge model
+provides a disciplined counterfactual once those choices are specified; it
+does not turn every cross-firm gap into a causal estimate of misallocation.
+
+\subsection{How to read an endogenous-growth claim}
+
+The same Ramsey household has appeared with different accumulation
+opportunities. The AK problem made the marginal return constant; the skill
+model explained one way reproducible inputs can grow together; the idea model
+made invention and its rewards explicit. The allocation experiment changed
+the use of existing resources rather than supplying another growth engine.
+
+\begin{center}
+\begin{tabular}{p{0.22\linewidth}p{0.32\linewidth}p{0.32\linewidth}}
+\hline
+Mechanism & What is determined & What remains assumed\\
+\hline
+Ramsey benchmark & Optimal consumption and saving & Technology growth, if present\\
+AK & Growth from the chosen saving path & A non-diminishing reproducible return\\
+Skill accumulation & Work--learning split and balanced growth & A linear skill-formation opportunity\\
+Innovation & Research effort, patent value, and growth & Research productivity, rights, and market structure\\
+Semi-endogenous experiment & Conditional technology growth & Research share and labor growth in the calculation\\
+Static allocation & Output from given stocks & Technologies, complementary inputs, and wedges\\
+\hline
+\end{tabular}
+\end{center}
+
+Endogenous does not mean parameter-free. Preferences, learning productivity,
+research technology, and legal rules remain specified primitives. The claim
+is that the accumulation or innovation choice, and the resulting growth,
+have been determined inside the stated environment.
+
+Ask which stock grows, what resources it requires, whose marginal return
+supports the choice, and which restriction keeps that return from fading.
+Then distinguish a higher level, a faster transition, and a permanently higher
+growth rate. None is unimportant, but they are different conclusions.
+
+These models isolate growth mechanisms rather than explaining every stage
+of development. Adoption, institutions, openness, demography, and distribution
+can change the relevant constraints and returns. The open-economy and policy
+parts will add those links. The next part turns to fluctuations: the long-run
+allocation and growth path established here become a background against which
+shocks and short-run adjustment can be studied.

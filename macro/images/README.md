@@ -33,3 +33,25 @@ Regenerate from the repository root with the uv-managed project environment:
 The generator requires numpy and matplotlib. It embeds fonts and omits PDF
 creation/modification timestamps. Its parameters refer to the model's life-stage
 period; they are not annual demographic or financial estimates.
+
+## Endogenous-growth illustrations generated from equations
+
+`endogenous_ak_paths.pdf` compares log-consumption paths in the optimizing AK
+example: B=0.10 versus 0.12, depreciation=0.02, rho=0.04, theta=2, and baseline
+initial capital=1. One comparison gives the baseline stock a 10% increase.
+Each path starts with its stated parameters at date zero. Time is in model
+units, and the figure is not an estimated event study.
+
+`endogenous_allocation.pdf` plots the static two-firm output function
+2*sqrt(k1)+sqrt(1-k1), with total capital fixed at one. It marks the efficient
+allocation (0.8, 0.2) and the hypothetical wedge-distorted allocation (0.5, 0.5).
+The loss is 1-3/sqrt(10), approximately 5.13% of efficient output.
+
+Both are original vector PDFs generated without external data. From the
+repository root, using numpy and matplotlib in the uv-managed environment:
+
+```sh
+.venv/bin/python macro/images/endogenous_growth_figures.py
+```
+
+The generator embeds fonts and omits PDF creation/modification timestamps.
