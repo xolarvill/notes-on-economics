@@ -181,7 +181,30 @@ chapter of Part V.
 
 ## Part III: Fluctuations
 
-### 9. Real Business Cycle Model
+### 9. Understanding Economic Fluctuations
+
+- Why study growth before fluctuations?
+  - Analytical benchmarks, inherited stocks, and the interaction of growth with adjustment
+- What exactly are we describing as a fluctuation?
+  - Levels, growth rates, reference paths, and different meanings of an output gap
+  - Breadth, duration, persistence, comovement, timing, and measurement
+  - Business-cycle phases without a regular clock; recession dating and recovery
+- Where can fluctuations come from?
+  - Production, spending, finance, policy, news, uncertainty, and reallocation
+  - Innovations, anticipation, exogeneity, and the distinction between shocks and residuals
+- How does a disturbance become an aggregate movement?
+  - Impulse, propagation, amplification, and stabilizing mechanisms
+  - A one-period innovation with persistent responses; individual plans in equilibrium
+- Do fluctuations belong to the short, medium, or long run?
+  - Adjustment mechanisms, financial cycles, shock duration, and recovery time
+  - Lasting effects, hysteresis, and the counterfactual growth path
+- Why do fluctuations matter?
+  - Missed opportunities, distribution, consumption risk, and welfare
+  - The same output fall under supply, spending, or financing constraints
+- What must a model of fluctuations explain?
+  - Joint paths, conditional shock responses, identification, and the route to RBC and NK
+
+### 10. Real Business Cycle Model
 
 - UMP of household
 - PMP of firm
@@ -189,7 +212,7 @@ chapter of Part V.
 - Log-linearization
 - Capital accumulation and investment — **planned**
 
-### 10. New Keynesian Model
+### 11. New Keynesian Model
 
 - UMP of household
 - PMP of firm
@@ -202,9 +225,9 @@ chapter of Part V.
 - Analyze exogenous shocks
 - Natural rates, output gaps, and model limits — **planned**
 
-### 11. Sticky Wage Model
+### 12. Sticky Wage Model
 
-### 12. Labor Markets and Unemployment — **planned**
+### 13. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
@@ -212,19 +235,19 @@ chapter of Part V.
 
 ## Part IV: Open Economy
 
-### 13. International Accounts and Intertemporal Trade — **planned**
+### 14. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 14. Trade and Relative Prices — **planned**
+### 15. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 15. Open Economy Fluctuations and Exchange Rates — **planned**
+### 16. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
@@ -232,38 +255,38 @@ chapter of Part V.
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 
-### 16. Money, Banking, and Central Bank Operations — **planned**
+### 17. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 17. Financial Frictions and Aggregate Adjustment — **planned**
+### 18. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 18. Household Heterogeneity and Policy Transmission — **planned**
+### 19. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 19. Monetary Policy
+### 20. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 20. Fiscal Policy — **planned**
+### 21. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 21. Policy Interaction and Constraints — **planned**
+### 22. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
@@ -271,7 +294,7 @@ chapter of Part V.
 
 ## Part VI: Topics
 
-### 22. The Dollar in the International Monetary System — **planned**
+### 23. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -279,7 +302,7 @@ chapter of Part V.
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 23. China's Growth and Adjustment after the Pandemic — **planned**
+### 24. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

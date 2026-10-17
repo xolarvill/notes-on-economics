@@ -78,3 +78,22 @@ Regenerate with the uv-managed environment, numpy, and matplotlib:
 The generator checks the initial paths, impact change, subsequent slopes,
 and utilization recovery before saving the figure with embedded fonts and
 without PDF creation/modification timestamps.
+
+## Fluctuation impulse and propagation
+
+`fluctuation_impulse_propagation.pdf` is an original two-panel vector figure
+with no empirical inputs. It plots an innovation of -1 at period zero and zero
+at all other dates, then x(t)=rho*x(t-1)+innovation(t), starting from zero,
+for rho=0, 0.5, and 0.85. The lower panel holds the impact fixed and varies
+persistence. These are constructed dynamics, not estimated structural impulse
+responses. The dimensionless deviations are not percentages of GDP, and
+periods are not assigned a calendar duration.
+
+Regenerate with the uv-managed environment, numpy, and matplotlib:
+
+```sh
+.venv/bin/python macro/images/fluctuation_impulse_propagation.py
+```
+
+The generator checks the zero prehistory, common impact, geometric response,
+and cumulative deviation before embedding fonts and omitting PDF timestamps.
