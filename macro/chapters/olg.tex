@@ -208,6 +208,11 @@ transversality condition is imposed on the economy as a whole.
 \subsubsection{Read a cohort's lifetime across dates}
 
 \begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering
+\caption{Cohorts across adjacent dates.}
+\label{tab:olg-cohorts}
 \begin{tabular}{lccc}
 \hline
 \tableheading{Cohort} & \tableheading{Date $t-1$} & \tableheading{Date $t$} & \tableheading{Date $t+1$}\\
@@ -217,6 +222,7 @@ Born at $t$ & Not yet born & Young, saves & Old, consumes\\
 Born at $t+1$ & Not yet born & Not yet born & Young, saves\\
 \hline
 \end{tabular}
+\end{minipage}
 \end{center}
 
 Reading across a row gives one person's lifetime budget. Reading down a
@@ -557,6 +563,11 @@ factor $N$, and depreciation $\delta$. Let $\sigma$ denote Solow's imposed
 saving share to keep it distinct from individual saving $a_t$.
 
 \begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering
+\caption{Saving, ownership, and efficiency across three growth models.}
+\label{tab:olg-model-comparison}
 \begin{tabular}{p{0.14\linewidth}p{0.24\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
 \hline
  & \tableheading{Solow} & \tableheading{Ramsey dynasty} & \tableheading{Two-period OLG}\\
@@ -567,6 +578,7 @@ Main closure & Accumulation equation & Accumulation, Euler, and terminal conditi
 Efficiency & Not guaranteed by the saving rule & First-best under its stated assumptions & Overaccumulation is possible\\
 \hline
 \end{tabular}
+\end{minipage}
 \end{center}
 
 The corresponding aggregate resource and accumulation conditions are
@@ -715,9 +727,12 @@ steady consumption numbers alone would not establish it.
 
 \begin{center}
 \begin{minipage}{\linewidth}
+\captionsetup{type=figure}
 \centering
 \includegraphics[width=\linewidth]{images/olg_capital_and_consumption.pdf}
-\par\medskip\RaggedRight
+\caption{Stable accumulation and overaccumulation in the OLG example.}
+\label{fig:olg-capital-consumption}
+\par\smallskip\RaggedRight
 \noindent\textit{A stable path can lead to overaccumulation.}
 The left panel plots \eqref{eq:olg-log-map} against the 45-degree line.
 The right plots $\bar c(k)=k^{\alpha}-Nk$ under full depreciation, with

@@ -1071,6 +1071,11 @@ For the same $1\%$ log innovation with $\rho_a=0$, solve again:
 $p_a\simeq0.086073$, $H_a\simeq0.148334$, while $p_k$ and $H_k$ are unchanged
 in this model. The immediate responses are
 \begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering
+\caption{Impact responses to a productivity innovation under different persistence.}
+\label{tab:rbc-impact}
 \begin{tabular}{lcc}
 \hline
 \tableheading{Variable} & \tableheading{$\rho_a=0.95$} & \tableheading{$\rho_a=0$}\\
@@ -1083,6 +1088,7 @@ Hours & 0.461 & 0.687\\
 Capital available at date 0 & 0.000 & 0.000\\
 \hline
 \end{tabular}
+\end{minipage}
 \end{center}
 Entries are $100$ times log deviations, approximately percentage changes.
 With $\rho_a=0$ the opportunity is brief: the household increases current work
@@ -1106,13 +1112,20 @@ itself a simulated standard-deviation ratio.
 \Needspace{40\baselineskip}
 \subsubsection{Follow the goods and the inherited stock}
 \begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure}
+\centering
 \includegraphics[width=0.94\linewidth]{rbc_impulse_responses.pdf}
-\end{center}
+\caption{RBC responses to a productivity innovation with different persistence.}
+\label{fig:rbc-impulse-responses}
+\par\smallskip\RaggedRight
 \textit{Model-generated, first-order responses to one positive productivity
 innovation.} Both paths start with the same capital and $a_0=0.01$. All later
 innovations are zero; the consumption rule is solved separately for each
 persistence parameter. The plot uses only the equations and hypothetical
 parameters above, not estimated responses or observed data.
+\end{minipage}
+\end{center}
 
 In the dashed path, productivity is back at its reference at date 1, but capital
 is then above its reference. Output and consumption can remain above it. Hours

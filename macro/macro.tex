@@ -12,7 +12,16 @@
 \tcbuselibrary{breakable,skins}
 \usepackage{cancel}
 \usepackage{autobreak}
+\usepackage{caption}
+% Top-level sections are chapters; each type has its own chapter-local counter.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
 \usepackage{hyperref}
+
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\captionsetup[figure]{position=below,skip=6pt}
+\captionsetup[table]{position=above,skip=6pt}
 
 \graphicspath{ {./images/} }
 

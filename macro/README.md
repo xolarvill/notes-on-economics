@@ -66,6 +66,39 @@ To add a chapter, create its file in `chapters/` and add one `\input` entry to t
 appropriate part file. Keep each active chapter referenced exactly once.
 Chapter files use `% !TEX root = ../macro.tex` so editors can find the entry point.
 
+## Equation, figure, and table numbering
+
+The entry point resets all three counters at each top-level section (the
+book's chapter) and prints chapter-local numbers: `(3.14)`, `Figure 3.1`, and
+`Table 3.1`. Their sequences are independent; moving to the next part does not
+reset chapter numbering. Keep equation labels and use `\eqref`, not literal numbers.
+
+Every figure and table needs a numbered caption and a unique label immediately
+after it. Put figure captions below the image and table captions above the
+table. Shared caption styling uses small, left-aligned text without first-line
+indentation and a bold label. Retain explanatory notes, sources, and scope.
+
+For an existing in-place object, keep it and its caption in one minipage. Set
+the local type **before** the image or table so hyperlink anchors point to the
+object rather than below it:
+
+```tex
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure}
+\centering
+\includegraphics[width=0.9\linewidth]{example.pdf}
+\caption{A short descriptive title.}
+\label{fig:example}
+\end{minipage}
+\end{center}
+```
+
+For a table use `type=table` and place the caption and label before `tabular`.
+Existing floating `figure` and `table` environments use ordinary `\caption`
+and `\label` without a manual type. Do not force a floating layout solely to
+obtain a caption or allow a caption to detach from its object.
+
 ## Table formatting
 
 The shared `tabular` and `tabular*` hooks keep cell indentation at zero and
