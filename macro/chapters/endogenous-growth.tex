@@ -1,14 +1,383 @@
 % !TEX root = ../macro.tex
-\plannedsection{Endogenous Growth and Resource Allocation}\label{sec:endogenous-growth}
+\section{Endogenous Growth and Resource Allocation}\label{sec:endogenous-growth}
 
-\subsection{The AK benchmark and human capital}
-Ask when reproducible factors can sustain growth without exogenous technological
-progress. Compare the roles of returns to capital and human-capital accumulation.
+Intermediate macroeconomics introduces AK, education, and innovation as ways
+to explain sustained growth. This chapter asks what closes those explanations:
+who accumulates the relevant stock, what it costs, which return guides the
+choice, and whether that return is the one society receives. We reuse Ramsey's
+optimization tools rather than treating endogenous growth as an unrelated list
+of production functions.
+
+\subsection{From intermediate macroeconomics and Ramsey to a growth engine}
+
+\subsubsection{What the familiar diagrams leave to be explained}
+
+A machine, a trained worker, and a usable design can all raise output, but they
+are not accumulated in the same way. Building equipment uses goods. Training
+uses time and other resources. Developing a design can be costly even when
+another firm can subsequently use the same instructions without taking them
+away from the first. These differences affect both the resource constraint
+and the incentive to invest.
+
+It is tempting to put each item into a production function and declare growth
+explained. Instead, ask which scarcity remains after accumulation. If machines
+are added while skills or usable methods remain fixed, returns may fall. If
+skills and equipment can grow together, the relevant return might not fall.
+If ideas can be shared, the social gain from discovery may exceed what the
+inventor can charge. We need to identify that mechanism before choosing the
+law of motion or discussing policy.
+
+The familiar intermediate-level statements are therefore starting points.
+``Saving can affect growth'' needs a technology that sustains returns and a
+rule determining saving. ``Education raises productivity'' needs a skill
+accumulation technology and a time allocation. ``Research creates ideas''
+needs a resource cost and a reason someone pays it. The models below fill
+these particular gaps; they do not repeat the Solow derivation.
+
+\subsubsection{Ramsey endogenizes saving, not automatically long-run growth}
+
+With fixed technology and population, the Ramsey benchmark has
+\begin{equation}
+\dot k=f(k)-c-\delta k,\qquad
+\frac{\dot c}{c}=\frac{f'(k)-\delta-\rho}{\theta}.
+\end{equation}
+Saving is chosen optimally. Yet with diminishing marginal product, accumulating
+$k$ lowers its return. At the stationary optimum,
+$f'(k^*)=\delta+\rho$ and consumption stops growing. In the earlier version
+with exogenous labor-efficiency growth, consumption per person can grow, but
+that long-run technology growth rate is still supplied from outside the model.
+
+The next question is thus about the return to \emph{all reproducible inputs},
+not whether households have an Euler equation. Keep the household problem,
+change the accumulation opportunities, and check what replaces the stationary
+capital target. OLG changed who lives, saves, and receives transfers. Here we
+return explicitly to a continuing Ramsey household to isolate a different
+change: the mechanism that makes productive capacity grow.
+
+\Needspace{10\baselineskip}
+\begin{blueblock}
+\textbf{Endogenous saving and endogenous growth are different claims.}
+An optimal saving decision can lead to a stationary economy. Conversely, an
+AK equation with an imposed saving share can generate a growth rate without
+explaining saving. To obtain both, combine a specified accumulation technology
+with household optimization, market or planner closure, and the appropriate
+terminal conditions. Changing notation from an exogenous $g$ to a function
+called $g$ does not provide those mechanisms.
+\end{blueblock}
+
+\subsection{AK: retain Ramsey's choice, change the return}
+
+\Needspace{12\baselineskip}
+\subsubsection{Complete conditions for the one-stock benchmark}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Time, population, goods, and states}
+Time is continuous. A closed economy has one good, no government in the
+baseline, no uncertainty, and a fixed population normalized to one. A
+continuing household owns the given stock $k(0)=k_0>0$ and firms.
+Consequently aggregate and per-person quantities coincide in this benchmark.
+There is no age structure, leisure choice, or exogenous technology growth.
+\end{modelcondition}
+\begin{modelcondition}{02}{Technology and accumulation}
+Production is linear in a reproducible stock:
+\[
+y=Bk,\qquad B>0\text{ constant},\qquad
+\dot k=(B-\delta)k-c,\quad \delta\geq0.
+\]
+The stock can be interpreted as a broad productive composite only if its
+components can be reproduced with the assumed technology. Goods can be
+converted into the stock at unit cost. Strictly diminishing returns and the
+Solow Inada limits are deliberately replaced; this is not Cobb--Douglas
+with the same fixed factor left implicit.
+\end{modelcondition}
+\begin{modelcondition}{03}{Preferences and household choice}
+The household chooses a positive consumption path and feasible $k(t)\geq0$:
+\[
+\max\int_0^\infty e^{-\rho t}u(c(t))\,dt,\qquad
+u'(c)=c^{-\theta},\quad\rho>0,\quad\theta>0.
+\]
+Use $u(c)=c^{1-\theta}/(1-\theta)$ for $\theta\ne1$ and $u(c)=\log c$ for
+$\theta=1$. Saving is the residual of output after consumption, not an
+independently imposed share.
+\end{modelcondition}
+\begin{modelcondition}{04}{Markets, ownership, and returns}
+In the competitive interpretation, firms rent the productive stock at
+$q=B$ and earn zero economic profit after paying it. There is no separate
+productive labor input in this one-stock technology. The household owns the
+stock, receives the net return $r=B-\delta$, and can adjust investment without
+costs. Without externalities or other wedges, its budget coincides with the
+aggregate resource constraint and implements the planner allocation.
+\end{modelcondition}
+\begin{modelcondition}{05}{Admissibility and the growing solution}
+The planner's transversality condition is
+\[
+\lim_{t\to\infty}e^{-\rho t}c(t)^{-\theta}k(t)=0.
+\]
+For the interior positive-growth case studied below, impose
+\[
+g\equiv\frac{B-\delta-\rho}{\theta}>0,\qquad
+\xi\equiv\rho-(1-\theta)g>0.
+\]
+The second restriction ensures finite allocation-dependent utility and the
+terminal condition along the proposed balanced growth path. For $\theta<1$
+it restricts how productive accumulation can be relative to discounting;
+a formal Euler solution alone need not be a well-posed optimum.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{The same Hamiltonian now gives a constant growth rate}
+
+The current-value Hamiltonian and its control and costate conditions are
+\begin{align}
+\mathcal H&=u(c)+\mu[(B-\delta)k-c],\\
+\mu&=c^{-\theta},\qquad
+\dot\mu=[\rho-(B-\delta)]\mu.
+\end{align}
+Since $\dot\mu/\mu=-\theta\dot c/c$,
+\begin{equation}\label{eq:eg-ak-growth}
+\frac{\dot c}{c}=\frac{B-\delta-\rho}{\theta}=g.
+\end{equation}
+The marginal product no longer falls as the stock rises. Waiting remains
+rewarded at the same rate, so the optimal consumption growth rate need not
+fade toward zero. This is the change in technology doing the work; the
+intertemporal preference condition is still Ramsey's.
+
+The Euler equation gives $c(t)=c_0e^{gt}$ but not $c_0$. Set
+$a\equiv B-\delta$ and integrate $\dot k=ak-c_0e^{gt}$, using
+$\xi=a-g=\rho-(1-\theta)g>0$:
+\begin{align}
+k(t)&=e^{at}\left[k_0-c_0\int_0^t e^{-(a-g)v}\,dv\right],\\
+&=\left(k_0-\frac{c_0}{\xi}\right)e^{at}
+  +\frac{c_0}{\xi}e^{gt}.
+\end{align}
+If $c_0>\xi k_0$, the first term eventually makes capital negative. If
+$c_0<\xi k_0$, capital grows at the faster rate $a$ and its limiting discounted
+utility value is positive: the household leaves valuable resources unused.
+Feasibility and transversality therefore select
+\begin{equation}\label{eq:eg-ak-path}
+c_0=\xi k_0,\qquad k(t)=k_0e^{gt},\qquad c(t)=\xi k(t).
+\end{equation}
+Indeed, along this path the terminal expression is proportional to
+$e^{-[\rho-(1-\theta)g]t}=e^{-\xi t}$ and vanishes.
+
+\Needspace{9\baselineskip}
+\begin{greenblock}
+\textbf{A balanced growth path replaces the stationary capital target.}
+There is no finite positive stationary $k$ on this growing solution.
+Consumption jumps to the feasible optimal ratio $c/k=\xi$ for the inherited
+stock, then both grow at $g$. The saving share is an outcome,
+$s^*=(\delta+g)/B=1-\xi/B$, rather than Solow's input. Under the stated
+positive-growth conditions it lies between zero and one.
+\end{greenblock}
+
+\subsubsection{A level change, a return change, and a policy wedge}
+
+A one-time increase in initial capital, holding $B$ and preferences fixed,
+raises the levels of capital and consumption but leaves $g$ unchanged.
+A permanent change in $B$ changes the return and hence $g$; comparing the
+new paths requires the new initial consumption ratio as well as the slope.
+The absence of a transition in the ratio is a special feature of linear
+technology and these preferences, not a general result for growth models.
+
+For example, $B=0.10$, $\delta=0.02$, $\rho=0.04$, and $\theta=2$ imply
+$g=0.02$, $c/k=0.06$, and $s^*=0.40$. Raising $k_0$ by 10\% raises the whole
+path by 10\%. Raising $B$ to $0.12$ instead gives $g=0.03$ and $c/k=0.07$.
+These are illustrative model numbers, not empirical return estimates.
+
+A tax rate $\tau$ on net capital income, rebated as a lump-sum transfer,
+leaves aggregate resources unchanged but changes the household's marginal
+return. For an interior admissible growing equilibrium,
+\begin{equation}
+g_\tau=\frac{(1-\tau)(B-\delta)-\rho}{\theta},\qquad
+\frac{c}{k}=B-\delta-g_\tau.
+\end{equation}
+The finite-welfare restriction $\rho-(1-\theta)g_\tau>0$ must still hold.
+This is a permanent growth effect under the AK assumption. The corresponding
+Ramsey tax experiment with diminishing returns changed stationary levels;
+that difference comes from the accumulation technology. An empirical claim
+that a tax changes trend growth would require evidence for the relevant
+mechanism, not this formula alone.
+
+\subsubsection{Private diminishing returns can coexist with aggregate AK}
+
+The one-stock competitive benchmark need not contain a market failure. An
+alternative construction does: suppose firm $i$ has
+\begin{equation}
+y_i=B k_i^\alpha(\bar k\ell_i)^{1-\alpha},\qquad 0<\alpha<1,
+\end{equation}
+where $\bar k=K/L$ is an economy-wide knowledge spillover associated with
+capital, taken as given by each small firm. Labor satisfies $\sum_i\ell_i=1$.
+Firms have constant returns in their private inputs $k_i,\ell_i$, and take
+factor prices and $\bar k$ as given. In a symmetric allocation with the same
+capital per worker across firms, aggregate output is $Y=BK$.
+
+Differentiate the firm's own technology before imposing symmetry. Then
+\begin{equation}
+q_D=\alpha B,\qquad w=(1-\alpha)BK,\qquad
+r_D=\alpha B-\delta.
+\end{equation}
+Factor payments still exhaust output. A planner who internalizes how $K$
+raises the common spillover instead obtains marginal product $B$. With the
+same household preferences and appropriate admissibility restrictions,
+\begin{equation}
+g_D=\frac{\alpha B-\delta-\rho}{\theta},\qquad
+ g_P=\frac{B-\delta-\rho}{\theta}.
+\end{equation}
+Where both growing solutions are feasible, $g_D<g_P$. These are two different
+interpretations of the same aggregate $Y=BK$: either $B$ is privately earned,
+or part of the social return is external. Aggregate linearity alone cannot
+tell us which policy problem is present. Learning during investment or shared
+production experience can motivate a spillover, but its size has to be
+specified and measured rather than inferred from the AK notation.
+
+\subsection{Human capital: explain the reproducible composite}
+
+\subsubsection{Why adding a second stock is not enough}
+
+The augmented Solow model added physical and human capital with diminishing
+returns to their joint accumulation. Its balanced growth still depended on
+exogenous technology. To change that result, give skill formation its own
+technology: time spent learning today affects the ability to produce and learn
+tomorrow. The question is now how much time to divert from current output.
+This motivates a two-sector Uzawa--Lucas-style benchmark. We omit average-skill
+externalities to isolate the private accumulation mechanism.\footnote{Robert
+E. Lucas Jr. (1988), ``On the Mechanics of Economic Development,''
+\textit{Journal of Monetary Economics}, 22(1), 3--42, Section 4.
+The simplified model here is not the full externality specification in that
+paper. \url{https://doi.org/10.1016/0304-3932(88)90168-7}.}
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Household, stocks, and the scope of the experiment}
+Keep the continuous-time, fixed-population household and CRRA preferences
+above, with $K_0,H_0>0$. $H$ is a stock of skill in the continuing household,
+not hours worked or the number of school years. The household chooses
+consumption $C>0$ and a work fraction $v\in[0,1]$. The remaining fraction
+$1-v$ is used for learning; leisure is omitted. There is no uncertainty,
+knowledge spillover to other households, or public subsidy in this benchmark.
+\end{modelcondition}
+\begin{modelcondition}{02}{Production and the goods constraint}
+Goods production is
+\[
+Y=K^\alpha(vH)^{1-\alpha},\qquad 0<\alpha<1,\qquad
+\dot K=Y-C-\delta K.
+\]
+Goods can be consumed or accumulated as physical capital. Current production
+uses only the skill-weighted time assigned to work. The technology is constant
+returns in $K,H$ at fixed $v$, despite a diminishing marginal product of $K$
+when $H$ is fixed. The household/planner controls the two uses of its resources.
+\end{modelcondition}
+\begin{modelcondition}{03}{Learning technology and its cost}
+Skills accumulate according to
+\[
+\dot H=[\eta(1-v)-\delta_H]H,\qquad \eta>0,\quad\delta_H\geq0.
+\]
+Learning uses time, so its resource cost is forgone production, even though
+there is no separate goods expenditure in this stripped-down specification.
+A given learning fraction adds skill in proportion to the existing stock.
+Skill depreciation is explicit; finite careers, cohort replacement, and
+education quality differences are not separately modeled. Indefinite aggregate
+skill accumulation is an assumption about this continuing household, not an
+assertion that one person can study forever.
+\end{modelcondition}
+\begin{modelcondition}{04}{Optimality, boundaries, and balanced growth}
+This is a planner/household production problem with no externality. The
+Hamiltonian conditions below apply to an interior allocation $0<v<1$,
+$K,H,C>0$, with terminal conditions
+\[
+\lim_{t\to\infty}e^{-\rho t}\lambda(t)K(t)=0,\qquad
+\lim_{t\to\infty}e^{-\rho t}\mu(t)H(t)=0.
+\]
+For a positive-growth balanced path require
+$g=(\eta-\delta_H-\rho)/\theta>0$ and
+$\rho-(1-\theta)g>0$. They imply the interior work fraction derived below;
+if the implied fraction lies outside $[0,1]$, the interior solution cannot
+be used. Capital and skill are both inherited; an arbitrary initial ratio
+need not already be on the balanced growth path.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{Time allocation and the two shadow values}
+
+Write the current-value Hamiltonian as
+\begin{equation}
+\mathcal H=u(C)+\lambda[Y-C-\delta K]
+ +\mu[\eta(1-v)-\delta_H]H.
+\end{equation}
+The consumption condition is $\lambda=C^{-\theta}$. The work-time condition
+and the physical-capital costate equation are
+\begin{align}
+\lambda(1-\alpha)Y/v&=\mu\eta H,\label{eq:eg-human-time}\\
+\dot\lambda/\lambda&=\rho+\delta-\alpha Y/K.
+\end{align}
+An extra unit of work time produces goods now; an extra unit of learning time
+produces skills valued at $\mu$. The first equation compares those two uses
+of time in the same utility units.
+
+For the skill stock,
+\begin{equation}
+\dot\mu=\rho\mu-\lambda(1-\alpha)Y/H
+ -\mu[\eta(1-v)-\delta_H].
+\end{equation}
+Use \eqref{eq:eg-human-time} to replace
+$\lambda(1-\alpha)Y/H$ by $\mu\eta v$. Then
+\begin{equation}\label{eq:eg-human-costate}
+\frac{\dot\mu}{\mu}=\rho-\eta+\delta_H.
+\end{equation}
+The return to skill includes its contribution to further skill formation.
+Looking only at its current wage contribution would miss that part of the
+accumulation opportunity.
+
+\subsubsection{Balanced growth and the work--learning split}
+
+On a balanced path, $K,H,C$ grow at the same rate $g$ and $v$ is constant.
+Equation~\eqref{eq:eg-human-time} then makes $\mu/\lambda$ constant, because
+$Y/H$ is constant. Therefore $\dot\mu/\mu=\dot\lambda/\lambda=-\theta g$.
+Using \eqref{eq:eg-human-costate} and the skill law gives
+\begin{equation}\label{eq:eg-human-growth}
+g=\frac{\eta-\delta_H-\rho}{\theta},\qquad
+v^*=1-\frac{g+\delta_H}{\eta}
+=\frac{\rho-(1-\theta)g}{\eta}.
+\end{equation}
+The stated restrictions ensure $0<v^*<1$. The physical Euler condition and
+resource constraint also require
+\begin{equation}
+\alpha Y/K=\rho+\delta+\theta g,\qquad
+C/K=Y/K-\delta-g>0.
+\end{equation}
+Since $Y/K=(vH/K)^{1-\alpha}$, the balanced stock ratio is
+\begin{equation}
+(K/H)^*=v^*\left(\frac{\alpha}{\rho+\delta+\theta g}\right)^{1/(1-\alpha)}.
+\end{equation}
+These equations characterize a balanced path, not the complete transition
+from arbitrary $K_0/H_0$. Consumption and time allocation can adjust on impact;
+the two stocks cannot be chosen afresh to match this ratio.
+
+\Needspace{10\baselineskip}
+\begin{redblock}
+\textbf{Where did diminishing returns go?}
+Adding machines while holding skill fixed still lowers their marginal product.
+But scaling $K$ and $H$ together at a fixed work fraction scales output by
+the same factor. The learning technology also reproduces $H$ linearly.
+Persistent growth uses those joint reproduction opportunities, rather than
+assuming that machines alone have escaped diminishing returns. If learning
+became progressively harder as $H$ rose, this conclusion would need to be
+rederived.
+\end{redblock}
+
+More schooling time at a given $H$ raises immediate skill accumulation while
+reducing current goods production. A one-time higher $H_0$ is different from
+a permanent improvement in training productivity $\eta$. School attendance,
+actual learning, skill depreciation, and the use of skills at work are not
+interchangeable measures. The model specifies one way those margins interact;
+it does not imply that every extra school year permanently raises a country's
+growth rate. Shared ideas introduce another issue: unlike a person's time,
+the same design can be used in many places at once.
 
 \subsection{Ideas, innovation, and incentives}
-Introduce nonrival ideas and incentives to innovate. Separate the private return
-to innovation from its social return and discuss the policy implications.
+\textit{This section is being developed from the original outline.}
+Separate nonrival ideas, private innovation rewards, and the social return.
 
 \subsection{Allocation and aggregate productivity}
-Explain how differences in productivity and financing conditions affect the
-allocation of capital. Connect allocation to aggregate output and growth.
+\textit{This section is being developed from the original outline.}
+Connect the allocation of a given capital stock to productivity and growth.
