@@ -97,3 +97,30 @@ Regenerate with the uv-managed environment, numpy, and matplotlib:
 
 The generator checks the zero prehistory, common impact, geometric response,
 and cumulative deviation before embedding fonts and omitting PDF timestamps.
+
+## RBC responses from the solved local equilibrium
+
+`rbc_impulse_responses.pdf` is an original six-panel vector plot of productivity,
+output, consumption, investment, hours, and inherited capital. It uses the RBC
+chapter's first-order equilibrium, not independently invented response curves.
+There are no data inputs, parameter estimates, or claims of empirical fit.
+
+Illustrative quarterly parameters are alpha=0.33, beta=0.99, delta=0.025,
+sigma=1, phi=1, Abar=1, and steady hours=1/3. Chi is derived from the steady
+labor condition. Both paths begin with the steady capital and a date-zero log
+productivity innovation of 0.01; all later innovations are zero. The consumption
+and capital policies are solved separately for rho_a=0.95 and rho_a=0, using
+coefficient matching and the stable root shown in the chapter. Vertical units
+are 100 times log deviations, approximately percentage changes; dates are quarters.
+
+Regenerate with the uv-managed environment, numpy, and matplotlib:
+
+```sh
+.venv/bin/python macro/images/rbc_impulse_responses.py
+```
+
+The generator checks the original linear labor, resource, capital, and Euler
+equations for both paths and confirms predetermined impact capital. It embeds
+fonts and omits PDF timestamps. Independent numerical checks of the primitive
+conditions, nonlinear error order, and exact special case are recorded in
+`../DERIVATION_AUDIT.md`.

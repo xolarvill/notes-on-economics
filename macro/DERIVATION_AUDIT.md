@@ -10,6 +10,7 @@ Comparison sources:
 - Solow: `862ae0e^:macro/chapters/solow.tex`.
 - Ramsey: `ca1b9ac^:macro/chapters/ramsey.tex`.
 - OLG: `c861908^:macro/chapters/olg.tex`.
+- RBC: `f54f5c9:macro/chapters/rbc.tex`; the complete course text is archived in comments.
 - Endogenous growth had only an outline before its recent development; its
   calculations need the same granularity, but are not recoveries of old proofs.
 
@@ -80,6 +81,32 @@ All condition cards, intuition, examples, figures, and table formatting remain.
 - Log differentiation of semi-endogenous idea growth, chain rule and integration
   at fixed research labor, allocation multipliers, capital-share powers,
   explicit output aggregation, and private wedge derivatives.
+
+## RBC: course routes preserved and the capital model completed
+
+| Route | Visible intermediate operations |
+| --- | --- |
+| Nominal-bond household | Resources-minus-expenditure Lagrangian, both bond date contributions, substitution of marginal utility per currency unit, and expectation-preserving division |
+| Labor and capital choice | Both CRRA/log derivatives, work derivative, MRS, Frisch elasticity, two-date capital payoff, real stochastic discount factor, and covariance pricing |
+| Firm and aggregate accounts | Both input derivatives before capital normalization, factor-income exhaustion, household-to-resource cancellation, planner partial derivatives, and exact equilibrium list |
+| Course fixed-capital limit | K=1 and no investment choice; Y=C under explicit zero depreciation/expenditure assumptions, fixed-factor income, full hours solution, and productivity elasticities |
+| Capital and investment | Deterministic steady rental, output-capital ratio, expenditure shares, capital-hours ratio, hours and preference weight; current stock distinguished from next stock |
+| Both original approximation routes | Taylor expansion of log(1+d), inverse exponential expansion, remainder order, exact production/price/labor log identities, weighted goods and capital sums |
+| Expected Euler | Return expansion with beta*q rental weight, product before cancellation, removal of second-order terms inside conditional expectation, and the original expectation warning corrected explicitly |
+| Exact special case | Full-depreciation/log saving rule through every-state cancellation, hours solution, feasibility, and expected terminal expression |
+| General local solution | Labor substitution, all reduced coefficients, consumption-rule substitution, quadratic expansion and roots, stable selection, productivity-coefficient matching, and state transition |
+| Shock experiment | Stated quarterly parameters and steady values, impact calculations, separately solved persistent and iid cases, resource-based investment response, and inherited-stock propagation |
+| Original nominal attachment | Gross-rate and inflation definitions, nominal Euler expansion, first-order Fisher comparison, money-demand log algebra, and qualified nominal level rescaling |
+
+Numerical verification covers 27 curvature/persistence combinations, primitive
+derivatives, all resource accounts, and stable roots recovered independently
+from finite differences of the nonlinear equations. Exact special-case saving
+and hours are checked against direct numerical optimization. Exact resource
+and stochastic Euler residuals fall quadratically when perturbations shrink.
+The nominal/Fisher approximation has the same error-order check. All displayed
+impact values are checked against the solved policies; the iid comparison
+re-solves behavior and checks capital's predetermined timing. The figure
+generator retains checks against the unreduced linear equations.
 
 ## Verification scope
 

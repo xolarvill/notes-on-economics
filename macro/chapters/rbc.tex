@@ -2,33 +2,33 @@
 \section{Real Business Cycle Model}\label{sec:rbc}
 
 % BEGIN ORIGINAL RBC COURSE TEXT (pre-revision; comparison only)
-% 
+%
 % Originated from Kyland and Prescott (1982), Long and Plosser (1983), RBC model shows great empirical importance. A standard RBC model\footnote{For a sound review over the topic of RBC, see Rebelo Sergio. 2005. “Real Business Cycle Models: Past, Present, and Future.” The Scandinavian Journal of Economics. } is in nature a Ramsey model with
 % \begin{itemize}
 % \tightlist
 %   \item Endogenous (but constant in the long run, i.e. $n = 0$) labor supply
 %   \item Stochastic productivity (i.e. real shocks)
 % \end{itemize}
-% 
-% 
+%
+%
 % \begin{blueblock}
 % \begin{note}[Two principles of the RBC theory of business cycles]
-% 
+%
 % 1. Money is of little importance in business cycles.
-% 
+%
 % 2. Business cycles are created by rational agents responding optimally to
 % real (not nominal) shocks - mostly fluctuations in productivity growth,
 % but also fluctuations in government purchases, import prices, or preferences.
 % \end{note}
 % \end{blueblock}
-% 
-% 
-% 
-% 
+%
+%
+%
+%
 % \sepline
 % \subsection{UMP of household}
 % A typical household entails product-consuming for $C_t$ and labor-providing for $N_t$. Only in this model, the agent value leisure $L_t=1-N_t$.
-% 
+%
 % The UMP in RBC model is
 % \begin{align}
 % &\max\limits_{C_{t},N_{t},B_{t}} E_t \sum\limits_{t=0}^{\infty}\beta^{t}u(C_{t},N_{t})
@@ -40,7 +40,7 @@
 % Q_{t}=\frac{1}{1+i_{t}} \text{ is the price per bond bought today}
 % \end{cases}
 % \end{align}
-% 
+%
 % Form a Lagrangian and acquire FOCs
 % \begin{align}
 % &\mathscr{L}=E_{0} \sum\limits_{t=0}^{\infty}\beta^{t}[u(C_{t},N_{t})+\lambda_{t}(P_{t}C_{t}+Q_{t}B_{t}-B_{t-1}-W_{t}N_{t}-D_{t} )]
@@ -51,7 +51,7 @@
 % \frac{\partial  \mathscr{L}}{\partial B_{t}}=0 \Rightarrow -\lambda_{t}Q_{t}\beta^{t}+E_{t}\lambda_{t+1}\beta^{t+1}=0 \Rightarrow \beta \frac{E_{t}\lambda_{t+1}}{\lambda_{t}}=Q_{t} \Rightarrow \frac{1}{Q_{t}}=1+i_{t}
 % \end{cases}
 % \end{align}
-% 
+%
 % using these FOCs
 % \begin{align}
 % &\begin{cases}
@@ -65,8 +65,8 @@
 % \Rightarrow \color{red} \text{Euler's equation } \frac{Q_{t}}{\beta}=E_{t}\cdot
 % \frac{\frac{U_{c,t+1}}{P_{t+1}}}{\frac{U_{c,t}}{P_{t}}}
 % \end{align}
-% 
-% 
+%
+%
 % \begin{greenblock}
 % e.g. Let utility function be specific
 % \begin{align}
@@ -81,9 +81,9 @@
 % \end{cases}
 % \end{align}
 % \end{greenblock}
-% 
-% 
-% 
+%
+%
+%
 % \sepline
 % \subsection{PMP of firm}
 % \begin{align}
@@ -99,7 +99,7 @@
 % \\&
 % \Rightarrow \text{F.O.C.: } \frac{W_{t}}{P_{t}}=(1-\alpha)A_{t}N_{t}^{-\alpha} \text{ (labor demand equation)}
 % \end{align}
-% 
+%
 % \sepline
 % \subsection{Economy described by RBC}
 % {\color{red}
@@ -118,11 +118,11 @@
 % \end{cases}
 % \end{align}
 % }
-% 
-% 
+%
+%
 % \sepline
 % \subsection{Log-linearization}
-% 
+%
 % Two methods we can transform.
 % 1) The first is
 % \begin{align}
@@ -137,14 +137,14 @@
 % \\&
 % =\frac{x_{t}-x^{*}}{x^{*}}
 % \end{align}
-% 
+%
 % 2) Another approach would be
 % \begin{align}
 % &\ln x^{*}=ln x_{t}-\tilde{x_{t}}\Rightarrow \ln x_{t}=ln x^{*}+\tilde{x_{t}}
 % \\&
 % \Rightarrow e^{\ln x_{t}}=x_{t}=e^{n x^{*}+\tilde{x_{t}}}=x^{*}e^{\hat{x_{t}}} \approx x^{*} (1+\hat x_{t})
 % \end{align}
-% 
+%
 % Now we turn to the linearization of RBC model
 % \begin{align}
 % &
@@ -176,7 +176,7 @@
 % \\&
 % 1=E_{t} I[1+(i_{t}-i)-a(\triangle c_{t+1}-\triangle c_{t}]-(\pi_{t+1}-\pi_{t})]
 % \end{align}
-% 
+%
 % {\color{red} Therefore a RBC model can be rewritten in linearized log equations
 % \begin{align}
 % \color{red}&\text{AS:} \begin{cases}
@@ -194,27 +194,27 @@
 % \end{cases}
 % \end{align}
 % }
-% 
+%
 % \begin{blueblock}
 % \begin{note}[Exceptation for Expectation]
 % Notice this method does not apply to equations involving expectations.
 % \end{note}
 % \end{blueblock}
-% 
+%
 % \begin{blueblock}
 % \begin{note}[RBC has neutrality of money]
 % The final answer of this standard RBC model is not relevant to any price variable, inferring the model being money-neutral.
 % \end{note}
 % \end{blueblock}
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
+%
+%
+%
+%
+%
+%
+%
+%
+%
 % \subsection[Capital accumulation and investment (planned)]{Capital accumulation and investment}
 % \textit{Planned section.} Extend the current fixed-capital benchmark to endogenous capital accumulation.
 % Derive investment dynamics and distinguish the simplified benchmark from a
@@ -737,3 +737,564 @@ a different capital stock. A single innovation can therefore have effects
 lasting beyond the disturbance itself. The equations must determine whether
 the stock builds up or runs down; the accounting identity alone does not
 choose investment.
+
+\subsection{Log-linearization: show the approximation in each equation}\label{sec:rbc-loglinear}
+
+\subsubsection{The course's two routes describe the same local deviation}
+
+For any positive $X_t$ with positive deterministic reference $X^*$, define
+$\hat x_t=\log X_t-\log X^*$. Lowercase hats always denote log deviations;
+$K_t$ is a level, $\hat k_t$ its deviation. Let $d_t=(X_t-X^*)/X^*$.
+The logarithm route gives
+\begin{align}
+\hat x_t&=\log(X_t/X^*)=\log(1+d_t),\\
+\log(1+d_t)&=\log1+\left.\frac{1}{1+d}\right|_{d=0}d_t+O(d_t^2),\\
+\hat x_t&=d_t+O(d_t^2)\approx (X_t-X^*)/X^*.
+\end{align}
+The exponential route starts from the exact inverse:
+\begin{align}
+\log X_t&=\log X^*+\hat x_t,\\
+X_t&=e^{\log X^*+\hat x_t}=X^*e^{\hat x_t},\\
+e^{\hat x_t}&=1+\hat x_t+O(\hat x_t^2),\\
+X_t&=X^*(1+\hat x_t)+O(\hat x_t^2),\\
+(X_t-X^*)/X^*&=\hat x_t+O(\hat x_t^2).
+\end{align}
+The two derivations retain the original teaching routes. Positivity makes an
+absolute-value sign unnecessary. An equality between a log deviation and a
+percentage deviation is only first order. In the figures, $100\hat x_t$ is an
+approximate percentage response, not an exact level change.
+
+\subsubsection{Products become exact log differences}
+
+Take logs of production and of its steady-state counterpart, then subtract:
+\begin{align}
+\log Y_t&=\log A_t+\alpha\log K_t+(1-\alpha)\log N_t,\\
+\log Y^*&=\log\bar A+\alpha\log K^*+(1-\alpha)\log N^*,\\
+\hat y_t&=a_t+\alpha\hat k_t+(1-\alpha)\hat n_t.\label{eq:rbc-linear-y}
+\end{align}
+This log identity is exact for Cobb--Douglas, before any solution approximation.
+Do the same for the real wage and rental price:
+\begin{align}
+\log w_t&=\log(1-\alpha)+\log Y_t-\log N_t,\\
+\hat w_t&=\hat y_t-\hat n_t
+ =a_t+\alpha\hat k_t-\alpha\hat n_t,\label{eq:rbc-linear-w}\\
+\log q_t&=\log\alpha+\log Y_t-\log K_t,\\
+\hat q_t&=\hat y_t-\hat k_t
+ =a_t+(\alpha-1)\hat k_t+(1-\alpha)\hat n_t.\label{eq:rbc-linear-q}
+\end{align}
+The labor condition gives
+\begin{align}
+\log w_t&=\log\chi+\sigma\log C_t+\varphi\log N_t,\\
+\hat w_t&=\sigma\hat c_t+\varphi\hat n_t,\\
+a_t+\alpha\hat k_t-\alpha\hat n_t
+ &=\sigma\hat c_t+\varphi\hat n_t,\\
+(\varphi+\alpha)\hat n_t
+ &=a_t+\alpha\hat k_t-\sigma\hat c_t.\label{eq:rbc-linear-n}
+\end{align}
+If writing nominal wages instead, $w_t=W_t/P_t$ implies
+$\hat w_t=\hat W_t-\hat p_t$. Keeping this distinction avoids mixing a real
+wage with a nominal wage divided by the price level again.
+
+\subsubsection{Sums retain their steady-state weights}
+
+Goods clearing is a sum, so its logarithm does not distribute across terms.
+Instead insert the exponential representations:
+\begin{align}
+Y^*e^{\hat y_t}&=C^*e^{\hat c_t}+I^*e^{\hat\iota_t},\\
+Y^*(1+\hat y_t)&\approx C^*(1+\hat c_t)+I^*(1+\hat\iota_t),\\
+Y^*+Y^*\hat y_t&\approx C^*+I^*+C^*\hat c_t+I^*\hat\iota_t,\\
+Y^*\hat y_t&\approx C^*\hat c_t+I^*\hat\iota_t,\\
+\hat y_t&\approx s_C\hat c_t+s_I\hat\iota_t.\label{eq:rbc-linear-resources}
+\end{align}
+Here $\hat\iota_t=\log(I_t/I^*)$ denotes \emph{investment}, not an interest
+rate. The local neighborhood has $I_t>0$ since $I^*>0$, even though the general
+budget permits reversible investment. In the zero-investment course benchmark,
+this log is undefined; $Y=C$ instead gives $\hat y=\hat c$ exactly.
+
+Apply the same steps to accumulation:
+\begin{align}
+K^*e^{\hat k_{t+1}}&=(1-\delta)K^*e^{\hat k_t}+I^*e^{\hat\iota_t},\\
+K^*(1+\hat k_{t+1})&\approx(1-\delta)K^*(1+\hat k_t)
+ +I^*(1+\hat\iota_t),\\
+K^*\hat k_{t+1}&\approx(1-\delta)K^*\hat k_t+I^*\hat\iota_t,\\
+\hat k_{t+1}&\approx(1-\delta)\hat k_t+\delta\hat\iota_t.\label{eq:rbc-linear-k}
+\end{align}
+The weights sum to one because $I^*/K^*=\delta$. Substituting the resource
+condition is often more useful for solving:
+\begin{align}
+\hat\iota_t&\approx(\hat y_t-s_C\hat c_t)/s_I,\\
+\hat k_{t+1}&\approx(1-\delta)\hat k_t
+ +\frac{\delta}{s_I}(\hat y_t-s_C\hat c_t),\\
+&=(1-\delta)\hat k_t+v(\hat y_t-s_C\hat c_t).
+\end{align}
+The final coefficient uses $s_I=\delta/v$. It is not permissible to replace
+investment by consumption when capital is being chosen.
+
+\subsubsection{Expand inside the conditional expectation}
+
+The capital Euler condition contains both a random marginal utility and a
+random gross return. Since $R^{K*}=q^*+1-\delta=1/\beta$,
+\begin{align}
+R^K_{t+1}&=q^*e^{\hat q_{t+1}}+1-\delta,\\
+&\approx R^{K*}+q^*\hat q_{t+1}
+ =R^{K*}(1+\omega\hat q_{t+1}),\\
+\omega&\equiv q^*/R^{K*}=\beta q^*.
+\end{align}
+Divide the Euler equation by $(C^*)^{-\sigma}$ and expand:
+\begin{align}
+e^{-\sigma\hat c_t}
+ &=\beta E_t[e^{-\sigma\hat c_{t+1}}R^K_{t+1}],\\
+1-\sigma\hat c_t
+ &\approx\beta R^{K*}E_t[(1-\sigma\hat c_{t+1})
+                          (1+\omega\hat q_{t+1})],\\
+&=E_t[1-\sigma\hat c_{t+1}+\omega\hat q_{t+1}
+             -\sigma\omega\hat c_{t+1}\hat q_{t+1}],\\
+-\sigma\hat c_t&\approx-\sigma E_t\hat c_{t+1}
+                         +\omega E_t\hat q_{t+1},\\
+\sigma(E_t\hat c_{t+1}-\hat c_t)
+ &\approx\omega E_t\hat q_{t+1}.\label{eq:rbc-linear-euler}
+\end{align}
+The product of deviations is second order and has been discarded, not replaced
+by a product of expectations. The equality signs below refer to the resulting
+linear approximation. Expected future rental income raises the reward to
+saving; $K_{t+1}$ is chosen with date-$t$ information, but $A_{t+1}$ and hours
+next date remain uncertain.
+
+\Needspace{11\baselineskip}
+\begin{blueblock}
+\textbf{Expectations can be linearized; logarithms cannot simply pass through them.}
+For an integrable local expansion $e^z=1+z+O(z^2)$, take $E_t$ after expanding.
+In general $\log E_te^z\ne E_tz$. If $z=+h$ or $-h$ with equal probability,
+\[
+E z=0,\qquad \log E e^z=\log[(e^h+e^{-h})/2]>0\quad(h\ne0).
+\]
+The difference is of second order for small $h$. A first-order solution near a
+deterministic state omits risk adjustments of that order; it does not justify
+removing expectations from the exact Euler equation. This refines the original
+course warning rather than dropping the expectation calculation.
+\end{blueblock}
+
+Finally, the shock law is already linear in logs:
+\begin{align}
+a_{t+1}&=\rho_a a_t+\varepsilon_{t+1}^a,\\
+E_ta_{t+1}&=\rho_a a_t+E_t\varepsilon_{t+1}^a=\rho_a a_t,\\
+E_ta_{t+2}&=\rho_a E_ta_{t+1}=\rho_a^2a_t,\\
+E_ta_{t+h}&=\rho_a^h a_t.
+\end{align}
+A higher $\rho_a$ changes what households expect before they choose, not just
+the shape of productivity after they have chosen.
+
+\subsection{Solve the model before drawing its responses}\label{sec:rbc-solve}
+
+\subsubsection{An exact special case checks the consumption--investment logic}
+
+As a separate special case, set $\delta=1$ and $\sigma=1$, while retaining
+$0<\alpha<1$ and the hours disutility. The partial-depreciation baseline will
+be restored afterward. Guess $K_{t+1}=sY_t$ and $C_t=(1-s)Y_t$, where $0<s<1$.
+The capital Euler equation becomes
+\begin{align}
+\frac{1}{C_t}&=\alpha\beta E_t\!\left[
+ \frac{1}{C_{t+1}}\frac{Y_{t+1}}{K_{t+1}}\right],\\
+\frac{1}{(1-s)Y_t}
+ &=\alpha\beta E_t\!\left[
+ \frac{Y_{t+1}}{(1-s)Y_{t+1}K_{t+1}}\right],\\
+&=\frac{\alpha\beta}{(1-s)K_{t+1}}
+ =\frac{\alpha\beta}{(1-s)sY_t},\\
+1&=\alpha\beta/s,\qquad s=\alpha\beta.
+\end{align}
+Tomorrow's output cancels \emph{state by state}, before taking expectations.
+It has not been replaced by its mean. The labor condition then gives
+\begin{align}
+\chi C_tN_t^\varphi&=(1-\alpha)Y_t/N_t,\\
+\chi(1-\alpha\beta)Y_tN_t^{1+\varphi}&=(1-\alpha)Y_t,\\
+N_t&=\left[\frac{1-\alpha}{\chi(1-\alpha\beta)}
+     \right]^{1/(1+\varphi)}\equiv N^e.
+\end{align}
+Choose parameters with $0<N^e<1$. Feasibility and the terminal restriction are
+also explicit:
+\begin{align}
+C_t+K_{t+1}&=(1-\alpha\beta)Y_t+\alpha\beta Y_t=Y_t,\\
+E_0[\beta^T C_T^{-1}K_{T+1}]
+ &=\beta^T\frac{\alpha\beta}{1-\alpha\beta}\ \longrightarrow\ 0.
+\end{align}
+Under admissible shock moments these policies satisfy the concave planner's
+conditions. The constant share resembles the exact Ramsey log example, now
+with uncertainty and hours. It does not extend to arbitrary depreciation or
+curvature. Indeed, it makes consumption and investment proportional to output,
+so it cannot explain every relative-volatility fact merely by being an RBC model.
+
+\subsubsection{Reduce the partial-depreciation model without hiding its coefficients}
+
+Return to $0<\delta<1$ and the general curvature parameters. Solve the linear
+labor condition first, then insert it into production:
+\begin{align}
+\hat n_t&=\frac{\alpha}{\varphi+\alpha}\hat k_t
+ +\frac{1}{\varphi+\alpha}a_t
+ -\frac{\sigma}{\varphi+\alpha}\hat c_t,\\
+\hat y_t&=a_t+\alpha\hat k_t+(1-\alpha)
+ \left[\frac{\alpha\hat k_t+a_t-\sigma\hat c_t}{\varphi+\alpha}\right],\\
+&=b_k\hat k_t+b_a a_t+b_c\hat c_t,
+\end{align}
+where collection of each coefficient gives
+\begin{align}
+b_k&=\alpha+\frac{(1-\alpha)\alpha}{\varphi+\alpha}
+ =\frac{\alpha(1+\varphi)}{\varphi+\alpha},\\
+b_a&=1+\frac{1-\alpha}{\varphi+\alpha}
+ =\frac{1+\varphi}{\varphi+\alpha},\\
+b_c&=-\frac{(1-\alpha)\sigma}{\varphi+\alpha}.
+\end{align}
+Substitute into capital accumulation:
+\begin{align}
+\hat k_{t+1}&=(1-\delta)\hat k_t
+ +v[b_k\hat k_t+b_a a_t+b_c\hat c_t-s_C\hat c_t],\\
+&=\gamma_k\hat k_t+\gamma_a a_t-\gamma_c\hat c_t,\label{eq:rbc-reduced-k}\\
+\gamma_k&=1-\delta+vb_k,\qquad
+\gamma_a=vb_a,\qquad \gamma_c=v(s_C-b_c)>0.
+\end{align}
+The Euler equation uses $\hat q_{t+1}=\hat y_{t+1}-\hat k_{t+1}$.
+Since $K_{t+1}$ is known when chosen,
+\begin{align}
+E_t\hat q_{t+1}
+ &=(b_k-1)\hat k_{t+1}+b_a\rho_a a_t+b_cE_t\hat c_{t+1},\\
+\sigma E_t\hat c_{t+1}-\sigma\hat c_t
+ &=\omega[(b_k-1)\hat k_{t+1}+b_a\rho_a a_t+b_cE_t\hat c_{t+1}],\\
+(\sigma-\omega b_c)E_t\hat c_{t+1}
+ &=\sigma\hat c_t+\omega(b_k-1)\hat k_{t+1}+\omega b_a\rho_a a_t.
+\end{align}
+Define $\tau=\sigma-\omega b_c$, $\upsilon=\omega(b_k-1)$, and
+$\zeta=\omega b_a\rho_a$. Then
+\begin{equation}\label{eq:rbc-reduced-euler}
+\tau E_t\hat c_{t+1}=\sigma\hat c_t+\upsilon\hat k_{t+1}+\zeta a_t.
+\end{equation}
+These coefficients come from stated structural equations; none is an
+independently fitted persistence parameter.
+
+\subsubsection{Match coefficients and select the stable rule}
+
+Conjecture a linear consumption rule
+$\hat c_t=p_k\hat k_t+p_a a_t$. Equations
+\eqref{eq:rbc-reduced-k} and the productivity forecast imply
+\begin{align}
+\hat k_{t+1}&=(\gamma_k-\gamma_cp_k)\hat k_t
+                   +(\gamma_a-\gamma_cp_a)a_t,\\
+&=H_k\hat k_t+H_a a_t,\\
+E_t\hat c_{t+1}&=p_k\hat k_{t+1}+p_a\rho_a a_t.
+\end{align}
+Insert the last line into \eqref{eq:rbc-reduced-euler}, then collect:
+\begin{align}
+\tau(p_k\hat k_{t+1}+p_a\rho_a a_t)
+ &=\sigma(p_k\hat k_t+p_a a_t)+\upsilon\hat k_{t+1}+\zeta a_t,\\
+(\tau p_k-\upsilon)\hat k_{t+1}
+ &=\sigma p_k\hat k_t+(\sigma p_a+\zeta-\tau\rho_a p_a)a_t.
+\end{align}
+Equating the coefficient of the predetermined stock yields
+\begin{align}
+(\tau p_k-\upsilon)(\gamma_k-\gamma_cp_k)&=\sigma p_k,\\
+\tau\gamma_kp_k-\tau\gamma_cp_k^2-\upsilon\gamma_k
+ +\upsilon\gamma_cp_k-\sigma p_k&=0,\\
+\tau\gamma_cp_k^2-(\tau\gamma_k+\upsilon\gamma_c-\sigma)p_k
+ +\upsilon\gamma_k&=0.
+\end{align}
+For $d_0=\tau\gamma_k+\upsilon\gamma_c-\sigma$, the candidate slopes are
+\begin{equation}
+p_k^{\pm}=\frac{d_0\pm\sqrt{d_0^2-4\tau\gamma_c\upsilon\gamma_k}}
+                    {2\tau\gamma_c}.
+\end{equation}
+For each candidate compute $H_k=\gamma_k-\gamma_cp_k$. Keep the locally stable
+root with $|H_k|<1$; the numerical example below has exactly one. As in Ramsey,
+an arbitrary consumption slope also admits the unstable mode and does not
+satisfy the desired terminal behavior near the reference.
+
+For the productivity coefficient, let $J=\tau p_k-\upsilon$. Matching $a_t$ gives
+\begin{align}
+J(\gamma_a-\gamma_cp_a)&=\sigma p_a+\zeta-\tau\rho_a p_a,\\
+J\gamma_a-\zeta&=(\sigma+J\gamma_c-\tau\rho_a)p_a,\\
+p_a&=\frac{J\gamma_a-\zeta}{\sigma+J\gamma_c-\tau\rho_a},\qquad
+H_a=\gamma_a-\gamma_cp_a.\label{eq:rbc-policy-a}
+\end{align}
+The denominator must be nonzero. Changing $\rho_a$ changes $p_a$ and $H_a$,
+not just the future path of $a_t$. Resolve the rule when changing beliefs
+about persistence.
+
+The solved local state system is
+\begin{equation}\label{eq:rbc-state-rule}
+\begin{pmatrix}\hat k_{t+1}\\a_{t+1}\end{pmatrix}
+ =\begin{pmatrix}H_k&H_a\\0&\rho_a\end{pmatrix}
+  \begin{pmatrix}\hat k_t\\a_t\end{pmatrix}
+ +\begin{pmatrix}0\\\varepsilon_{t+1}^a\end{pmatrix}.
+\end{equation}
+Its two persistence roots are $H_k$ and $\rho_a$. Given the states,
+$\hat c_t$, $\hat n_t$, $\hat y_t$, and $\hat\iota_t$ follow from the rules
+already derived. Only the first-order approximation has been solved here;
+large shocks, corners, and higher-order risk effects require other methods.
+
+\subsection{A worked shock experiment and its economic meaning}\label{sec:rbc-experiment}
+
+\subsubsection{State the calibration and reproduce the initial response}
+
+Use quarters as dates and the illustrative parameters
+\[
+\alpha=0.33,\quad\beta=0.99,\quad\delta=0.025,\quad
+\sigma=1,\quad\varphi=1,\quad\bar A=1.
+\]
+Set $N^*=1/3$ and choose the preference weight from the steady-state labor
+condition. These are teaching choices, not estimates or a claimed fit to any
+country. The steady calculations give
+\begin{align}
+q^*&=1/0.99-1+0.025\simeq0.035101,\\
+v&=q^*/0.33\simeq0.106367,\\
+s_I&=0.025/v\simeq0.235036,\qquad s_C\simeq0.764964,\\
+K^*&\simeq9.449473,\quad Y^*\simeq1.005109,\quad
+C^*\simeq0.768872,\quad I^*\simeq0.236237,\\
+\chi&=\frac{(1-\alpha)Y^*/N^*}{(C^*)^\sigma(N^*)^\varphi}
+ \simeq7.882724.
+\end{align}
+For $\rho_a=0.95$, coefficient matching selects
+\[
+p_k\simeq0.553075,\quad p_a\simeq0.386565,\quad
+H_k\simeq0.953146,\quad H_a\simeq0.107783.
+\]
+The other consumption-stock slope is about $-0.236912$, implying
+$H_k\simeq1.059755>1$, and is rejected. Start at the reference stock
+$\hat k_0=0$, apply a one-time innovation $\varepsilon_0^a=0.01$, and set
+all later innovations to zero. On impact,
+\begin{align}
+a_0&=0.01,\qquad \hat c_0=p_a a_0\simeq0.003866,\\
+\hat n_0&=\frac{0.01-\hat c_0}{1.33}\simeq0.004612,\\
+\hat y_0&=0.01+0.67\hat n_0\simeq0.013090,\\
+\hat\iota_0&=\frac{\hat y_0-s_C\hat c_0}{s_I}\simeq0.043113,\\
+\hat k_1&=(1-\delta)\hat k_0+\delta\hat\iota_0
+          \simeq0.001078.
+\end{align}
+For the same $1\%$ log innovation with $\rho_a=0$, solve again:
+$p_a\simeq0.086073$, $H_a\simeq0.148334$, while $p_k$ and $H_k$ are unchanged
+in this model. The immediate responses are
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+\tableheading{Variable} & \tableheading{$\rho_a=0.95$} & \tableheading{$\rho_a=0$}\\
+\hline
+Productivity & 1.000 & 1.000\\
+Output & 1.309 & 1.460\\
+Consumption & 0.387 & 0.086\\
+Investment & 4.311 & 5.933\\
+Hours & 0.461 & 0.687\\
+Capital available at date 0 & 0.000 & 0.000\\
+\hline
+\end{tabular}
+\end{center}
+Entries are $100$ times log deviations, approximately percentage changes.
+With $\rho_a=0$ the opportunity is brief: the household increases current work
+more and consumes less of the additional output. A persistent improvement
+raises the value of lifetime resources more, supporting a larger initial
+consumption increase. This comparison includes both the changed opportunity
+path and the reoptimized household response.
+
+\subsubsection{Follow the goods and the inherited stock}
+
+\Needspace{32\baselineskip}
+\begin{center}
+\includegraphics[width=0.94\linewidth]{rbc_impulse_responses.pdf}
+\end{center}
+\textit{Model-generated, first-order responses to one positive productivity
+innovation.} Both paths start with the same capital and $a_0=0.01$. All later
+innovations are zero; the consumption rule is solved separately for each
+persistence parameter. The plot uses only the equations and hypothetical
+parameters above, not estimated responses or observed data.
+
+Output rises immediately because the existing machines and chosen work are
+more productive. Consumption rises less in this example: households spread
+resources across dates. Investment absorbs more of the extra output and changes
+next quarter's machines. Its percentage response is especially large partly
+because investment is a smaller steady-state share of output. From resources,
+\[
+\hat\iota_t=(\hat y_t-s_C\hat c_t)/s_I;
+\]
+a modest goods reallocation can be a large percentage of $I^*$.
+This arithmetic helps interpret relative volatility; an impact ratio is not
+itself a simulated standard-deviation ratio.
+
+In the dashed path, productivity is back at its reference at date 1, but capital
+is then above its reference. Output and consumption can remain above it. Hours
+can be below it: the inherited stock makes households wealthier and changes
+the wage they need to work. A real shock does not require every variable to
+move in the same direction at every horizon. In the solid path, both
+productivity persistence and capital memory operate. Stable roots imply
+convergence back to this reference after the temporary innovation, rather
+than a permanent change in trend growth.
+
+The factory interpretation is concrete. More productive shifts free goods for
+both consumption and replacement or expansion of equipment. Once equipment is
+installed, its services remain after the unusually productive shift ends.
+An automation investment, however, can also change tasks and workers' skills;
+a credit shock can prevent a profitable installation. Those are additional
+mechanisms, not effects already represented by this single $A_t$.
+
+\Needspace{11\baselineskip}
+\begin{greenblock}
+\textbf{Capital propagates; expectations shape the initial allocation.}
+A given current productivity surprise does not determine how much is consumed,
+worked, or invested. The expected duration and future returns help determine
+those choices. Capital then carries part of today's reallocation into later
+production. Compare $\rho_a=0$ with $\rho_a>0$ only after resolving the policy;
+holding the old consumption rule fixed would mix two different experiments.
+\end{greenblock}
+
+\subsection{Retain nominal pricing without confusing it with real closure}\label{sec:rbc-nominal}
+
+\subsubsection{Derive the nominal Euler approximation and the Fisher comparison}
+
+For this calculation take the deterministic nominal reference to have a
+constant price level, hence zero inflation and $R^{n*}=1/\beta$. Define
+\[
+\hat j_t=\log(R_t^n/R^{n*}),\qquad
+\pi_{t+1}=\log(P_{t+1}/P_t).
+\]
+$\hat j_t$ is the log deviation of the \emph{gross nominal interest factor};
+it is not the investment deviation $\hat\iota_t$, and not generally the
+percentage deviation of the net rate $i_t$. Invert $Q_t$ in
+\eqref{eq:rbc-bond-crra} and divide by its reference:
+\begin{align}
+1&=\beta R_t^n E_t\!\left[
+ (C_{t+1}/C_t)^{-\sigma}P_t/P_{t+1}\right],\\
+&=e^{\hat j_t}E_t\exp\{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\},\\
+1&\approx(1+\hat j_t)
+ [1-\sigma(E_t\hat c_{t+1}-\hat c_t)-E_t\pi_{t+1}],\\
+0&\approx\hat j_t-\sigma(E_t\hat c_{t+1}-\hat c_t)-E_t\pi_{t+1},\\
+\hat c_t&\approx E_t\hat c_{t+1}
+ -\frac{1}{\sigma}(\hat j_t-E_t\pi_{t+1}).\label{eq:rbc-nominal-linear}
+\end{align}
+In the multiplication, products of deviations are discarded. The form resembles
+the intertemporal demand relation used in the next chapter; here flexible-price
+production and labor choices determine the supporting allocation jointly.
+
+A real risk-free payoff instead satisfies
+$1=\beta R_t^fE_t(C_{t+1}/C_t)^{-\sigma}$. Let
+$\hat r_t^f=\log(R_t^f/(1/\beta))$. Expanding the same way gives
+\begin{align}
+0&\approx\hat r_t^f-\sigma(E_t\hat c_{t+1}-\hat c_t),\\
+\hat r_t^f&\approx\hat j_t-E_t\pi_{t+1}.
+\end{align}
+This is the local Fisher comparison. Under uncertain inflation it is not an
+exact statement equating the nominal bond's random realized real return to
+a risk-free real return. Exact pricing retains the covariance terms and the
+random purchasing power in \eqref{eq:rbc-pricing}.
+
+\subsubsection{What does the original money-demand equation add?}
+
+One can append the course's nominal relation in the clearly stated form
+\begin{equation}
+\frac{M_t}{P_t}=\kappa Y_t(R_t^n)^{-\eta},\qquad\kappa>0,\quad\eta>0.
+\end{equation}
+It is a reduced-form attachment, not a household FOC derived from the
+money-free preferences and budget above. With $R_t^n=1/Q_t$, the same expression
+is $M_t/P_t=\kappa Y_tQ_t^\eta$. Its log transformation is
+\begin{align}
+\log M_t-\log P_t&=\log\kappa+\log Y_t-\eta\log R_t^n,\\
+\hat m_t-\hat p_t&=\hat y_t-\eta\hat j_t.
+\end{align}
+A genuine monetary model would specify why households hold money, its budget
+and supply arrangements, and a compatible policy rule and boundary conditions.
+Neither the real block nor this attachment alone selects a unique nominal
+price path. The original warning about money neutrality is thus conditional.
+
+For example, start with a nominal price path and claims that support the real
+allocation and satisfy the attachment. Rescale $M_t,P_t,W_t,B_t,\mathcal D_t$
+by the same positive constant at all dates, keeping $Q_t$ fixed. Real wages,
+real balances, real payoffs, and every real allocation are unchanged. No real
+resource or relative reward has changed. This unit-rescaling result does not
+establish that an unanticipated monetary intervention has no real effects in
+an economy with sticky contracts, redistribution, or financial frictions.
+
+\Needspace{10\baselineskip}
+\begin{blueblock}
+\textbf{Money neutrality is a property of a specified environment.}
+The real core excludes monetary wedges; its equations determine allocation
+without a price level. A nominal attachment must still be closed consistently.
+A particular level rescaling, a change in money growth, and a change in the
+policy rule are different experiments. The core's separation of real and
+nominal variables is useful for comparison with the next chapter, not evidence
+that money never matters in actual fluctuations.
+\end{blueblock}
+
+\subsection{What should an economist learn from the benchmark?}
+
+\subsubsection{Use joint paths to test mechanisms}
+
+A plausible output response is only a starting point. Compare consumption,
+investment, hours, real wages, and capital jointly, under a common measurement
+and detrending convention. At a minimum, ask whether the same parameter values
+produce credible relative volatilities, correlations, persistence, and response
+timing. A model calibrated to selected moments has not independently explained
+all those moments. A convenient choice of shock persistence cannot substitute
+for evidence about its source.
+
+For the production function used here, the measured residual would be
+\begin{align}
+\log A_t&=\log Y_t-\alpha\log K_t-(1-\alpha)\log N_t,\\
+\Delta\log A_t&=\Delta\log Y_t-\alpha\Delta\log K_t
+ -(1-\alpha)\Delta\log N_t.
+\end{align}
+This is accounting under the assumed technology. An omitted utilization rate,
+input quality, changing markup, or measurement error can enter that residual.
+Calling it an exogenous technology innovation requires an identification
+argument beyond subtracting measured inputs.
+
+Estimated technology responses can challenge the labor mechanism. Gal\'i
+(1999), using his long-run identification strategy, reports a decline in hours
+after a positive technology innovation.\footnote{Jordi Gal\'i (1999),
+``Technology, Employment, and the Business Cycle: Do Technology Shocks Explain
+Aggregate Fluctuations?'' \textit{American Economic Review}, 89(1), 249--271,
+\url{https://doi.org/10.1257/aer.89.1.249}. The result is conditional on that
+paper's identification and measurement, not a definition of a technology shock.}
+The response of hours is an empirical question; the fixed-capital calculation
+already showed why it is not a mathematical consequence of the word
+``productivity.'' Different trend, identification, and propagation assumptions
+must be examined rather than hidden behind an unconditional correlation.
+
+Rebelo's review places the basic framework alongside subsequent extensions
+and unresolved questions.\footnote{Sergio Rebelo (2005), ``Real Business Cycle
+Models: Past, Present, and Future,'' \textit{Scandinavian Journal of Economics},
+107(2), 217--238, \url{https://doi.org/10.1111/j.1467-9442.2005.00405.x}.}
+The teaching exercise here demonstrates an internally consistent mechanism;
+it does not assign a numerical share of actual recessions to technology.
+
+\subsubsection{Efficient adjustment can still be painful}
+
+In the undistorted representative-household economy, the competitive allocation
+matches the planner allocation under the same changing resources and information.
+A negative productivity shock can reduce attainable consumption even when the
+response is efficient. Restoring yesterday's quantities is not automatically a
+feasible improvement. Efficiency of a response does not make the disturbance
+beneficial.
+
+In actual communities a closure can leave particular workers without income,
+credit, matching opportunities, or insurance. This model has an intensive hours
+choice and common ownership, so it cannot turn such losses into a theory of
+involuntary unemployment or distribution. Removing hours from a work schedule
+and failing to find a job are economically different events.
+
+The first-order paths also do not suffice for a quantitatively valid welfare
+comparison under uncertainty. Utility curvature, risk effects, and mean shifts
+can contribute at second order. Plugging a first-order allocation into nonlinear
+utility does not automatically supply all terms of a second-order welfare
+calculation. Welfare claims require an approximation and a feasible policy
+comparison suited to the question.
+
+\subsubsection{Ask which missing constraint would change the diagnosis}
+
+If a solvent factory has a profitable order but cannot finance working capital,
+add the financing constraint. If workers want jobs at the current wage but
+cannot find matches, add a labor-market mechanism. If firms cut production
+because sales decline while prices adjust slowly, study demand and nominal
+rigidity. If imported energy becomes scarce, distinguish its relative price
+and resource constraint from a neutral productivity scalar. Government spending
+similarly requires its purchases, taxes or debt, and household wealth effects
+to be specified before a fiscal prediction can be derived.
+
+The purpose of the benchmark is to make those additions meaningful. We now know
+which outcomes can arise from uncertain real opportunities, work choice, and
+accumulation alone, and which assumptions support the welfare interpretation.
+The next chapter changes price setting. Its flexible-price comparison allocation
+must not be confused with a fitted statistical trend, an economy with literally
+no shocks, or a policy target that can be reached without cost.

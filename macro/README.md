@@ -15,7 +15,7 @@ layout changes must preserve substantive content.
 
 [AGENTS.md](AGENTS.md) directs future editing work to those standards.
 [REVISION_PLAN.md](REVISION_PLAN.md) records the structure and revision history;
-[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the Solow, Ramsey, and OLG condition
+[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the growth-model and RBC condition
 comparisons. [DERIVATION_AUDIT.md](DERIVATION_AUDIT.md) separately maps the
 restored mathematical routes and intermediate operations. The intended reader has completed intermediate macroeconomics;
 the introduction is a bridge to graduate study, not a repeat of that course.
@@ -42,6 +42,9 @@ in Part II, with growth facts, Harrod--Domar (Chapter 3), Solow (Chapter 4),
 and Ramsey (Chapter 5). OLG and endogenous growth follow; Chapter 8 closes
 Growth with model comparisons and concrete economic situations. Fluctuations
 begins with a qualitative introduction in Chapter 9, before RBC in Chapter 10.
+RBC retains the original fixed-capital route and develops capital accumulation,
+explicit stochastic and nominal pricing, stepwise approximation, and a solved
+first-order shock experiment. Its original course text remains as comments for comparison.
 The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
@@ -109,6 +112,8 @@ uncertainty or a different information structure needs an explicit alternative.
 This layout leaves the existing three breakable note environments unchanged.
 
 Solow, Ramsey, and OLG retain their original course condition blocks as TeX comments.
+RBC retains its complete pre-revision text between `BEGIN ORIGINAL RBC COURSE TEXT`
+and `END ORIGINAL RBC COURSE TEXT`.
 Ramsey uses `BEGIN ORIGINAL COURSE ASSUMPTIONS`; Solow uses
 `BEGIN ORIGINAL SOLOW COURSE ASSUMPTIONS`, each with a matching `END` marker. OLG uses
 `BEGIN ORIGINAL OLG COURSE ASSUMPTIONS` and its matching end marker.

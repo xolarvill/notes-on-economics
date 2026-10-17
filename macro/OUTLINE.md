@@ -206,11 +206,26 @@ chapter of Part V.
 
 ### 10. Real Business Cycle Model
 
-- UMP of household
-- PMP of firm
-- Economy described by RBC
-- Log-linearization
-- Capital accumulation and investment — **planned**
+- From a growth path to changing opportunities
+  - Modeling questions, uncertain productivity, hours choice, and propagation
+- Complete conditions and the order of decisions
+- Household choice: working now and transferring consumption
+  - Nominal bonds, capital, conditional expectations, and risk pricing
+- Firms, resource clearing, and the real equilibrium
+  - Input derivatives, household accounts, and the planner comparison
+- Recover the course's fixed-capital benchmark
+  - Work incentives, wealth effects, and the log-utility case
+- Capital accumulation and the deterministic reference
+- Log-linearization: show the approximation in each equation
+  - Both original routes, exact log identities, weighted sums, and expected Euler conditions
+- Solve the model before drawing its responses
+  - Exact full-depreciation case, coefficient matching, and stable selection
+- A worked shock experiment and its economic meaning
+  - Reoptimized persistence comparison, investment timing, and capital memory
+- Retain nominal pricing without confusing it with real closure
+  - Local Fisher comparison, optional money demand, and conditional neutrality
+- What should an economist learn from the benchmark?
+  - Joint-path evidence, identification, efficiency, and missing mechanisms
 
 ### 11. New Keynesian Model
 
