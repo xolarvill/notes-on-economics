@@ -122,3 +122,41 @@ All complete condition-card bodies and original course comment lines were
 compared byte for byte with the pre-restoration source. They remain unchanged.
 This record names the routes checked; it does not use total page count as
 proof of preservation. Final rendering checks are recorded in REVISION_PLAN.md.
+
+## New Keynesian: both pricing routes and unfinished calculations
+
+Comparison source: `af17be9:macro/chapters/new-keynesian.tex`. Its complete
+950-line text is recoverable from source comments; the independent checker
+verifies the decoded source's SHA-256. Corrected classroom special cases are
+retained visibly, not just stored as a backup.
+
+| Route | Intermediate operations visible in the live chapter |
+| --- | --- |
+| CES expenditure minimum | Chain-rule derivative, multiplier FOC, demand, constraint substitution, dual index, and bill check |
+| CES utility maximum | Separate multiplier, demand, basket substitution, shadow value, expenditure, and equivalence |
+| Finite goods | 1/J derivative factor, demand with J, power collection, dual price index, equal-price units, and n-to-epsilon translation |
+| Intertemporal household | Consumption/hours derivatives and both dates' bond/money contributions; multiplier substitutions and opportunity cost; face-value versus carrying-value bond budgets |
+| Money approximation | Log opportunity cost, derivative 1/[i(1+i)], subtraction of reference, net-log versus gross-log conversion, and income-elasticity qualification |
+| Firm cost | Conditional cost Lagrangian, MPN, inverse technology, total-cost derivative, and flexible-price profit chain rule |
+| Calvo profit | Survival probability, owner SDF, demand derivative, every profit derivative, FOC rearrangement, weighted ratio, time-zero and general-date versions |
+| Discount cancellation | Demand and SDF substitution, identified common current factor, both remaining beta^k factors, own-price cost response, and closed nonlinear reset equation |
+| Taylor pricing | Constant and individual variable terms on LHS/RHS, exact cancellation of weight deviations, own-price correction, target and recursive expected reset relation |
+| NKPC first route | CES price index, bivariate Taylor expansion, reset-relative-price identity, substitution into recursion, and Phillips coefficient |
+| Original long-sum route | Price differences expanded into inflation sums, discount powers on each term, rearranged double series, two recursions, and explicit elimination |
+| NKPC vintage route | Finite backward iteration with inherited remainder, geometric vintage limit, t and t+1 identities, target substitution, expanded coefficient cancellation, and inflation differences |
+| Gap and benchmarks | Exact dispersion aggregation/recursion and first-order cancellation; wage and MPN substitution, natural level and deviation, alternative alpha=0 target route, and planner derivative |
+| Dynamic IS | Exact stochastic Euler, product expansion, cancellation of constant, natural real rate, and explicit subtraction to the gap equation |
+| Fixed-duration example | Three-date profit FOC, discount-normalized target average, exact CES aggregate, local average, and replacement-price inflation identity |
+| Monetary equilibrium | Money demand separated from a quantity rule, price accumulation, rate rule, output-level/gap convention conversion, complete two-row reduced matrix |
+| Determinacy | Trace/determinant, characteristic equation, unit-disk transformation, quadratic root test, expanded Taylor principle, forward iteration, and bounded-solution uniqueness |
+| Shock solution | Phillips and IS coefficient substitutions, full denominator, positivity expansion, implied output/inflation recursions, real/nominal rates, accumulated prices, completed money path and innovation derivative |
+| Persistence | Forward NKPC iteration and terminal restriction, technology-shock coefficient equations, contract indexation with adjusted prices and normalization, separate sticky-information interpretation |
+| Intermediate bridge | Derived conditional IS and LM, full elimination to price-level AD, NKPC-to-AS transformation, intersection solution, and contrast with interest-rule demand in inflation space |
+
+Run `.venv/bin/python macro/scripts/verify_new_keynesian.py` from the repository
+root. It compares CES allocations and nonlinear Calvo pricing with direct
+optimization; checks pricing and dispersion error orders, money derivatives,
+1,215 parameter/eigenvalue cases, 100 reconstructed diagram intersections,
+and the stochastic Euler approximation. The figure generator separately checks
+every unreduced local equilibrium equation and all six plotted paths. These
+checks concern algebra and the stated approximations, not empirical fit.

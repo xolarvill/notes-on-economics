@@ -229,16 +229,26 @@ chapter of Part V.
 
 ### 11. New Keynesian Model
 
-- UMP of household
-- PMP of firm
-  - Price-setting behavioral equation
-  - Philips curve
-  - Dynamic IS curve
-- Equilibrium of model
-  - DNK with money supply rule
-  - DNK with interest rate rule
-- Analyze exogenous shocks
-- Natural rates, output gaps, and model limits — **planned**
+- From RBC to demand and prices that survive the meeting: raw modeling questions
+- Ten detailed condition cards: agents, timing, nominal accounts, and closure
+- Two-stage household choice
+  - CES expenditure minimization and utility maximization
+  - Finite-good normalization, bonds, money utility, and rate units
+- Firms: cost minimization, flexible markups, and the full Calvo profit problem
+- Inflation from two retained course routes
+  - Multivariate Taylor expansion and discounted inflation-series cancellation
+  - Desired targets, reset prices, and inherited price vintages
+- Price dispersion, marginal cost, natural output, and efficient output
+- Dynamic IS and the natural real interest rate
+- Three-period contracts versus random Calvo duration
+- Money-quantity versus interest-rule closure; full local determinacy calculation
+- Solved policy innovation: coefficient matching, quantities, rates, prices, and money
+  - Original six-panel figure with reproducible model calculations
+- Expectations, technology shocks, indexation, sticky information, and model limits
+- Bridge from intermediate IS–LM / AD–AS to the microfounded system
+  - Derive conditional IS, LM, AD, and AS step by step
+  - Contrast quantity closure with IS–MP and inflation-space diagrams
+  - Compare assumptions, expectations, benchmarks, and welfare
 
 ### 12. Sticky Wage Model
 

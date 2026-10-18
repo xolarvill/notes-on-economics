@@ -146,3 +146,34 @@ The general capital model has no monetary asset, government, or foreign trade.
 The original money-demand equation is an optional nominal attachment, not an
 unstated household first-order condition. Conditions for a local interior
 solution do not promise a global solution under arbitrarily large shocks.
+
+## New Keynesian model
+
+Comparison source: `af17be9:macro/chapters/new-keynesian.tex`. All original
+course lines remain exactly recoverable from the comments between
+`BEGIN ORIGINAL NK COURSE TEXT` and `END ORIGINAL NK COURSE TEXT`. The visible
+chapter preserves the substantive conditions and distinguishes incompatible
+course conventions rather than combining them silently.
+
+| Original material or qualification | Visible treatment |
+| --- | --- |
+| Continuum, differentiated goods, representative behavior | Cards 01--02 separate identical households from differentiated goods and common technology; ownership and profits explicitly retained |
+| Full information and rational expectations | Card 07 specifies observed current states, unknown innovations, conditional information, and jointly consistent plans |
+| Competitive labor / monopolistic goods | Cards 05--06 and a blue distinction retain both structures; common wages do not imply equal employment |
+| CES utility and expenditure stages | Card 02 plus both complete derivations; finite-J mean normalization and the course's n exponent translated explicitly |
+| MIU and nominal budgets | Cards 03--04 include piecewise utility, all curvature parameters, transfers, profits, money services, initial assets, and both bond quantity conventions |
+| Money demand and interest elasticity | Exact opportunity-cost FOC; separate net-rate levels, log net rates, and log gross-rate deviations; unit income elasticity conditional on sigma=nu_m |
+| Labor-only and decreasing returns | Fixed factors and ownership income stated; alpha=0 course case retained, own-firm marginal-cost effect kept when alpha>0 |
+| Calvo timing and reset prices | Card 06 fixes theta=keep throughout, maps both original theta definitions, distinguishes resetters from inherited-price firms, and retains full expected-profit objective |
+| Symmetry and aggregate production | Card 08 defines exact dispersion before the first-order symmetric approximation; no claim that every sticky-price firm has the same price |
+| Price targets / alternate NKPC route | Original route retained with aggregate labor distinct from individual labor; blue explanation of why the course's 1+epsilon*phi denominator is not implied by this common-labor-market baseline |
+| Three-period contracts | Explicit separate extension: three equal cohorts, fixed duration, finite discounted profit objective, and CES aggregation; not confused with three strategic firms or Calvo hazards |
+| Policy closure | Card 09 and separate sections distinguish assigned money from accommodated money; output-level feedback translated into gap feedback plus a natural-output forcing term |
+| Solvency and approximation | Card 10 states admissibility, terminal behavior, owners' valuation, convergent sums, zero-inflation reference, interior money-demand scope, and local rather than global determinacy |
+| Hybrid / sticky information | Lagged indexation is explicitly added to nonresetting contracts; adjusted-price derivation changes all coefficients consistently; information friction remains a different model |
+| Planned natural benchmarks | Natural output and real rate derived; efficient goods-and-hours allocation separately optimized; policy welfare extensions remain in the policy chapter |
+
+Ten cards are visible in full. Original blue/red questions were reviewed by
+function: valuable distinctions and experiments remain as three-color callouts;
+full calculations remain in the main text. A comment archive is comparison
+material and does not substitute for either the visible specification or proofs.

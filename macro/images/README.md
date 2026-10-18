@@ -124,3 +124,27 @@ equations for both paths and confirms predetermined impact capital. It embeds
 fonts and omits PDF timestamps. Independent numerical checks of the primitive
 conditions, nonlinear error order, and exact special case are recorded in
 `../DERIVATION_AUDIT.md`.
+
+## New Keynesian responses from the solved local equilibrium
+
+`nk_impulse_responses.pdf` is an original six-panel vector figure: output gap,
+quarterly inflation, nominal and expected real rates, price level, and money.
+It uses the analytic local equilibrium in Chapter 11, with beta=.99,
+sigma=phi=1, alpha=1/3, goods elasticity=6, Calvo retention=.75,
+phi_pi=1.5, phi_x=.125, rho_nu=.5, money curvature nu_m=2, and a single
+initial log gross-rate intercept innovation of .001. Initial deviations are
+zero; all later innovations vanish. There is no data, estimation, or empirical
+calibration claim. Money accommodates the interest rule.
+
+Regenerate from the repository root:
+
+```sh
+.venv/bin/python macro/images/nk_impulse_responses.py
+```
+
+The generator checks the original linear IS, Phillips, interest-rule and
+money-demand equations, price accumulation, and coefficient matching. Rate
+panels use 10,000 times quarterly log deviations (unannualized basis points);
+other panels use 100 times log deviations. Dashed level lines show the
+long-run price/money displacement. Fonts are embedded and PDF timestamps omitted.
+Additional independent nonlinear checks are in `../scripts/verify_new_keynesian.py`.

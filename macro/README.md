@@ -16,7 +16,7 @@ layout changes must preserve substantive content.
 [AGENTS.md](AGENTS.md) directs future editing work to those standards.
 [REVISION_PLAN.md](REVISION_PLAN.md) records the structure and revision history;
 [CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the growth-model and RBC condition
-comparisons. [DERIVATION_AUDIT.md](DERIVATION_AUDIT.md) separately maps the
+comparisons, including the New Keynesian chapter. [DERIVATION_AUDIT.md](DERIVATION_AUDIT.md) separately maps the
 restored mathematical routes and intermediate operations. The intended reader has completed intermediate macroeconomics;
 the introduction is a bridge to graduate study, not a repeat of that course.
 
@@ -45,7 +45,11 @@ begins with a qualitative introduction in Chapter 9, before RBC in Chapter 10.
 RBC retains the original fixed-capital route and develops capital accumulation,
 explicit stochastic and nominal pricing, stepwise approximation, and a solved
 first-order shock experiment. Its original course text remains as comments for comparison.
-The existing welfare derivation is included directly in
+Chapter 11 develops the New Keynesian model with complete conditions, both course
+pricing routes, natural benchmarks, monetary closure, a solved policy experiment,
+and a final IS–LM / AD–AS bridge. Its complete original text remains in comments.
+Run `.venv/bin/python macro/scripts/verify_new_keynesian.py` from the repository
+root for independent nonlinear and local-equilibrium checks. The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
 ## Headings and page starts

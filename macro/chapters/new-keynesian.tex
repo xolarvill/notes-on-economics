@@ -990,7 +990,9 @@ and staggered nominal prices.\footnote{For the framework and policy questions,
 see Clarida, Gal\'{\i}, and Gertler (1999),
 \href{https://www.nber.org/papers/w7147}{The Science of Monetary Policy: A New
 Keynesian Perspective}; Gal\'{\i} (2015), \textit{Monetary Policy, Inflation, and
-the Business Cycle}, second edition, Chapters 3--4. The calculations below
+the Business Cycle}, second edition, Chapters 3--4; the author's
+\href{https://crei.cat/people/gali/}{official teaching materials} include the
+corresponding chapter slides. The calculations below
 state their own conventions and intermediate steps.}
 
 \begin{greenblock}
@@ -1094,7 +1096,7 @@ sales, hours, and marginal costs, even at the common wage.
 \begin{modelcondition}{06}{Market power and the price that cannot be changed}
 The goods market is monopolistically competitive. A firm's demand is
 $Y_{it}=(P_{it}/P_t)^{-\epsilon}Y_t$, so its flexible-price gross markup is
-$\mu=\epsilon/(\epsilon-1)>1$. Independently of its age and state, a firm can
+$\mu=\epsilon/(\epsilon-1)>1$. Independently across firms and of its age and state, a firm can
 reset its nominal price with probability $1-\theta$, $0<\theta<1$; with
 probability $\theta$ it retains the previous nominal price. There is no baseline
 indexation. Resetting firms face identical current and future aggregate conditions
@@ -1405,3 +1407,1274 @@ $\epsilon\to\infty$: the markup tends to one, but this does not grant firms
 permission to reprice. Flexible prices and perfect competition remove different
 restrictions; a steady price in an unchanging economy proves neither one.
 \end{redblock}
+
+\subsubsection{Calvo pricing: differentiate the whole profit stream}
+
+Let $s=t+k$. Conditional on a reset price surviving, sales are
+$Y_{s|t}=(P_t^{\#}/P_s)^{-\epsilon}Y_s$. The household values one nominal unit
+at $s$ relative to one at $t$ by the stochastic discount factor
+\begin{align}
+ \mathcal Q_{t,s}
+ &=\beta^k\frac{\lambda_s}{\lambda_t}
+ =\beta^k\frac{\xi_s}{\xi_t}
+       \left(\frac{C_s}{C_t}\right)^{-\sigma}\frac{P_t}{P_s}.
+\end{align}
+This is a valuation kernel, not a certain discount rate: it puts greater value
+on profits in states where household marginal utility is high. Firm ownership
+makes that valuation relevant even though bonds have zero net supply.
+
+A resetter maximizes the expected discounted profits earned while this price
+is still in place:
+\begin{align}
+ \max_{P_t^{\#}}E_t\sum_{k=0}^{\infty}\theta^k\mathcal Q_{t,t+k}
+ \big[P_t^{\#}Y_{t+k|t}-TC_{t+k}^n(Y_{t+k|t})\big].
+\end{align}
+Its own future reset choices do not depend on the price chosen now, so the
+objective can omit profits after the next reset. The probability $\theta^k$
+is separate from both the discount factor and the demand elasticity. Holding
+aggregate conditions fixed, differentiate each surviving-price profit:
+\begin{align}
+ \frac{\partial Y_{s|t}}{\partial P_t^{\#}}
+ &=-\epsilon(P_t^{\#}/P_s)^{-\epsilon-1}Y_s/P_s
+ =-\epsilon Y_{s|t}/P_t^{\#},\\
+ \frac{\partial[P_t^{\#}Y_{s|t}-TC_s^n(Y_{s|t})]}{\partial P_t^{\#}}
+ &=Y_{s|t}+P_t^{\#}(-\epsilon Y_{s|t}/P_t^{\#})
+                     -MC_{s|t}^n(-\epsilon Y_{s|t}/P_t^{\#})\\
+ &=Y_{s|t}[1-\epsilon+\epsilon MC_{s|t}^n/P_t^{\#}].
+\end{align}
+Set the sum of these derivatives to zero and move terms explicitly:
+\begin{align}
+ 0&=E_t\sum_{k\geq0}\theta^k\mathcal Q_{t,s}Y_{s|t}
+             [1-\epsilon+\epsilon MC_{s|t}^n/P_t^{\#}],\\
+ (\epsilon-1)E_t\sum_{k\geq0}\theta^k\mathcal Q_{t,s}Y_{s|t}
+ &=\frac\epsilon{P_t^{\#}}E_t\sum_{k\geq0}
+                  \theta^k\mathcal Q_{t,s}Y_{s|t}MC_{s|t}^n,\\
+ P_t^{\#}&=\mu\frac{E_t\sum_{k\geq0}\theta^k\mathcal Q_{t,s}Y_{s|t}MC_{s|t}^n}
+                        {E_t\sum_{k\geq0}\theta^k\mathcal Q_{t,s}Y_{s|t}}.
+ \label{eq:nk-reset-implicit}
+\end{align}
+For diminishing returns, this remains an implicit equation because
+$MC_{s|t}^n$ depends on the chosen reset price. A long-lived price balances
+lost margin at a low price against lost sales at a high one across dates and
+states, rather than setting today's markup in every future state.
+
+\subsubsection{Cancel the common factors; retain the conditional expectation}
+
+Substitute the discount factor and demand into each weight:
+\begin{align}
+ \theta^k\mathcal Q_{t,s}Y_{s|t}
+ &=(\beta\theta)^k\frac{\xi_s}{\xi_t}
+       C_s^{-\sigma}C_t^\sigma\frac{P_t}{P_s}
+                    (P_t^{\#})^{-\epsilon}P_s^\epsilon Y_s\\
+ &=(P_t^{\#})^{-\epsilon}\frac{P_tC_t^\sigma}{\xi_t}
+            (\beta\theta)^k F_s,\\
+ F_s&=\xi_s C_s^{-\sigma}Y_sP_s^{\epsilon-1}
+     =\xi_sY_s^{1-\sigma}P_s^{\epsilon-1}.
+\end{align}
+The first factor is known at $t$, identical in numerator and denominator, and
+cancels. The result at time zero and at a general reset date is, respectively,
+\begin{align}
+ P_0^{\#}
+ &=\mu\frac{E_0\sum_{k\geq0}(\beta\theta)^k F_k MC_{k|0}^n}
+                 {E_0\sum_{k\geq0}(\beta\theta)^k F_k},\\
+ P_t^{\#}
+ &=\mu\frac{E_t\sum_{k\geq0}(\beta\theta)^k F_{t+k}MC_{t+k|t}^n}
+                 {E_t\sum_{k\geq0}(\beta\theta)^k F_{t+k}}.
+ \label{eq:nk-reset-ratio}
+\end{align}
+Both sums use $\beta^k\theta^k$. A common $\beta^t$ from dating all values at
+zero would cancel; it would not justify dropping $\beta^k$ from one sum.
+
+Define a reference marginal cost evaluated at the average demand quantity $Y_s$:
+\begin{align}
+ MC_s^n&=\frac{W_s}{1-\alpha}A_s^{-1/(1-\alpha)}Y_s^{\alpha/(1-\alpha)},\\
+ MC_{s|t}^n
+ &=MC_s^n(Y_{s|t}/Y_s)^{\alpha/(1-\alpha)}\\
+ &=MC_s^n(P_t^{\#}/P_s)^{-\zeta},\qquad
+ \zeta=\frac{\epsilon\alpha}{1-\alpha},\quad
+ \Omega=\frac1{1+\zeta}=\frac{1-\alpha}{1-\alpha+\epsilon\alpha}.
+ \label{eq:nk-own-cost}
+\end{align}
+Inserting this expression into the ratio and multiplying by $(P_t^{\#})^\zeta$
+removes the implicit own-price term:
+\begin{align}
+ (P_t^{\#})^{1+\zeta}
+ &=\mu\frac{E_t\sum_{k\geq0}(\beta\theta)^kF_sMC_s^nP_s^\zeta}
+                 {E_t\sum_{k\geq0}(\beta\theta)^kF_s}.
+\end{align}
+For $\alpha=0$, $\zeta=0$, $\Omega=1$, and marginal cost is $W_s/A_s$.
+For $\theta=0$, only $k=0$ remains in \eqref{eq:nk-reset-ratio}:
+$P_t^{\#}=\mu MC_{t|t}^n$. All resetters make the same decision at a date;
+this does not make prices of nonresetting firms identical to theirs.
+
+\begin{blueblock}
+\textbf{An infinite sum does not make expectations unnecessary.}
+Known current factors may leave $E_t$. Unknown future wages, demand, and prices
+stay inside it, even with infinitely many terms. Under uncertainty,
+$E_t(XY)$ is generally not $E_tX\,E_tY$, and a ratio of expected sums is not an
+expectation of date-specific ratios. The first-order approximation below
+removes products of deviations; the exact problem does not.
+\end{blueblock}
+
+\subsection{From the price problem to inflation: two complete routes}
+
+\subsubsection{First expand each side of the pricing equation}
+
+Let $\hat p_t=\log(P_t/\bar P)$, $\hat p_t^{\#}=\log(P_t^{\#}/\bar P)$,
+and $\widehat{mc}_t^n=\log(MC_t^n/\overline{MC}^n)$.
+A symmetric zero-inflation reference has
+\begin{align}
+ \bar P&=\mu\overline{MC}^n,\qquad
+ \bar F=\bar Y^{1-\sigma}\bar P^{\epsilon-1},\qquad
+ S=\sum_{k\geq0}(\beta\theta)^k=\frac1{1-\beta\theta}.
+\end{align}
+Write \eqref{eq:nk-reset-ratio} as a product equality, then divide by its
+steady factor $\bar P\bar F$. The left side is
+\begin{align}
+ \mathcal H_L&=\frac{P_t^{\#}}{\bar P}
+             E_t\sum_{k\geq0}(\beta\theta)^k\frac{F_s}{\bar F}.
+\end{align}
+For clarity, the individual derivatives behind its Taylor expansion are
+\begin{align}
+ \frac{d\xi}{\bar\xi}&\simeq q,&
+ \frac{dY^{1-\sigma}}{\bar Y^{1-\sigma}}&=(1-\sigma)\frac{dY}{\bar Y},&
+ \frac{dP^{\epsilon-1}}{\bar P^{\epsilon-1}}&=(\epsilon-1)\frac{dP}{\bar P},\\
+ \frac{dF_s}{\bar F}&=q_s+(1-\sigma)\hat y_s+(\epsilon-1)\hat p_s
+                  \equiv\hat f_s.
+\end{align}
+Thus constant terms and first-order terms on both sides are
+\begin{align}
+ \mathcal H_L&\simeq S+S\hat p_t^{\#}
+                  +E_t\sum_{k\geq0}(\beta\theta)^k\hat f_s,\\
+ \mathcal H_R&=\frac\mu{\bar P}E_t\sum_{k\geq0}(\beta\theta)^k
+                                    \frac{F_s}{\bar F}MC_{s|t}^n\\
+ &\simeq S+E_t\sum_{k\geq0}(\beta\theta)^k
+                         [\hat f_s+\widehat{mc}_{s|t}^n].
+\end{align}
+If both sides are additionally divided by $P_{t-1}/\bar P$, as in the course,
+each gains the same first-order term $-S\hat p_{t-1}$; it cancels too.
+Equating the two expansions shows the cancellation, rather than assuming it:
+\begin{align}
+ S+S\hat p_t^{\#}+E_t\sum_k(\beta\theta)^k\hat f_s
+ &=S+E_t\sum_k(\beta\theta)^k\hat f_s
+       +E_t\sum_k(\beta\theta)^k\widehat{mc}_{s|t}^n,\\
+ S\hat p_t^{\#}&=E_t\sum_k(\beta\theta)^k\widehat{mc}_{s|t}^n,\\
+ \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
+                                      \widehat{mc}_{s|t}^n.
+\end{align}
+Now use the own-price effect from \eqref{eq:nk-own-cost}:
+\begin{align}
+ \widehat{mc}_{s|t}^n&=\widehat{mc}_s^n-\zeta(\hat p_t^{\#}-\hat p_s),\\
+ \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
+       [\widehat{mc}_s^n+\zeta\hat p_s]-\zeta\hat p_t^{\#},\\
+ (1+\zeta)\hat p_t^{\#}
+ &=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
+                  [\widehat{mc}_s^n+\zeta\hat p_s].
+\end{align}
+Let $\widehat{mc}_s=\widehat{mc}_s^n-\hat p_s$ be real marginal-cost deviation.
+Since $\widehat{mc}_s^n+\zeta\hat p_s=(1+\zeta)\hat p_s+\widehat{mc}_s$,
+\begin{align}
+ \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_{k\geq0}(\beta\theta)^k
+                     [\hat p_{t+k}+\Omega\widehat{mc}_{t+k}].
+ \label{eq:nk-reset-linear}
+\end{align}
+A positive marginal-cost deviation makes a resetter choose a higher price.
+Diminishing returns damp that response: raising its own price loses sales and
+reduces its own marginal cost, so the desired change is smaller than a
+calculation that treats its marginal cost as fixed would imply.
+
+Define $p_t^{\mathrm{tar}}=\hat p_t+\Omega\widehat{mc}_t$ as the local pricing
+target in this weighted sum. Separate its first term and reindex $h=k-1$:
+\begin{align}
+ \hat p_t^{\#}
+ &=(1-\beta\theta)p_t^{\mathrm{tar}}
+  +(1-\beta\theta)E_t\sum_{k\geq1}(\beta\theta)^k p_{t+k}^{\mathrm{tar}}\\
+ &=(1-\beta\theta)p_t^{\mathrm{tar}}
+  +\beta\theta E_t\left[(1-\beta\theta)
+       E_{t+1}\sum_{h\geq0}(\beta\theta)^h p_{t+1+h}^{\mathrm{tar}}\right]\\
+ &=(1-\beta\theta)(\hat p_t+\Omega\widehat{mc}_t)
+                      +\beta\theta E_t\hat p_{t+1}^{\#}.
+ \label{eq:nk-reset-recursion}
+\end{align}
+The second equality uses iterated expectations. It does not remove forecasting
+from the pricing problem.
+
+\subsubsection{Aggregate prices: a reset cohort and inherited cohorts}
+
+A fraction $1-\theta$ chooses $P_t^{\#}$ and the remaining fraction keeps its
+old price distribution. Independent selection leaves that distribution
+representative of the previous period's distribution, so
+\begin{align}
+ P_t^{1-\epsilon}
+ &=(1-\theta)(P_t^{\#})^{1-\epsilon}+\theta P_{t-1}^{1-\epsilon},\\
+ \Pi_t^{1-\epsilon}
+ &=(1-\theta)(P_t^{\#}/P_{t-1})^{1-\epsilon}+\theta,
+ \qquad\Pi_t=P_t/P_{t-1}.
+\end{align}
+The Taylor expansion of $z^{1-\epsilon}$ at $z=1$ is
+$1+(1-\epsilon)(z-1)\simeq1+(1-\epsilon)\log z$.
+Apply it to both ratios:
+\begin{align}
+ 1+(1-\epsilon)\pi_t
+ &=(1-\theta)[1+(1-\epsilon)(\hat p_t^{\#}-\hat p_{t-1})]+\theta,\\
+ \pi_t&=(1-\theta)(\hat p_t^{\#}-\hat p_{t-1}),\\
+ \hat p_t&=(1-\theta)\hat p_t^{\#}+\theta\hat p_{t-1},
+ \qquad\pi_t=\log\Pi_t=\hat p_t-\hat p_{t-1}.
+ \label{eq:nk-price-aggregation}\\
+ r_t^{\#}\equiv\hat p_t^{\#}-\hat p_t
+ &=\frac{\pi_t}{1-\theta}-\pi_t
+ =\frac\theta{1-\theta}\pi_t.
+\end{align}
+Inflation is a change in the log price level, not the same variable as that
+level. Likewise, the reset price differs from both.
+
+Subtract $\hat p_t$ from \eqref{eq:nk-reset-recursion}, remembering that
+$\hat p_{t+1}^{\#}-\hat p_t=r_{t+1}^{\#}+\pi_{t+1}$:
+\begin{align}
+ r_t^{\#}&=(1-\beta\theta)\Omega\widehat{mc}_t
+                +\beta\theta E_t(r_{t+1}^{\#}+\pi_{t+1}),\\
+ \frac\theta{1-\theta}\pi_t
+ &=(1-\beta\theta)\Omega\widehat{mc}_t
+  +\beta\theta E_t\left[\frac\theta{1-\theta}\pi_{t+1}+\pi_{t+1}\right]\\
+ &=(1-\beta\theta)\Omega\widehat{mc}_t
+                  +\frac{\beta\theta}{1-\theta}E_t\pi_{t+1},\\
+ \pi_t&=\beta E_t\pi_{t+1}+\lambda_p\Omega\widehat{mc}_t,
+ \qquad\lambda_p=\frac{(1-\theta)(1-\beta\theta)}\theta.
+ \label{eq:nk-pc-cost}
+\end{align}
+This is the marginal-cost New Keynesian Phillips curve. It is a local pricing
+condition, not an assumed correlation between inflation and unemployment.
+
+\subsubsection{The course's first route as an explicit inflation-series cancellation}
+
+There is a second way to finish the same first route before using the reset
+recursion. Subtract $\hat p_{t-1}$ directly in \eqref{eq:nk-reset-linear}:
+\begin{align}
+ \frac{\pi_t}{1-\theta}
+ &=H_t+(1-\beta\theta)E_t\sum_{k\geq0}(\beta\theta)^k
+                        (\hat p_{t+k}-\hat p_{t-1}),\\
+ H_t&=(1-\beta\theta)\Omega E_t\sum_{k\geq0}(\beta\theta)^k
+                         \widehat{mc}_{t+k}.
+\end{align}
+Put $b=\beta\theta$. The price differences telescope into inflation:
+\begin{align}
+ \hat p_{t+k}-\hat p_{t-1}&=\sum_{h=0}^k\pi_{t+h},\\
+ \sum_{k\geq0}b^k\sum_{h=0}^kE_t\pi_{t+h}
+ &=\pi_t+b(\pi_t+E_t\pi_{t+1})
+       +b^2(\pi_t+E_t\pi_{t+1}+E_t\pi_{t+2})+\cdots\\
+ &=\sum_{h\geq0}E_t\pi_{t+h}\sum_{k\geq h}b^k
+ =\frac1{1-b}\sum_{h\geq0}b^hE_t\pi_{t+h}.
+\end{align}
+The rearrangement requires convergent expected discounted sums. Define
+$J_t=\sum_{h\geq0}b^hE_t\pi_{t+h}$ and
+$V_t=H_t+J_t=\pi_t/(1-\theta)$. Separating their first terms gives
+\begin{align}
+ H_t&=(1-b)\Omega\widehat{mc}_t+bE_tH_{t+1},\\
+ J_t&=\pi_t+bE_tJ_{t+1},\\
+ \frac{\pi_t}{1-\theta}
+ &=\pi_t+(1-b)\Omega\widehat{mc}_t+bE_tV_{t+1}\\
+ &=\pi_t+(1-b)\Omega\widehat{mc}_t
+                  +\frac{b}{1-\theta}E_t\pi_{t+1},\\
+ \theta\pi_t&=(1-\theta)(1-b)\Omega\widehat{mc}_t+bE_t\pi_{t+1},\\
+ \pi_t&=\lambda_p\Omega\widehat{mc}_t+\beta E_t\pi_{t+1}.
+\end{align}
+The discount powers and expectations stay attached to every future term.
+This is the long-sum cancellation in the original notes, with those weights
+kept visible.
+
+\subsubsection{The course's second route: price vintages and the target price}
+
+The previous route started from the profit derivative. The course also starts
+from a target price, a weighted reset price, and the distribution of old prices.
+Retain that organization, with the target now derived above. If inherited
+history is generated by the same Calvo mechanism, iterating
+\eqref{eq:nk-price-aggregation} backward yields
+\begin{align}
+ \hat p_t&=(1-\theta)\hat p_t^{\#}+\theta\hat p_{t-1}\\
+ &=(1-\theta)\hat p_t^{\#}
+       +\theta(1-\theta)\hat p_{t-1}^{\#}+\theta^2\hat p_{t-2}\\
+ &=(1-\theta)\sum_{h=0}^{H-1}\theta^h\hat p_{t-h}^{\#}
+                                     +\theta^H\hat p_{t-H}\\
+ &=(1-\theta)\sum_{h\geq0}\theta^h\hat p_{t-h}^{\#}.
+\end{align}
+The last equality needs a bounded inherited history so the last term vanishes.
+The exact CES-vintage expression precedes this log approximation; averaging
+price levels arithmetically is not its exact counterpart.
+
+Use the aggregate identity at $t$ and $t+1$:
+\begin{align}
+ (1-\theta)\hat p_t^{\#}&=\hat p_t-\theta\hat p_{t-1},\\
+ (1-\theta)E_t\hat p_{t+1}^{\#}&=E_t\hat p_{t+1}-\theta\hat p_t.
+\end{align}
+Multiply the reset recursion by $1-\theta$ and substitute those two identities:
+\begin{align}
+ \hat p_t-\theta\hat p_{t-1}
+ &=(1-\theta)(1-\beta\theta)
+       (\hat p_t+\Omega\widehat{mc}_t)
+                 +\beta\theta(E_t\hat p_{t+1}-\theta\hat p_t),\\
+ [1+\beta\theta^2-(1-\theta)(1-\beta\theta)]\hat p_t
+       -\theta\hat p_{t-1}
+ &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+                         +\beta\theta E_t\hat p_{t+1}.
+\end{align}
+Expand the coefficient instead of leaving the cancellation to the reader:
+\begin{align}
+ 1+\beta\theta^2-(1-\theta-\beta\theta+\beta\theta^2)
+ &=\theta+\beta\theta,\\
+ \theta(1+\beta)\hat p_t-\theta\hat p_{t-1}
+ &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+                       +\beta\theta E_t\hat p_{t+1},\\
+ \theta(\hat p_t-\hat p_{t-1})
+ &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+                    +\beta\theta(E_t\hat p_{t+1}-\hat p_t),\\
+ \pi_t&=\lambda_p\Omega\widehat{mc}_t+\beta E_t\pi_{t+1}.
+\end{align}
+The two routes agree because their pricing target, timing, and aggregation
+are now the same. Changing the target coefficient changes the economic model,
+not merely the speed of the derivation.
+
+\subsection{Natural output: translate costs into an output gap}
+
+\subsubsection{Keep the exact price-dispersion term before linearizing}
+
+Use demand and technology firm by firm, then aggregate labor:
+\begin{align}
+ N_{it}&=(Y_{it}/A_t)^{1/(1-\alpha)}\\
+ &=(Y_t/A_t)^{1/(1-\alpha)}
+                       (P_{it}/P_t)^{-\epsilon/(1-\alpha)},\\
+ N_t&=(Y_t/A_t)^{1/(1-\alpha)}\Delta_t,\\
+ Y_t&=A_t(N_t/\Delta_t)^{1-\alpha}.
+\end{align}
+Let $h=\epsilon/(1-\alpha)$. Calvo selection also implies
+\begin{align}
+ \Delta_t&=(1-\theta)(P_t^{\#}/P_t)^{-h}
+                   +\theta\Pi_t^h\Delta_{t-1}.
+\end{align}
+At the symmetric reference the first-order deviation satisfies
+\begin{align}
+ \hat\Delta_t&=-(1-\theta)h r_t^{\#}
+                         +\theta h\pi_t+\theta\hat\Delta_{t-1}\\
+ &=-\theta h\pi_t+\theta h\pi_t+\theta\hat\Delta_{t-1}
+ =\theta\hat\Delta_{t-1}.
+\end{align}
+Starting at $\Delta_{-1}=1$, first-order dispersion is zero. It generally
+reappears at second order and uses real resources. Thus for this local analysis,
+\begin{align}
+ \hat y_t&=a_t+(1-\alpha)\hat n_t,\qquad
+ \hat n_t=(\hat y_t-a_t)/(1-\alpha).
+ \label{eq:nk-local-production}
+\end{align}
+Relative prices matter for efficiency even when their dispersion drops out of
+the first-order three-equation system.
+
+\subsubsection{Marginal cost and the flexible-price allocation}
+
+Divide \eqref{eq:nk-cost-foc} by $P_t$ and evaluate cost at the reference
+quantity. From household labor supply,
+\begin{align}
+ mc_t&=\frac{W_t/P_t}{(1-\alpha)A_tN_t^{-\alpha}}
+       \quad\text{to first order around symmetry},\\
+ \widehat{mc}_t
+ &=\hat w_t-\hat p_t-a_t+\alpha\hat n_t\\
+ &=\sigma\hat c_t+\varphi\hat n_t-a_t+\alpha\hat n_t\\
+ &=\sigma\hat y_t+(\varphi+\alpha)
+                   \frac{\hat y_t-a_t}{1-\alpha}-a_t\\
+ &=\left[\sigma+\frac{\varphi+\alpha}{1-\alpha}\right]\hat y_t
+              -\left[\frac{\varphi+\alpha}{1-\alpha}+1\right]a_t\\
+ &=\gamma\hat y_t-\frac{1+\varphi}{1-\alpha}a_t,
+ \qquad\gamma=\frac{\sigma(1-\alpha)+\varphi+\alpha}{1-\alpha}.
+ \label{eq:nk-mc-output}
+\end{align}
+Here $\hat w_t$ is the nominal wage's log deviation. The intermediate expression
+is exact under symmetry; its use with sticky prices is a first-order one.
+
+Define $Y_t^n$ by allowing all firms to reprice at the current technology,
+while retaining preferences, market power, and other real distortions.
+Symmetry then gives $P_{it}=P_t$ and
+\begin{align}
+ 1&=\mu mc_t^{\mathrm{flex}},\qquad mc_t^{\mathrm{flex}}=1/\mu>0,\\
+ \widehat{mc}_t^{\mathrm{flex}}
+ &=\log[(1/\mu)/(1/\mu)]=0.
+\end{align}
+The qualifier $\mathrm{flex}$ identifies the natural allocation; uppercase
+$MC_t^n$ still denotes nominal marginal cost. Zero \emph{deviation} does not
+mean zero marginal cost.
+
+To see the level, combine flexible-price labor supply, technology, and markup:
+\begin{align}
+ \frac1\mu&=\frac\chi{1-\alpha}(Y_t^n)^\sigma
+           (N_t^n)^{\varphi+\alpha}/A_t,\\
+ N_t^n&=(Y_t^n/A_t)^{1/(1-\alpha)},\\
+ \frac1\mu&=\frac\chi{1-\alpha}
+    (Y_t^n)^\gamma A_t^{-(1+\varphi)/(1-\alpha)},\\
+ \gamma\log Y_t^n
+ &=\log(1-\alpha)-\log\chi-\log\mu
+                         +\frac{1+\varphi}{1-\alpha}\log A_t,\\
+ \hat y_t^n&=\psi_a a_t,\qquad
+ \psi_a=\frac{1+\varphi}{\sigma(1-\alpha)+\varphi+\alpha}.
+ \label{eq:nk-natural-output}
+\end{align}
+Subtract its reference-deviation equation from \eqref{eq:nk-mc-output}:
+\begin{align}
+ 0&=\gamma\hat y_t^n-\frac{1+\varphi}{1-\alpha}a_t,\\
+ \widehat{mc}_t&=\gamma(\hat y_t-\hat y_t^n)=\gamma x_t,\\
+ \pi_t&=\beta E_t\pi_{t+1}+\kappa x_t,
+ \qquad x_t=\hat y_t-\hat y_t^n,\quad
+ \kappa=\lambda_p\Omega\gamma>0.
+ \label{eq:nk-pc-gap}
+\end{align}
+The course's cost-to-gap coefficient $\gamma$ is retained. With decreasing
+returns, the additional $\Omega$ comes from tracking a resetter's own sales
+in its marginal cost. It equals one in the linear-production course case.
+
+\subsubsection{Revisit the alternative desired-price calculation}
+
+The original second route derives a desired relative price before staggering
+it. For $\alpha=0$, keeping this calculation separate is especially clear:
+\begin{align}
+ \frac{P_{it}^d}{P_t}&=\mu\frac{W_t/P_t}{A_t}
+               =\mu\chi\frac{Y_t^\sigma N_t^\varphi}{A_t},\\
+ N_t&=\int_0^1(Y_{jt}/A_t)\,dj
+      =\frac{Y_t}{A_t}\int_0^1(P_{jt}/P_t)^{-\epsilon}\,dj.
+\end{align}
+Under flexible-price symmetry the integral is one. Around the symmetric
+reference its first-order change is zero by the price-index restriction.
+Consequently,
+\begin{align}
+ \log(P_{it}^d/P_t)
+ &=\log(\mu\chi)+(\sigma+\varphi)\log Y_t
+                              -(1+\varphi)\log A_t
+                              \quad\text{under symmetry},\\
+ \hat p_t^d-\hat p_t
+ &=(\sigma+\varphi)\hat y_t-(1+\varphi)a_t
+   =(\sigma+\varphi)x_t\quad\text{locally},\\
+ \hat y_t^n&=\frac{1+\varphi}{\sigma+\varphi}a_t.
+\end{align}
+This gives the same target and natural output as the profit-based derivation
+when $\alpha=0$. The common-wage household supplies \emph{aggregate} labor.
+Changing the price of a single measure-zero firm does not replace $N_t$
+by that firm's $N_{it}$ in the household's labor condition.
+
+\begin{blueblock}
+\textbf{Where would the course's $1+\epsilon\varphi$ come from?}
+If one substitutes $N_{it}=(P_{it}/P_t)^{-\epsilon}Y_t/A_t$ in place of
+aggregate $N_t$, the algebra gives
+\[
+ (1+\epsilon\varphi)(\hat p_{it}^d-\hat p_t)
+       =(\sigma+\varphi)\hat y_t-(1+\varphi)a_t.
+\]
+The extra denominator is a consequence of that substitution. It does not follow
+from the stated common competitive labor market. A separate model with an
+appropriate firm-level wage or real rigidity may produce a different target
+coefficient; its conditions must be supplied first. The intended target-price
+route is retained here with aggregate labor kept distinct from firm labor.
+\end{blueblock}
+
+\subsubsection{Natural is not necessarily efficient}
+
+For the goods-and-hours planner with symmetric production, solve
+\begin{align}
+ \max_{N_t>0}\ \xi_t\left[
+ v(A_tN_t^{1-\alpha})-\frac{\chi N_t^{1+\varphi}}{1+\varphi}\right].
+\end{align}
+The chain rule makes the consumption benefit of one more hour explicit:
+\begin{align}
+ 0&=\xi_t\left[v'(Y_t^e)(1-\alpha)A_t(N_t^e)^{-\alpha}
+                                    -\chi(N_t^e)^\varphi\right],\\
+ (Y_t^e)^{-\sigma}(1-\alpha)A_t(N_t^e)^{-\alpha}
+ &=\chi(N_t^e)^\varphi,\\
+ \chi(Y_t^e)^\sigma(N_t^e)^{\varphi+\alpha}/[(1-\alpha)A_t]&=1.
+\end{align}
+Compare the natural condition, whose right side is $1/\mu$:
+\begin{align}
+ \gamma\log Y_t^e-\gamma\log Y_t^n&=\log\mu,\\
+ \log Y_t^e-\log Y_t^n&=\frac{\log\mu}{\gamma}>0.
+\end{align}
+This comparison uses the moneyless core, or conditions on the separate liquidity
+service allocation; it does not solve a planner problem of choosing unlimited
+costless money services. Market power depresses natural output relative to the
+goods-and-hours efficient level. A subsidy that exactly offsets the markup can
+remove this wedge, but that subsidy is not part of the baseline conditions.
+A zero natural output gap therefore need not maximize welfare. The policy
+chapter develops the objective and instruments; here the benchmark must first
+be identified correctly.
+
+A restaurant can have spare tables because demand is weak, yet an inefficiently
+high markup can also restrict its flexible-price output. These are different
+comparisons. Likewise, $Y^n$ is a model counterfactual, not a measured smooth
+trend or a technical maximum capacity.
+
+\subsection{Dynamic IS: household timing and the natural real rate}
+
+Multiply \eqref{eq:nk-euler-exact} by $R_t^n$. With
+$\beta\bar R^n=1$, its first-order expansion is
+\begin{align}
+ 1&=\beta R_t^n E_t\left[
+  \frac{\xi_{t+1}}{\xi_t}(C_{t+1}/C_t)^{-\sigma}e^{-\pi_{t+1}}\right],\\
+ 1&\simeq E_t\big[(1+j_t)
+    \{1+q_{t+1}-q_t-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\}\big],\\
+ 0&=j_t+E_tq_{t+1}-q_t
+           -\sigma(E_t\hat c_{t+1}-\hat c_t)-E_t\pi_{t+1},\\
+ \hat y_t&=E_t\hat y_{t+1}
+      -\frac1\sigma(j_t-E_t\pi_{t+1})
+      +\frac1\sigma(q_t-E_tq_{t+1}).\label{eq:nk-dis-level}
+\end{align}
+Products such as $j_t\pi_{t+1}$ are second order and have been dropped.
+The equality is between conditional expected marginal returns. It is not an
+exact claim that expected real returns equal a ratio of expected consumption.
+
+At the flexible-price allocation, define the natural log real-rate deviation
+$r_t^n$ by the same consumption Euler condition:
+\begin{align}
+ r_t^n&=\sigma(E_t\hat y_{t+1}^n-\hat y_t^n)+q_t-E_tq_{t+1},\\
+ \hat y_t^n&=E_t\hat y_{t+1}^n-r_t^n/\sigma
+                             +(q_t-E_tq_{t+1})/\sigma.
+\end{align}
+Subtract this equation from \eqref{eq:nk-dis-level} term by term:
+\begin{align}
+ \hat y_t-\hat y_t^n
+ &=E_t(\hat y_{t+1}-\hat y_{t+1}^n)
+       -\frac1\sigma[j_t-E_t\pi_{t+1}-r_t^n],\\
+ x_t&=E_tx_{t+1}-\frac1\sigma(j_t-E_t\pi_{t+1}-r_t^n).
+ \label{eq:nk-dis-gap}
+\end{align}
+Under the processes stated in the conditions,
+\begin{align}
+ r_t^n&=\sigma\psi_a(\rho_a-1)a_t+(1-\rho_q)q_t.
+\end{align}
+The natural rate is not automatically constant when natural output changes.
+A temporarily high productivity level implies expected consumption declines
+as productivity reverts; the real return consistent with that spending path
+is below its reference. A temporary increase in the weight on present utility
+instead raises the rate required to make households defer consumption.
+
+\begin{greenblock}
+\textbf{The relevant policy stance is a real-rate gap.}
+When $j_t-E_t\pi_{t+1}>r_t^n$, households wish to postpone consumption relative
+to the flexible-price path. With prices still in place, firms meet lower demand
+by selling less and hiring fewer hours. The wage and marginal cost fall; firms
+that reset then choose lower prices. A lower nominal rate alone does not prove
+an expansionary stance if expected inflation or the natural rate fell further.
+This is a hypothetical mechanism, not a diagnosis of a particular recession.
+\end{greenblock}
+
+\subsection{A useful contrast: three-period contracts instead of Calvo selection}
+
+The course asks what happens if three groups take turns resetting. Complete
+that example separately: one third of firms resets every date, and each reset
+price lasts exactly three periods. The duration is known; future aggregate
+conditions remain uncertain. There are three cohorts of firms, not just three
+strategic firms whose individual decisions move the price index.
+
+With the same demand and cost function, the reset problem now sums only
+$k=0,1,2$. The exact FOC becomes
+\begin{align}
+ P_t^{(3)}&=\mu\frac{E_t\sum_{k=0}^{2}\mathcal Q_{t,t+k}
+                               Y_{t+k|t}MC_{t+k|t}^n}
+                         {E_t\sum_{k=0}^{2}\mathcal Q_{t,t+k}Y_{t+k|t}}.
+\end{align}
+There is no survival factor $\theta^k$: survival for these three dates is certain.
+The earlier Taylor cancellation, applied to the finite sum, gives
+\begin{align}
+ (1+\zeta)\hat p_t^{(3)}\sum_{k=0}^2\beta^k
+ &=E_t\sum_{k=0}^2\beta^k
+                  [(1+\zeta)\hat p_{t+k}+\widehat{mc}_{t+k}],\\
+ \hat p_t^{(3)}
+ &=\frac{p_t^{\mathrm{tar}}+\beta E_tp_{t+1}^{\mathrm{tar}}
+                        +\beta^2E_tp_{t+2}^{\mathrm{tar}}}{1+\beta+\beta^2}.
+\end{align}
+Only with the additional no-discounting finite-horizon simplification $\beta=1$
+is this an arithmetic average divided by three. Aggregate pricing is
+\begin{align}
+ P_t^{1-\epsilon}
+ &=\frac13\big[(P_t^{(3)})^{1-\epsilon}
+              +(P_{t-1}^{(3)})^{1-\epsilon}+(P_{t-2}^{(3)})^{1-\epsilon}\big],\\
+ \hat p_t&=\frac13(\hat p_t^{(3)}+\hat p_{t-1}^{(3)}+\hat p_{t-2}^{(3)}),\\
+ \pi_t&=\frac13(\hat p_t^{(3)}-\hat p_{t-3}^{(3)}).
+\end{align}
+The previous reset price drops out exactly after three dates. Under Calvo,
+its survival probability instead declines geometrically and has no fixed end.
+Both mechanisms stagger adjustment, but these different vintage laws do not
+produce the same Phillips curve. Knowing the duration of a contract is not
+perfect foresight about demand over its life.\footnote{See Taylor (1980),
+\textit{Aggregate Dynamics and Staggered Contracts}, Journal of Political
+Economy 88(1), 1--23, and Calvo (1983), \textit{Staggered Prices in a
+Utility-Maximizing Framework}, Journal of Monetary Economics 12(3), 383--398.
+The three-period price example here is a teaching construction.}
+
+\subsection{Close the equilibrium: a money quantity or an interest-rate rule}
+
+The household and firm problems deliver two core equations:
+\begin{align}
+ \pi_t&=\beta E_t\pi_{t+1}+\kappa x_t,\\
+ x_t&=E_tx_{t+1}-\frac1\sigma(j_t-E_t\pi_{t+1}-r_t^n).
+\end{align}
+They do not yet determine the policy instrument. Specifying its rule supplies
+another equilibrium relation; merely adding another unknown does not close
+the system. We must also specify initial states, shock processes, and the
+bounded or terminal behavior selecting admissible paths.
+
+\subsubsection{Quantity closure: money demand is not the policy rule}
+
+With money, add the household condition and price-level accounting:
+\begin{align}
+ \hat m_t-\hat p_t&=\alpha_m(x_t+\hat y_t^n)-\eta j_t,\\
+ \hat p_t&=\hat p_{t-1}+\pi_t.
+\end{align}
+A quantity policy additionally specifies $\hat m_t$; for example,
+\begin{align}
+ \hat m_t&=\rho_m\hat m_{t-1}+\varepsilon_t^m,\qquad |\rho_m|<1.
+\end{align}
+This example is a stationary \emph{level} deviation of money, not an assumption
+about money growth. Given inherited $\hat p_{t-1}$ and money history, this is a
+closed forward-looking system in $x_t,\pi_t,j_t,\hat p_t$ and the exogenous
+state. Closure alone does not prove a unique bounded rational-expectations
+solution. Its root conditions depend on the chosen money rule; the Taylor-rule
+proof below applies to a different closure.
+
+The identities $\pi_t=\hat p_t-\hat p_{t-1}$ and $MV=PY$ do not specify a
+money process. The latter defines velocity $V=PY/M$. Setting velocity constant
+adds a restriction and generally conflicts with the interest-elastic money
+demand derived here. Technology, preferences, and policy innovations can all
+be exogenous; the word ``real'' is not a synonym for ``exogenous.''
+
+\subsubsection{Interest closure: let money accommodate the chosen rate}
+
+Use the course's contemporaneous reaction rule, with constant zero inflation
+target and the natural output gap:
+\begin{align}
+ j_t&=\phi_\pi\pi_t+\phi_x x_t+\nu_t,\qquad
+ \phi_\pi,\phi_x\geq0,\\
+ \nu_t&=\rho_\nu\nu_{t-1}+\varepsilon_t^\nu,\qquad 0\leq\rho_\nu<1.
+ \label{eq:nk-rule}
+\end{align}
+The coefficients describe systematic responses; $\nu_t$ is a deviation from
+that rule. A change in a coefficient changes the rule itself and is not the
+same experiment as a one-time innovation. The rule is written in log gross-rate
+deviations; $\phi_x$ multiplies the output gap, not output without qualification.
+The course also writes feedback on output relative to its steady reference.
+That is a distinct convention when technology moves:
+\begin{align}
+ j_t&=\phi_\pi\pi_t+\phi_x\hat y_t+\nu_t\notag\\
+ &=\phi_\pi\pi_t+\phi_x x_t+(\nu_t+\phi_x\hat y_t^n).
+\end{align}
+Thus the level-output rule uses the same gap-system matrix but an effective
+forcing term $\nu_t+\phi_x\hat y_t^n$. In the monetary experiment below,
+$\hat y_t^n=0$ and the two conventions coincide. For a productivity shock they
+must be distinguished. Our baseline rule responds to the natural gap.
+
+It does not automatically track the natural rate. One could instead add
+$r_t^n$ to its right side, but that would be a different rule.
+
+If money services are present, recover $\hat m_t$ from
+\eqref{eq:nk-money-linear} after solving the core. With separable money utility,
+that recovery does not feed back into the goods and hours equations. If money
+is omitted, there is no money equation to solve. In neither case may an
+independent fixed money stock be added while keeping the same rate rule.
+
+\subsubsection{Reduce the three equations to a two-variable system}
+
+Substitute the interest rule into dynamic IS, then substitute the Phillips
+curve for current inflation:
+\begin{align}
+ \sigma x_t&=\sigma E_tx_{t+1}-\phi_\pi\pi_t-\phi_xx_t-\nu_t
+                                      +E_t\pi_{t+1}+r_t^n,\\
+ (\sigma+\phi_x)x_t
+ &=\sigma E_tx_{t+1}-\phi_\pi(\beta E_t\pi_{t+1}+\kappa x_t)
+                                  +E_t\pi_{t+1}+r_t^n-\nu_t,\\
+ D x_t&=\sigma E_tx_{t+1}+(1-\beta\phi_\pi)E_t\pi_{t+1}+r_t^n-\nu_t,
+ \qquad D=\sigma+\phi_x+\kappa\phi_\pi>0,\\
+ x_t&=\frac\sigma D E_tx_{t+1}
+    +\frac{1-\beta\phi_\pi}{D}E_t\pi_{t+1}+\frac{r_t^n-\nu_t}{D}.
+\end{align}
+Use this result in current inflation and put terms over the same denominator:
+\begin{align}
+ \pi_t&=\beta E_t\pi_{t+1}
+      +\frac\kappa D[\sigma E_tx_{t+1}
+        +(1-\beta\phi_\pi)E_t\pi_{t+1}+r_t^n-\nu_t],\\
+ \beta D+\kappa(1-\beta\phi_\pi)
+ &=\beta\sigma+\beta\phi_x+\beta\kappa\phi_\pi
+                             +\kappa-\kappa\beta\phi_\pi\\
+ &=\kappa+\beta(\sigma+\phi_x),\\
+ \pi_t&=\frac{\kappa\sigma}{D}E_tx_{t+1}
+    +\frac{\kappa+\beta(\sigma+\phi_x)}D E_t\pi_{t+1}
+    +\frac\kappa D(r_t^n-\nu_t).
+\end{align}
+Thus, for $z_t=(x_t,\pi_t)'$,
+\begin{align}
+ z_t&=\mathcal A E_tz_{t+1}+b(r_t^n-\nu_t),\label{eq:nk-matrix}\\
+ \mathcal A&=\frac1D
+ \begin{bmatrix}\sigma&1-\beta\phi_\pi\\
+ \kappa\sigma&\kappa+\beta(\sigma+\phi_x)\end{bmatrix},
+ \qquad b=\frac1D\begin{bmatrix}1\\\kappa\end{bmatrix}.
+\end{align}
+The lower shock coefficient is $\kappa/D$, not $1/D$. Both rows must represent
+the same substitution; this coefficient is easy to lose when compressing steps.
+
+\subsubsection{Existence and uniqueness: count the right roots}
+
+Conditional on exogenous states, $x_t$ and $\pi_t$ are both jump variables in
+this baseline. There is no inherited capital stock fixing one of them. Since
+\eqref{eq:nk-matrix} maps future expectations \emph{back} to the present, a
+unique bounded fundamental solution requires its two eigenvalues inside the
+unit circle. Equivalently, its inverse, the forward transition matrix, needs
+two roots outside it. This is the relevant root count for the local system;
+changing the direction of the transition reverses the root test.\footnote{The
+general linear rational-expectations root-counting result is Blanchard and
+Kahn (1980), \textit{The Solution of Linear Difference Models under Rational
+Expectations}, Econometrica 48(5), 1305--1311. Here we also derive the
+special two-variable criterion rather than invoking the name alone.}
+
+Compute trace $T$ and determinant $d$ directly:
+\begin{align}
+ T&=\frac{\sigma+\kappa+\beta(\sigma+\phi_x)}D,\\
+ d&=\frac{\sigma[\kappa+\beta(\sigma+\phi_x)]
+                   -\kappa\sigma(1-\beta\phi_\pi)}{D^2}\\
+  &=\frac{\sigma\beta(\sigma+\phi_x+\kappa\phi_\pi)}{D^2}
+   =\frac{\sigma\beta}{D}.
+\end{align}
+The characteristic polynomial is $\ell^2-T\ell+d=0$. To check its roots without
+presuming they are real, set $\ell=(1+s)/(1-s)$. A root inside the unit disk
+corresponds to $\operatorname{Re}s<0$, since
+\begin{align}
+ \left|\frac{1+s}{1-s}\right|<1
+ &\iff |1+s|^2<|1-s|^2\iff 4\operatorname{Re}s<0.
+\end{align}
+Multiplying the transformed polynomial by $(1-s)^2$ gives
+\begin{align}
+ 0&=(1+s)^2-T(1+s)(1-s)+d(1-s)^2\\
+  &=(1+T+d)s^2+2(1-d)s+(1-T+d).
+\end{align}
+Here $1+T+d>0$. For real roots, negative sum and positive product put both
+on the negative half-line; for a conjugate pair, the real part is half their
+sum. The remaining conditions are therefore
+\begin{align}
+ 1-d&>0,&1-T+d&>0,&1+T+d&>0.
+\end{align}
+The first and third hold for the stated nonnegative policy coefficients:
+\begin{align}
+ D-\sigma\beta&=\sigma(1-\beta)+\phi_x+\kappa\phi_\pi>0,\\
+ D(1-T+d)
+ &=D-\sigma-\kappa-\beta(\sigma+\phi_x)+\sigma\beta\\
+ &=\kappa(\phi_\pi-1)+(1-\beta)\phi_x.
+\end{align}
+Hence the strict local determinacy condition is
+\begin{align}
+ \kappa(\phi_\pi-1)+(1-\beta)\phi_x&>0.
+ \label{eq:nk-determinacy}
+\end{align}
+With $\phi_x=0$, this is $\phi_\pi>1$: an inflation increase induces a larger
+nominal-rate increase, raising the real rate rather than validating higher
+demand. Equality leaves a unit root and does not pass the strict test.
+
+For completeness, iteration under these conditions gives
+\begin{align}
+ z_t&=\sum_{h=0}^{H-1}\mathcal A^h b
+                 E_t(r_{t+h}^n-\nu_{t+h})+\mathcal A^HE_tz_{t+H},\\
+ z_t&=\sum_{h\geq0}\mathcal A^h bE_t(r_{t+h}^n-\nu_{t+h}).
+\end{align}
+The terminal term vanishes for bounded conditional first moments as
+$\mathcal A^H\to0$. In this solution class, any difference between two solutions
+has only that vanishing terminal term, proving uniqueness. Stationary shocks
+with finite moments and convergent forecasts suffice here. This is local
+uniqueness, not a claim of global uniqueness with lower bounds or nonlinear
+policy rules.
+
+\begin{blueblock}
+\textbf{Why the Ramsey root picture cannot be copied unchanged.}
+Ramsey has an inherited capital stock and a consumption choice. This labor-only
+NK core has two current jump variables and exogenous inherited shocks. The
+technique of selecting admissible paths is related; the state count and the
+matrix direction must be checked anew. The inherited nominal price level still
+matters for levels, but it drops out of this inflation-targeting gap system.
+\end{blueblock}
+
+\subsection{Solve a monetary disturbance rather than just name its channels}
+
+\subsubsection{Undetermined coefficients, with every substitution visible}
+
+Hold technology and the preference shifter at their reference, so
+$\hat y_t^n=r_t^n=0$. For the AR(1) rule disturbance, try
+\begin{align}
+ x_t&=a_\nu\nu_t,\qquad \pi_t=b_\nu\nu_t,\\
+ E_t\nu_{t+1}&=\rho_\nu\nu_t,
+ \quad E_t\varepsilon_{t+1}^\nu=0,\\
+ E_tx_{t+1}&=a_\nu\rho_\nu\nu_t,
+ \quad E_t\pi_{t+1}=b_\nu\rho_\nu\nu_t.
+\end{align}
+In the Phillips curve, equality for every possible state $\nu_t$ requires
+\begin{align}
+ b_\nu\nu_t&=\beta b_\nu\rho_\nu\nu_t+\kappa a_\nu\nu_t,\\
+ (1-\beta\rho_\nu)b_\nu&=\kappa a_\nu,\qquad
+ a_\nu=\frac{1-\beta\rho_\nu}{\kappa}b_\nu.
+\end{align}
+In dynamic IS, substitute both coefficients and the rate rule:
+\begin{align}
+ a_\nu\nu_t&=a_\nu\rho_\nu\nu_t
+ -\frac1\sigma[\phi_\pi b_\nu\nu_t+\phi_xa_\nu\nu_t
+                           +\nu_t-b_\nu\rho_\nu\nu_t],\\
+ \sigma a_\nu&=\sigma\rho_\nu a_\nu-\phi_xa_\nu
+                                     -(\phi_\pi-\rho_\nu)b_\nu-1,\\
+ [\sigma(1-\rho_\nu)+\phi_x]a_\nu
+                       +(\phi_\pi-\rho_\nu)b_\nu&=-1,\\
+ \left\{[\sigma(1-\rho_\nu)+\phi_x]
+       \frac{1-\beta\rho_\nu}{\kappa}+\phi_\pi-\rho_\nu\right\}b_\nu&=-1.
+\end{align}
+Define the full denominator before writing the answer:
+\begin{align}
+ D_\nu&=[\sigma(1-\rho_\nu)+\phi_x](1-\beta\rho_\nu)
+                                     +\kappa(\phi_\pi-\rho_\nu),\\
+ \Lambda_\nu&=D_\nu^{-1},\\
+ b_\nu&=-\kappa\Lambda_\nu,\qquad
+ a_\nu=-(1-\beta\rho_\nu)\Lambda_\nu,\\
+ x_t&=-(1-\beta\rho_\nu)\Lambda_\nu\nu_t,\qquad
+ \pi_t=-\kappa\Lambda_\nu\nu_t.\label{eq:nk-shock-solution}
+\end{align}
+Under \eqref{eq:nk-determinacy}, $D_\nu>0$ for $0\leq\rho_\nu<1$.
+To check the sign, put $d_\rho=1-\rho_\nu>0$ and expand:
+\begin{align}
+ D_\nu&=[\sigma d_\rho+\phi_x](1-\beta+\beta d_\rho)
+                             +\kappa(\phi_\pi-1+d_\rho)\\
+ &=\underbrace{(1-\beta)\phi_x+\kappa(\phi_\pi-1)}_{>0}
+   +d_\rho[\sigma(1-\beta)+\beta\phi_x+\kappa]
+   +\sigma\beta d_\rho^2>0.
+\end{align}
+A positive policy-rule disturbance reduces the output gap and inflation in
+this experiment. Its persistence changes both the duration and the initial
+response because anticipated future conditions already affect today's choices.
+
+\subsubsection{Recover the time paths, nominal rate, and real rate}
+
+Substitute the shock process into the output solution, then identify the lagged
+solution rather than treating a jump variable as predetermined:
+\begin{align}
+ x_t&=-(1-\beta\rho_\nu)\Lambda_\nu
+                       (\rho_\nu\nu_{t-1}+\varepsilon_t^\nu)\\
+ &=\rho_\nu[-(1-\beta\rho_\nu)\Lambda_\nu\nu_{t-1}]
+                      -(1-\beta\rho_\nu)\Lambda_\nu\varepsilon_t^\nu\\
+ &=\rho_\nu x_{t-1}-(1-\beta\rho_\nu)\Lambda_\nu\varepsilon_t^\nu,\\
+ \pi_t&=-\kappa\Lambda_\nu(\rho_\nu\nu_{t-1}+\varepsilon_t^\nu)
+       =\rho_\nu\pi_{t-1}-\kappa\Lambda_\nu\varepsilon_t^\nu.
+\end{align}
+These are implied equilibrium paths under the stated single-shock experiment;
+$x_{t-1}$ is not an additional independent initial condition.
+
+The first-order expected real-rate deviation is $r_t=j_t-E_t\pi_{t+1}$.
+Use dynamic IS and then the solved coefficients:
+\begin{align}
+ r_t&=\sigma(E_tx_{t+1}-x_t)
+     =\sigma(\rho_\nu-1)a_\nu\nu_t\\
+ &=\sigma(1-\rho_\nu)(1-\beta\rho_\nu)\Lambda_\nu\nu_t,\\
+ j_t&=r_t+E_t\pi_{t+1}\\
+ &=[\sigma(1-\rho_\nu)(1-\beta\rho_\nu)-\rho_\nu\kappa]
+                                               \Lambda_\nu\nu_t.
+ \label{eq:nk-rate-response}
+\end{align}
+The real rate rises for a positive disturbance. The nominal rate's sign also
+depends on falling expected inflation; a positive rule intercept is not a
+universal guarantee that the realized nominal rate rises.
+
+\subsubsection{Finish the original money calculation}
+
+Consider one innovation $\varepsilon_0^\nu=e>0$, zero subsequent innovations,
+and zero prehistory. Then $\nu_t=\rho_\nu^t e$. Accumulate inflation to recover
+the price level:
+\begin{align}
+ \hat p_t-\hat p_{-1}
+ &=\sum_{h=0}^t\pi_h
+ =-\kappa\Lambda_\nu e\sum_{h=0}^t\rho_\nu^h\\
+ &=-\kappa\Lambda_\nu e\frac{1-\rho_\nu^{t+1}}{1-\rho_\nu}.
+\end{align}
+Let $J_\nu=[\sigma(1-\rho_\nu)(1-\beta\rho_\nu)
+-\rho_\nu\kappa]\Lambda_\nu$. Money demand now determines money supply:
+\begin{align}
+ \hat m_t&=\hat p_t+\alpha_mx_t-\eta j_t\\
+ &=\hat p_{-1}-\kappa\Lambda_\nu e
+                \frac{1-\rho_\nu^{t+1}}{1-\rho_\nu}
+       -\alpha_m(1-\beta\rho_\nu)\Lambda_\nu\rho_\nu^te
+       -\eta J_\nu\rho_\nu^te,\\
+ \frac{\partial\hat m_t}{\partial e}
+ &=-\kappa\Lambda_\nu\frac{1-\rho_\nu^{t+1}}{1-\rho_\nu}
+       -\alpha_m(1-\beta\rho_\nu)\Lambda_\nu\rho_\nu^t
+       -\eta J_\nu\rho_\nu^t.\label{eq:nk-money-response}
+\end{align}
+The derivative is with respect to the \emph{initial innovation}, keeping
+prehistory fixed. A derivative with respect to current $\nu_t$ holding today's
+price level fixed is a different experiment because the price level records
+past inflation. The three terms represent the price-level path, transactions,
+and the opportunity cost of liquidity. Their joint sign must be checked, not
+presumed from $MV=PY$.
+
+As $t\to\infty$, $x_t,\pi_t,j_t,r_t$ return to zero while
+\begin{align}
+ \hat p_\infty-\hat p_{-1}
+ &=\hat m_\infty-\hat p_{-1}
+ =-\frac{\kappa\Lambda_\nu}{1-\rho_\nu}e.
+\end{align}
+An inflation-targeting rule need not undo the accumulated price-level change.
+A price-level target would change that result. With $\rho_\nu=0$, the gap and
+inflation effects last one period, but the price-level change remains; delayed
+peaks do not arise automatically from Calvo staggering alone in this baseline.
+
+\subsubsection{A reproducible numerical example}
+
+Choose illustrative quarterly parameters, without estimation:
+\begin{align}
+ \beta&=0.99,\quad\sigma=\varphi=1,\quad\alpha=1/3,
+ \quad\epsilon=6,\quad\theta=0.75,\\
+ \phi_\pi&=1.5,\quad\phi_x=0.125,\quad\rho_\nu=0.5,
+ \quad\nu_m=2,\quad e=0.001.
+\end{align}
+Compute the pricing slope and shock denominator:
+\begin{align}
+ \lambda_p&=\frac{0.25(1-0.99\times0.75)}{0.75}=0.0858333,\\
+ \Omega&=\frac{2/3}{2/3+6/3}=0.25,\qquad
+ \gamma=\frac{2/3+1+1/3}{2/3}=3,\\
+ \kappa&=0.0858333\times0.25\times3=0.064375,\\
+ D_\nu&=[1(1-0.5)+0.125](1-0.99\times0.5)
+                           +0.064375(1.5-0.5)=0.38,\\
+ x_0&=-\frac{0.505}{0.38}(0.001)=-0.001328947,\\
+ \pi_0&=-\frac{0.064375}{0.38}(0.001)=-0.000169408,\\
+ r_0&=\frac{0.5\times0.505}{0.38}(0.001)=0.000664474,\\
+ j_0&=r_0+0.5\pi_0=0.000579770.
+\end{align}
+The ten-basis-point log-rate intercept innovation raises the nominal rate by
+about $5.80$ basis points and the real rate by $6.64$ basis points on impact.
+Output falls about $0.133\%$ and quarterly log inflation by $1.69$ basis points.
+These are unannualized, local model responses, not estimated policy effects.
+
+For money, $\bar i=1/0.99-1$, so $\alpha_m=0.5$ and $\eta=49.5$:
+\begin{align}
+ \hat m_0&=\pi_0+0.5x_0-49.5j_0\simeq-0.0295325,\\
+ \hat p_\infty&=-\frac{0.064375}{0.38(1-0.5)}(0.001)
+                  \simeq-0.000338816.
+\end{align}
+Money's larger log response reflects the selected liquidity semi-elasticity;
+it is not an additional exogenous monetary shock. First-order accuracy is
+local, especially for this large money-demand semi-elasticity.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure,width=0.96\linewidth}
+\centering
+\includegraphics[width=0.96\linewidth]{nk_impulse_responses.pdf}
+\caption{A policy-rule innovation: quantities, rates, and nominal levels.}
+\label{fig:nk-policy-impulse}
+\par\smallskip\RaggedRight
+\small Source: original calculation from \eqref{eq:nk-shock-solution}--\eqref{eq:nk-money-response};
+parameters stated above. Percent panels show $100$ times log deviations; rate
+panels show $10{,}000$ times quarterly log-rate deviations. Inflation is not
+annualized. Money accommodates the interest rule. No data or estimation.
+\end{minipage}
+\end{center}
+
+Read Figure~\ref{fig:nk-policy-impulse} as one joint equilibrium. Households defer
+purchases when the real rate rises; sellers at inherited prices cut sales and
+hours; resetters lower prices as marginal cost falls. These actions determine
+one another. It would be misleading to read the six panels as six independent
+causal regressions, or to infer the policy innovation directly from observed
+rate movements alone.
+
+\subsection{Expectations, persistence, and what the baseline leaves out}
+
+\subsubsection{Current inflation depends on a path of gaps}
+
+Iterate the Phillips curve forward without suppressing expectations:
+\begin{align}
+ \pi_t&=\kappa x_t+\beta E_t\pi_{t+1}\\
+ &=\kappa x_t+\beta E_t[\kappa x_{t+1}+\beta E_{t+1}\pi_{t+2}]\\
+ &=\kappa x_t+\kappa\beta E_tx_{t+1}+\beta^2E_t\pi_{t+2}\\
+ &=\kappa\sum_{h=0}^{H-1}\beta^hE_tx_{t+h}+\beta^HE_t\pi_{t+H}.
+\end{align}
+If inflation has bounded conditional first moments, the final term vanishes:
+\begin{align}
+ \pi_t&=\kappa\sum_{h\geq0}\beta^hE_tx_{t+h}.
+\end{align}
+A resetter cares about future costs while its price survives. This is why
+news about future demand can affect pricing now. It does not mean that agents
+know future innovations, or that changing expectations without an equilibrium
+mechanism is a free policy instrument.
+
+A productivity improvement illustrates why the benchmark matters. Under
+\eqref{eq:nk-rule}, let $\nu=q=0$ and $a_t$ be the only AR(1) state. Set
+$R_a=\sigma\psi_a(\rho_a-1)$, so $r_t^n=R_a a_t$.
+Try $x_t=A_a a_t$ and $\pi_t=B_a a_t$. Direct substitution gives
+\begin{align}
+ (1-\beta\rho_a)B_a&=\kappa A_a,\\
+ [\sigma(1-\rho_a)+\phi_x]A_a+(\phi_\pi-\rho_a)B_a&=R_a,\\
+ \left\{[\sigma(1-\rho_a)+\phi_x]
+       \frac{1-\beta\rho_a}{\kappa}+\phi_\pi-\rho_a\right\}B_a&=R_a.
+\end{align}
+Multiplying by $\kappa$ gives the denominator and the coefficients below:
+
+\begin{align}
+ D_a&=[\sigma(1-\rho_a)+\phi_x](1-\beta\rho_a)
+                                  +\kappa(\phi_\pi-\rho_a),\\
+ x_t&=\frac{(1-\beta\rho_a)R_a}{D_a}a_t,\qquad
+ \pi_t=\frac{\kappa R_a}{D_a}a_t,\\
+ \hat y_t&=\psi_a a_t+x_t.
+\end{align}
+For $0\leq\rho_a<1$, $R_a<0$: this fixed-intercept rule lets a positive
+productivity shock open a negative natural gap and reduce inflation, while
+natural output rises. One cannot infer the sign of total output from the gap
+alone. A rule that also tracks $r_t^n$ admits $x_t=\pi_t=0$ for this shock
+under the same determinacy conditions. The technology is the same; the policy
+response changes how closely demand follows the moving benchmark.
+
+\subsubsection{A lagged-inflation term needs a changed pricing mechanism}
+
+The course asks whether lagged inflation can improve persistence. Make one
+explicit extension: a nonresetting firm indexes its price to the previous
+period's aggregate inflation at rate $\iota\in[0,1]$:
+\begin{align}
+ P_{it}&=P_{i,t-1}\Pi_{t-1}^{\iota}\quad\text{if it does not reset}.
+\end{align}
+This changes the price contract, not the monetary shock. Introduce a common
+log index $I_t-I_{t-1}=\iota\pi_{t-1}$ and adjusted log prices
+$\tilde p_{it}=\log(P_{it}/\bar P)-I_t$.
+For a nonresetter,
+\begin{align}
+ \tilde p_{it}-\tilde p_{i,t-1}
+ &=[\log P_{it}-\log P_{i,t-1}]-(I_t-I_{t-1})\\
+ &=\iota\pi_{t-1}-\iota\pi_{t-1}=0.
+\end{align}
+In these adjusted units the contract is fixed again. Relative prices and real
+marginal costs are unchanged by subtracting a common index. The previous
+first-order reset and aggregation calculations therefore apply to adjusted
+inflation $\tilde\pi_t=\pi_t-\iota\pi_{t-1}$:
+\begin{align}
+ \tilde\pi_t&=\beta E_t\tilde\pi_{t+1}+\kappa x_t,\\
+ \pi_t-\iota\pi_{t-1}
+ &=\beta E_t(\pi_{t+1}-\iota\pi_t)+\kappa x_t,\\
+ (1+\beta\iota)\pi_t
+ &=\beta E_t\pi_{t+1}+\iota\pi_{t-1}+\kappa x_t,\\
+ \pi_t&=\frac\beta{1+\beta\iota}E_t\pi_{t+1}
+       +\frac\iota{1+\beta\iota}\pi_{t-1}
+       +\frac\kappa{1+\beta\iota}x_t.
+\end{align}
+For $\iota=0$ this returns to the baseline. With indexation, lagged inflation
+is inherited and the equilibrium root count changes. Simply adding
+$\pi_{t-1}$ with coefficient one to the old Phillips curve would omit both
+the changed contract and the normalization of its other coefficients.
+
+\begin{blueblock}
+\textbf{Sticky information asks a different question.}
+Calvo firms observe the current state but may be unable to change their prices.
+With sticky information, firms may revise information or plans only occasionally;
+prices can follow plans made with older information. Mankiw and Reis (2002)
+study that alternative. It is not obtained by deleting $E_t$, calling rational
+expectations perfect foresight, or adding an arbitrary lag.\footnote{Mankiw
+and Reis, \href{https://www.nber.org/papers/w8290}{Sticky Information versus
+Sticky Prices}, working paper 2001, published in the Quarterly Journal of
+Economics 117(4), 2002, 1295--1328.}
+\end{blueblock}
+
+\subsubsection{Use the model's omissions to ask the next question}
+
+A weaker spending path with unchanged technology is a demand mechanism here;
+more expensive inputs or a changing markup need additional wedges. The
+constant-markup baseline has no independent cost-push term $u_t$. Adding
+$\pi_t=\beta E_t\pi_{t+1}+\kappa x_t+u_t$ can be useful, but $u_t$ must
+be tied to a changed cost, markup, or wage-setting condition before interpreting
+it structurally. A technology shock already affects natural output and the
+natural rate; it is not automatically an extra $u_t$ in the natural-gap equation.
+
+There is no unemployment stock, job search, borrowing constraint, bank balance
+sheet, investment, imported input, or household income distribution in this
+chapter. Hours fall through an interior labor choice and product demand, not
+through a matching failure. Financial stress cannot be represented merely by
+renaming the policy innovation. Likewise, a central bank setting a negative
+unconstrained rate in the local solution may be infeasible at a lower bound.
+These omissions suggest the next models and policy extensions rather than
+invalidating the mechanism just isolated.
+
+\subsection{Bridge: reconstruct IS--LM and AD--AS from the decisions}
+\label{sec:nk-islm-adas}
+
+The familiar diagrams are useful here because their ingredients have just
+been derived. We can now see which household or firm choice supplies each
+slope, which expectations are being held fixed, and which policy closure makes
+an LM curve relevant. This bridge belongs with the model's derivation. Broader
+comparisons of fiscal and monetary policy belong in the policy part; the later
+topics apply those tools to specific economic problems.
+
+\subsubsection{Recover a conditional IS curve from the Euler equation}
+
+In the intermediate model, a common starting point is
+\begin{align}
+ Y&=C(Y-T)+I(i)+G.
+\end{align}
+Behavioral aggregate functions close that equation. Their signs can be useful
+and empirically informed without being derived from a household optimization
+problem. They need not be arbitrary, but they alone do not specify how
+expectations or a new policy regime alter behavior.
+
+In the present model there is no investment or government purchase. Demand
+comes entirely from intertemporal consumption. Keep the future outlook fixed
+for a \emph{conditional current-period comparison} and define
+\begin{align}
+ d_t&=E_t\hat y_{t+1}+(q_t-E_tq_{t+1})/\sigma,\qquad
+ e_t=E_t\pi_{t+1}.
+\end{align}
+Then \eqref{eq:nk-dis-level} is
+\begin{align}
+ \hat y_t&=d_t-\frac1\sigma(j_t-e_t),\\
+ j_t&=e_t+\sigma d_t-\sigma\hat y_t,\qquad
+ \left.\frac{\partial j_t}{\partial\hat y_t}\right|_{d_t,e_t}=-\sigma.
+ \label{eq:nk-static-is}
+\end{align}
+This is downward-sloping in $(\hat y,j)$ space because a higher real return
+makes households defer consumption. It is a current slice of the dynamic
+Euler condition. It is not a derivation of the original $I(i)$ term, since
+this economy has no capital. Deriving an investment schedule would require
+adding capital, its return, and any adjustment costs.
+
+The household saves in a bond, yet bonds have zero net supply. There is no
+contradiction: when every household wants to postpone purchases at the quoted
+rate, current income and prices must adjust until desired holdings clear.
+Individual desired saving and realized aggregate saving are different objects.
+
+\subsubsection{Recover LM only under a money-quantity experiment}
+
+With a fixed current money stock and price level, money-market clearing is
+\begin{align}
+ \hat m_t-\hat p_t&=\alpha_m\hat y_t-\eta j_t,\\
+ \eta j_t&=\alpha_m\hat y_t-(\hat m_t-\hat p_t),\\
+ j_t&=\frac{\alpha_m}{\eta}\hat y_t
+                 -\frac1\eta(\hat m_t-\hat p_t),\qquad
+ \left.\frac{\partial j_t}{\partial\hat y_t}\right|_{\hat m_t,\hat p_t}
+       =\frac{\alpha_m}{\eta}>0.\label{eq:nk-static-lm}
+\end{align}
+More purchases increase desired liquidity. With unchanged real money, a higher
+interest rate discourages enough liquidity holding to clear its market.
+The slope now follows from money utility and the opportunity cost of holding
+cash; it is not an identity from $MV=PY$.
+
+If policy instead fixes a nominal rate in the current comparison, the money
+stock adjusts to demand and this independent upward-sloping LM restriction is
+replaced by the policy-rate relation. If policy follows a reaction rule,
+its slope depends on the variables included in that rule. Describing both
+experiments as the same ``money shift'' conceals the policy assumption.
+
+\subsubsection{Eliminate the interest rate to obtain conditional AD}
+
+Hold $d_t,e_t,\hat m_t$ fixed. Substitute \eqref{eq:nk-static-lm} into
+\eqref{eq:nk-static-is}, preserving the real-rate subtraction:
+\begin{align}
+ \hat y_t
+ &=d_t-\frac1\sigma\left[
+    \frac{\alpha_m}{\eta}\hat y_t
+           -\frac{\hat m_t-\hat p_t}{\eta}-e_t\right],\\
+ \sigma\eta\hat y_t
+ &=\sigma\eta d_t-\alpha_m\hat y_t+\hat m_t-\hat p_t+\eta e_t,\\
+ (\sigma\eta+\alpha_m)\hat y_t
+ &=\sigma\eta d_t+\hat m_t-\hat p_t+\eta e_t,\\
+ \hat p_t&=\hat m_t+\sigma\eta d_t+\eta e_t
+                         -(\sigma\eta+\alpha_m)\hat y_t.
+ \label{eq:nk-static-ad}
+\end{align}
+This AD curve slopes down in output--price-level space. A higher current price
+level reduces real money, raises the interest rate at given money, and postpones
+purchases at the fixed future outlook. That familiar mechanism survives, with
+explicit assumptions supplying the fixed outlook and the money-demand slope.
+
+\subsubsection{Translate the Phillips curve into conditional AS}
+
+Keep inherited $\hat p_{t-1}$, expected next inflation $e_t$, and natural
+output $\hat y_t^n$ fixed. Since $\pi_t=\hat p_t-\hat p_{t-1}$,
+\begin{align}
+ \hat p_t-\hat p_{t-1}&=\beta e_t+\kappa(\hat y_t-\hat y_t^n),\\
+ \hat p_t&=\hat p_{t-1}+\beta e_t
+                                 +\kappa(\hat y_t-\hat y_t^n).
+ \label{eq:nk-static-as}
+\end{align}
+This AS curve slopes up in the same output--price-level space. Higher demand
+relative to the flexible-price allocation raises marginal cost; resetters
+raise prices. The slope is a pricing equilibrium relation, not a physical
+limit on how much output the economy can ever produce.
+
+Equate \eqref{eq:nk-static-ad} and \eqref{eq:nk-static-as}, then collect terms:
+\begin{align}
+ \hat m_t+\sigma\eta d_t+\eta e_t-(\sigma\eta+\alpha_m)\hat y_t
+ &=\hat p_{t-1}+\beta e_t+\kappa\hat y_t-\kappa\hat y_t^n,\\
+ (\sigma\eta+\alpha_m+\kappa)\hat y_t
+ &=\hat m_t+\sigma\eta d_t+(\eta-\beta)e_t
+                            -\hat p_{t-1}+\kappa\hat y_t^n,\\
+ \hat y_t&=\frac{\hat m_t+\sigma\eta d_t+(\eta-\beta)e_t
+                         -\hat p_{t-1}+\kappa\hat y_t^n}
+                        {\sigma\eta+\alpha_m+\kappa}.
+\end{align}
+For this conditional comparison, more money raises output and the price
+level. In a full policy experiment, however, future output, expected inflation,
+and often the money path change together. The intercepts must be recomputed
+from the dynamic equilibrium rather than held fixed by habit.
+
+\subsubsection{With an interest rule, the natural diagram uses inflation}
+
+For the actual rule used in our shock experiment, substitute
+\eqref{eq:nk-rule} into gap IS and rearrange:
+\begin{align}
+ \sigma x_t&=\sigma E_tx_{t+1}
+       -\phi_\pi\pi_t-\phi_xx_t-\nu_t+E_t\pi_{t+1}+r_t^n,\\
+ (\sigma+\phi_x)x_t
+ &=\sigma E_tx_{t+1}-\phi_\pi\pi_t-\nu_t+E_t\pi_{t+1}+r_t^n.
+\end{align}
+At a fixed outlook and $\phi_\pi>0$, this is downward-sloping in
+$(x_t,\pi_t)$ space; the Phillips curve
+$\pi_t=\beta E_t\pi_{t+1}+\kappa x_t$ slopes up. This is an
+IS--policy-rule representation of demand, often called IS--MP.
+Its vertical axis is inflation, whereas \eqref{eq:nk-static-ad} uses the
+price level. Changing between them requires the inherited price level;
+renaming the axis alone does not perform that transformation.
+
+\begin{redblock}
+\textbf{A useful diagram test.}
+Before shifting a curve, state its axes, what is held fixed, the policy
+instrument, and the source of the disturbance. Then ask which expectations
+also change in equilibrium. A current-period intersection helps organize a
+mechanism; the dynamic equations and terminal conditions determine whether
+that intersection belongs to an admissible rational-expectations path.
+\end{redblock}
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{What changes when IS--LM and AD--AS acquire microfoundations?}
+\label{tab:nk-intermediate-bridge}
+\begin{tabular}{p{0.17\linewidth}p{0.34\linewidth}p{0.39\linewidth}}
+\hline
+\tableheading{Object}&\tableheading{Common intermediate shortcut}&\tableheading{This chapter's derived relation}\\
+\hline
+Goods demand&Given $C(Y-T)$ and $I(i)$; expectations often implicit&Consumption Euler equation; current and expected future consumption and real returns. No investment in this baseline.\\
+Liquidity&$M/P=L(Y,i)$ with assumed slopes&Optional MIU gives both slopes. LM is an independent closure only with an assigned money quantity.\\
+Supply&Given sticky wage/price rule or short-run AS&Optimal surviving price, CES aggregation, and marginal cost give a forward-looking Phillips curve.\\
+Benchmark&Long-run or potential output may be given&Flexible-price output is derived; market power separates it from efficient output. Neither is a statistical trend by definition.\\
+Policy&Shift a current curve with its other intercepts fixed&Specify a rule and a shock process, solve forecasts jointly, and check determinacy. Conditional diagrams remain useful.\\
+Welfare&Output loss often treated as distance from a benchmark&Preferences, markups, and price dispersion determine which allocation is desirable; a zero natural gap alone is insufficient.\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+
+Table~\ref{tab:nk-intermediate-bridge} compares modeling choices, not all
+intermediate courses or all graduate models. An intermediate model can include
+expectations and carefully motivated behavior; a graduate model still makes
+strong simplifications. The additional discipline here is to show which
+conditions generate each relationship and which restrictions a diagram hides.
+
+\begin{greenblock}
+\textbf{Keep the diagrams; make their fixed assumptions visible.}
+IS--LM organizes spending and liquidity under a quantity closure. AD--AS organizes
+a conditional output--price comparison. The NK system explains the decisions,
+forecasts, and contracts behind those curves. The familiar intuition becomes
+more useful when one can reconstruct its slope and say when its intercept
+will move.
+\end{greenblock}
+
+The baseline has now connected an interest-rate disturbance to consumption,
+sales, hours, marginal cost, inflation, and money. The next chapter changes
+which nominal contract is slow to adjust: the wage. That distinction matters
+for labor allocation and for the trade-offs policy can face.
