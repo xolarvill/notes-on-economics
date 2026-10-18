@@ -249,6 +249,7 @@ chapter of Part V.
   - Derive conditional IS, LM, AD, and AS step by step
   - Contrast quantity closure with IS–MP and inflation-space diagrams
   - Compare assumptions, expectations, benchmarks, and welfare
+  - Paired IS–LM illustrations: monetary expansion, future spending, and IS–MP
 
 ### 12. Sticky Wage Model
 

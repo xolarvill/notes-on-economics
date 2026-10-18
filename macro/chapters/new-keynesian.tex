@@ -2557,6 +2557,65 @@ replaced by the policy-rate relation. If policy follows a reaction rule,
 its slope depends on the variables included in that rule. Describing both
 experiments as the same ``money shift'' conceals the policy assumption.
 
+\subsubsection{The same diagram, different behavioral foundations}
+
+Figure~\ref{fig:islm-microfoundations} uses the familiar IS--LM construction
+for the same conditional experiment: increase current real money while holding
+the current price and the spending outlook fixed. To make the left panel
+concrete, take a simple intermediate specification. With expected inflation
+fixed and its constant absorbed into the investment intercept, let
+\begin{align}
+ C&=C_0+c(Y-T),\qquad I=I_0-b i,\qquad M/P=kY-hi,\\
+ &\hspace{1em}0<c<1,\qquad b,k,h>0.\notag
+\end{align}
+The goods-market condition and its inverse IS curve are
+\begin{align}
+ Y&=C_0+cY-cT+I_0-bi+G,\\
+ (1-c)Y&=C_0-cT+I_0+G-bi,\\
+ i&=\frac{C_0-cT+I_0+G}{b}-\frac{1-c}{b}Y.
+\end{align}
+Money clearing gives the corresponding LM curve:
+\begin{align}
+ hi&=kY-M/P,\qquad i=\frac{k}{h}Y-\frac1h M/P.
+\end{align}
+The right panel instead uses the already derived
+\eqref{eq:nk-static-is} and \eqref{eq:nk-static-lm}. The inverse IS slope
+is $-(1-c)/b$ on the left and $-\sigma$ on the right; the LM slope is
+$k/h$ on the left and $\alpha_m/\eta$ on the right. The curves can have the
+same shape even though different choices and parameters generate their slopes.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure,width=0.98\linewidth}
+\centering
+\includegraphics[width=0.98\linewidth]{islm_microfoundations_comparison.pdf}
+\caption{A monetary expansion in intermediate and microfounded IS--LM.}
+\label{fig:islm-microfoundations}
+\par\smallskip\RaggedRight\small
+Source: original schematic construction from the equations in this section.
+Solid curves and $E_0$ give the initial configuration; the dashed LM and $E_1$
+show higher real money. Indices 0 and 1 label two configurations at the same
+date, not consecutive periods. Panels use different variable units; matching
+geometry is deliberate. These are conditional goods-and-money-market comparisons,
+with schematic parameters distinct from Figure~\ref{fig:nk-policy-impulse}.
+\end{minipage}
+\end{center}
+
+Read both panels in the same order. More real balances shift LM right: at a
+given volume of purchases, the interest rate must fall to induce households
+to hold more liquidity. The economy moves from $E_0$ to $E_1$, with higher
+current output and a lower nominal rate. In the intermediate panel, the given
+consumption and investment schedules determine the spending response. In the
+NK panel, with expected inflation fixed, the lower real return brings
+consumption forward from the given future outlook; there is no investment
+channel in this labor-only economy.
+
+Holding today's price fixed makes this a comparison of goods and money clearing.
+The price-setting condition has not yet been imposed on both intersections.
+In the complete NK equilibrium, the current price and expectations must also
+be consistent with the Phillips curve. Allowing the price level to vary is
+precisely the next step from IS--LM to AD--AS below.
+
 \subsubsection{Aggregate demand under a money-supply rule}
 
 Hold $d_t,e_t,\hat m_t$ fixed. Substitute \eqref{eq:nk-static-lm} into
@@ -2627,6 +2686,60 @@ IS--policy-rule representation of demand, often called IS--MP.
 Its vertical axis is inflation, whereas \eqref{eq:nk-static-ad} uses the
 price level. Changing between them requires the inherited price level;
 renaming the axis alone does not perform that transformation.
+
+The distinction is also visible in the familiar interest-rate--output plane.
+Rewrite gap IS with the nominal rate on the vertical axis:
+\begin{align}
+ j_t&=E_t\pi_{t+1}+r_t^n+\sigma E_tx_{t+1}-\sigma x_t.
+ \label{eq:nk-diagram-is}
+\end{align}
+To draw a policy relation in that same plane, first substitute the Phillips
+curve into the Taylor rule:
+\begin{align}
+ j_t&=\phi_\pi[\beta E_t\pi_{t+1}+\kappa x_t]+\phi_x x_t+\nu_t,\\
+ j_t&=\beta\phi_\pi E_t\pi_{t+1}
+                   +(\phi_x+\phi_\pi\kappa)x_t+\nu_t.
+ \label{eq:nk-diagram-mp}
+\end{align}
+At a given inflation outlook, the MP slope is
+$\phi_x+\phi_\pi\kappa$: policy responds directly to activity and indirectly
+to the inflation associated with that activity. A fixed current rate would
+instead give a horizontal policy line. Neither is an independent money-demand
+LM restriction when the authority accommodates the rate it sets.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure,width=0.98\linewidth}
+\centering
+\includegraphics[width=0.98\linewidth]{islm_expectations_and_policy.pdf}
+\caption{Changes in the spending outlook and in the policy rule.}
+\label{fig:islm-expectations-policy}
+\par\smallskip\RaggedRight\small
+Source: original schematic construction. Left: higher expected future output
+raises $d_t$ at fixed expected inflation, preference terms, current price, and
+money. Right: a higher $\nu_t$ shifts the Taylor-rule MP line up at fixed
+$E_tx_{t+1}$, $E_t\pi_{t+1}$, and $r_t^n$; current inflation satisfies the
+NKPC. The left panel uses output deviations and the right uses the natural
+output gap. These conditional comparisons do not plot the full dynamic
+response of Figure~\ref{fig:nk-policy-impulse}.
+\end{minipage}
+\end{center}
+
+The left panel of Figure~\ref{fig:islm-expectations-policy} changes the future
+spending outlook while leaving money unchanged. Households expecting more
+future consumption want to purchase more today; IS shifts right, raising
+current output and the rate needed to clear the fixed liquidity supply.
+An intermediate IS diagram can also depict such a demand shift. The additional
+discipline here is that its intercept contains an explicit conditional forecast
+whose value must eventually agree with the equilibrium path.
+
+The right panel changes policy closure. At the fixed outlook, a positive rule
+intercept shifts MP up, raises the real rate, and lowers the output gap. The
+policy rule and price setting determine the current nominal rate jointly;
+money, if present, is supplied to meet the resulting demand. This is why an
+interest-rule experiment should be drawn with MP rather than an independently
+shifted LM. In a full dynamic experiment the future outlook also responds,
+which is already incorporated in the solved impulse responses earlier.
 
 \begin{redblock}
 \textbf{A useful diagram test.}

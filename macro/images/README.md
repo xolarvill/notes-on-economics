@@ -148,3 +148,42 @@ panels use 10,000 times quarterly log deviations (unannualized basis points);
 other panels use 100 times log deviations. Dashed level lines show the
 long-run price/money displacement. Fonts are embedded and PDF timestamps omitted.
 Additional independent nonlinear checks are in `../scripts/verify_new_keynesian.py`.
+
+## IS–LM: familiar geometry, different behavioral foundations
+
+`islm_microfoundations_comparison.pdf` and
+`islm_expectations_and_policy.pdf` are original two-panel vector illustrations.
+The corresponding PNG files provide readable previews. They use no empirical
+data. Regenerate with the uv-managed environment:
+
+```sh
+.venv/bin/python macro/images/islm_comparison.py
+```
+
+The first figure contrasts a linear intermediate goods-and-money model with
+Chapter 11's conditional Euler/MIU system. Higher real money shifts LM right
+at a held current price and spending outlook. The intermediate construction
+uses C=.9+.6(Y-.5), I=2-i, G=1.4, and M/P=.3Y-i, with real money .4 then 1.2.
+The NK construction uses sigma=.4, alpha_m=.3, eta=1, e=0, d=.1, and log
+real-money deviations .004 then .012. Its axes are scaled by .01 relative to
+the left panel, deliberately giving matching geometry. Those slopes can be
+obtained from MIU with nu_m=4/3 and reference net rate .75. These are schematic
+legibility choices, not the chapter's quarterly calibration or comparable units.
+Neither money-quantity panel separately imposes the NK price-setting equation;
+AD–AS supplies the additional price adjustment in the following text.
+
+The second figure's left panel raises d from .1 to .118 with the first figure's
+NK money and price held fixed. Its right panel uses the chapter's actual
+quarterly beta=.99, sigma=1, kappa=.064375, phi_pi=1.5, and phi_x=.125, but
+holds the current outlook fixed: expected next gap=.025, expected inflation=0,
+and natural-rate deviation=0. Raising the rule intercept from .005 to .015
+shifts MP upward. MP is the Taylor rule after substituting the NKPC, with slope
+phi_x+phi_pi*kappa; money accommodates the rule. This is a conditional comparison,
+not the solved dynamic impulse response in `nk_impulse_responses.pdf`.
+
+All intersection coordinates are solved from the stated equations. The script
+checks the original intermediate goods equation, both money-demand equations,
+the conditional Euler relation, and the unreduced IS/NKPC/Taylor equations in
+the MP panel. Shift arrows connect points on the relevant before/after curves.
+Indices 0 and 1 denote compared configurations at the same date. Fonts are
+embedded and PDF timestamps omitted.
