@@ -1,15 +1,595 @@
 % !TEX root = ../macro.tex
-\plannedsection{International Accounts and Intertemporal Trade}\label{sec:international-accounts}
+\section{International Accounts and Intertemporal Trade}\label{sec:international-accounts}
 
-\subsection{Trade balances, current accounts, and external wealth}
-Derive the links between national saving, investment, and the current account.
-Distinguish transaction flows from valuation changes in the international
-investment position.
+\subsection{What changes when an economy opens?}
 
-\subsection{Consumption smoothing and international borrowing}
-Start with a small open endowment economy. Derive its intertemporal budget
-constraint and explain how expected income affects the current account.
+A household in Ramsey already buys goods, sells labor, and holds assets.
+A firm already sells output and buys inputs. More markets alone therefore do
+not explain what makes an economy open. The new question is: \emph{which
+transactions can cross the boundary of the economy we are studying?}
 
-\subsection{Investment and external adjustment}
-Add capital accumulation and examine how borrowing finances investment.
-State borrowing and solvency conditions before discussing external adjustment.
+Imagine a region whose harvest is poor this year but good next year. First
+try a familiar explanation: its households borrow from its banks. This can
+redistribute purchasing power within the region, but it cannot create food
+that no resident currently has. Consolidate residents' balance sheets: one
+resident's loan asset cancels another's liability. If the region as a whole
+wants more goods than it currently produces, someone outside it must supply
+them. That supplier needs payment now, a claim on future delivery, or a transfer.
+The missing objects are external goods flows and external claims.
+
+This is a teaching reconstruction of the modeling problem, not a claim about
+an author's private thoughts. We begin with one good and two dates so that
+neither product variety nor specialization can explain the result. The
+intertemporal approach links spending to lifetime resources and the price of
+moving resources across time.\footnote{The endowment and production benchmarks
+follow the framework in Schmitt-Groh\'e, Uribe, and Woodford (2022),
+\href{https://www.columbia.edu/~mu2166/UIM/slides_endowment.pdf}{Chapter 3}
+and \href{https://www.columbia.edu/~mu2166/UIM/slides_production.pdf}{Chapter 5}
+slides for \textit{International Macroeconomics: A Modern Approach}.
+The worked economies, figures, and extensions below are constructed here.}
+
+\Needspace{9\baselineskip}
+\begin{blueblock}
+\textbf{Openness, comparative advantage, and size answer different questions.}
+Openness specifies which cross-border exchanges are feasible. Comparative
+advantage explains a source of gains from exchanging different goods.
+Country size specifies whether domestic choices affect world prices.
+A large country can affect an equilibrium world interest rate even when every
+household and firm is competitive. This is distinct from an individual firm's
+market power. None of these concepts implies the other two.
+\end{blueblock}
+
+The boundary is analytical. Two regions may trade inside a closed national
+model; two countries may trade inside a closed world model. A country can
+also trade goods extensively while restricting external borrowing. Financial
+openness is not synonymous with complete insurance, unrestricted capital
+mobility, or the absence of trade costs. We must specify the transactions,
+assets, and constraints rather than attach all of them to the word ``open.''
+
+\subsubsection{A first exchange without comparative advantage}
+
+Consider countries $A$ and $B$, each with one representative household. There
+is one perishable good, no investment, no government, and initially no debt.
+Their endowments at dates 1 and 2 are
+\begin{equation}
+ (Q_1^A,Q_2^A)=(1,3),\qquad (Q_1^B,Q_2^B)=(3,1).
+\end{equation}
+Under autarky there is no storage or external exchange, so each consumes its
+own endowment. With a gross borrowing return $R=1$, consider this allocation:
+\begin{align}
+ (C_1^A,C_2^A)&=(2,2), & B_1^A&=1-2=-1,\\
+ (C_1^B,C_2^B)&=(2,2), & B_1^B&=3-2=1.
+\end{align}
+A positive $B_1$ is a claim held at the end of date 1; a negative $B_1$ is debt.
+Country $B$ sends one good to $A$ today in exchange for one good tomorrow.
+Check both the physical allocation and the promise:
+\begin{align}
+ C_1^A+C_1^B&=2+2=1+3=Q_1^A+Q_1^B,\\
+ C_2^A+C_2^B&=2+2=3+1=Q_2^A+Q_2^B,\\
+ B_1^A+B_1^B&=-1+1=0.
+\end{align}
+For preferences $\log C_1+\log C_2$, each household's utility increases by
+\begin{equation}
+ [\log2+\log2]-[\log1+\log3]=\log(4/3)>0.
+\end{equation}
+We will derive the choices and the world return below. The preliminary lesson
+is already visible: trade can exchange the \emph{dates} of consumption even
+when there are no different goods in which to specialize.
+
+\subsection{Trade across time: the two-period economy}
+
+\subsubsection{Conditions and the order of decisions}
+
+We now study one small economy facing a given external return. The two-country
+example will later close that return through world asset clearing.
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Residents, goods, and the analysis boundary}
+There is a unit mass of identical resident households. Their aggregate equals
+the representative household's allocation. A single homogeneous good is
+perishable, freely tradable, and the real numeraire at each date. There are
+no transport costs, tariffs, money, exchange rates, production choices,
+capital, government, or population growth in this baseline. Endowments
+$Q_1,Q_2>0$ are the residents' domestic goods income. Domestic claims cancel
+when residents are consolidated; $B_t$ records only their net external asset.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{02}{Dates, information, and inherited wealth}
+Dates are $t=1,2$. Endowments, preferences, and all returns are known with
+certainty before date-1 choices. $B_0$ is the inherited real external claim
+before date 1; it pays $R_0B_0$ at date 1, with known $R_0>0$. Negative
+$B_0$ requires payment of inherited debt. At date 1, households receive income
+and the inherited payoff, then choose consumption $C_1$ and a new position
+$B_1$. At date 2 they receive $Q_2+RB_1$, consume $C_2$, and settle all claims.
+There is no news arriving after the initial choice in the baseline.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{03}{The external asset and the price of time}
+One unit of $B_1$ costs one unit of date-1 goods and pays $R=1+r^*>0$ units
+of date-2 goods. Residents borrow and lend at this same certain return;
+there is no default, spread, transaction cost, or quantity limit. The economy
+is small in this asset market: its choices do not change $R$. A negative
+net interest rate is allowed provided $R>0$. A single deterministic bond
+moves resources across dates; it does not provide insurance against
+unmodeled random states. The rest of the world supplies the opposite asset
+position and the corresponding net goods deliveries.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{04}{Preferences and admissible consumption}
+The household chooses $C_1,C_2>0$ to maximize $u(C_1)+\beta u(C_2)$, where
+$\beta>0$ and
+\[
+ u(C)=\begin{cases}(C^{1-\sigma}-1)/(1-\sigma),&\sigma>0,\ \sigma\ne1,\\
+ \log C,&\sigma=1.\end{cases}
+\]
+Thus $u'(C)=C^{-\sigma}>0$ and $u''(C)=-\sigma C^{-\sigma-1}<0$.
+The finite-horizon example permits $\beta=1$. Lifetime resources
+$\mathcal W=R_0B_0+Q_1+Q_2/R$ must be positive. This condition permits
+positive consumption at both dates despite possibly negative inherited wealth.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{05}{Budgets, settlement, and equilibrium}
+Each household faces
+\[
+ C_1+B_1=Q_1+R_0B_0,\qquad C_2+B_2=Q_2+RB_1.
+\]
+No unpaid debt may remain at the final date: $B_2\geq0$. There is no bequest
+motive, so an optimum leaves $B_2=0$; this equality is a result of monotonic
+utility combined with terminal settlement. Given the external price $R$,
+an equilibrium consists of optimal positive consumption and external holdings
+satisfying both budgets. Domestic goods absorption need not equal domestic
+income: imports fill a shortfall and exports deliver a surplus. World goods
+and asset markets clear once the rest of the world is included.
+\end{modelcondition}
+\end{modelsetup}
+
+The timing separates an inherited stock from a new decision:
+\begin{equation*}
+ \underbrace{B_0,Q_1,Q_2,R_0,R}_{\text{Known before choice}}
+ \ \longrightarrow\ 
+ \underbrace{C_1,B_1}_{\text{Date 1}}
+ \ \longrightarrow\ 
+ \underbrace{Q_2+RB_1=C_2}_{\text{Date 2 settlement}}.
+\end{equation*}
+Ramsey's marginal trade-off will reappear. What changes is the resource
+constraint and the determination of its return: domestic saving can buy a
+foreign claim, and investment will no longer have to equal national saving.
+
+\subsubsection{From two budgets to one feasible consumption set}
+
+First impose terminal settlement. If $B_2>0$, reducing it by $\varepsilon>0$
+and increasing $C_2$ by the same amount satisfies the final budget and raises
+utility. Therefore $B_2=0$ at the optimum. The final budget gives
+\begin{align}
+ RB_1&=C_2-Q_2,\\
+ B_1&=\frac{C_2-Q_2}{R}.
+\end{align}
+Substitute this position into the first budget, then move its income term:
+\begin{align}
+ C_1+\frac{C_2-Q_2}{R}&=Q_1+R_0B_0,\\
+ C_1+\frac{C_2}{R}&=Q_1+R_0B_0+\frac{Q_2}{R}
+ \equiv\mathcal W.\label{eq:open-pv-two}
+\end{align}
+Here $\mathcal W$ is lifetime wealth in date-1 goods, not current GDP.
+For a feasible allocation that leaves a positive terminal asset, the left
+side is instead less than $\mathcal W$. Optimization uses the frontier.
+Solve the frontier for future consumption:
+\begin{align}
+ C_2&=R(\mathcal W-C_1),\\
+ \frac{dC_2}{dC_1}\bigg|_{\mathcal W,R}&=-R.
+\end{align}
+One extra good consumed today costs $R$ goods tomorrow. This slope is a price,
+not a psychological preference. With $B_0=0$, the endowment point $(Q_1,Q_2)$
+lies on the frontier. Autarky restricts the household to that point; external
+trade permits movement along the line.
+
+\subsubsection{The consumption choice, by substitution and by multipliers}
+
+Substitution reduces the problem to one variable:
+\begin{equation}
+ \max_{0<C_1<\mathcal W}
+ V(C_1)=u(C_1)+\beta u\bigl(R(\mathcal W-C_1)\bigr).
+\end{equation}
+Apply the chain rule explicitly:
+\begin{align}
+ \frac{dV}{dC_1}
+ &=u'(C_1)+\beta u'(C_2)\frac{dC_2}{dC_1}\\
+ &=u'(C_1)-\beta R u'(C_2)=0,\\
+ u'(C_1)&=\beta R u'(C_2).\label{eq:open-euler-two}
+\end{align}
+The second derivative is
+\begin{align}
+ \frac{d^2V}{dC_1^2}
+ &=u''(C_1)-\beta R u''(C_2)(-R)\\
+ &=u''(C_1)+\beta R^2u''(C_2)<0.
+\end{align}
+Strict concavity and the infinite marginal utility near either zero-consumption
+endpoint select a unique interior maximum.
+
+The multiplier route shows the same resource price:
+\begin{align}
+ \mathcal L&=u(C_1)+\beta u(C_2)
+   +\lambda\left(\mathcal W-C_1-\frac{C_2}{R}\right),\\
+ \frac{\partial\mathcal L}{\partial C_1}&=u'(C_1)-\lambda=0,\\
+ \frac{\partial\mathcal L}{\partial C_2}&=\beta u'(C_2)-\frac\lambda R=0,\\
+ \lambda&=u'(C_1)=\beta R u'(C_2).
+\end{align}
+A marginal unit of lifetime wealth is worth $\lambda$ units of utility.
+Date-2 consumption costs only $1/R$ units of that wealth, explaining the
+multiplier attached to its first-order condition.
+
+For CRRA preferences, solve the Euler equation and the budget together:
+\begin{align}
+ C_1^{-\sigma}&=\beta R C_2^{-\sigma},\\
+ \left(\frac{C_2}{C_1}\right)^\sigma&=\beta R,\\
+ C_2&=gC_1,\qquad g\equiv(\beta R)^{1/\sigma}>0,\\
+ C_1+\frac{gC_1}{R}&=\mathcal W,\\
+ C_1^*&=\frac{\mathcal W}{D},\qquad
+ C_2^*=\frac{g\mathcal W}{D},\qquad D\equiv1+\frac gR,\label{eq:open-crra-choice}\\
+ B_1^*&=Q_1+R_0B_0-C_1^*.
+\end{align}
+When $\beta R=1$, the consumption levels are equal. When $\beta R>1$,
+consumption rises: the market reward for waiting outweighs impatience at a
+flat path. ``Smoothing'' means avoiding unnecessarily unequal marginal
+utilities at the available price, not imposing constant consumption for all
+preferences and returns.
+
+\Needspace{9\baselineskip}
+\begin{redblock}
+\textbf{Borrowing is an allocation, not an extra resource.}
+Suppose $Q_1=1$, $Q_2=3$, $B_0=0$, $R=\beta=\sigma=1$.
+Then $\mathcal W=4$, $g=1$, $D=2$, and $C_1=C_2=2$.
+The first budget requires $B_1=1-2=-1$. The second gives
+$C_2=3+1(-1)=2$. Counting the borrowed good as extra income at date 1
+while omitting repayment at date 2 would falsely expand lifetime resources.
+\end{redblock}
+
+\subsubsection{Close the world market, not just one country's problem}
+
+The given-return assumption describes a small country facing a much larger
+rest of the world. For the two equal countries at the start of the chapter,
+$R$ is instead an equilibrium price. Set $B_0^j=0$ and $\beta=\sigma=1$ for
+$j\in\{A,B\}$. Equations~\eqref{eq:open-crra-choice} give $g=R$, $D=2$:
+\begin{align}
+ C_1^j&=\frac12\left(Q_1^j+\frac{Q_2^j}{R}\right),\\
+ B_1^j&=Q_1^j-C_1^j
+       =\frac12\left(Q_1^j-\frac{Q_2^j}{R}\right).
+\end{align}
+World asset clearing determines the return:
+\begin{align}
+ 0=B_1^A+B_1^B
+ &=\frac12\left[Q_1^A+Q_1^B-\frac{Q_2^A+Q_2^B}{R}\right],\\
+ R(Q_1^A+Q_1^B)&=Q_2^A+Q_2^B,\\
+ R&=\frac{Q_2^A+Q_2^B}{Q_1^A+Q_1^B}=\frac44=1.
+\end{align}
+Both households take this price as given when choosing. No monopoly is needed
+for aggregate endowments to determine it. Date-1 goods clearing follows from
+summing the first budgets; date-2 clearing follows from summing the second.
+The lending of one country finances the borrowing of the other.
+
+\Needspace{23\baselineskip}
+\begin{center}
+\begin{minipage}{.98\linewidth}
+\captionsetup{type=figure}
+\centering
+\includegraphics[width=\linewidth]{images/intertemporal_exchange.pdf}
+\caption{The same good traded across dates: a borrower and a lender}
+\label{fig:open-exchange}
+\smallskip
+{\footnotesize Original solved example: $B_0=0$, $R=\beta=\sigma=1$.
+Both countries consume $(2,2)$. Dashed indifference curves pass through the
+autarky allocations; solid curves pass through the optimum. Quantities are
+units of a hypothetical good, not empirical observations.\par}
+\end{minipage}
+\end{center}
+
+Figure~\ref{fig:open-exchange} shows why the gain does not require higher
+world output. Goods clearing preserves total resources at each date. The
+improvement comes from reallocating those goods toward the country with
+higher current marginal utility, in exchange for future delivery.
+
+
+\subsection{Reading the external accounts}
+
+\subsubsection{Name the flows that the model has already produced}
+
+The model tells us what to measure. At date 1, a borrower absorbs more goods
+than its endowment. At date 2, it delivers goods and pays interest. Those are
+different flows. We now use $Y$ for GDP, $C$ for household consumption, $G$
+for government consumption, and $I$ for gross capital formation, including
+inventory changes. All expenditure and income measures below use consistent
+prices and the same resident boundary. In the endowment benchmark, $Y=Q$
+and $G=I=0$.
+
+Let $X$ and $M$ be exports and imports of goods \emph{and services}. Here $M$
+is imports, not the money stock used in the earlier monetary chapters. The
+expenditure identity and the trade balance are
+\begin{align}
+ Y&=C+I+G+X-M,\\
+ TB&\equiv X-M=Y-C-I-G.\label{eq:open-trade-balance}
+\end{align}
+A trade deficit says that domestic absorption exceeds domestic production.
+It does not identify whether consumption, investment, or government spending
+caused that gap, nor whether the allocation is desirable.
+
+Use $NPI$ for net primary income from abroad, and $NCT$ for net current
+transfers received. Primary income includes cross-border labor and investment
+income; current transfers are not payments for current goods or services.
+Then define
+\begin{align}
+ CA&\equiv TB+NPI+NCT,\label{eq:open-current-account}\\
+ GNI&\equiv Y+NPI,\\
+ GNDI&\equiv GNI+NCT=Y+NPI+NCT.
+\end{align}
+We retain the familiar primary/secondary-income terminology used in many
+existing datasets. BPM7 calls these earned income and transfer income.
+Its integrated framework distinguishes transactions from revaluations and
+other changes in positions.\footnote{IMF (2025),
+\href{https://data.imf.org/-/media/iData/External-Storage/Documents/5B776E0E552E4881AF24042EAE7D049B/en/1-BPM7-White-Cover.pdf}{\textit{Integrated Balance of Payments and International Investment Position
+Manual}, seventh edition}, White Cover, pre-edited version, Chapters 2,
+7--9, 12--14, and 19. Statistical residence concerns an institutional unit's
+center of predominant economic interest, not simply citizenship. The
+identities here suppress measurement discrepancies unless stated otherwise.}
+The bridge from production to residents' disposable resources matters:
+a debtor may produce enough to cover its domestic absorption and still need
+a trade surplus to pay external interest.
+
+Define gross national saving from disposable income, not GDP alone:
+\begin{align}
+ S&\equiv GNDI-C-G\\
+  &=Y+NPI+NCT-C-G,\\
+ S-I&=Y-C-I-G+NPI+NCT\\
+    &=TB+NPI+NCT=CA.\label{eq:open-saving-investment}
+\end{align}
+This is an accounting identity. It does not establish that a policy can change
+saving while leaving investment, income, prices, and external finance fixed.
+For a consolidated household--firm private sector and government, let $T$
+be net current taxes paid to government, $Y_d^p$ private disposable income,
+and $Y_d^g$ government disposable income. With all current flows allocated
+consistently between them,
+\begin{align}
+ Y_d^p+Y_d^g&=GNDI,\\
+ S_p&=Y_d^p-C,\qquad S_g=Y_d^g-G,\\
+ S_p+S_g-I&=CA.
+\end{align}
+In the special case $Y_d^g=T$ and all external income and transfers accrue to
+the private sector, $S_p=GNDI-T-C$ and $S_g=T-G$.
+A larger fiscal deficit need not imply an equal increase in the current-account
+deficit: private saving and investment can respond.
+
+\Needspace{14\baselineskip}
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{Different questions require different external measures}
+\label{tab:open-accounts}
+\begin{tabular}{p{.15\linewidth}p{.36\linewidth}p{.36\linewidth}}
+\hline
+\tableheading{Measure}&\tableheading{Definition}&\tableheading{Question answered}\\
+\hline
+$TB$&$X-M=Y-C-I-G$&Does domestic production cover absorption?\\
+$CA$&$TB+NPI+NCT=S-I$&Is national saving above investment?\\
+$FA$&Net acquisition of external assets minus net incurrence of external liabilities&How is net lending or borrowing transacted?\\
+$NFA$&External financial assets minus external liabilities, at a date&What is the net external financial position?\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+
+\subsubsection{From the bond budget to the current account}
+
+In the baseline, interest on the inherited claim is $r_0B_0$, where
+$r_0=R_0-1$, and there are no current transfers. Subtract $B_0$ from the
+first budget's asset equation:
+\begin{align}
+ B_1-B_0&=Q_1-C_1+(R_0-1)B_0\\
+ &=TB_1+r_0B_0=CA_1.\label{eq:open-bond-ca}
+\end{align}
+Likewise, $r^*=R-1$ is the interest paid at date 2:
+\begin{align}
+ B_2-B_1&=Q_2-C_2+r^*B_1=CA_2,\\
+ B_2=0&\quad\Longrightarrow\quad CA_2=-B_1,\\
+ TB_2&=CA_2-r^*B_1=-RB_1.
+\end{align}
+If $B_1=-1$ and $R=1.1$, final settlement needs $TB_2=1.1$, of which $0.1$
+pays interest. The current-account surplus is $CA_2=1.1-0.1=1$, which
+reduces principal debt by one. A trade surplus and a current-account surplus
+therefore need not have the same size or even the same sign at a given date.
+
+\subsubsection{Transactions, valuation, and the sign of capital flows}
+
+For actual portfolios, let $A^{ext}$ be external financial assets and
+$L^{ext}$ external liabilities. Set $NFA=A^{ext}-L^{ext}$. Use the statistical
+financial-account sign convention:
+\begin{align}
+ FA&\equiv\text{net acquisition of external assets}
+             -\text{net incurrence of external liabilities},\\
+ CA+KA&=FA\qquad\text{(without a measurement discrepancy)}.\label{eq:open-bop-sign}
+\end{align}
+Here $KA$ is the \emph{capital account}: capital transfers and transactions
+in nonproduced nonfinancial assets. It is not a label for ordinary bond or
+bank-loan flows. Positive net borrowing normally gives $FA<0$ under this
+convention. If a textbook instead defines net financial \emph{inflows}
+$F^{in}\equiv-FA$, its equation is $CA+KA+F^{in}=0$.
+
+Now reconcile stocks and flows. Let $VAL$ be net revaluation gains, including
+exchange-rate and other price changes, and $OCV$ other changes in volume,
+such as an uncompensated write-off. Then
+\begin{align}
+ NFA_t-NFA_{t-1}&=FA_t+VAL_t+OCV_t\\
+ &=CA_t+KA_t+VAL_t+OCV_t.\label{eq:open-iip-reconcile}
+\end{align}
+This is why adding current accounts does not generally reconstruct a country's
+observed net external wealth. The equality $\Delta B=CA$ in
+\eqref{eq:open-bond-ca} uses the special assumptions $KA=VAL=OCV=0$ and
+one real bond valued at par.
+
+A numerical reconciliation makes the distinction concrete. Suppose opening
+assets and liabilities are $100$ and $80$. Residents acquire $5$ of assets
+and incur $10$ of liabilities. With no $KA$, the financial and current
+accounts are $FA=CA=5-10=-5$. Suppose existing assets gain $12$ in value,
+liabilities gain $2$, and there are no other volume changes:
+\begin{align}
+ A^{ext}_{end}&=100+5+12=117,\\
+ L^{ext}_{end}&=80+10+2=92,\\
+ \Delta NFA&=(117-92)-(100-80)=5,\\
+ CA+VAL&=-5+(12-2)=5.
+\end{align}
+Net wealth rises despite a current-account deficit. A valuation gain is not
+an export receipt or current earned income.
+
+\Needspace{9\baselineskip}
+\begin{blueblock}
+\textbf{Zero net flows do not mean a closed economy.}
+Exports and imports may both be large while $TB=0$. Residents may acquire
+foreign assets of 100 while foreigners acquire domestic liabilities of 100,
+so $FA=0$ despite large gross transactions. The corresponding stocks can
+also be large while $NFA=0$. Net measures reveal an imbalance; they do not
+measure the full scale, composition, or risk of cross-border exposure.
+\end{blueblock}
+
+\subsection{Income timing and the demand for external finance}
+
+\subsubsection{Temporary income, persistent income, and news}
+
+Hold $R,R_0,B_0,\beta,\sigma$ fixed in the two-period endowment model.
+The growth ratio $g$ and denominator $D=1+g/R$ are then fixed. Differentiate
+wealth and the consumption rule before interpreting a shock:
+\begin{align}
+ d\mathcal W&=dQ_1+\frac{dQ_2}{R},\\
+ dC_1&=\frac{dQ_1+dQ_2/R}{D},\\
+ dC_2&=g\,dC_1,\\
+ dB_1&=dQ_1-dC_1\\
+ &=\left(1-\frac1D\right)dQ_1-\frac{dQ_2}{RD}.\label{eq:open-income-response}
+\end{align}
+There is no valuation change and the inherited asset is fixed, so $dCA_1=dB_1$.
+For a temporary extra endowment $\Delta>0$ today only,
+\begin{align}
+ dC_1&=\frac\Delta D,\qquad
+ dC_2=\frac{g\Delta}{D},\\
+ dB_1&=\frac{D-1}{D}\Delta
+       =\frac{g/R}{1+g/R}\Delta>0.
+\end{align}
+Some of the windfall is lent abroad. Reverse the signs for a temporary
+harvest loss: borrowing spreads the loss across both consumption dates.
+This is a conditional model of a temporary real-income disturbance, not a
+claim that all disaster losses can be insured or financed on these terms.
+
+For income higher by $\Delta$ at \emph{both} dates,
+\begin{align}
+ dC_1&=\frac{1+1/R}{D}\Delta,\\
+ dB_1&=\left[1-\frac{1+1/R}{D}\right]\Delta.
+\end{align}
+If $\beta R=1$, then $g=1$ and $D=1+1/R$, so $dC_1=dC_2=\Delta$ and
+$dB_1=0$. Higher income need not create a larger external surplus when the
+household regards it as lasting.
+
+For news at date 1 that only date-2 income will rise,
+\begin{align}
+ dQ_1&=0,\quad dQ_2=\Delta,\\
+ dC_1&=\frac\Delta{RD}>0,\quad
+ dC_2=\frac{g\Delta}{RD}>0,\\
+ dB_1&=-\frac\Delta{RD}<0.
+\end{align}
+Consumption and borrowing rise before the income arrives. For example,
+a hypothetical country learns with certainty of future resource royalties
+that accrue to its residents. In this model their present value can support
+spending now. Uncertain extraction, foreign ownership, political risk, and
+lenders' limits would each change that conclusion.
+
+\Needspace{14\baselineskip}
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{Different income paths, different external positions}
+\label{tab:open-income-examples}
+\begin{tabular}{p{.29\linewidth}rrrr}
+\hline
+\tableheading{Scenario}&\tableheading{$Q_1$}&\tableheading{$Q_2$}&\tableheading{$C_1=C_2$}&\tableheading{$B_1=CA_1$}\\
+\hline
+Baseline&2&2&2.00&0.00\\
+Temporary loss&1&2&1.50&$-0.50$\\
+Persistent loss&1&1&1.00&0.00\\
+Future income news&2&3&2.50&$-0.50$\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\smallskip
+{\footnotesize Hypothetical quantities; $B_0=0$, $R=\beta=\sigma=1$.
+``Persistent'' here means both dates of this finite economy, not an
+infinite sequence.\par}
+\end{minipage}
+\end{center}
+
+A current-account deficit is thus compatible with a current income loss or
+news of future income growth. The sign alone does not distinguish distress
+from an expansion in perceived lifetime resources.
+
+\subsubsection{A higher return changes both a price and wealth}
+
+It is tempting to say that a higher interest rate must reduce consumption
+and improve the current account because saving becomes more rewarding.
+The household also revalues future endowments, and an existing creditor
+and debtor are affected differently. For CRRA utility,
+\begin{align}
+ g&=\beta^{1/\sigma}R^{1/\sigma},\qquad
+ \frac{dg}{dR}=\frac{g}{\sigma R},\\
+ D&=1+g/R,\qquad
+ \frac{dD}{dR}=\frac{g}{R^2}\left(\frac1\sigma-1\right),\\
+ \frac{d\mathcal W}{dR}&=-\frac{Q_2}{R^2},\\
+ \frac{dC_1}{dR}
+ &=\frac{D\,d\mathcal W/dR-\mathcal W\,dD/dR}{D^2}\\
+ &=-\frac{Q_2}{R^2D}
+   -\frac{\mathcal W g}{R^2D^2}\left(\frac1\sigma-1\right).
+\end{align}
+For $\sigma>1$, the second term is positive, so the general sign requires
+more information. In the log case, $g=\beta R$ and $D=1+\beta$:
+\begin{align}
+ C_1&=\frac{Q_1+R_0B_0+Q_2/R}{1+\beta},\\
+ \frac{dC_1}{dR}&=-\frac{Q_2}{(1+\beta)R^2}<0,\\
+ \frac{dB_1}{dR}&=-\frac{dC_1}{dR}>0.
+\end{align}
+These derivatives hold the inherited payoff $R_0B_0$ fixed. Repricing old
+variable-rate debt is a separate experiment.
+
+We can also measure the welfare effect without guessing it from consumption
+at one date. Write $V^*=u(C_1)+\beta u(C_2)$ at the optimum. Differentiating
+its budget and utility gives
+\begin{align}
+ \frac{dC_1}{dR}+\frac1R\frac{dC_2}{dR}-\frac{C_2}{R^2}
+ &=-\frac{Q_2}{R^2},\\
+ \frac{dV^*}{dR}
+ &=u'(C_1)\frac{dC_1}{dR}+\beta u'(C_2)\frac{dC_2}{dR}\\
+ &=\lambda\left(\frac{dC_1}{dR}+\frac1R\frac{dC_2}{dR}\right)\\
+ &=\frac{\lambda(C_2-Q_2)}{R^2}=\frac{\lambda B_1}{R}.
+\end{align}
+A higher new-loan return benefits a net lender and harms a net borrower
+locally. The quantity response and the welfare response answer different
+questions.
+
+% Original planned outline, preserved before development:
+% \plannedsection{International Accounts and Intertemporal Trade}\label{sec:international-accounts}
+% \subsection{Trade balances, current accounts, and external wealth}
+% Derive the links between national saving, investment, and the current account.
+% Distinguish transaction flows from valuation changes in the international
+% investment position.
+% \subsection{Consumption smoothing and international borrowing}
+% Start with a small open endowment economy. Derive its intertemporal budget
+% constraint and explain how expected income affects the current account.
+% \subsection{Investment and external adjustment}
+% Add capital accumulation and examine how borrowing finances investment.
+% State borrowing and solvency conditions before discussing external adjustment.
