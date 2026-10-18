@@ -188,6 +188,38 @@ the MP panel. Shift arrows connect points on the relevant before/after curves.
 Indices 0 and 1 denote compared configurations at the same date. Fonts are
 embedded and PDF timestamps omitted.
 
+## Labor-market matching and adjustment
+
+`labor_market_equilibrium.pdf` and its PNG preview are an original paired
+illustration of the Nash wage/job-creation intersection and the Beveridge
+flow-balance/entry-ray intersection. The lower-efficiency case is separately
+solved; its ray is not held at baseline tightness.
+
+`labor_market_transitions.pdf` and its PNG preview show six responses to three
+separate deterministic disturbances. Reproduce both vector figures with:
+
+```sh
+.venv/bin/python macro/images/labor_market_matching.py
+```
+
+Time is continuous and measured in months. Baseline r=.004, separation s=.02,
+matching efficiency=.5, matching unemployment elasticity xi=.5, worker
+bargaining weight eta=.5, market output per job z=1, real home output b=.6,
+and vacancy flow cost kappa=.5. The stationary lower-efficiency diagram uses
+efficiency=.4 permanently. The transition curves instead use productivity
+1-.02*exp(-t/6), efficiency .5*(1-.2*exp(-t/6)), or separation
+.02*(1+exp(-t/6)), changing only the named primitive in each experiment.
+
+All transition wages are flexibly renegotiated. Match surplus is solved
+backwards under a nonexplosive terminal condition, then the given unemployment
+stock is evolved forwards. The implementation checks positive surplus and
+consumption, both sides of the matching flow, free entry, and resource
+accounts. Independent asset integrations and welfare optimization are in
+`scripts/verify_labor_markets.py`. No empirical series, estimated responses,
+Calvo contracts, or nominal-policy experiment are plotted. The original
+calculations use the chapter's stated DMP-style benchmark; Shimer (2005) is
+a theoretical reference, not a source for these parameter values or figures.
+
 ## Staggered wage and price contracts
 
 `sticky_wage_responses.pdf` is an original six-panel vector comparison of one

@@ -145,7 +145,7 @@ def figures():
         ax.plot(100*u, 100*v, color=color, label=label)
         ax.plot(100*u, 100*st['th']*u, '--', lw=1, color=color)
         ax.plot(100*st['u'], 100*st['v'], 'o', color=color)
-    ax.text(7.3, 5.4, 'Dashed: entry rays', fontsize=8, color='.3', rotation=20)
+    ax.text(3.0, .65, 'Dashed: entry rays', fontsize=8, color='.3')
     ax.set(title='B. Balanced flows and vacancy entry', xlabel='Unemployed / labor force (%)',
            ylabel='Vacancies / labor force (%)', ylim=(0, 7), xlim=(2.5, 10.5))
     ax.legend(frameon=False, fontsize=8, loc='upper right')

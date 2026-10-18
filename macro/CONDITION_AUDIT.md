@@ -209,3 +209,28 @@ The completed chapter derives wage inflation and closes the joint equilibrium;
 it does not claim to explain unemployment, vacancy creation, participation,
 downward-only wage rigidity, or an estimated wage–price spiral. Those require
 additional conditions and observations.
+
+## Labor markets and unemployment
+
+The original file was a three-section planned outline, retained verbatim as
+comments apart from its root directive. There was no earlier mathematical
+model to compress or replace. The live chapter develops that outline into a
+real continuous-time search benchmark and retains all three original aims:
+measurement, matching and wages, adjustment and persistence.
+
+| Condition group | Complete visible specification |
+| --- | --- |
+| People and quantities | Fixed unit labor force, employed/unemployed states, one fixed hour per employee; population, participation, and hours accounting defined before the model |
+| Time and valuation | Continuous-time hazards in months, linear consumption valuation and r discounting, idiosyncratic randomness and deterministic aggregate experiments |
+| Output and costs | Per-job productivity, real home production, per-time vacancy cost, positive consumption; benefit transfers explicitly distinguished |
+| Ownership and income | Worker-owned firms, common portfolio income separated from labor/home-value differences, full net-profit and aggregate-resource accounts |
+| Matching | Constant returns, unemployment elasticity xi, efficiency, random search, tightness, separate worker and firm hazards; no endogenous effort or directed queues |
+| Separations | Exogenous Poisson destruction, no quality threshold, immediate return to search but no first-order double event |
+| Bargaining | Atomistic given outside opportunities, Nash weight eta, transferable positive surplus, continuous real-wage renegotiation |
+| Entry and finance | Interior free entry, zero vacancy value and positive filled-job value, frictionless funding; inadmissible fixed-pay cases do not silently retain the same continuation rule |
+| Boundary conditions | Given unemployment, jumping vacancies/asset values, bounded forward-looking selection and terminal convergence; positive worker/firm surplus |
+| Comparisons | Planner faces identical real resources; fixed real wage explicitly replaces bargaining; participation extension is accounting, not a solved choice model |
+
+Ten full-width condition cards remain visible. Three-color callouts distinguish
+waiting, bargaining, resource accounting, recruitment incentives, and efficiency;
+they do not substitute for the conditions or the algebra.

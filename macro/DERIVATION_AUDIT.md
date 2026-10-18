@@ -226,3 +226,41 @@ roots; nine flexible-contract equilibria independently reproduce the nominal
 response formula; four work-allocation curvature calculations and symmetric
 Taylor-error orders pass. Financial and matching examples are hypothetical
 questions for additional models, not completed derivations or causal evidence.
+
+## Labor markets and unemployment
+
+The former outline contained no model algebra. Its three objectives are
+expanded in a self-contained continuous-time DMP-style benchmark with
+exogenous separation and flexible real-wage bargaining.
+
+| Route | Intermediate operations visible |
+| --- | --- |
+| Measurement | Labor-force denominators, employment share product, log/differential physical-hours decomposition, and a hypothetical participation example |
+| Population flows | Short-interval stock change, division by dt, two-state law, integrating factor, steady unemployment, exact endpoint probabilities, and first-arrival survival integrals |
+| Matching | Substitution of v=theta*u, worker/firm hazard recovery, derivatives, congestion elasticities, and common flow identity |
+| Values | dt Bellman expansions for unemployment, employment, filled job and vacancy; discount products and vanishing second-order terms |
+| Bargaining | Worker value subtraction, direct Nash objective/log derivative/strict concavity, surplus shares, outside-option substitution and implemented wage |
+| Entry and stationarity | Free-entry substitution, scalar tightness equation, monotonic existence/uniqueness, complete recovery of values/stocks/resources, and explicit half-elasticity quadratic |
+| Comparative statics | Implicit derivatives for productivity, home output, costs, separation and efficiency; unemployment/vacancy derivatives at held other primitives |
+| Beveridge relation | Flow balance, solved vacancy locus, log derivative, separate entry ray, and out-of-steady-state qualification |
+| Dynamics | dt asset-value expansion, total-surplus cancellation, dynamic wage recovery, entry inversion, variable-rate integrating factor, local two-dimensional Jacobian and terminal selection |
+| Experiments | Fully specified deterministic primitive paths, backwards value and forwards stock solutions, inherited impact unemployment, stationary-versus-temporary comparison, and peak calculation |
+| Wage comparison | Flexible productivity elasticity and surplus decomposition, replacement fixed-real-wage condition, log elasticity, new steady stocks and positive-continuation boundary |
+| Welfare | Primitive resource objective, Hamiltonian, matching marginal products, costate sign, stationary entry elimination, Hosios equality and bargaining derivative; separate direct present-value comparison |
+| Participation extension | All six transitions, population conservation, labor-force law and quotient derivative including the changing denominator |
+
+Run `.venv/bin/python macro/scripts/verify_labor_markets.py`. Matrix exponentials
+independently check 18 endpoint-transition cases and 54 stock paths; 27
+primitive worker-value, direct Nash optimization and joint entry/sharing
+solutions agree. Thirty-six comparative derivatives and 18 direct resource
+welfare optima agree with the displayed formulas. Three nonlinear transitions
+pass separately integrated worker/firm asset valuations, 12 integrating-factor
+quadratures and doubled terminal horizons. Forty three-state examples verify
+population conservation and the changing unemployment denominator, including
+matrix-exponential numerical derivatives. All displayed table values are
+checked against separately solved variants.
+
+The fluctuation synthesis now incorporates the completed matching model.
+Financial intermediation remains outside the completed benchmarks; participation
+choices, endogenous destruction, permanent skill damage, and a full NK--matching
+integration are identified as extensions rather than solved results.

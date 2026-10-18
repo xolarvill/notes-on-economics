@@ -53,13 +53,19 @@ Run `.venv/bin/python macro/scripts/verify_new_keynesian.py` from the repository
 root for independent nonlinear and local-equilibrium checks.
 Chapter 12, *New Keynesian Model: Sticky Wages and Prices*, develops staggered
 wages with ten detailed condition cards, the full
-wage-choice derivation, and a solved joint price–wage system. Chapter 13 remains
-a planned labor-market chapter; Chapter 14 closes Fluctuations with model
+wage-choice derivation, and a solved joint price–wage system. Chapter 13 develops
+labor-market measurement and a real continuous-time search-and-matching model,
+with full conditions, wage bargaining, vacancy creation, nonlinear transition
+experiments, and the planner/Hosios comparison. Its participation extension
+is accounting rather than a solved participation-choice model. Chapter 14 closes Fluctuations with model
 comparisons, economic situations, propagation, and diagnostic reasoning.
 Run `.venv/bin/python macro/scripts/verify_sticky_wages.py` for wage primitives
 and joint-equilibrium checks, and
 `.venv/bin/python macro/scripts/verify_fluctuation_synthesis.py` for the new
-memory and welfare calculations. The existing welfare derivation is included directly in
+memory and welfare calculations. Run
+`.venv/bin/python macro/scripts/verify_labor_markets.py` for primitive Markov
+transitions, direct bargaining and welfare optimization, joint equilibrium
+checks, and independent dynamic asset valuations. The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
 ## Headings and page starts

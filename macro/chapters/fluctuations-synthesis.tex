@@ -13,8 +13,10 @@ The district in this chapter is hypothetical. We follow its firms and workers
 through several possible situations rather than assign one model to a country
 or a recession. The purpose is to organize what has been derived, show how the
 mechanisms fit together, and identify where a new model is required. The
-financial and matching mechanisms discussed at the boundary are questions for
-later development, not results already established by the completed chapters.
+financial mechanisms discussed at the boundary are questions for later
+development. The labor-market chapter has now supplied a basic matching
+equilibrium, while participation choices and nominal--matching interactions
+still require additional structure.
 
 \subsection{One framework, several questions}
 
@@ -46,19 +48,21 @@ parts of the explanation.
 RBC&How do households and firms reallocate work, spending, and investment when real opportunities change?&Flexible real prices coordinate choices. Capital carries history in the accumulation version; shock persistence and forecasts also matter.\\
 Sticky-price NK&Why can a change in spending or monetary policy move output relative to flexible-price output?&Some product quotes are inherited. Resetters consider future costs. The basic consumption-only gap system has no inherited capital.\\
 Sticky-wage NK&What changes when compensation cannot always respond to new work incentives and labor costs?&Wage quotes are inherited as well. The real-wage position connects price and wage inflation and adds an endogenous state.\\
+Search and matching&Why can workers and vacancies coexist, even with negotiable wages?&Recruitment is forward looking; employment is inherited. Finding and separation hazards govern adjustment, while participation and hours are fixed in the solved benchmark.\\
 \hline
 \end{tabular}
 \end{threeparttable}
 \end{minipage}
 \end{center}
 
-Table~\ref{tab:fluctuation-mechanism-map} contains specifications within a common
-dynamic general-equilibrium approach, not three unrelated languages. The wage
-chapter already combines sticky prices with sticky wages. DSGE describes the
-framework; NK describes a set of economic mechanisms within it. Adding capital,
-financial intermediaries, or heterogeneous households expands the specification
-and requires additional budgets and choices. It does not turn a label into a
-solution by itself.
+Table~\ref{tab:fluctuation-mechanism-map} connects benchmarks by the constraint
+each isolates. RBC and the two NK specifications share an optimizing dynamic
+general-equilibrium approach; the wage chapter already combines sticky prices
+with sticky wages. DSGE describes the framework, and NK describes mechanisms
+within it. The matching chapter uses a continuous-time risk-neutral real
+benchmark, with deterministic aggregate experiments. Combining matching with
+NK requires common household valuation, wage institutions, and market closure;
+the existing equations cannot simply be stacked without those conditions.
 
 \Needspace{7\baselineskip}
 \begin{greenblock}
@@ -149,19 +153,40 @@ power falls. It is also why the response cannot be diagnosed from a real-wage
 series alone. The consumer price, hours, household valuation of consumption,
 and the compensation schedule all enter the comparison.
 
-\subsubsection{When the missing constraint is outside these models}
+\subsubsection{When jobs take time to form}
+
+Now suppose the district has willing applicants and advertised vacancies,
+but screening and meetings take time. Section~\ref{sec:labor-markets} separates
+the job-finding hazard from the inherited unemployment stock:
+\begin{align}
+ f(\vartheta)&=\mathcal A_m\vartheta^{1-\xi},\qquad\vartheta=v/u,\\
+ \dot u&=s(1-u)-f(\vartheta)u.
+\end{align}
+The firms' expected match values and wage bargaining determine recruitment.
+Employment then adjusts through flows. A recovery in recruitment incentives
+can precede a recovery in employment, even when every new wage is negotiable.
+The solved matching, productivity, and separation experiments produce
+different joint paths for vacancies, wages, and output.
+
+This gives a reason to inspect finding and separation rates rather than
+infer unemployment from aggregate hours or an unchanged nominal wage. It
+also gives a quantitative boundary: the homogeneous benchmark returns to its
+original employment level after the temporary disturbances end. Permanent
+skill loss, participation changes, and a full NK--matching interaction have
+not been derived by that calculation.
+
+\subsubsection{When the missing constraint is outside the completed models}
 
 A supplier may have customers and working machines yet be unable to finance
-materials. A worker may be willing to work at the going wage yet fail to find
-a matching vacancy. Neither situation is fully described by the representative
-household's interior hours choice. A financing constraint requires assets,
-liabilities, repayment, and a rule limiting funds. Job finding requires workers,
-vacancies, and a matching or recruitment process.
+materials. Its productive ability and recruitment opportunities do not
+guarantee that funds arrive when bills are due. A financing constraint requires
+assets, liabilities, repayment, and a rule limiting funds.
 
-The financial and labor-market chapters are where those conditions belong.
+The later financial chapters are where those additional conditions belong.
 Here the observations tell us which missing mechanism to seek. Renaming a
 monetary innovation ``credit stress'' does not introduce a lender's balance
-sheet; renaming lower hours ``unemployment'' does not create job search.
+sheet. The matching chapter illustrates the general discipline: add the
+agents, costs, value equations, and flows that make a proposed channel operate.
 
 \begin{center}
 \begin{minipage}{\linewidth}
@@ -195,6 +220,8 @@ A useful memory from Growth is the difference between an inherited stock and
 a current decision. Capital survives today's saving decision. In the wage
 model, an inherited relative compensation position survives today's policy
 innovation. Neither persistence needs to be assigned entirely to the shock.
+In the matching economy, employment carries the earlier history of meetings
+and separations even though vacancy values can react immediately to news.
 
 For the monetary experiment in the wage chapter,
 \begin{align}
@@ -363,9 +390,10 @@ reference distortions, and explicit instruments.
 \Needspace{18\baselineskip}
 \subsection{How the remaining parts extend the map}
 
-The planned labor-market chapter distinguishes hours from employment, job
-finding, vacancies, and participation. It adds a mechanism that the completed
-Calvo-wage model does not contain. Open Economy then allows the district to
+The labor-market chapter distinguishes hours, employment, job finding,
+vacancies, and participation. It solves a matching benchmark and identifies
+participation choices and nominal--matching integration as further work.
+Open Economy next allows the district to
 trade goods and future income with others: demand and financing can move
 across borders, relative prices include exchange rates, and adjustment depends
 on the monetary arrangement.

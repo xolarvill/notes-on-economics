@@ -267,22 +267,31 @@ chapter of Part V.
 - Comparison of sticky prices, sticky wages, and both contracts
 - Nominal wages, real wages, wage markups, and the boundary with unemployment
 
-### 13. Labor Markets and Unemployment — **planned**
+### 13. Labor Markets and Unemployment
 
-- Employment, unemployment, and participation
-- Search, matching, and wage determination
-- Adjustment and persistence
+- From waiting workers and open jobs to a search-and-matching model
+- Employment, participation, unemployment denominators, and physical hours
+- Ten detailed condition cards: resources, ownership, timing, finance, and bargaining
+- Matching hazards, first-arrival durations, and exact period-end transitions
+- Worker and firm Bellman equations, outside options, and Nash surplus sharing
+- Free entry, unique stationary tightness, and comparative statics
+- Beveridge flow balance versus vacancy entry; original paired illustration
+- Forward-looking surplus, inherited unemployment, and the nonlinear transition
+- Three solved disturbances: productivity, matching efficiency, and separations
+- Flexible bargaining versus fixed new-hire real pay; amplification and limits
+- Planner resource use, the Hosios condition, and direct welfare comparison
+- Three-state participation accounting, recovery speeds, and missing hysteresis mechanisms
 
 ### 14. Fluctuations: Mechanisms, Comparisons, and Diagnosis
 
-- A common DSGE framework: shocks, propagation, adjustment, and policy closure
+- Common questions across DSGE and matching benchmarks: shocks, propagation, adjustment, and closure
 - The same output decline under productivity, spending, and wage constraints
-- Recognizing financing and matching mechanisms not yet modeled
+- Matching and recruitment versus financial constraints still to be modeled
 - Contract memory versus the persistence of the disturbance
 - A common policy innovation and the flexible-contract limit
 - Reading a recession as a sequence of constraints and testable implications
 - Natural, efficient, statistical, and capacity benchmarks; work-allocation welfare
-- Connections to the planned labor-market chapter, open economy, and finance
+- Connections across labor-market adjustment, open economy, and finance
 
 ## Part IV: Open Economy
 
