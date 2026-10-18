@@ -1521,7 +1521,7 @@ removes products of deviations; the exact problem does not.
 \subsubsection{First expand each side of the pricing equation}
 
 Let $\hat p_t=\log(P_t/\bar P)$, $\hat p_t^{\#}=\log(P_t^{\#}/\bar P)$,
-and $\widehat{mc}_t^n=\log(MC_t^n/\overline{MC}^n)$.
+and $\hat{mc}_t^n=\log(MC_t^n/\overline{MC}^n)$.
 A symmetric zero-inflation reference has
 \begin{align}
  \bar P&=\mu\overline{MC}^n,\qquad
@@ -1549,7 +1549,7 @@ Thus constant terms and first-order terms on both sides are
  \mathcal H_R&=\frac\mu{\bar P}E_t\sum_{k\geq0}(\beta\theta)^k
                                     \frac{F_s}{\bar F}MC_{s|t}^n\\
  &\simeq S+E_t\sum_{k\geq0}(\beta\theta)^k
-                         [\hat f_s+\widehat{mc}_{s|t}^n].
+                         [\hat f_s+\hat{mc}_{s|t}^n].
 \end{align}
 If both sides are additionally divided by $P_{t-1}/\bar P$, as in the course,
 each gains the same first-order term $-S\hat p_{t-1}$; it cancels too.
@@ -1557,25 +1557,25 @@ Equating the two expansions shows the cancellation, rather than assuming it:
 \begin{align}
  S+S\hat p_t^{\#}+E_t\sum_k(\beta\theta)^k\hat f_s
  &=S+E_t\sum_k(\beta\theta)^k\hat f_s
-       +E_t\sum_k(\beta\theta)^k\widehat{mc}_{s|t}^n,\\
- S\hat p_t^{\#}&=E_t\sum_k(\beta\theta)^k\widehat{mc}_{s|t}^n,\\
+       +E_t\sum_k(\beta\theta)^k\hat{mc}_{s|t}^n,\\
+ S\hat p_t^{\#}&=E_t\sum_k(\beta\theta)^k\hat{mc}_{s|t}^n,\\
  \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
-                                      \widehat{mc}_{s|t}^n.
+                                      \hat{mc}_{s|t}^n.
 \end{align}
 Now use the own-price effect from \eqref{eq:nk-own-cost}:
 \begin{align}
- \widehat{mc}_{s|t}^n&=\widehat{mc}_s^n-\zeta(\hat p_t^{\#}-\hat p_s),\\
+ \hat{mc}_{s|t}^n&=\hat{mc}_s^n-\zeta(\hat p_t^{\#}-\hat p_s),\\
  \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
-       [\widehat{mc}_s^n+\zeta\hat p_s]-\zeta\hat p_t^{\#},\\
+       [\hat{mc}_s^n+\zeta\hat p_s]-\zeta\hat p_t^{\#},\\
  (1+\zeta)\hat p_t^{\#}
  &=(1-\beta\theta)E_t\sum_k(\beta\theta)^k
-                  [\widehat{mc}_s^n+\zeta\hat p_s].
+                  [\hat{mc}_s^n+\zeta\hat p_s].
 \end{align}
-Let $\widehat{mc}_s=\widehat{mc}_s^n-\hat p_s$ be real marginal-cost deviation.
-Since $\widehat{mc}_s^n+\zeta\hat p_s=(1+\zeta)\hat p_s+\widehat{mc}_s$,
+Let $\hat{mc}_s=\hat{mc}_s^n-\hat p_s$ be real marginal-cost deviation.
+Since $\hat{mc}_s^n+\zeta\hat p_s=(1+\zeta)\hat p_s+\hat{mc}_s$,
 \begin{align}
  \hat p_t^{\#}&=(1-\beta\theta)E_t\sum_{k\geq0}(\beta\theta)^k
-                     [\hat p_{t+k}+\Omega\widehat{mc}_{t+k}].
+                     [\hat p_{t+k}+\Omega\hat{mc}_{t+k}].
  \label{eq:nk-reset-linear}
 \end{align}
 A positive marginal-cost deviation makes a resetter choose a higher price.
@@ -1583,7 +1583,7 @@ Diminishing returns damp that response: raising its own price loses sales and
 reduces its own marginal cost, so the desired change is smaller than a
 calculation that treats its marginal cost as fixed would imply.
 
-Define $p_t^{\mathrm{tar}}=\hat p_t+\Omega\widehat{mc}_t$ as the local pricing
+Define $p_t^{\mathrm{tar}}=\hat p_t+\Omega\hat{mc}_t$ as the local pricing
 target in this weighted sum. Separate its first term and reindex $h=k-1$:
 \begin{align}
  \hat p_t^{\#}
@@ -1592,7 +1592,7 @@ target in this weighted sum. Separate its first term and reindex $h=k-1$:
  &=(1-\beta\theta)p_t^{\mathrm{tar}}
   +\beta\theta E_t\left[(1-\beta\theta)
        E_{t+1}\sum_{h\geq0}(\beta\theta)^h p_{t+1+h}^{\mathrm{tar}}\right]\\
- &=(1-\beta\theta)(\hat p_t+\Omega\widehat{mc}_t)
+ &=(1-\beta\theta)(\hat p_t+\Omega\hat{mc}_t)
                       +\beta\theta E_t\hat p_{t+1}^{\#}.
  \label{eq:nk-reset-recursion}
 \end{align}
@@ -1631,14 +1631,14 @@ level. Likewise, the reset price differs from both.
 Subtract $\hat p_t$ from \eqref{eq:nk-reset-recursion}, remembering that
 $\hat p_{t+1}^{\#}-\hat p_t=r_{t+1}^{\#}+\pi_{t+1}$:
 \begin{align}
- r_t^{\#}&=(1-\beta\theta)\Omega\widehat{mc}_t
+ r_t^{\#}&=(1-\beta\theta)\Omega\hat{mc}_t
                 +\beta\theta E_t(r_{t+1}^{\#}+\pi_{t+1}),\\
  \frac\theta{1-\theta}\pi_t
- &=(1-\beta\theta)\Omega\widehat{mc}_t
+ &=(1-\beta\theta)\Omega\hat{mc}_t
   +\beta\theta E_t\left[\frac\theta{1-\theta}\pi_{t+1}+\pi_{t+1}\right]\\
- &=(1-\beta\theta)\Omega\widehat{mc}_t
+ &=(1-\beta\theta)\Omega\hat{mc}_t
                   +\frac{\beta\theta}{1-\theta}E_t\pi_{t+1},\\
- \pi_t&=\beta E_t\pi_{t+1}+\lambda_p\Omega\widehat{mc}_t,
+ \pi_t&=\beta E_t\pi_{t+1}+\lambda_p\Omega\hat{mc}_t,
  \qquad\lambda_p=\frac{(1-\theta)(1-\beta\theta)}\theta.
  \label{eq:nk-pc-cost}
 \end{align}
@@ -1654,7 +1654,7 @@ recursion. Subtract $\hat p_{t-1}$ directly in \eqref{eq:nk-reset-linear}:
  &=H_t+(1-\beta\theta)E_t\sum_{k\geq0}(\beta\theta)^k
                         (\hat p_{t+k}-\hat p_{t-1}),\\
  H_t&=(1-\beta\theta)\Omega E_t\sum_{k\geq0}(\beta\theta)^k
-                         \widehat{mc}_{t+k}.
+                         \hat{mc}_{t+k}.
 \end{align}
 Put $b=\beta\theta$. The price differences telescope into inflation:
 \begin{align}
@@ -1669,14 +1669,14 @@ The rearrangement requires convergent expected discounted sums. Define
 $J_t=\sum_{h\geq0}b^hE_t\pi_{t+h}$ and
 $V_t=H_t+J_t=\pi_t/(1-\theta)$. Separating their first terms gives
 \begin{align}
- H_t&=(1-b)\Omega\widehat{mc}_t+bE_tH_{t+1},\\
+ H_t&=(1-b)\Omega\hat{mc}_t+bE_tH_{t+1},\\
  J_t&=\pi_t+bE_tJ_{t+1},\\
  \frac{\pi_t}{1-\theta}
- &=\pi_t+(1-b)\Omega\widehat{mc}_t+bE_tV_{t+1}\\
- &=\pi_t+(1-b)\Omega\widehat{mc}_t
+ &=\pi_t+(1-b)\Omega\hat{mc}_t+bE_tV_{t+1}\\
+ &=\pi_t+(1-b)\Omega\hat{mc}_t
                   +\frac{b}{1-\theta}E_t\pi_{t+1},\\
- \theta\pi_t&=(1-\theta)(1-b)\Omega\widehat{mc}_t+bE_t\pi_{t+1},\\
- \pi_t&=\lambda_p\Omega\widehat{mc}_t+\beta E_t\pi_{t+1}.
+ \theta\pi_t&=(1-\theta)(1-b)\Omega\hat{mc}_t+bE_t\pi_{t+1},\\
+ \pi_t&=\lambda_p\Omega\hat{mc}_t+\beta E_t\pi_{t+1}.
 \end{align}
 The discount powers and expectations stay attached to every future term.
 This is the long-sum cancellation in the original notes, with those weights
@@ -1710,11 +1710,11 @@ Multiply the reset recursion by $1-\theta$ and substitute those two identities:
 \begin{align}
  \hat p_t-\theta\hat p_{t-1}
  &=(1-\theta)(1-\beta\theta)
-       (\hat p_t+\Omega\widehat{mc}_t)
+       (\hat p_t+\Omega\hat{mc}_t)
                  +\beta\theta(E_t\hat p_{t+1}-\theta\hat p_t),\\
  [1+\beta\theta^2-(1-\theta)(1-\beta\theta)]\hat p_t
        -\theta\hat p_{t-1}
- &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+ &=(1-\theta)(1-\beta\theta)\Omega\hat{mc}_t
                          +\beta\theta E_t\hat p_{t+1}.
 \end{align}
 Expand the coefficient instead of leaving the cancellation to the reader:
@@ -1722,12 +1722,12 @@ Expand the coefficient instead of leaving the cancellation to the reader:
  1+\beta\theta^2-(1-\theta-\beta\theta+\beta\theta^2)
  &=\theta+\beta\theta,\\
  \theta(1+\beta)\hat p_t-\theta\hat p_{t-1}
- &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+ &=(1-\theta)(1-\beta\theta)\Omega\hat{mc}_t
                        +\beta\theta E_t\hat p_{t+1},\\
  \theta(\hat p_t-\hat p_{t-1})
- &=(1-\theta)(1-\beta\theta)\Omega\widehat{mc}_t
+ &=(1-\theta)(1-\beta\theta)\Omega\hat{mc}_t
                     +\beta\theta(E_t\hat p_{t+1}-\hat p_t),\\
- \pi_t&=\lambda_p\Omega\widehat{mc}_t+\beta E_t\pi_{t+1}.
+ \pi_t&=\lambda_p\Omega\hat{mc}_t+\beta E_t\pi_{t+1}.
 \end{align}
 The two routes agree because their pricing target, timing, and aggregation
 are now the same. Changing the target coefficient changes the economic model,
@@ -1774,7 +1774,7 @@ quantity. From household labor supply,
 \begin{align}
  mc_t&=\frac{W_t/P_t}{(1-\alpha)A_tN_t^{-\alpha}}
        \quad\text{to first order around symmetry},\\
- \widehat{mc}_t
+ \hat{mc}_t
  &=\hat w_t-\hat p_t-a_t+\alpha\hat n_t\\
  &=\sigma\hat c_t+\varphi\hat n_t-a_t+\alpha\hat n_t\\
  &=\sigma\hat y_t+(\varphi+\alpha)
@@ -1793,7 +1793,7 @@ while retaining preferences, market power, and other real distortions.
 Symmetry then gives $P_{it}=P_t$ and
 \begin{align}
  1&=\mu mc_t^{\mathrm{flex}},\qquad mc_t^{\mathrm{flex}}=1/\mu>0,\\
- \widehat{mc}_t^{\mathrm{flex}}
+ \hat{mc}_t^{\mathrm{flex}}
  &=\log[(1/\mu)/(1/\mu)]=0.
 \end{align}
 The qualifier $\mathrm{flex}$ identifies the natural allocation; uppercase
@@ -1817,7 +1817,7 @@ To see the level, combine flexible-price labor supply, technology, and markup:
 Subtract its reference-deviation equation from \eqref{eq:nk-mc-output}:
 \begin{align}
  0&=\gamma\hat y_t^n-\frac{1+\varphi}{1-\alpha}a_t,\\
- \widehat{mc}_t&=\gamma(\hat y_t-\hat y_t^n)=\gamma x_t,\\
+ \hat{mc}_t&=\gamma(\hat y_t-\hat y_t^n)=\gamma x_t,\\
  \pi_t&=\beta E_t\pi_{t+1}+\kappa x_t,
  \qquad x_t=\hat y_t-\hat y_t^n,\quad
  \kappa=\lambda_p\Omega\gamma>0.
@@ -1978,7 +1978,7 @@ The earlier Taylor cancellation, applied to the finite sum, gives
 \begin{align}
  (1+\zeta)\hat p_t^{(3)}\sum_{k=0}^2\beta^k
  &=E_t\sum_{k=0}^2\beta^k
-                  [(1+\zeta)\hat p_{t+k}+\widehat{mc}_{t+k}],\\
+                  [(1+\zeta)\hat p_{t+k}+\hat{mc}_{t+k}],\\
  \hat p_t^{(3)}
  &=\frac{p_t^{\mathrm{tar}}+\beta E_tp_{t+1}^{\mathrm{tar}}
                         +\beta^2E_tp_{t+2}^{\mathrm{tar}}}{1+\beta+\beta^2}.
@@ -2488,6 +2488,7 @@ unconstrained rate in the local solution may be infeasible at a lower bound.
 These omissions suggest the next models and policy extensions rather than
 invalidating the mechanism just isolated.
 
+\Needspace{10\baselineskip}
 \subsection{Bridge: reconstruct IS--LM and AD--AS from the decisions}
 \label{sec:nk-islm-adas}
 

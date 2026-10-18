@@ -15,8 +15,8 @@ layout changes must preserve substantive content.
 
 [AGENTS.md](AGENTS.md) directs future editing work to those standards.
 [REVISION_PLAN.md](REVISION_PLAN.md) records the structure and revision history;
-[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records the growth-model and RBC condition
-comparisons, including the New Keynesian chapter. [DERIVATION_AUDIT.md](DERIVATION_AUDIT.md) separately maps the
+[CONDITION_AUDIT.md](CONDITION_AUDIT.md) records condition comparisons for growth,
+RBC, and New Keynesian models. [DERIVATION_AUDIT.md](DERIVATION_AUDIT.md) separately maps the
 restored mathematical routes and intermediate operations. The intended reader has completed intermediate macroeconomics;
 the introduction is a bridge to graduate study, not a repeat of that course.
 
