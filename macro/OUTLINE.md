@@ -229,13 +229,13 @@ chapter of Part V.
 
 ### 11. New Keynesian Model
 
-- From RBC to demand and prices that survive the meeting: raw modeling questions
+- Why demand can change output: from RBC to nominal price constraints
 - Ten detailed condition cards: agents, timing, nominal accounts, and closure
 - Two-stage household choice
   - CES expenditure minimization and utility maximization
   - Finite-good normalization, bonds, money utility, and rate units
 - Firms: cost minimization, flexible markups, and the full Calvo profit problem
-- Inflation from two retained course routes
+- From individual prices to aggregate inflation
   - Multivariate Taylor expansion and discounted inflation-series cancellation
   - Desired targets, reset prices, and inherited price vintages
 - Price dispersion, marginal cost, natural output, and efficient output
@@ -245,7 +245,7 @@ chapter of Part V.
 - Solved policy innovation: coefficient matching, quantities, rates, prices, and money
   - Original six-panel figure with reproducible model calculations
 - Expectations, technology shocks, indexation, sticky information, and model limits
-- Bridge from intermediate IS–LM / AD–AS to the microfounded system
+- IS–LM / AD–AS with microfoundations
   - Derive conditional IS, LM, AD, and AS step by step
   - Contrast quantity closure with IS–MP and inflation-space diagrams
   - Compare assumptions, expectations, benchmarks, and welfare

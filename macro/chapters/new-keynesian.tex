@@ -954,7 +954,7 @@
 % policy responses or welfare losses.
 % END ORIGINAL NK COURSE TEXT
 
-\subsection{From production opportunities to prices that survive the meeting}
+\subsection{Why can demand change output?}
 
 RBC taught us to ask what changed in production opportunities and how households
 reallocated consumption and work. Now consider a different hypothetical sequence.
@@ -1004,11 +1004,11 @@ productivity shock can move the flexible-price benchmark itself; a fall in
 observed output alone does not identify a demand shortfall.
 \end{greenblock}
 
-\subsection{Conditions: who chooses what, and when?}
+\subsection{Economic environment and timing}
 
-We first build a closed, labor-only economy. This retains the course's fixed-factor
-route and isolates price adjustment; it is not the full capital-accumulation RBC
-model with an extra Phillips curve attached.
+A closed, labor-only economy isolates the price-adjustment mechanism. Any fixed
+factor remains in place; there is no investment decision. Capital accumulation
+can be added later, once spending and price setting are understood.
 
 \Needspace{12\baselineskip}
 \begin{modelsetup}[1]
@@ -1169,7 +1169,7 @@ checked after the policy rule is specified.
 \end{modelsetup}
 
 \begin{blueblock}
-\textbf{A translation of the course's price notation.}
+\textbf{Two conventions for the Calvo probability.}
 Here $\theta$ always means \emph{keep} the price. In the first course derivation,
 $\theta_{\mathrm{adjust}}=1-\theta$; in its later vintage-price derivation,
 $\theta_{\mathrm{keep}}=\theta$. We use $P^{\#}$ for the price actually chosen
@@ -1216,9 +1216,9 @@ Thus the household's many purchases can be represented in its budget by $PC$.
 A seller that raises its price relative to the index loses customers with
 elasticity $-\partial\log C_i/\partial\log(P_i/P)=\epsilon$.
 
-\subsubsection{Utility maximization: the same allocation from the other side}
+\subsubsection{Choosing a basket with a given budget}
 
-The course also takes expenditure $Z$ as given and maximizes the basket:
+Alternatively, fix expenditure $Z$ and choose the largest affordable basket:
 \begin{align}
  \max_{\{C_i\}}\mathcal C&\quad\text{subject to }\int P_iC_i\,di\leq Z,\\
  \mathcal L&=\mathcal C+\ell\left(Z-\int P_iC_i\,di\right),\\
@@ -1237,10 +1237,10 @@ and maximizes the basket. The price index makes their answers consistent.
 $Z$ is expenditure available at this date, not necessarily an exogenous lifetime
 endowment: the next stage determines how much to spend.
 
-\subsubsection{A finite number of goods: keep the normalization consistent}
+\subsubsection{A finite number of goods and the units of the basket}
 
-For $J$ goods, the course uses a mean rather than a sum inside the basket.
-Retain that convention and define
+For $J$ goods, write the basket using a mean rather than a sum. This choice
+changes the units of the composite and its price index. Define
 \begin{align}
  C&=\left(\frac1J\sum_{j=1}^J C_j^r\right)^{1/r},\qquad
  \text{bill}=\sum_{j=1}^JP_jC_j,\\
@@ -1329,7 +1329,7 @@ not proof of competitive pricing. The product market's demand elasticity and
 pricing choice determine its market structure.
 \end{blueblock}
 
-\subsubsection{Money-demand linearization: three different interest-rate units}
+\subsubsection{Money demand and interest-rate conventions}
 
 Let hats denote log deviations from the deterministic reference. From
 \eqref{eq:nk-money-exact},
@@ -1366,7 +1366,7 @@ Near $i=0$, the log of the opportunity cost is singular and the semi-elasticity
 becomes large. A zero-bound experiment cannot be obtained by blindly extending
 this local money-demand line through zero.
 
-\subsection{The firm: from hiring labor to choosing a surviving price}
+\subsection{Labor costs and price setting}
 
 \subsubsection{Cost minimization and the flexible-price markup}
 
@@ -1408,7 +1408,7 @@ permission to reprice. Flexible prices and perfect competition remove different
 restrictions; a steady price in an unchanging economy proves neither one.
 \end{redblock}
 
-\subsubsection{Calvo pricing: differentiate the whole profit stream}
+\subsubsection{Choosing a price that may remain in place}
 
 Let $s=t+k$. Conditional on a reset price surviving, sales are
 $Y_{s|t}=(P_t^{\#}/P_s)^{-\epsilon}Y_s$. The household values one nominal unit
@@ -1458,7 +1458,7 @@ $MC_{s|t}^n$ depends on the chosen reset price. A long-lived price balances
 lost margin at a low price against lost sales at a high one across dates and
 states, rather than setting today's markup in every future state.
 
-\subsubsection{Cancel the common factors; retain the conditional expectation}
+\subsubsection{The optimal reset price}
 
 Substitute the discount factor and demand into each weight:
 \begin{align}
@@ -1516,9 +1516,9 @@ expectation of date-specific ratios. The first-order approximation below
 removes products of deviations; the exact problem does not.
 \end{blueblock}
 
-\subsection{From the price problem to inflation: two complete routes}
+\subsection{From individual prices to aggregate inflation}
 
-\subsubsection{First expand each side of the pricing equation}
+\subsubsection{The reset price near a steady state}
 
 Let $\hat p_t=\log(P_t/\bar P)$, $\hat p_t^{\#}=\log(P_t^{\#}/\bar P)$,
 and $\hat{mc}_t^n=\log(MC_t^n/\overline{MC}^n)$.
@@ -1599,7 +1599,7 @@ target in this weighted sum. Separate its first term and reindex $h=k-1$:
 The second equality uses iterated expectations. It does not remove forecasting
 from the pricing problem.
 
-\subsubsection{Aggregate prices: a reset cohort and inherited cohorts}
+\subsubsection{Reset prices and inherited prices}
 
 A fraction $1-\theta$ chooses $P_t^{\#}$ and the remaining fraction keeps its
 old price distribution. Independent selection leaves that distribution
@@ -1645,10 +1645,11 @@ $\hat p_{t+1}^{\#}-\hat p_t=r_{t+1}^{\#}+\pi_{t+1}$:
 This is the marginal-cost New Keynesian Phillips curve. It is a local pricing
 condition, not an assumed correlation between inflation and unemployment.
 
-\subsubsection{The course's first route as an explicit inflation-series cancellation}
+\subsubsection{Inflation as a sequence of price changes}
 
-There is a second way to finish the same first route before using the reset
-recursion. Subtract $\hat p_{t-1}$ directly in \eqref{eq:nk-reset-linear}:
+The reset price depends on future price levels, whereas inflation records
+the changes between those levels. Writing each price difference as a sum of
+inflation rates makes that connection explicit. Subtract $\hat p_{t-1}$ directly in \eqref{eq:nk-reset-linear}:
 \begin{align}
  \frac{\pi_t}{1-\theta}
  &=H_t+(1-\beta\theta)E_t\sum_{k\geq0}(\beta\theta)^k
@@ -1679,15 +1680,14 @@ $V_t=H_t+J_t=\pi_t/(1-\theta)$. Separating their first terms gives
  \pi_t&=\lambda_p\Omega\hat{mc}_t+\beta E_t\pi_{t+1}.
 \end{align}
 The discount powers and expectations stay attached to every future term.
-This is the long-sum cancellation in the original notes, with those weights
-kept visible.
+The cancellation shows how the expected sequence of price changes enters
+today's inflation condition.
 
-\subsubsection{The course's second route: price vintages and the target price}
+\subsubsection{Price vintages and the Phillips curve}
 
-The previous route started from the profit derivative. The course also starts
-from a target price, a weighted reset price, and the distribution of old prices.
-Retain that organization, with the target now derived above. If inherited
-history is generated by the same Calvo mechanism, iterating
+The same inflation condition can be understood through the prices firms inherit.
+Today's price index combines newly chosen prices with prices set at earlier
+dates. If inherited history is generated by the same Calvo mechanism, iterating
 \eqref{eq:nk-price-aggregation} backward yields
 \begin{align}
  \hat p_t&=(1-\theta)\hat p_t^{\#}+\theta\hat p_{t-1}\\
@@ -1733,9 +1733,9 @@ The two routes agree because their pricing target, timing, and aggregation
 are now the same. Changing the target coefficient changes the economic model,
 not merely the speed of the derivation.
 
-\subsection{Natural output: translate costs into an output gap}
+\subsection{Natural output and inflationary pressure}
 
-\subsubsection{Keep the exact price-dispersion term before linearizing}
+\subsubsection{Price dispersion and aggregate production}
 
 Use demand and technology firm by firm, then aggregate labor:
 \begin{align}
@@ -1823,14 +1823,14 @@ Subtract its reference-deviation equation from \eqref{eq:nk-mc-output}:
  \kappa=\lambda_p\Omega\gamma>0.
  \label{eq:nk-pc-gap}
 \end{align}
-The course's cost-to-gap coefficient $\gamma$ is retained. With decreasing
-returns, the additional $\Omega$ comes from tracking a resetter's own sales
-in its marginal cost. It equals one in the linear-production course case.
+The coefficient $\gamma$ measures how real marginal cost responds to the output
+gap. With decreasing returns, $\Omega$ also tracks the effect of a resetter's
+own sales on its marginal cost. It equals one under linear production.
 
-\subsubsection{Revisit the alternative desired-price calculation}
+\subsubsection{Desired prices under linear production}
 
-The original second route derives a desired relative price before staggering
-it. For $\alpha=0$, keeping this calculation separate is especially clear:
+With linear production, the desired relative price has a particularly direct
+connection to wages and productivity. Set $\alpha=0$ and write:
 \begin{align}
  \frac{P_{it}^d}{P_t}&=\mu\frac{W_t/P_t}{A_t}
                =\mu\chi\frac{Y_t^\sigma N_t^\varphi}{A_t},\\
@@ -1856,7 +1856,7 @@ Changing the price of a single measure-zero firm does not replace $N_t$
 by that firm's $N_{it}$ in the household's labor condition.
 
 \begin{blueblock}
-\textbf{Where would the course's $1+\epsilon\varphi$ come from?}
+\textbf{The $1+\epsilon\varphi$ denominator and labor supply}
 If one substitutes $N_{it}=(P_{it}/P_t)^{-\epsilon}Y_t/A_t$ in place of
 aggregate $N_t$, the algebra gives
 \[
@@ -1866,11 +1866,11 @@ aggregate $N_t$, the algebra gives
 The extra denominator is a consequence of that substitution. It does not follow
 from the stated common competitive labor market. A separate model with an
 appropriate firm-level wage or real rigidity may produce a different target
-coefficient; its conditions must be supplied first. The intended target-price
-route is retained here with aggregate labor kept distinct from firm labor.
+coefficient; its conditions must be supplied first. Under the common-wage
+assumption, aggregate labor and a firm's own employment remain distinct.
 \end{blueblock}
 
-\subsubsection{Natural is not necessarily efficient}
+\subsubsection{Natural output and efficient output}
 
 For the goods-and-hours planner with symmetric production, solve
 \begin{align}
@@ -1958,11 +1958,11 @@ an expansionary stance if expected inflation or the natural rate fell further.
 This is a hypothetical mechanism, not a diagnosis of a particular recession.
 \end{greenblock}
 
-\subsection{A useful contrast: three-period contracts instead of Calvo selection}
+\subsection{Fixed-duration contracts and staggered adjustment}
 
-The course asks what happens if three groups take turns resetting. Complete
-that example separately: one third of firms resets every date, and each reset
-price lasts exactly three periods. The duration is known; future aggregate
+Suppose firms know exactly how long their prices will remain in place. Divide
+them into three equal cohorts that take turns resetting: one third resets every
+date, and each reset price lasts exactly three periods. The duration is known; future aggregate
 conditions remain uncertain. There are three cohorts of firms, not just three
 strategic firms whose individual decisions move the price index.
 
@@ -2002,7 +2002,7 @@ Economy 88(1), 1--23, and Calvo (1983), \textit{Staggered Prices in a
 Utility-Maximizing Framework}, Journal of Monetary Economics 12(3), 383--398.
 The three-period price example here is a teaching construction.}
 
-\subsection{Close the equilibrium: a money quantity or an interest-rate rule}
+\subsection{Monetary policy and equilibrium}
 
 The household and firm problems deliver two core equations:
 \begin{align}
@@ -2014,7 +2014,7 @@ another equilibrium relation; merely adding another unknown does not close
 the system. We must also specify initial states, shock processes, and the
 bounded or terminal behavior selecting admissible paths.
 
-\subsubsection{Quantity closure: money demand is not the policy rule}
+\subsubsection{Equilibrium with an exogenous money supply}
 
 With money, add the household condition and price-level accounting:
 \begin{align}
@@ -2038,10 +2038,10 @@ adds a restriction and generally conflicts with the interest-elastic money
 demand derived here. Technology, preferences, and policy innovations can all
 be exogenous; the word ``real'' is not a synonym for ``exogenous.''
 
-\subsubsection{Interest closure: let money accommodate the chosen rate}
+\subsubsection{Equilibrium under an interest-rate rule}
 
-Use the course's contemporaneous reaction rule, with constant zero inflation
-target and the natural output gap:
+Let the authority respond to current inflation and the natural output gap,
+with a constant zero inflation target:
 \begin{align}
  j_t&=\phi_\pi\pi_t+\phi_x x_t+\nu_t,\qquad
  \phi_\pi,\phi_x\geq0,\\
@@ -2052,8 +2052,8 @@ The coefficients describe systematic responses; $\nu_t$ is a deviation from
 that rule. A change in a coefficient changes the rule itself and is not the
 same experiment as a one-time innovation. The rule is written in log gross-rate
 deviations; $\phi_x$ multiplies the output gap, not output without qualification.
-The course also writes feedback on output relative to its steady reference.
-That is a distinct convention when technology moves:
+A rule can instead respond to output relative to its steady reference.
+The distinction matters when technology moves:
 \begin{align}
  j_t&=\phi_\pi\pi_t+\phi_x\hat y_t+\nu_t\notag\\
  &=\phi_\pi\pi_t+\phi_x x_t+(\nu_t+\phi_x\hat y_t^n).
@@ -2072,7 +2072,7 @@ that recovery does not feed back into the goods and hours equations. If money
 is omitted, there is no money equation to solve. In neither case may an
 independent fixed money stock be added while keeping the same rate rule.
 
-\subsubsection{Reduce the three equations to a two-variable system}
+\subsubsection{Output and inflation as a joint dynamic system}
 
 Substitute the interest rule into dynamic IS, then substitute the Phillips
 curve for current inflation:
@@ -2111,7 +2111,7 @@ Thus, for $z_t=(x_t,\pi_t)'$,
 The lower shock coefficient is $\kappa/D$, not $1/D$. Both rows must represent
 the same substitution; this coefficient is easy to lose when compressing steps.
 
-\subsubsection{Existence and uniqueness: count the right roots}
+\subsubsection{When is the equilibrium unique?}
 
 Conditional on exogenous states, $x_t$ and $\pi_t$ are both jump variables in
 this baseline. There is no inherited capital stock fixing one of them. Since
@@ -2189,9 +2189,9 @@ matrix direction must be checked anew. The inherited nominal price level still
 matters for levels, but it drops out of this inflation-targeting gap system.
 \end{blueblock}
 
-\subsection{Solve a monetary disturbance rather than just name its channels}
+\subsection{The effects of a monetary policy shock}
 
-\subsubsection{Undetermined coefficients, with every substitution visible}
+\subsubsection{Solving for output and inflation}
 
 Hold technology and the preference shifter at their reference, so
 $\hat y_t^n=r_t^n=0$. For the AR(1) rule disturbance, try
@@ -2243,7 +2243,7 @@ A positive policy-rule disturbance reduces the output gap and inflation in
 this experiment. Its persistence changes both the duration and the initial
 response because anticipated future conditions already affect today's choices.
 
-\subsubsection{Recover the time paths, nominal rate, and real rate}
+\subsubsection{The paths of output, inflation, and interest rates}
 
 Substitute the shock process into the output solution, then identify the lagged
 solution rather than treating a jump variable as predetermined:
@@ -2274,7 +2274,7 @@ The real rate rises for a positive disturbance. The nominal rate's sign also
 depends on falling expected inflation; a positive rule intercept is not a
 universal guarantee that the realized nominal rate rises.
 
-\subsubsection{Finish the original money calculation}
+\subsubsection{Price levels and the demand for money}
 
 Consider one innovation $\varepsilon_0^\nu=e>0$, zero subsequent innovations,
 and zero prehistory. Then $\nu_t=\rho_\nu^t e$. Accumulate inflation to recover
@@ -2316,7 +2316,7 @@ A price-level target would change that result. With $\rho_\nu=0$, the gap and
 inflation effects last one period, but the price-level change remains; delayed
 peaks do not arise automatically from Calvo staggering alone in this baseline.
 
-\subsubsection{A reproducible numerical example}
+\subsubsection{A numerical policy experiment}
 
 Choose illustrative quarterly parameters, without estimation:
 \begin{align}
@@ -2375,7 +2375,7 @@ one another. It would be misleading to read the six panels as six independent
 causal regressions, or to infer the policy innovation directly from observed
 rate movements alone.
 
-\subsection{Expectations, persistence, and what the baseline leaves out}
+\subsection{Expectations, persistence, and the model's limits}
 
 \subsubsection{Current inflation depends on a path of gaps}
 
@@ -2421,10 +2421,10 @@ alone. A rule that also tracks $r_t^n$ admits $x_t=\pi_t=0$ for this shock
 under the same determinacy conditions. The technology is the same; the policy
 response changes how closely demand follows the moving benchmark.
 
-\subsubsection{A lagged-inflation term needs a changed pricing mechanism}
+\subsubsection{Price indexation and inflation persistence}
 
-The course asks whether lagged inflation can improve persistence. Make one
-explicit extension: a nonresetting firm indexes its price to the previous
+What makes past inflation affect current pricing directly? One possibility
+is indexation: a nonresetting firm updates its price using the previous
 period's aggregate inflation at rate $\iota\in[0,1]$:
 \begin{align}
  P_{it}&=P_{i,t-1}\Pi_{t-1}^{\iota}\quad\text{if it does not reset}.
@@ -2469,7 +2469,7 @@ Sticky Prices}, working paper 2001, published in the Quarterly Journal of
 Economics 117(4), 2002, 1295--1328.}
 \end{blueblock}
 
-\subsubsection{Use the model's omissions to ask the next question}
+\subsubsection{Which mechanisms are still missing?}
 
 A weaker spending path with unchanged technology is a demand mechanism here;
 more expensive inputs or a changing markup need additional wedges. The
@@ -2489,17 +2489,17 @@ These omissions suggest the next models and policy extensions rather than
 invalidating the mechanism just isolated.
 
 \Needspace{10\baselineskip}
-\subsection{Bridge: reconstruct IS--LM and AD--AS from the decisions}
+\subsection{IS--LM and AD--AS with microfoundations}
 \label{sec:nk-islm-adas}
 
 The familiar diagrams are useful here because their ingredients have just
 been derived. We can now see which household or firm choice supplies each
 slope, which expectations are being held fixed, and which policy closure makes
-an LM curve relevant. This bridge belongs with the model's derivation. Broader
-comparisons of fiscal and monetary policy belong in the policy part; the later
-topics apply those tools to specific economic problems.
+an LM curve relevant. To connect the dynamic model to the familiar diagrams,
+first examine current decisions conditional on a given future outlook, then
+ask how that outlook changes in equilibrium.
 
-\subsubsection{Recover a conditional IS curve from the Euler equation}
+\subsubsection{Intertemporal consumption and the IS curve}
 
 In the intermediate model, a common starting point is
 \begin{align}
@@ -2535,7 +2535,7 @@ contradiction: when every household wants to postpone purchases at the quoted
 rate, current income and prices must adjust until desired holdings clear.
 Individual desired saving and realized aggregate saving are different objects.
 
-\subsubsection{Recover LM only under a money-quantity experiment}
+\subsubsection{Money demand and the LM curve}
 
 With a fixed current money stock and price level, money-market clearing is
 \begin{align}
@@ -2557,7 +2557,7 @@ replaced by the policy-rate relation. If policy follows a reaction rule,
 its slope depends on the variables included in that rule. Describing both
 experiments as the same ``money shift'' conceals the policy assumption.
 
-\subsubsection{Eliminate the interest rate to obtain conditional AD}
+\subsubsection{Aggregate demand under a money-supply rule}
 
 Hold $d_t,e_t,\hat m_t$ fixed. Substitute \eqref{eq:nk-static-lm} into
 \eqref{eq:nk-static-is}, preserving the real-rate subtraction:
@@ -2579,7 +2579,7 @@ level reduces real money, raises the interest rate at given money, and postpones
 purchases at the fixed future outlook. That familiar mechanism survives, with
 explicit assumptions supplying the fixed outlook and the money-demand slope.
 
-\subsubsection{Translate the Phillips curve into conditional AS}
+\subsubsection{Price setting and aggregate supply}
 
 Keep inherited $\hat p_{t-1}$, expected next inflation $e_t$, and natural
 output $\hat y_t^n$ fixed. Since $\pi_t=\hat p_t-\hat p_{t-1}$,
@@ -2610,7 +2610,7 @@ level. In a full policy experiment, however, future output, expected inflation,
 and often the money path change together. The intercepts must be recomputed
 from the dynamic equilibrium rather than held fixed by habit.
 
-\subsubsection{With an interest rule, the natural diagram uses inflation}
+\subsubsection{Aggregate demand under an interest-rate rule}
 
 For the actual rule used in our shock experiment, substitute
 \eqref{eq:nk-rule} into gap IS and rearrange:
