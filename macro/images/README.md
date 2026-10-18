@@ -187,3 +187,34 @@ the conditional Euler relation, and the unreduced IS/NKPC/Taylor equations in
 the MP panel. Shift arrows connect points on the relevant before/after curves.
 Indices 0 and 1 denote compared configurations at the same date. Fonts are
 embedded and PDF timestamps omitted.
+
+## Staggered wage and price contracts
+
+`sticky_wage_responses.pdf` is an original six-panel vector comparison of one
+policy innovation under price stickiness only, wage stickiness only, and both.
+`sticky_wage_responses.png` is its preview. Regenerate with:
+
+```sh
+.venv/bin/python macro/images/sticky_wage_responses.py
+```
+
+Parameters are beta=.99, sigma=phi=1, alpha=1/3, epsilon_p=epsilon_w=6,
+phi_pi=1.5, phi_x=.125, and rho_nu=.5. A sticky contract has retention .75;
+a flexible contract uses its static markup condition. Every variant includes
+differentiated labor and constant wage-market power; each response is relative
+to its own natural reference. The price-only gap coefficients match the earlier
+NK case, but the wage markup changes the reference level. No physical capital,
+data, estimation, or empirical fit is introduced.
+
+All paths start from zero real-wage and policy states; the initial rule
+innovation is .001 in log gross-rate units, with zero subsequent innovations.
+The six panels are output gap, price inflation, wage inflation, real-wage gap,
+wage-markup deviation, and expected real interest rate. Rate panels show 10,000
+times quarterly log deviations; others show 100 times log deviations. All
+variants are solved afresh using a generalized matrix pencil, with one inherited
+endogenous state and three jump variables; flexible constraints are static.
+The both-contract policies are independently checked against the scalar
+quartic and shock formulas shown in the text. The generator verifies all
+unreduced IS, pricing, wage, real-wage and policy equations, checks the root
+count, and confirms nonzero contract propagation for an iid innovation.
+Additional primitive and finite-horizon checks are in `../scripts/verify_sticky_wages.py`.

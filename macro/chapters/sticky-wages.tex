@@ -1,139 +1,1194 @@
 % !TEX root = ../macro.tex
 \section{Sticky Wage Model}\label{sec:sticky-wages}
 
-Before good market is price-sticky and monopolistic competitive, now the setting goes to labor market.
+% BEGIN ORIGINAL STICKY WAGE COURSE TEXT (comparison only)
+% % !TEX root = ../macro.tex
+% \section{Sticky Wage Model}\label{sec:sticky-wages}
+%
+% Before good market is price-sticky and monopolistic competitive, now the setting goes to labor market.
+% \begin{align}
+% & Y_{it}=(\frac{P_{it}}{P_t})^{-\epsilon_P}Y_t
+% \text{ (good demand curve, $\epsilon$ is substitute elasticity)}
+% \\& P_t=(\int_0^1P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon_p}}\text{ (total price)}
+% \\& W_t=W_{it}=\int_0^1 W_{it}di
+% \\& P^*_{it}=c+\alpha \tilde y_t \text{ (desired price)}
+% \end{align}
+%
+% labor market m.c. (as in classical model) and sticky wage (partial rigidity, in contrary to total rigidity where all wages are rigid).
+%
+% 1)
+% labor demand curve and total wage price level
+% \begin{equation}
+% \begin{split}
+% & \min \int_0^1 W_{jt} N_{ijt}dj
+% \\& s.t. A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_W-1}{\epsilon_W}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}\geqslant A_t N_{it}^{1-\alpha}
+% \end{split}
+% \end{equation}
+% where $i$ indexing firm, $j$ indexing labor, $t$ is time
+%
+%
+% Form a Lagrangian
+% \begin{align}
+% & \mathcal{L}=\int_0^1 W_{jt} N_{ijt}dj+W_t\{
+% A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_w-1}{\epsilon_w}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}-A_t N_{it}^{1-\alpha}
+% \}
+% \end{align}
+% where Lagrangian multiplier is total wage level
+%
+% Solving the optimization problem results
+% \begin{align}
+% & \Rightarrow
+% \color{red}
+% \begin{cases}
+% N_{ijt}=(\frac{W_{jt}}{W_t})^{-\epsilon_W}N_{it} \text{ (labor supply equation)}
+% \\
+% W_t=(\int_0^1 W_{jt}^{1-\epsilon_W}dj)^{\frac{1}{1-\epsilon_W}} \text{ (expression of total wage level)}
+% \end{cases}
+% \end{align}
+%
+%
+%
+% 2)
+% UMP of household
+%
+% in utility function N is labor demand instead of labor supply as before. this is because of m.c. labor market.
+% \begin{equation}
+% \begin{split}
+% &u=u(C_t,N_t)
+% \\&=u(C_t,\{N_{jt}\})
+% \\&=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\int_0^1 \frac{N_j^{1+\varphi}}{1+\varphi}dj \text{ (CES style)}
+% \end{split}
+% \end{equation}
+%
+% the UMP can be rewritten as
+% \begin{equation}
+% \begin{split}
+% \max_{\{C_t,W_t^*\}} \sum\limits_{t-0}^{\infty} \beta^t u(C_t,\int_0^1 N_{jt}dj) \iff \max \sum\limits_{t=0}^{\infty} \beta^t u(C_t,\int_0^1 (\frac{W_t^*}{W_t})^{-\epsilon_W} N_{it} dj)
+% \\s.t. P_t C_t+Q_t B_t \leqslant \int_0^1 W_t^* (\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it}dj+B_{t-1}
+% \end{split}
+% \end{equation}
+% here $W_t^*$ instead of original because all wages can be adjusted, eventually they will be the same
+%
+%
+% a simplified version would be
+% \begin{equation}
+% \begin{split}
+% & \max \sum\limits_{t=0}^{\infty}\beta^t u(C_t,(\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it})
+% \\& s.t. P_t C_t +Q_t B_t \leqslant W_t^*(\frac{W_t^*}{W_t})^{-\epsilon_W}+B_{t-1}-T_t
+% \end{split}
+% \end{equation}
+%
+%
+% \begin{equation}
+% \begin{split}
+% & \max\limits_{W^*_0}  \sum\limits_{t=0}^{\infty}\beta^t \theta_W^t u(C_{t|0},N_{t|0})
+% \\& s.t.
+% \begin{cases}
+% C_{t|0}=\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]
+% \\
+% N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve, left with only $W^*_0$)}
+% \end{cases}
+% \end{split}
+% \end{equation}
+% sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole equation to stay put.
+%
+%
+% put two constraints in the max part, now the optimization problem is a unconstrainted one
+% \begin{align}
+% & \max_{W_0^*} \sum\limits_{t=0}^{\infty} (\beta \theta_W )^t
+% u(
+% {\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]},
+% (\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it}
+% )
+% \\& FOC \Rightarrow E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W)(\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}-
+% u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)^{-1}} \frac{1}{W_t} N_{it})
+% ]
+% \\& = E_0 \sum_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W) (\frac{W_0^*}{W_t})^{-\epsilon_W} W_t^{\epsilon_W} N_{it}-
+% u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)} W_t^{\epsilon_W} N_{it} \frac{1}{W_0^*})
+% ]
+% \end{align}
+%
+% move some exogenous variables out since they basically can be treated as constants
+% \begin{align}
+% & \Rightarrow  (1-\epsilon_W)(W_0^*)^{-\epsilon_W} \dots
+% \\& = \epsilon_W (W_0^*)^{-\epsilon_W^{-1}}
+% \\& \Rightarrow W_0^*=\frac{\epsilon_W}{1-\epsilon_W}
+% \frac{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})W_t^{\epsilon_W}N_{it}}{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}}
+% \end{align}
+%
+% use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the equation is essentially an inflation equation
+% \begin{align}
+% & W_0^*= \frac{\epsilon_W}{\epsilon_W-1}
+% \frac{
+% E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})MRS_{t|0} W_t^{\epsilon_W}N_{it}
+% }{
+% E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}
+% }
+% \\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no equation above)}
+% \end{align}
+%
+% now based on the perspective at period $t$
+% \begin{align}
+% & W_t^* = \frac{\epsilon_W}{\epsilon_W-1}
+% \frac{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})MRS_{t+k|t}W^{\epsilon_W}_{t+k|t}}{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})\frac{1}{P_{t+k}}W^{\epsilon_W}_{t+k|t}}
+% \text{ (at t period instead 0 period)}
+% \\& \Rightarrow \frac{W_t^*}{P_t}=\frac{\epsilon_W}{\epsilon_W-1}MRS \text{ (if elasticity wage and monopolistic competitive at t period)}
+% \end{align}
+%
+%
+% \begin{blueblock}
+% \begin{note}[M.C. firm choice variable for optimization problem]
+% MC firm can choose price max or quantity max
+% \end{note}
+% \end{blueblock}
+% END ORIGINAL STICKY WAGE COURSE TEXT
+
+\subsection{What if the wage contract survives the change in demand?}
+
+Imagine a supplier whose orders fall while its annual pay agreements remain
+in place. The supplier can reduce shifts before it can renegotiate the wage
+schedule. Alternatively, product prices may rise before the next wage review,
+reducing the purchasing power of an unchanged nominal wage. Both situations
+ask how employment, labor cost, and household welfare adjust when the wage
+quote was chosen earlier. Neither situation is described by saying simply
+that the real wage is fixed.
+
+The previous chapter let product prices adjust slowly but treated labor as
+homogeneous and competitively traded. The household's marginal willingness to
+work therefore equaled the common real wage at each date. To make wage setting
+a meaningful choice, first give labor suppliers distinct services. A higher
+wage then loses some employment, rather than either losing every customer or
+leaving employment unaffected. A wage setter balances income against the
+burden of supplying the hours employers demand at its quoted wage.
+
+Next let that quote survive beyond the current date. A pay agreement that
+looks attractive today may bring too many hours in a future boom or too little
+income in a downturn. Wage setting must therefore consider future demand,
+prices, and consumption valuation. Finally, allow product prices and wages to
+be sticky together. The real wage becomes the link between households' labor
+trade-off and firms' marginal costs, with neither side always able to move
+its nominal quote immediately.
+
+This is a teaching reconstruction. The model follows the staggered-wage and
+price framework of Erceg, Henderson, and Levin, with the notation and local
+pricing conventions of our NK chapter.\footnote{Erceg, Henderson, and Levin
+(2000), \textit{Optimal Monetary Policy with Staggered Wage and Price Contracts},
+Journal of Monetary Economics 46(2), 281--313; the
+\href{https://www.federalreserve.gov/econres/ifdp/optimal-monetary-policy-with-staggered-wage-and-price-contracts.htm}{authors' Federal Reserve working-paper version}
+is dated 1999. See also Gal\'{\i}'s
+\href{https://crei.cat/people/gali/}{official Chapter 6 teaching materials}.
+The derivations and numerical examples below state their own assumptions.}
+
+\begin{greenblock}
+\textbf{Two contracts, two adjustment margins.}
+A seller chooses what customers pay; a wage setter chooses what employers
+pay for its labor service. Delayed product-price adjustment affects the
+allocation of spending across goods. Delayed wage adjustment affects the
+allocation of work across labor types. The two restrictions interact through
+the real wage and the cost of producing goods.
+\end{greenblock}
+
+\subsection{Economic environment and timing}
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{Products, labor types, and the household family}
+Time is $t=0,1,\ldots$. There is a unit continuum of product varieties
+$i\in[0,1]$ and labor services $j\in[0,1]$. A large representative family pools
+its members' wage income and owns the firms. Consumption insurance within the
+family equalizes consumption valuation across labor types; there is no
+uninsured idiosyncratic consumption risk in this model. Each labor type has an
+atomistic wage setter acting for the family and facing employers' demand for
+that type. Product firms and wage setters take aggregate prices and quantities
+as given. The economy is closed, with no capital accumulation, investment,
+government purchases, banks, or job-search market.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{02}{Two CES composites and two price indices}
+For $\epsilon_p,\epsilon_w>1$, product output and the labor input of firm $i$ are
+\[
+ Y_t=\left[\int Y_{it}^{(\epsilon_p-1)/\epsilon_p}di\right]^{\epsilon_p/(\epsilon_p-1)},
+ \qquad N_{it}=\left[\int N_{ijt}^{(\epsilon_w-1)/\epsilon_w}dj\right]^{\epsilon_w/(\epsilon_w-1)}.
+\]
+Their dual indices are
+\[
+ P_t=\left[\int P_{it}^{1-\epsilon_p}di\right]^{1/(1-\epsilon_p)},
+ \qquad W_t=\left[\int W_{jt}^{1-\epsilon_w}dj\right]^{1/(1-\epsilon_w)}.
+\]
+$N_{ijt}$ is type-$j$ work used at firm $i$; $N_{jt}=\int N_{ijt}di$ is demand
+for that type across all firms. Write $N_t=\int N_{it}di$ for the aggregate
+quantity of composite labor used by firms. It also equals the CES composite
+of the $N_{jt}$ because every firm uses the same cost-minimizing type shares.
+Physical hours $H_t=\int N_{jt}dj$ need not equal $N_t$ away from symmetry.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{03}{Technology, firms, and ownership income}
+Firm $i$ produces $Y_{it}=A_tN_{it}^{1-\alpha}$ with $A_t>0$ and
+$0\leq\alpha<1$. If $\alpha>0$, its fixed factor is normalized to one and is
+owned through the family; it is not accumulated or traded. A firm minimizes
+its labor bill for a required output, then chooses its product price when
+allowed. Both product and labor markets have finite substitution elasticities;
+constant desired gross markups are $\mu_p=\epsilon_p/(\epsilon_p-1)$ and
+$\mu_w=\epsilon_w/(\epsilon_w-1)$. Distributed nominal profits $D_t$ include
+fixed-factor income. The exact aggregate wage bill is $W_tN_t$, even when
+individual wage quotes differ.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{04}{Preferences and the cost of different hours}
+The family maximizes
+\[
+ E_0\sum_{t\geq0}\beta^t\xi_t
+ \left[v(C_t)-\frac\chi{1+\varphi}\int_0^1N_{jt}^{1+\varphi}dj\right],
+\]
+where $0<\beta<1$, $\chi>0$, $\sigma>0$, $\varphi\geq0$, and $\xi_t>0$.
+$v(C)=(C^{1-\sigma}-1)/(1-\sigma)$ if $\sigma\ne1$, and $v(C)=\log C$ if
+$\sigma=1$, so $v'(C)=C^{-\sigma}$. The course normalization is $\chi=1$.
+Labor disutility is the integral of each type's disutility; it is not utility
+evaluated at the arithmetic mean of hours. The marginal consumption compensation
+for type $j$ is $MRS_{jt}=\chi C_t^\sigma N_{jt}^{\varphi}$. Hours are interior
+and have no explicit finite endowment bound here. A wage quote constrains the
+hours demanded by employers; this does not change labor disutility into utility
+from employing workers.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{05}{Budget, nominal bonds, and feasibility}
+A bond costs $Q_t$ at $t$ and pays one currency unit at $t+1$. $B_t$ is its
+face value, $R_t^n=Q_t^{-1}=1+i_t$, and the family budget is
+\[
+ P_tC_t+Q_tB_t=B_{t-1}+\int W_{jt}N_{jt}dj+D_t.
+\]
+The initial maturing asset position is given; bonds have zero aggregate net
+supply. There are no baseline taxes or transfers. Lump-sum transfers, if
+introduced, must have an explicit counterpart; they are not production income.
+Each good clears at $Y_{it}=C_{it}$, giving $C_t=Y_t$ in composite units.
+The common nominal multiplier is $\lambda_t=\xi_tC_t^{-\sigma}/P_t$.
+Asset plans obey no-Ponzi restrictions and a vanishing terminal value,
+$\lim_{T\to\infty}E_0\beta^T\lambda_TQ_TB_T=0$.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{06}{Who may reset, and which quote survives?}
+A product firm retains its nominal price with probability $\theta_p$ and may
+reset with probability $1-\theta_p$. A labor type retains its nominal wage
+with probability $\theta_w$ and may reset with probability $1-\theta_w$.
+Selections are independent across units, dates, ages, and aggregate states;
+there is no baseline indexation. The main derivation uses
+$0<\theta_p,\theta_w<1$. A price or wage chosen now survives $k$ further
+periods with probability $\theta_p^k$ or $\theta_w^k$. Identical resetters choose
+common quotes $P_t^{\#}$ and $W_t^{\#}$; nonresetters retain a distribution of
+older quotes. Immediate adjustment, $\theta_p=0$ or $\theta_w=0$, will be treated
+by its static first-order condition, not by division by zero in a Phillips slope.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{07}{Information, choices, and aggregate demand}
+At date $t$, current shocks and inherited quotes are observed; eligible firms
+and wage setters choose their quotes. Employers choose labor inputs to meet
+goods demand, households allocate spending and assets, and markets clear
+jointly. $E_t$ is conditional on current information; future innovations are
+unknown. Employers' demand determines $N_{jt}$ at a type's posted wage.
+Wage setters choose the quote subject to that demand; they do not freely choose
+both a wage and an unrelated amount of work. Pooling income makes the same
+consumption multiplier relevant to all type-specific wage decisions.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{08}{Reference, dispersion, and inherited states}
+The deterministic reference has constant productivity, $\bar\xi=1$, symmetric
+prices and wages, and zero price and wage inflation. Hats denote log deviations
+from that reference; $\bar R^n=1/\beta$. Price dispersion affects aggregate
+production, and wage dispersion affects physical hours and labor disutility.
+They are retained exactly before linearizing; their first-order deviations
+vanish when inherited dispersion is initially zero. The inherited real wage,
+however, remains a first-order state when both contracts are sticky. A shock
+experiment starts from the stated symmetric reference, including its real wage;
+it cannot freely impose an unrelated current wage.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{09}{Shocks, policy, and the solution class}
+For general definitions, $a_t=\log(A_t/\bar A)$ and
+$q_t=\log(\xi_t/\bar\xi)$ can follow stationary AR(1) processes with mean-zero
+innovations. The solved experiment sets $a_t=q_t=0$ and uses
+$\nu_t=\rho_\nu\nu_{t-1}+\varepsilon_t^\nu$, $0\leq\rho_\nu<1$.
+Policy sets the log gross-rate deviation
+$j_t=\log(R_t^n/\bar R^n)=\phi_\pi\pi_t^p+\phi_xx_t+\nu_t$, with
+$\phi_\pi,\phi_x\geq0$. There is no binding interest-rate lower bound, and money
+is omitted. We seek a local bounded equilibrium with convergent wage/pricing
+sums and the stated terminal conditions. Root counts are checked for this
+larger system; the earlier two-jump-variable proof is not assumed to carry over.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{10}{Objectives under surviving nominal contracts}
+For $s=t+k$, product firms value nominal profits using the owners' kernel
+$\mathcal Q_{t,s}=\beta^k\lambda_s/\lambda_t$ and choose
+\[
+ \max_{P_t^{\#}}E_t\sum_{k\geq0}\theta_p^k\mathcal Q_{t,s}
+            [P_t^{\#}Y_{s|t}-TC_s^n(Y_{s|t})],
+ \qquad Y_{s|t}=(P_t^{\#}/P_s)^{-\epsilon_p}Y_s.
+\]
+Here $TC_s^n(Y)=W_s(Y/A_s)^{1/(1-\alpha)}$. A type's wage setter chooses
+its nominal quote using the same family's marginal valuation of income:
+\[
+ \max_{W_t^{\#}}E_t\sum_{k\geq0}(\beta\theta_w)^k
+ [\lambda_sW_t^{\#}n_{s|t}-\xi_s\chi n_{s|t}^{1+\varphi}/(1+\varphi)],
+\]
+where $n_{s|t}=(W_t^{\#}/W_s)^{-\epsilon_w}N_s$. It takes aggregate family
+consumption valuation and employers' type-demand schedule as given. Labor
+income gains and work costs are both valued; the objective is the family's
+marginal welfare gain from this atomistic labor type. The budget-substitution
+and Lagrangian routes below give the same condition.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsection{Labor demand and the wage index}
+
+\subsubsection{Which workers does the firm hire?}
+
+Fix a date and firm. To acquire composite labor $N_i$, choose its type mix:
 \begin{align}
-& Y_{it}=(\frac{P_{it}}{P_t})^{-\epsilon_P}Y_t
-\text{ (good demand curve, $\epsilon$ is substitute elasticity)}
-\\& P_t=(\int_0^1P_{it}^{1-\epsilon}di)^{\frac{1}{1-\epsilon_p}}\text{ (total price)}
-\\& W_t=W_{it}=\int_0^1 W_{it}di
-\\& P^*_{it}=c+\alpha \tilde y_t \text{ (desired price)}
+ \min_{\{N_{ij}\}}\int_0^1W_jN_{ij}dj
+ &\quad\text{subject to }\mathcal N_i\geq N_i,\\
+ \mathcal N_i&=\left[\int N_{ij}^{r_w}dj\right]^{1/r_w},
+ \qquad r_w=(\epsilon_w-1)/\epsilon_w,\\
+ \mathcal L_i&=\int W_jN_{ij}dj+\Lambda_i(N_i-\mathcal N_i).
 \end{align}
-
-labor market m.c. (as in classical model) and sticky wage (partial rigidity, in contrary to total rigidity where all wages are rigid).
-
-1)
-labor demand curve and total wage price level
-\begin{equation}
-\begin{split}
-& \min \int_0^1 W_{jt} N_{ijt}dj
-\\& s.t. A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_W-1}{\epsilon_W}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}\geqslant A_t N_{it}^{1-\alpha}
-\end{split}
-\end{equation}
-where $i$ indexing firm, $j$ indexing labor, $t$ is time
-
-
-Form a Lagrangian
+The chain rule gives the marginal composite contribution of one type:
 \begin{align}
-& \mathcal{L}=\int_0^1 W_{jt} N_{ijt}dj+W_t\{
-A_t[(\int_0^1 N_{ijt}^{\frac{\epsilon_w-1}{\epsilon_w}}dj)^{\frac{\epsilon_W}{\epsilon_W-1}}]^{1-\alpha}-A_t N_{it}^{1-\alpha}
-\}
+ \frac{\partial\mathcal N_i}{\partial N_{ij}}
+ &=\frac1{r_w}\left[\int N_{ih}^{r_w}dh\right]^{1/r_w-1}
+                                  r_wN_{ij}^{r_w-1}\\
+ &=\mathcal N_i^{1/\epsilon_w}N_{ij}^{-1/\epsilon_w},\\
+ 0&=W_j-\Lambda_i(N_i/N_{ij})^{1/\epsilon_w},\\
+ N_{ij}&=(W_j/\Lambda_i)^{-\epsilon_w}N_i.
 \end{align}
-where Lagrangian multiplier is total wage level
-
-Solving the optimization problem results
+Substitute into the binding labor requirement:
 \begin{align}
-& \Rightarrow
-\color{red}
-\begin{cases}
-N_{ijt}=(\frac{W_{jt}}{W_t})^{-\epsilon_W}N_{it} \text{ (labor supply equation)}
-\\
-W_t=(\int_0^1 W_{jt}^{1-\epsilon_W}dj)^{\frac{1}{1-\epsilon_W}} \text{ (expression of total wage level)}
-\end{cases}
+ N_i^{r_w}&=\int[(W_j/\Lambda_i)^{-\epsilon_w}N_i]^{r_w}dj,\\
+ 1&=\Lambda_i^{\epsilon_w-1}\int W_j^{1-\epsilon_w}dj,\\
+ \Lambda_i&=\left[\int W_j^{1-\epsilon_w}dj\right]^{1/(1-\epsilon_w)}=W,\\
+ N_{ij}&=(W_j/W)^{-\epsilon_w}N_i,\qquad
+ \int W_jN_{ij}dj=N_iW^{\epsilon_w}\int W_j^{1-\epsilon_w}dj=WN_i.
+ \label{eq:sw-type-demand}
 \end{align}
-
-
-
-2)
-UMP of household
-
-in utility function N is labor demand instead of labor supply as before. this is because of m.c. labor market.
-\begin{equation}
-\begin{split}
-&u=u(C_t,N_t)
-\\&=u(C_t,\{N_{jt}\})
-\\&=\frac{C_t^{1-\sigma}-1}{1-\sigma}-\int_0^1 \frac{N_j^{1+\varphi}}{1+\varphi}dj \text{ (CES style)}
-\end{split}
-\end{equation}
-
-the UMP can be rewritten as
-\begin{equation}
-\begin{split}
-\max_{\{C_t,W_t^*\}} \sum\limits_{t-0}^{\infty} \beta^t u(C_t,\int_0^1 N_{jt}dj) \iff \max \sum\limits_{t=0}^{\infty} \beta^t u(C_t,\int_0^1 (\frac{W_t^*}{W_t})^{-\epsilon_W} N_{it} dj)
-\\s.t. P_t C_t+Q_t B_t \leqslant \int_0^1 W_t^* (\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it}dj+B_{t-1}
-\end{split}
-\end{equation}
-here $W_t^*$ instead of original because all wages can be adjusted, eventually they will be the same
-
-
-a simplified version would be
-\begin{equation}
-\begin{split}
-& \max \sum\limits_{t=0}^{\infty}\beta^t u(C_t,(\frac{W_t^*}{W_t})^{-\epsilon_W}N_{it})
-\\& s.t. P_t C_t +Q_t B_t \leqslant W_t^*(\frac{W_t^*}{W_t})^{-\epsilon_W}+B_{t-1}-T_t
-\end{split}
-\end{equation}
-
-
-\begin{equation}
-\begin{split}
-& \max\limits_{W^*_0}  \sum\limits_{t=0}^{\infty}\beta^t \theta_W^t u(C_{t|0},N_{t|0})
-\\& s.t.
-\begin{cases}
-C_{t|0}=\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]
-\\
-N_{t|0}=(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it} \text{ (with labor demand curve, left with only $W^*_0$)}
-\end{cases}
-\end{split}
-\end{equation}
-sticky wage, where $\theta \equiv Prob(\text{stay put})$. $\theta$ is before utility function because the whole equation is based on period 0, entailing a prob for the whole equation to stay put.
-
-
-put two constraints in the max part, now the optimization problem is a unconstrainted one
+$W$ is the shadow price of an extra unit of composite labor. If the firm
+instead minimizes its bill subject to
+$A\mathcal N_i^{1-\alpha}\geq Y_i$, call its output multiplier $MC_i^n$.
+Its type-$j$ derivative is
 \begin{align}
-& \max_{W_0^*} \sum\limits_{t=0}^{\infty} (\beta \theta_W )^t
-u(
-{\frac{1}{P_t}[W_0^* (\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}+B_{t-1|0}-T_{t|0}-Q_{t-1|t}B_{t|0}]},
-(\frac{W^*_0}{W_t})^{-\epsilon_W} N_{it}
-)
-\\& FOC \Rightarrow E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W)(\frac{W_0^*}{W_t})^{-\epsilon_W}N_{it}-
-u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)^{-1}} \frac{1}{W_t} N_{it})
-]
-\\& = E_0 \sum_{t=0}^{\infty} (\beta \theta_W)^t [u_C(C_{t|0},N_{t|0})\frac{1}{P_t}(1-\epsilon_W) (\frac{W_0^*}{W_t})^{-\epsilon_W} W_t^{\epsilon_W} N_{it}-
-u_N(C_{t|0},N_{t|0}) \epsilon_W (\frac{W_0^*}{W_t})^{-(\epsilon_W)} W_t^{\epsilon_W} N_{it} \frac{1}{W_0^*})
-]
+ 0&=W_j-MC_i^n(1-\alpha)A\mathcal N_i^{-\alpha}
+                         (\mathcal N_i/N_{ij})^{1/\epsilon_w},\\
+ \Lambda_i&=MC_i^n(1-\alpha)AN_i^{-\alpha}=W,\\
+ MC_i^n&=\frac{W}{(1-\alpha)AN_i^{-\alpha}}.
 \end{align}
+Thus the original output-constrained cost problem gives the same type demand,
+but its multiplier is output marginal cost, not automatically the wage index.
+The two multipliers differ by the marginal product of composite labor.
 
-move some exogenous variables out since they basically can be treated as constants
+Sum type demand across firms before interpreting the aggregate:
 \begin{align}
-& \Rightarrow  (1-\epsilon_W)(W_0^*)^{-\epsilon_W} \dots
-\\& = \epsilon_W (W_0^*)^{-\epsilon_W^{-1}}
-\\& \Rightarrow W_0^*=\frac{\epsilon_W}{1-\epsilon_W}
-\frac{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})W_t^{\epsilon_W}N_{it}}{E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}}
+ N_{jt}&=\int N_{ijt}di
+       =(W_{jt}/W_t)^{-\epsilon_w}\int N_{it}di\\
+       &=(W_{jt}/W_t)^{-\epsilon_w}N_t,\\
+ \left[\int N_{jt}^{r_w}dj\right]^{1/r_w}
+ &=N_t\left[\int(W_{jt}/W_t)^{1-\epsilon_w}dj\right]^{1/r_w}=N_t,\\
+ \int W_{jt}N_{jt}dj&=W_tN_t.
 \end{align}
-
-use marginal substitute ratio, where $MRS_{t|0}\equiv -\frac{U_N(C_{t|0})}{U_C(C_{t|0})}$, the equation is essentially an inflation equation
-\begin{align}
-& W_0^*= \frac{\epsilon_W}{\epsilon_W-1}
-\frac{
-E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_N(C_{t|0},N_{t|0})MRS_{t|0} W_t^{\epsilon_W}N_{it}
-}{
-E_0 \sum\limits_{t=0}^{\infty} (\beta \theta_W)^t u_C(C_{t|0},N_{t|0})\frac{1}{P_t} W_t^{\epsilon_W} N_{it}
-}
-\\& \Rightarrow \frac{W_0^*}{P_0}=\frac{\epsilon_W}{\epsilon_W-1}MRS_{t|0} \text{ (if elastic wage and m.c., there will be no equation above)}
-\end{align}
-
-now based on the perspective at period $t$
-\begin{align}
-& W_t^* = \frac{\epsilon_W}{\epsilon_W-1}
-\frac{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})MRS_{t+k|t}W^{\epsilon_W}_{t+k|t}}{E_t \sum\limits_{k=0}^{\infty}(\beta \theta_W)^k u_C(C_{t+k|t},N_{t+k|t})\frac{1}{P_{t+k}}W^{\epsilon_W}_{t+k|t}}
-\text{ (at t period instead 0 period)}
-\\& \Rightarrow \frac{W_t^*}{P_t}=\frac{\epsilon_W}{\epsilon_W-1}MRS \text{ (if elasticity wage and monopolistic competitive at t period)}
-\end{align}
-
+A type that raises its relative wage loses employers' demand with elasticity
+$\epsilon_w$. This is a labor \emph{demand} curve faced by a wage setter,
+not a household labor-supply condition equating its wage to its MRS.
 
 \begin{blueblock}
-\begin{note}[M.C. firm choice variable for optimization problem]
-MC firm can choose price max or quantity max
-\end{note}
+\textbf{One wage index does not mean one wage quote.}
+$W_t$ measures the minimum bill for a unit of composite labor. Individual
+$W_{jt}$ can differ because their last reset dates differ. Only under symmetry
+do all quotes equal the index. An arithmetic average of nominal wages is not
+the CES wage index away from that reference.
 \end{blueblock}
+
+\subsubsection{Composite labor, physical hours, and work disutility}
+
+Three different aggregates must be kept apart:
+\begin{align}
+ H_t&=\int N_{jt}dj
+    =N_t\underbrace{\int(W_{jt}/W_t)^{-\epsilon_w}dj}_{\Delta_t^{w,H}},\\
+ \int N_{jt}^{1+\varphi}dj
+ &=N_t^{1+\varphi}
+       \underbrace{\int(W_{jt}/W_t)^{-\epsilon_w(1+\varphi)}dj}_{\Delta_t^{w,U}},\\
+ N_t&=(Y_t/A_t)^{1/(1-\alpha)}
+       \underbrace{\int(P_{it}/P_t)^{-\epsilon_p/(1-\alpha)}di}_{\Delta_t^p}.
+ \label{eq:sw-dispersion}
+\end{align}
+The family suffers the integral of convex work costs. Concentrating hours
+in low-wage types can increase this burden even if the composite labor input
+is unchanged. Product-price dispersion separately makes more composite labor
+necessary for a given consumption basket. Neither effect is an unemployed-worker
+count; there is no participation or matching margin here.
+
+For any wage-dispersion exponent $h>0$, write
+$\Delta_t^{w,h}=\int(W_{jt}/W_t)^{-h}dj$. Calvo aggregation implies
+\begin{align}
+ \Delta_t^{w,h}
+ &=(1-\theta_w)(W_t^{\#}/W_t)^{-h}
+                  +\theta_w(\Pi_t^w)^h\Delta_{t-1}^{w,h},
+ \qquad\Pi_t^w=W_t/W_{t-1}.
+\end{align}
+The wage-index expansion derived below gives
+$\hat w_t^{\#}-\hat w_t=\theta_w\pi_t^w/(1-\theta_w)$. Therefore,
+\begin{align}
+ \hat\Delta_t^{w,h}
+ &=-(1-\theta_w)h(\hat w_t^{\#}-\hat w_t)
+             +\theta_wh\pi_t^w+\theta_w\hat\Delta_{t-1}^{w,h}\\
+ &=-\theta_wh\pi_t^w+\theta_wh\pi_t^w+\theta_w\hat\Delta_{t-1}^{w,h}
+ =\theta_w\hat\Delta_{t-1}^{w,h}.
+\end{align}
+With initially symmetric quotes, these first-order dispersion terms vanish.
+Locally, $\hat h_t=\hat n_t$ and
+$\hat y_t=a_t+(1-\alpha)\hat n_t$. At second order, especially for welfare,
+the different dispersion moments cannot be dropped merely because this
+first-order cancellation occurred.
+
+\subsection{Household spending and wage-setting incentives}
+
+\subsubsection{The common consumption valuation}
+
+Use resources minus expenditures in the family Lagrangian:
+\begin{align}
+ \mathcal L=E_0\sum_{t\geq0}\beta^t\Big\{&\xi_t
+  [v(C_t)-\chi\textstyle\int N_{jt}^{1+\varphi}dj/(1+\varphi)]\notag\\
+ &+\lambda_t[B_{t-1}+\textstyle\int W_{jt}N_{jt}dj+D_t
+                                      -P_tC_t-Q_tB_t]\Big\}.
+\end{align}
+The consumption and asset derivatives give
+\begin{align}
+ 0&=\xi_tC_t^{-\sigma}-\lambda_tP_t,
+ &\lambda_t&=\xi_tC_t^{-\sigma}/P_t,\\
+ 0&=-\beta^t\lambda_tQ_t+\beta^{t+1}E_t\lambda_{t+1},\\
+ Q_t&=\beta E_t\left[\frac{\xi_{t+1}}{\xi_t}
+             (C_{t+1}/C_t)^{-\sigma}\frac{P_t}{P_{t+1}}\right].
+ \label{eq:sw-euler}
+\end{align}
+Income pooling makes $\lambda_t$ common across wage setters even though their
+hours differ. Their compensation for an extra hour is type-specific:
+$MRS_{jt}=\chi C_t^\sigma N_{jt}^\varphi$. This is why replacing every type's
+hours by the family average before differentiating would change the problem.
+
+Profits and wages together finance consumption:
+\begin{align}
+ D_t&=\int P_{it}Y_{it}di-W_tN_t=P_tY_t-W_tN_t,\\
+ P_tC_t&=W_tN_t+D_t=P_tY_t
+                  \quad\text{in aggregate, with net bonds zero}.
+\end{align}
+The budget must include profits; monopolistic competition does not make them
+vanish.
+
+\subsubsection{A flexible wage already carries a markup}
+
+Consider an eligible wage setter at a date when it can choose a new quote.
+First ignore future survival. Conditional demand and its derivative are
+\begin{align}
+ N_j&=(W_j/W)^{-\epsilon_w}N,
+ &\frac{dN_j}{dW_j}&=-\epsilon_wN_j/W_j,\\
+ \frac{d(W_jN_j)}{dW_j}
+ &=N_j+W_j(-\epsilon_wN_j/W_j)=(1-\epsilon_w)N_j.
+\end{align}
+A higher quote raises income per hour but loses enough hours to reduce the
+wage bill along this elastic demand curve. The associated utility derivative
+per unit mass of type-$j$ members is
+\begin{align}
+ 0&=\lambda(1-\epsilon_w)N_j
+           -\xi\chi N_j^\varphi(-\epsilon_wN_j/W_j),\\
+ (\epsilon_w-1)\lambda W_jN_j
+ &=\epsilon_w\xi\chi N_j^{1+\varphi},\\
+ W_j&=\frac{\epsilon_w}{\epsilon_w-1}
+                        \frac{\xi\chi N_j^\varphi}{\lambda},\\
+ \frac{W_j}{P}&=\mu_w\chi C^\sigma N_j^\varphi=\mu_w MRS_j.
+ \label{eq:sw-flex-wage}
+\end{align}
+The gross wage markup $\mu_w>1$ is distinct from delayed adjustment. Flexible
+wages in this differentiated-labor economy do not give the competitive
+condition $W/P=MRS$ unless the wage markup is removed by an additional change.
+
+\subsubsection{Budget substitution and the surviving wage quote}
+
+Now a reset wage $W_t^{\#}$ survives through $s=t+k$ with probability
+$\theta_w^k$. Conditional hours are
+\begin{align}
+ n_{s|t}&=(W_t^{\#}/W_s)^{-\epsilon_w}N_s,\qquad
+ \frac{\partial n_{s|t}}{\partial W_t^{\#}}
+                  =-\epsilon_wn_{s|t}/W_t^{\#}.
+\end{align}
+The course substitutes the budget before differentiating. Keep that useful
+route, with the family interpretation explicit. For a small group of types
+of mass $dj$, isolate the wage-dependent part of its family's budget:
+\begin{align}
+ C_s(W_t^{\#})
+ &=\frac{W_t^{\#}n_{s|t}\,dj+\mathcal R_s}{P_s},\\
+ \mathcal R_s&=B_{s-1}+D_s+\text{other types' wage income}-Q_sB_s,\\
+ \left.\frac{\partial C_s}{\partial W_t^{\#}}\right|_{\mathcal R_s}
+ &=\frac{n_{s|t}+W_t^{\#}(-\epsilon_wn_{s|t}/W_t^{\#})}{P_s}\,dj\\
+ &=\frac{(1-\epsilon_w)n_{s|t}}{P_s}\,dj.
+\end{align}
+The group's contribution to labor disutility is
+$\chi n_{s|t}^{1+\varphi}dj/(1+\varphi)$. Differentiate consumption utility
+and work disutility separately, then divide by $dj$:
+\begin{align}
+ \frac1{dj}\frac{\partial U_s}{\partial W_t^{\#}}
+ &=\xi_s C_s^{-\sigma}\frac{(1-\epsilon_w)n_{s|t}}{P_s}
+       -\xi_s\chi n_{s|t}^\varphi(-\epsilon_wn_{s|t}/W_t^{\#})\\
+ &=n_{s|t}\left[(1-\epsilon_w)\lambda_s
+           +\frac{\epsilon_w\xi_s\chi n_{s|t}^{\varphi}}{W_t^{\#}}\right].
+\end{align}
+This is a marginal change in insured family consumption, not a claim that
+an individual's own wage bill must equal its own consumption at every date.
+Optimal asset choices do not add a missing income derivative: their two
+adjacent budget contributions have coefficient
+$-\lambda_sQ_s+\beta E_s\lambda_{s+1}=0$ by \eqref{eq:sw-euler}; admissible
+terminal asset terms vanish. Equivalently, wage setting can be written directly
+in consumption-value units, taking the common multiplier as given:
+\begin{align}
+ \max_{W_t^{\#}}E_t\sum_{k\geq0}(\beta\theta_w)^k
+ \left[\lambda_sW_t^{\#}n_{s|t}
+                   -\frac{\xi_s\chi}{1+\varphi}n_{s|t}^{1+\varphi}\right].
+ \label{eq:sw-wage-objective}
+\end{align}
+The survival factor weights the wage-dependent period gain alongside time discounting.
+Future innovations remain inside the conditional expectation. After a reset,
+future wage decisions have the same continuation problem and the family's
+valuation of wealth is already represented by $\lambda_s$.
+
+Set the discounted derivative to zero and rearrange each factor:
+\begin{align}
+ 0&=E_t\sum_{k\geq0}(\beta\theta_w)^k n_{s|t}
+       [(1-\epsilon_w)\lambda_s
+             +\epsilon_w\xi_s\chi n_{s|t}^{\varphi}/W_t^{\#}],\\
+ (\epsilon_w-1)W_t^{\#}E_t\sum_k(\beta\theta_w)^k\lambda_sn_{s|t}
+ &=\epsilon_w E_t\sum_k(\beta\theta_w)^k\xi_s\chi n_{s|t}^{1+\varphi}.
+\end{align}
+\begin{align}
+ W_t^{\#}
+ &=\mu_w\frac{E_t\sum_k(\beta\theta_w)^k\xi_s\chi n_{s|t}^{1+\varphi}}
+                 {E_t\sum_k(\beta\theta_w)^k\lambda_sn_{s|t}}\\
+ &=\mu_w\frac{E_t\sum_k(\beta\theta_w)^k\lambda_sn_{s|t}P_sMRS_{s|t}}
+                 {E_t\sum_k(\beta\theta_w)^k\lambda_sn_{s|t}},
+ \label{eq:sw-reset-ratio}\\
+ MRS_{s|t}&=\chi C_s^\sigma n_{s|t}^{\varphi}.
+\end{align}
+The MRS replaces the ratio of marginal disutility to consumption marginal
+utility. It does not multiply marginal disutility a second time. At time zero,
+this same equation reads
+\begin{align}
+ W_0^{\#}
+ &=\mu_w\frac{E_0\sum_{s\geq0}(\beta\theta_w)^s
+                     \lambda_sn_{s|0}P_sMRS_{s|0}}
+                 {E_0\sum_{s\geq0}(\beta\theta_w)^s\lambda_sn_{s|0}}.
+\end{align}
+For $\theta_w=0$ only the current term remains, yielding
+\eqref{eq:sw-flex-wage}. For positive duration, the chosen quote reflects
+future work burdens and income valuation, not just today's real compensation.
+
+\begin{redblock}
+\textbf{Which variable is actually chosen?}
+A wage setter may choose its wage and let the labor demand curve determine
+hours. It could equivalently choose a point on the inverse labor demand curve
+and quote the corresponding wage. It cannot vary wages and hours independently.
+When differentiating, include both the lost hours in wage income and the
+reduction in labor disutility.
+\end{redblock}
+
+\subsubsection{The nonlinear reset equation and own-hours feedback}
+
+Insert the demand powers before canceling common reset-wage factors:
+\begin{align}
+ \lambda_sn_{s|t}
+ &=(W_t^{\#})^{-\epsilon_w}\lambda_sW_s^{\epsilon_w}N_s,\\
+ \xi_s\chi n_{s|t}^{1+\varphi}
+ &=\xi_s\chi(W_t^{\#})^{-\epsilon_w(1+\varphi)}
+                         W_s^{\epsilon_w(1+\varphi)}N_s^{1+\varphi},\\
+ (W_t^{\#})^{1+\epsilon_w\varphi}
+ &=\mu_w\chi\frac{E_t\sum_k(\beta\theta_w)^k
+                \xi_sW_s^{\epsilon_w(1+\varphi)}N_s^{1+\varphi}}
+              {E_t\sum_k(\beta\theta_w)^k\lambda_sW_s^{\epsilon_w}N_s}.
+ \label{eq:sw-reset-nonlinear}
+\end{align}
+Here an individual wage really does alter that type's own work and MRS. The
+factor $1+\epsilon_w\varphi$ therefore has a microeconomic source in this
+labor-market specification. It is not obtained by treating an individual
+product firm's employment as aggregate household hours in the previous
+competitive-labor model.
+
+\subsection{From wage resetting to wage inflation}
+
+\subsubsection{Expand both sides before forming a wage Phillips curve}
+
+Use $\hat w_t=\log(W_t/\bar W)$ for nominal wage-index deviations and
+$\hat w_t^{\#}=\log(W_t^{\#}/\bar W)$ for reset-wage deviations. At the
+symmetric reference,
+\begin{align}
+ \bar W&=\mu_w\bar P\chi\bar C^\sigma\bar N^\varphi,\qquad
+ \bar\lambda=\bar C^{-\sigma}/\bar P,\\
+ S_w&=\sum_{k\geq0}(\beta\theta_w)^k=1/(1-\beta\theta_w).
+\end{align}
+Write the reset FOC as a product equality using \eqref{eq:sw-reset-ratio}:
+\begin{align}
+ W_t^{\#}E_t\sum_k(\beta\theta_w)^k\lambda_sn_{s|t}
+ &=\mu_w E_t\sum_k(\beta\theta_w)^k
+                         \lambda_sn_{s|t}P_sMRS_{s|t}.
+\end{align}
+The relevant individual first-order deviations are
+\begin{align}
+ \hat\lambda_s&=q_s-\sigma\hat c_s-\hat p_s,\\
+ \hat n_{s|t}&=\hat n_s-\epsilon_w(\hat w_t^{\#}-\hat w_s),\\
+ \hat{MRS}_{s|t}&=\sigma\hat c_s+\varphi\hat n_{s|t}.
+\end{align}
+Here $\hat{MRS}$ means the log deviation of the type-specific MRS. Dividing
+both sides by $\bar W\bar\lambda\bar N$, their Taylor expansions are
+\begin{align}
+ L&\simeq S_w+S_w\hat w_t^{\#}
+       +E_t\sum_k(\beta\theta_w)^k(\hat\lambda_s+\hat n_{s|t}),\\
+ R&\simeq S_w+E_t\sum_k(\beta\theta_w)^k
+       (\hat\lambda_s+\hat n_{s|t}+\hat p_s+\hat{MRS}_{s|t}).
+\end{align}
+The steady terms match because $\bar W=\mu_w\bar P\overline{MRS}$.
+Cancel the common variations explicitly:
+\begin{align}
+ S_w\hat w_t^{\#}
+ &=E_t\sum_k(\beta\theta_w)^k(\hat p_s+\hat{MRS}_{s|t}),\\
+ \hat w_t^{\#}
+ &=(1-\beta\theta_w)E_t\sum_k(\beta\theta_w)^k
+       [\hat p_s+\sigma\hat c_s+\varphi\hat n_s
+                        -\epsilon_w\varphi(\hat w_t^{\#}-\hat w_s)],\\
+ (1+\epsilon_w\varphi)\hat w_t^{\#}
+ &=(1-\beta\theta_w)E_t\sum_k(\beta\theta_w)^k
+       [\hat p_s+\sigma\hat c_s+\varphi\hat n_s+\epsilon_w\varphi\hat w_s].
+\end{align}
+Define the wage-markup deviation and its own-hours correction:
+\begin{align}
+ \hat\mu_t^w&=(\hat w_t-\hat p_t)-\sigma\hat c_t-\varphi\hat n_t,
+ \qquad\Omega_w=\frac1{1+\epsilon_w\varphi},\\
+ \hat p_s+\sigma\hat c_s+\varphi\hat n_s+\epsilon_w\varphi\hat w_s
+ &=(1+\epsilon_w\varphi)\hat w_s-\hat\mu_s^w,\\
+ \hat w_t^{\#}&=(1-\beta\theta_w)E_t\sum_{k\geq0}(\beta\theta_w)^k
+                                  [\hat w_{t+k}-\Omega_w\hat\mu_{t+k}^w].
+ \label{eq:sw-reset-linear}
+\end{align}
+The wage-markup deviation is relative to the desired markup $\mu_w$; it is not
+the gross wage/MRS ratio itself. A positive deviation means compensation is
+high relative to the family's current work trade-off, so a resetter wants a
+lower quote, other conditions equal.
+
+Separate the first date and reindex the remaining expected sum:
+\begin{align}
+ \hat w_t^{\#}
+ &=(1-\beta\theta_w)(\hat w_t-\Omega_w\hat\mu_t^w)\notag\\
+ &\quad+\beta\theta_w E_t\left[(1-\beta\theta_w)E_{t+1}
+        \sum_{h\geq0}(\beta\theta_w)^h
+                  (\hat w_{t+1+h}-\Omega_w\hat\mu_{t+1+h}^w)\right]\\
+ &=(1-\beta\theta_w)(\hat w_t-\Omega_w\hat\mu_t^w)
+                          +\beta\theta_wE_t\hat w_{t+1}^{\#}.
+ \label{eq:sw-reset-recursion}
+\end{align}
+Iterated expectations justify the inner-to-outer forecast step. Future random
+workloads do not become known merely because a wage quote spans many dates.
+
+\subsubsection{The wage index combines new and inherited contracts}
+
+Calvo selection preserves the previous wage distribution among nonresetters:
+\begin{align}
+ W_t^{1-\epsilon_w}
+ &=(1-\theta_w)(W_t^{\#})^{1-\epsilon_w}
+                              +\theta_wW_{t-1}^{1-\epsilon_w}.
+\end{align}
+Divide by the symmetric reference and expand each power at one:
+\begin{align}
+ 1+(1-\epsilon_w)\hat w_t
+ &=(1-\theta_w)[1+(1-\epsilon_w)\hat w_t^{\#}]
+               +\theta_w[1+(1-\epsilon_w)\hat w_{t-1}],\\
+ \hat w_t&=(1-\theta_w)\hat w_t^{\#}+\theta_w\hat w_{t-1},\\
+ \pi_t^w&=\hat w_t-\hat w_{t-1},\\
+ r_t^{w,\#}\equiv\hat w_t^{\#}-\hat w_t
+ &=\frac{\hat w_t-\theta_w\hat w_{t-1}}{1-\theta_w}-\hat w_t
+ =\frac{\theta_w}{1-\theta_w}\pi_t^w.
+\end{align}
+Subtract current $\hat w_t$ from \eqref{eq:sw-reset-recursion}:
+\begin{align}
+ r_t^{w,\#}
+ &=-(1-\beta\theta_w)\Omega_w\hat\mu_t^w
+        +\beta\theta_w E_t(\hat w_{t+1}^{\#}-\hat w_t)\\
+ &=-(1-\beta\theta_w)\Omega_w\hat\mu_t^w
+        +\beta\theta_w E_t(r_{t+1}^{w,\#}+\pi_{t+1}^w),\\
+ \frac{\theta_w}{1-\theta_w}\pi_t^w
+ &=-(1-\beta\theta_w)\Omega_w\hat\mu_t^w
+            +\frac{\beta\theta_w}{1-\theta_w}E_t\pi_{t+1}^w,\\
+ \pi_t^w&=\beta E_t\pi_{t+1}^w-\lambda_w\hat\mu_t^w,\\
+ \lambda_w&=\frac{(1-\theta_w)(1-\beta\theta_w)}
+                   {\theta_w(1+\epsilon_w\varphi)}>0.
+ \label{eq:sw-wage-pc}
+\end{align}
+An above-target wage markup encourages lower new wages. Wage inflation falls
+as those quotes enter the index. Expectations of future conditions also matter
+because a reset wage may still apply then.
+
+\begin{blueblock}
+\textbf{Nominal wage rigidity does not fix purchasing power.}
+Let $\omega_t=\hat w_t-\hat p_t$ denote the real wage's log deviation. Then
+\[
+ \omega_t-\omega_{t-1}=\pi_t^w-\pi_t^p.
+\]
+Even if a particular nominal wage is unchanged, its real value falls when
+product prices rise. In the aggregate, both inflation rates and their difference
+must be tracked. Price inflation alone does not describe wage adjustment.
+\end{blueblock}
+
+\subsection{Natural output, real wages, and two markup gaps}
+
+\subsubsection{The reference allocation when both quotes are flexible}
+
+Under symmetric flexible prices and wages, $C=Y$, $N=(Y/A)^{1/(1-\alpha)}$,
+and the two markup conditions are
+\begin{align}
+ \frac WP&=\mu_w\chi Y^\sigma N^\varphi,\\
+ \frac WP&=\frac{1-\alpha}{\mu_p}AN^{-\alpha}.
+\end{align}
+Equate the two expressions, then substitute the labor requirement:
+\begin{align}
+ \mu_p\mu_w\chi Y^\sigma N^{\varphi+\alpha}&=(1-\alpha)A,\\
+ (Y_t^n)^\gamma
+ &=\frac{1-\alpha}{\mu_p\mu_w\chi}
+             A_t^{(1+\varphi)/(1-\alpha)},\\
+ \gamma&=\sigma+\frac{\varphi+\alpha}{1-\alpha},\\
+ \gamma\log Y_t^n
+ &=\log(1-\alpha)-\log\chi-\log\mu_p-\log\mu_w
+                        +\frac{1+\varphi}{1-\alpha}\log A_t,\\
+ \hat y_t^n&=\psi_a a_t,\qquad
+ \psi_a=\frac{1+\varphi}{\sigma(1-\alpha)+\varphi+\alpha},\\
+ \hat n_t^n&=\frac{\hat y_t^n-a_t}{1-\alpha}.
+\end{align}
+The constant wage markup shifts the \emph{level} of natural output even when
+its response coefficient to technology matches the previous chapter. Flexible
+wages here still have market power; the previous competitive-wage baseline
+has no $\mu_w$ wedge. Comparisons of local responses below use deviations
+from each specification's own natural reference.
+
+The natural real wage follows either flexible condition:
+\begin{align}
+ \omega_t^n&=a_t-\alpha\hat n_t^n
+            =\frac{1-\alpha\psi_a}{1-\alpha}a_t\\
+            &=\sigma\hat y_t^n+\varphi\hat n_t^n.
+ \label{eq:sw-natural-real-wage}
+\end{align}
+Its desired change need not be zero after a productivity disturbance. Monetary
+policy then faces a moving wage as well as a moving output benchmark.
+
+For the efficient goods-and-work allocation, a planner values an extra unit of
+composite labor by its output contribution. At symmetry, solve
+\begin{align}
+ \max_{N_t>0}\ \xi_t[v(A_tN_t^{1-\alpha})-\chi N_t^{1+\varphi}/(1+\varphi)].
+\end{align}
+Differentiating the consumption term by the chain rule gives
+\begin{align}
+ 0&=\xi_t[v'(Y_t^e)(1-\alpha)A_t(N_t^e)^{-\alpha}-\chi(N_t^e)^\varphi],\\
+ (Y_t^e)^{-\sigma}(1-\alpha)A_t(N_t^e)^{-\alpha}
+ &=\chi(N_t^e)^\varphi.
+\end{align}
+Compared with the natural allocation, both market-power wedges disappear:
+\begin{align}
+ \gamma(\log Y_t^e-\log Y_t^n)&=\log\mu_p+\log\mu_w,\\
+ \log Y_t^e-\log Y_t^n&=\frac{\log\mu_p+\log\mu_w}{\gamma}.
+\end{align}
+This compares the goods-and-work allocations, not an optimum under unspecified
+subsidies. Constant markup distortions and costly fluctuations are separate
+sources of welfare loss.
+
+\subsubsection{How the real wage connects demand, costs, and work incentives}
+
+Define the natural output gap and the real-wage gap:
+\begin{align}
+ x_t&=\hat y_t-\hat y_t^n,\qquad
+ g_t=\omega_t-\omega_t^n,\\
+ \hat n_t-\hat n_t^n&=x_t/(1-\alpha).
+\end{align}
+Average real marginal-cost deviation satisfies
+\begin{align}
+ \hat{mc}_t&=\omega_t-a_t+\alpha\hat n_t,\\
+ 0&=\omega_t^n-a_t+\alpha\hat n_t^n,\\
+ \hat{mc}_t&=g_t+\frac\alpha{1-\alpha}x_t
+            =g_t+\gamma_p x_t,\qquad\gamma_p=\frac\alpha{1-\alpha}.
+\end{align}
+The wage-markup deviation follows from the family's work trade-off:
+\begin{align}
+ \hat\mu_t^w&=\omega_t-\sigma\hat y_t-\varphi\hat n_t,\\
+ 0&=\omega_t^n-\sigma\hat y_t^n-\varphi\hat n_t^n,\\
+ \hat\mu_t^w&=g_t-\left[\sigma+\frac\varphi{1-\alpha}\right]x_t
+             =g_t-\gamma_wx_t,\\
+ \gamma_w&=\sigma+\frac\varphi{1-\alpha},\qquad
+ \gamma_p+\gamma_w=\gamma.
+ \label{eq:sw-markup-gaps}
+\end{align}
+At a given output gap, a larger real wage raises firms' costs but also raises
+the wage relative to households' MRS. Price resetters then want higher prices,
+while wage resetters want lower wages relative to their inherited quotes.
+This is an adjustment mechanism, not an automatic spiral in which every wage
+increase causes an indefinitely repeated price increase.
+
+\subsection{The joint price-and-wage equilibrium}
+
+\subsubsection{Four relations beyond the policy rule}
+
+The product-pricing derivation retains the own-output cost correction from
+the previous chapter. Define
+\begin{align}
+ a_p&=\frac{(1-\theta_p)(1-\beta\theta_p)}{\theta_p}
+                  \frac{1-\alpha}{1-\alpha+\epsilon_p\alpha},\qquad
+ a_w=\lambda_w.
+\end{align}
+Then the local model is
+\begin{align}
+ \pi_t^p&=\beta E_t\pi_{t+1}^p+a_p(\gamma_p x_t+g_t),
+ \label{eq:sw-price-system}\\
+ \pi_t^w&=\beta E_t\pi_{t+1}^w+a_w(\gamma_w x_t-g_t),
+ \label{eq:sw-wage-system}\\
+ x_t&=E_tx_{t+1}-\frac1\sigma(j_t-E_t\pi_{t+1}^p-r_t^n),
+ \label{eq:sw-is-system}\\
+ g_t&=g_{t-1}+\pi_t^w-\pi_t^p-(\omega_t^n-\omega_{t-1}^n),
+ \label{eq:sw-gap-law}\\
+ j_t&=\phi_\pi\pi_t^p+\phi_xx_t+\nu_t.
+ \label{eq:sw-policy-system}
+\end{align}
+The real-wage law follows by subtracting changes in the natural wage from
+$\omega_t-\omega_{t-1}=\pi_t^w-\pi_t^p$. The natural real-rate deviation is
+\begin{align}
+ r_t^n&=\sigma(E_t\hat y_{t+1}^n-\hat y_t^n)+q_t-E_tq_{t+1}.
+\end{align}
+The state $g_{t-1}$ is inherited. The current gap, inflation rates, and real
+wage are jointly determined; their expectations cannot be chosen separately.
+Here $a_p,a_w$ are positive slope coefficients, not productivity shocks $a_t$.
+
+\begin{greenblock}
+\textbf{A reason to track wages in a demand contraction.}
+When purchases fall, the desired work compensation falls with consumption and
+hours. An inherited wage may then be high relative to that MRS, even when its
+real value has fallen relative to its own pre-shock level. Firms respond to
+real labor cost; wage setters respond to the wage markup. Those comparisons
+can move differently and should not be merged into one ``rigid wage'' label.
+\end{greenblock}
+
+\subsubsection{What the flexible limits actually impose}
+
+If wages can reset every date, impose the static wage condition
+$\hat\mu_t^w=0$. Then
+\begin{align}
+ g_t&=\gamma_wx_t,\\
+ \pi_t^p&=\beta E_t\pi_{t+1}^p
+              +a_p(\gamma_p+\gamma_w)x_t
+        =\beta E_t\pi_{t+1}^p+a_p\gamma x_t.
+\end{align}
+This is the price-only NK gap equation. The constant wage-market markup still
+shifts its reference level, as explained above. If product prices are instead
+flexible, impose $\hat{mc}_t=0$, giving
+\begin{align}
+ g_t&=-\gamma_p x_t,\\
+ \pi_t^w&=\beta E_t\pi_{t+1}^w
+                  +a_w(\gamma_w+\gamma_p)x_t.
+\end{align}
+The real-wage law still links wage and price inflation; simply relabeling this
+wage equation a price Phillips curve would omit that link. If both quotes
+are flexible, the two conditions jointly imply
+\begin{align}
+ \gamma_wx_t&=-\gamma_px_t,\qquad
+ \gamma x_t=0,\qquad x_t=g_t=0.
+\end{align}
+With no additional real distortion shocks, monetary disturbances then do not
+move output away from its natural allocation. Nominal variables can still
+adjust. The limit is taken through static optimality, not through an infinite
+coefficient inserted into a finite-slope Phillips curve.
+
+\subsubsection{Why stabilizing both inflation rates is demanding}
+
+Suppose policy tried to keep both $\pi_t^p=0$ and $\pi_t^w=0$ at all dates
+with the same zero future forecasts. The two pricing relations require
+\begin{align}
+ 0&=\gamma_px_t+g_t,\qquad0=\gamma_wx_t-g_t,\\
+ 0&=(\gamma_p+\gamma_w)x_t,\qquad x_t=g_t=0.
+\end{align}
+But the real-wage law would then require
+\begin{align}
+ 0&=0+0-0-(\omega_t^n-\omega_{t-1}^n),\\
+ \omega_t^n-\omega_{t-1}^n&=0.
+\end{align}
+If the natural real wage needs to change, keeping both nominal inflation rates
+at zero prevents that change. At least one target must give way. This is a
+conditional incompatibility result, not a complete optimal-policy calculation.
+To evaluate welfare, one must include the output wedge and both types of
+relative-contract dispersion, with explicit subsidies and welfare weights.
+The policy part develops that comparison.
+
+\subsection{Solving a policy disturbance with an inherited real wage}
+
+\subsubsection{The state and the three current choices}
+
+Set technology and the preference shifter at their reference so
+$r_t^n=\omega_t^n=0$. Let
+$\nu_t=\rho_\nu\nu_{t-1}+\varepsilon_t^\nu$.
+We solve for three current choices and the current state transition:
+\begin{align}
+ x_t&=f_xg_{t-1}+h_x\nu_t,\\
+ \pi_t^p&=f_pg_{t-1}+h_p\nu_t,\\
+ \pi_t^w&=f_wg_{t-1}+h_w\nu_t,\\
+ g_t&=Gg_{t-1}+J\nu_t.
+ \label{eq:sw-linear-policies}
+\end{align}
+The real-wage identity immediately imposes
+\begin{align}
+ G&=1+f_w-f_p,\qquad J=h_w-h_p.
+\end{align}
+Forecasting next period uses current $g_t$, not last period's state again:
+\begin{align}
+ E_tx_{t+1}&=f_xg_t+\rho_\nu h_x\nu_t,\\
+ E_t\pi_{t+1}^p&=f_pg_t+\rho_\nu h_p\nu_t,\\
+ E_t\pi_{t+1}^w&=f_wg_t+\rho_\nu h_w\nu_t.
+\end{align}
+This extra inherited wage position is why the earlier solution proportional
+only to the current monetary shock is no longer sufficient.
+
+\subsubsection{Find the endogenous state root}
+
+First match the coefficients on inherited $g_{t-1}$ in dynamic IS, price
+setting, and wage setting. Substitution gives
+\begin{align}
+ (\sigma+\phi_x)f_x+\phi_\pi f_p&=(\sigma f_x+f_p)G,\\
+ (1-\beta G)f_p&=a_p\gamma_pf_x+a_pG,\\
+ (1-\beta G)f_w&=a_w\gamma_wf_x-a_wG.
+\end{align}
+Use the second equation in the first, multiplying by $1-\beta G$:
+\begin{align}
+ [(\sigma+\phi_x)-\sigma G]f_x+(\phi_\pi-G)f_p&=0,\\
+ \mathcal D(G)f_x&=-a_pG(\phi_\pi-G),\\
+ \mathcal D(G)
+ &=[\sigma+\phi_x-\sigma G](1-\beta G)
+                         +a_p\gamma_p(\phi_\pi-G),\\
+ f_x&=-\frac{a_pG(\phi_\pi-G)}{\mathcal D(G)}.
+\end{align}
+For a stable candidate $|G|<1$, $1-\beta G\ne0$; any other division also
+requires its displayed denominator to be nonzero. Next subtract the price
+coefficient from the wage coefficient and use $f_w-f_p=G-1$:
+\begin{align}
+ (1-\beta G)(G-1)
+ &=(a_w\gamma_w-a_p\gamma_p)f_x-(a_w+a_p)G,\\
+ \mathcal L(G)&=(G-1)(1-\beta G)+(a_w+a_p)G,\\
+ E&=a_w\gamma_w-a_p\gamma_p,\qquad
+ \mathcal L(G)=E f_x,\\
+ \mathcal L(G)\mathcal D(G)+Ea_pG(\phi_\pi-G)&=0.
+ \label{eq:sw-state-polynomial}
+\end{align}
+This is a fourth-degree equation. Its coefficients can be computed without
+hiding the polynomial expansion. Write
+\begin{align}
+ \mathcal D(G)&=d_2G^2+d_1G+d_0,\\
+ d_2&=\sigma\beta,\\
+ d_1&=-\beta(\sigma+\phi_x)-\sigma-a_p\gamma_p,\\
+ d_0&=\sigma+\phi_x+a_p\gamma_p\phi_\pi,\\
+ \mathcal L(G)&=-\beta G^2+\ell_1G-1,\qquad
+ \ell_1=1+\beta+a_p+a_w.
+\end{align}
+Multiply the two quadratics and the remaining term to get
+\begin{align}
+ 0&=c_4G^4+c_3G^3+c_2G^2+c_1G+c_0,\\
+ c_4&=-\beta d_2,\\
+ c_3&=-\beta d_1+\ell_1d_2,\\
+ c_2&=-\beta d_0+\ell_1d_1-d_2-Ea_p,\\
+ c_1&=\ell_1d_0-d_1+Ea_p\phi_\pi,\\
+ c_0&=-d_0.
+\end{align}
+Select the admissible stable root and recover
+\begin{align}
+ f_p&=\frac{a_p(\gamma_pf_x+G)}{1-\beta G},\qquad
+ f_w=\frac{a_w(\gamma_wf_x-G)}{1-\beta G}.
+\end{align}
+There is one inherited endogenous state and three current jump variables.
+A unique local bounded solution requires one stable and three unstable roots
+of the forward system, with the state projection well defined. The parameter
+example below passes that count; it is not asserted for arbitrary rules.
+A candidate generated by denominator multiplication must also pass the
+unreduced coefficient equations above.
+
+\subsubsection{Solve the shock coefficients}
+
+Match the coefficients on $\nu_t$ using the same forecasts:
+\begin{align}
+ [\sigma(1-\rho_\nu)+\phi_x]h_x
+      +(\phi_\pi-\rho_\nu)h_p-(\sigma f_x+f_p)J&=-1,\\
+ (1-\beta\rho_\nu)h_p&=a_p\gamma_ph_x+(\beta f_p+a_p)J,\\
+ (1-\beta\rho_\nu)h_w&=a_w\gamma_wh_x+(\beta f_w-a_w)J,\\
+ h_w-h_p&=J.
+\end{align}
+Subtract the second equation from the third, then substitute the last:
+\begin{align}
+ (1-\beta\rho_\nu)J
+ &=E h_x+[\beta(f_w-f_p)-(a_w+a_p)]J,\\
+ K_\nu J&=E h_x,\\
+ K_\nu&=1-\beta\rho_\nu-\beta(G-1)+a_w+a_p,\\
+ L_\nu&=E/K_\nu,\qquad J=L_\nu h_x.
+\end{align}
+Use this result to obtain the two inflation coefficients:
+\begin{align}
+ P_\nu&=\frac{a_p\gamma_p+(\beta f_p+a_p)L_\nu}{1-\beta\rho_\nu},\\
+ h_p&=P_\nu h_x,\qquad h_w=(P_\nu+L_\nu)h_x.
+\end{align}
+Finally, the IS coefficient equation becomes a scalar equation:
+\begin{align}
+ \big[\sigma(1-\rho_\nu)+\phi_x
+       +(\phi_\pi-\rho_\nu)P_\nu
+       -(\sigma f_x+f_p)L_\nu\big]h_x&=-1,\\
+ h_x&=-\frac1{\sigma(1-\rho_\nu)+\phi_x
+       +(\phi_\pi-\rho_\nu)P_\nu-(\sigma f_x+f_p)L_\nu}.
+ \label{eq:sw-shock-coefficients}
+\end{align}
+All coefficients are now determined. If a displayed denominator vanishes,
+this derivation must be reconsidered rather than assigning a numerical value
+to an undefined expression.
+
+\subsubsection{A joint response and a comparison of contracts}
+
+Use illustrative quarterly parameters
+\begin{align}
+ \beta&=.99,\quad\sigma=\varphi=1,\quad\alpha=1/3,
+ \quad\epsilon_p=\epsilon_w=6,\\
+ \theta_p&=\theta_w=.75,\qquad\phi_\pi=1.5,\quad\phi_x=.125,
+ \quad\rho_\nu=.5.
+\end{align}
+Starting from $g_{-1}=\nu_{-1}=0$, apply one innovation
+$\varepsilon_0^\nu=.001$ and set later innovations to zero. Each date is
+computed in the following order:
+\begin{align}
+ \nu_t&=\rho_\nu\nu_{t-1}+\varepsilon_t^\nu,\\
+ (x_t,\pi_t^p,\pi_t^w)&=(f_x,f_p,f_w)g_{t-1}+(h_x,h_p,h_w)\nu_t,\\
+ g_t&=g_{t-1}+\pi_t^w-\pi_t^p,\\
+ j_t&=\phi_\pi\pi_t^p+\phi_xx_t+\nu_t,\\
+ r_t&=j_t-[f_pg_t+\rho_\nu h_p\nu_t],\\
+ \hat\mu_t^w&=g_t-\gamma_wx_t.
+\end{align}
+The real-rate response subtracts the actual conditional inflation forecast;
+it does not presume price inflation stays unchanged. The response values and
+the stable root are reported with Figure~\ref{fig:sw-contract-responses}.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=figure,width=0.97\linewidth}
+\centering
+\includegraphics[width=0.97\linewidth]{sticky_wage_responses.pdf}
+\caption{A common policy innovation under different nominal contracts.}
+\label{fig:sw-contract-responses}
+\par\smallskip\RaggedRight\small
+Source: original local-equilibrium calculation; parameters stated above.
+Each contract variant is solved separately. A flexible contract imposes its
+static markup condition; other parameters are held fixed. Rate panels show
+unannualized quarterly basis points; gap panels show $100$ times log deviations.
+The experiment is a teaching construction with no data or estimated effects.
+\end{minipage}
+\end{center}
+
+For the both-contract specification, the computed state root and policies are
+\begin{align}
+ G&\simeq0.826010,\\
+ (f_x,f_p,f_w)&\simeq(-0.193549,\ 0.085861,\ -0.088130),\\
+ (h_x,h_p,h_w)&\simeq(-1.526316,\ -0.041446,\ -0.084222),\\
+ J&\simeq-0.042776.
+\end{align}
+The other forward roots are about $1.223749$ and
+$1.070171\pm0.080776\,\mathrm{i}$; their moduli exceed one. Substitution gives
+\begin{align}
+ x_0&=(-1.526316)(.001)\simeq-.00152632,\\
+ g_0&=(-.042776)(.001)\simeq-.00004278,\\
+ \hat\mu_0^w&=g_0-2.5x_0\simeq.00377301.
+\end{align}
+Thus output falls about $0.153\%$ while the real wage is only about $0.0043\%$
+below its natural reference. The wage markup is nevertheless about $0.377\%$
+above target because the marginal compensation needed for those hours falls
+more. Table~\ref{tab:sw-impact-comparison} makes the contract comparison explicit.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{Impact of the same policy innovation under three contract specifications.}
+\label{tab:sw-impact-comparison}
+\begin{tabular}{lrrr}
+\hline
+\tableheading{Sticky contract}&\tableheading{Output gap (\%)}&\tableheading{Price inflation (bp)}&\tableheading{Wage inflation (bp)}\\
+\hline
+Prices only&$-0.1329$&$-1.6941$&$-34.9178$\\
+Wages only&$-0.0904$&$-5.6285$&$-1.1093$\\
+Both&$-0.1526$&$-0.4145$&$-0.8422$\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+
+The large initial wage change in the price-only case is possible because that
+contract is flexible; its wage markup remains at target. With sticky wages,
+the wage markup absorbs more of the adjustment. Later movements can partly
+reverse the initial change. In particular, persistent inherited real-wage
+positions need not produce a one-signed output response at every horizon.
+Even with $\rho_\nu=0$, the both-contract model has a nonzero next-period
+response through $g_0$; the contract state and the shock's own persistence are
+separate sources of memory.
+
+
+A drop in the real wage is compatible with an above-target wage markup when
+the MRS falls further. Likewise, adding a second sticky contract does not
+mechanically add a fixed percentage to the output response. It changes the
+joint solution for forecasts, costs, and the inherited real-wage position.
+The comparison re-solves that equilibrium for every variant; it does not hold
+behavioral coefficients fixed while changing contract duration.
+
+\subsection{What wage rigidity explains, and what it does not}
+
+Consider three hypothetical observations. A supplier cuts shifts while a
+nominal pay schedule remains unchanged: an inherited contract can constrain
+cost adjustment. Consumer prices rise before the next wage review: an unchanged
+nominal wage can imply a lower real wage. Employment recovers slowly after
+orders improve: wage setting may contribute, but search, hiring costs, skills,
+and financing may also matter. The first two observations map directly to
+this chapter's quantities; the third cannot be assigned to the wage contract
+without further evidence.
+
+The model has no direct count of unemployed people, vacancies, quits, or labor
+force participation. Its labor types supply the hours employers demand under
+the specified wage schedule; it has not modeled the process of finding a job.
+Nor does symmetric Calvo adjustment capture a special prohibition on wage
+cuts, institutional bargaining details, or every kind of annual agreement.
+Those are distinct extensions. Lower wage flexibility also need not improve
+or worsen every policy outcome independently of price flexibility and the
+policy rule.
+
+\begin{blueblock}
+\textbf{A real wage, a wage markup, and unemployment are different objects.}
+The real wage compares nominal compensation with goods prices. The wage markup
+compares that compensation with the marginal work trade-off. Unemployment
+compares workers seeking jobs with jobs actually obtained under a specified
+labor-market mechanism. One cannot infer the last object merely by plotting
+one of the first two.
+\end{blueblock}
+
+We now have a common framework containing real disturbances, staggered product
+prices, and staggered wages. The labor-market chapter marks the next mechanism
+needed for employment and unemployment. The synthesis at the end of this part
+compares what the completed models predict before moving on to international
+and financial transmission.

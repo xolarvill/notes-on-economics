@@ -174,3 +174,36 @@ its slope phi_x+phi_pi*kappa in interest-rate–gap space.
 against the underlying equations and checks the shift-arrow endpoints.
 All pre-existing mathematical expressions, condition cards, and original
 course comments remain unchanged.
+
+## Sticky wages: the course wage problem and the completed joint equilibrium
+
+Comparison source: `901a87a:macro/chapters/sticky-wages.tex`; its complete source
+is retained as recoverable comments and checked by SHA-256. The small original
+wage-setting derivation is expanded through its consequences rather than
+replaced by a statement of the wage Phillips curve.
+
+| Route | Intermediate operations visible |
+| --- | --- |
+| Labor cost minimization | CES derivative, FOC, demand, binding-composite substitution, wage-index recovery, wage-bill check, and the original output-constrained multiplier comparison |
+| Type and aggregate quantities | Firm-to-type integration, composite aggregation, exact physical-hours and work-disutility dispersion moments, and first-order Calvo dispersion cancellation |
+| Family spending | Full budget, positive multiplier, consumption derivative, adjacent bond derivatives, nominal Euler, ownership income, and resource clearing |
+| Flexible wage | Demand derivative, revenue derivative, utility cost, sign rearrangement, multiplier substitution, and wage/MRS markup |
+| Original budget substitution | Small-type-group budget, held other cash flows, income and hours chain rules, division by group mass, asset derivative cancellation, and consumption-value objective |
+| Surviving wage FOC | Expected discounted derivative, rearranged sums, ratio, MRS substitution, period-zero/general-t forms, and flexible limit |
+| Nonlinear reset wage | Own-hours powers in both sums, common reset-wage cancellation, closed wage power equation, and the origin of 1+epsilon_w*phi |
+| Wage approximation | Individual multiplier/hours/MRS deviations, both Taylor sides and steady factors, canceled weight terms, own-hours correction, and recursive forecast sum |
+| Wage inflation | Exact CES cohort aggregation, all first-order terms, reset-relative-wage identity, recursive substitution, and wage-markup Phillips slope |
+| Benchmarks and gaps | Two flexible markup conditions, inverse labor requirement, natural output level and deviation, natural real wage, planner derivative, real marginal cost and wage-markup gap subtraction |
+| Joint equilibrium | Both Phillips curves, dynamic IS, real-wage accounting, policy rule, natural-rate definition, and inherited-state distinction |
+| Contract limits and policy target conflict | Both individual static limits, the both-flexible gap cancellation, and the contradiction between zero price/wage inflation and a changing natural real wage |
+| Dynamic solution | State/shock policies, correct next-state forecasts, coefficient equations, endogenous root elimination, four polynomial coefficients, stable selection, and complete shock-coefficient elimination |
+| Numerical experiment | Quarter units, parameters, shock timing, every state update, all unreduced-equation residuals, forward roots, recovered coefficients, impact table, and separately solved contract variants |
+
+Run `.venv/bin/python macro/scripts/verify_sticky_wages.py`. Nine CES labor
+allocations are checked against direct optimization; four nonlinear wage optima,
+primitive derivatives, and quadratic wage/dispersion approximation errors pass.
+The scalar quartic and shock formulas agree with a generalized-eigenvalue
+solution over 216 cases. Four finite-horizon boundary systems independently
+recover the policies, including both-flexible neutrality. Nine natural-level
+identities and the original-source digest pass. The figure generator separately
+checks every unreduced equilibrium relation and flexible-contract condition.

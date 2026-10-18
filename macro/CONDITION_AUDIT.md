@@ -177,3 +177,35 @@ Ten cards are visible in full. Original blue/red questions were reviewed by
 function: valuable distinctions and experiments remain as three-color callouts;
 full calculations remain in the main text. A comment archive is comparison
 material and does not substitute for either the visible specification or proofs.
+
+## Sticky wages and the joint nominal-contract model
+
+Comparison source: `901a87a:macro/chapters/sticky-wages.tex`. The full original
+course file is archived as comments, with a verified SHA-256, between
+`BEGIN ORIGINAL STICKY WAGE COURSE TEXT` and its matching end marker. Ten
+visible condition cards give the specification; the archive is not a substitute
+for those conditions or for the live derivations.
+
+| Original condition or route | Visible treatment and qualification |
+| --- | --- |
+| Product-demand and price index | Separate product elasticity epsilon_p and wage elasticity epsilon_w; each has its own CES index and Calvo probability |
+| Labor-market monopolistic competition | Type-specific wage setters face employers' type demand; market power and adjustment delay remain distinct |
+| Wage index versus individual wages | Wage quotes can differ; their CES index is not an arithmetic average or a claim that every W_j equals W |
+| Output-constrained labor bill | Full output-constraint derivative and a separate composite-labor cost problem; output marginal cost equals the wage index divided by MPN |
+| Type hours and aggregates | N_ij, N_j, composite N, physical hours H, and the disutility moment are defined separately; exact bill W*N and the three dispersion terms are explicit |
+| Household objective | Piecewise CRRA/log consumption, integral of type-specific work costs, all parameter ranges, ownership, and interior hours; no incorrect substitution of mean hours before differentiation |
+| Household nominal accounts | Correct face-value bond timing, full wage bill, profits, asset clearing, initial state, no-Ponzi and terminal restrictions; baseline taxes/transfers zero |
+| Equal consumption valuation | Family income pooling explicitly supplies the common consumption multiplier used in wage decisions; no claim that every worker self-finances consumption from own current earnings |
+| Wage and hours choices | Wage chosen subject to employer demand; inverse-demand quantity choice is an equivalent parameterization, not an independent choice of both |
+| Period-zero and period-t wage problems | Surviving contract objective, full budget-substitution derivative, Lagrangian valuation, and both date conventions retained visibly |
+| Wage markup and MRS | Sign of marginal disutility and substitution of MRS corrected; markups survive flexible adjustment |
+| Wage stickiness | theta_w always means retain the wage; survival, known current information, unknown future innovations, and no indexation stated |
+| Product stickiness | Full product-pricing objective and household profit valuation supplied; either or both nominal contracts may be sticky |
+| Natural and efficient benchmarks | Both-markup natural level, technology response, natural real wage/rate, and separate goods-and-work planner; prior competitive-wage NK benchmark distinguished |
+| Flexible limits | Static markup conditions replace the relevant Phillips curve; no infinite-coefficient computation; both-flexible limit yields zero real gaps for monetary disturbances |
+| Local policy experiment | Rule, stationary innovation process, inherited real-wage position, bounded solution class, and root-count scope are explicit |
+
+The completed chapter derives wage inflation and closes the joint equilibrium;
+it does not claim to explain unemployment, vacancy creation, participation,
+downward-only wage rigidity, or an estimated wage–price spiral. Those require
+additional conditions and observations.
