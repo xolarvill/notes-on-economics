@@ -80,6 +80,8 @@ statistical implementation, see the US Bureau of Labor Statistics,
 (CPS)}}. Its population universe, search criteria, temporary-layoff provisions,
 and treatment of absence from work are measurement rules, not assumptions of
 the matching model below. No current labor-market estimates are used here.}
+
+\Needspace{5\baselineskip}
 Multiplying the two relevant shares gives
 \begin{align}
  e&=\frac LP\frac EL
@@ -316,13 +318,17 @@ recruiters may offer abundant opportunities to an applicant and still wait
 months to fill its own post. There is no contradiction between those two
 perspectives.
 
-With a constant hazard $f$, let $B(a)$ be the probability that an unemployed
+\Needspace{8\baselineskip}
+With a constant hazard $f>0$, let $B(a)$ be the probability that an unemployed
 worker has not yet found a job after duration $a$. Then
 \begin{align}
  B(a+da)&=B(a)[1-f\,da]+o(da),\\
  B'(a)&=-fB(a),\qquad B(0)=1,\\
  B(a)&=e^{-fa},\qquad \Pr(T\leq a)=1-e^{-fa},\\
- E[T]&=\int_0^\infty B(a)da
+ g_T(a)&=-B'(a)=fe^{-fa},\\
+ E[T]&=\int_0^\infty a f e^{-fa}da
+   =[-a e^{-fa}]_0^\infty+\int_0^\infty e^{-fa}da,\\
+ &=\int_0^\infty B(a)da
      =\left[-\frac{e^{-fa}}f\right]_0^\infty=\frac1f.
 \end{align}
 The last expression is a mean waiting time to the first job, not the probability
@@ -528,6 +534,7 @@ Define the left side minus the right side as $F(\vartheta)$. Then
         +\eta\kappa>0,\\
  \lim_{\vartheta\to\infty}F(\vartheta)&=\infty.
 \end{align}
+\Needspace{10\baselineskip}
 Continuity and strict monotonicity give exactly one positive stationary
 tightness. Recover the other quantities in sequence:
 \begin{align}
@@ -552,6 +559,13 @@ Implicit differentiation of $F(\vartheta)=0$ gives
  F_\vartheta\,d\vartheta+F_z\,dz&=0,
  &F_z&=-(1-\eta),\\
  \frac{d\vartheta}{dz}&=\frac{1-\eta}{F_\vartheta}>0,\\
+ F_b&=1-\eta,
+ &F_\kappa&=\frac{r+s}{q}+\eta\vartheta,\\
+ F_s&=\frac\kappa q,
+ &F_{\mathcal A_m}&=-\frac{\kappa(r+s)}{\mathcal A_m^2}\vartheta^\xi.
+\end{align}
+For each primitive $a$, use $d\vartheta/da=-F_a/F_\vartheta$:
+\begin{align}
  \frac{d\vartheta}{db}&=-\frac{1-\eta}{F_\vartheta}<0,\\
  \frac{d\vartheta}{d\kappa}
  &=-\frac{(r+s)/q+\eta\vartheta}{F_\vartheta}<0,\\
@@ -708,7 +722,20 @@ The last line uses continuous renegotiation with constant $\eta$, so
 $D(t)=\eta S(t)$ and $J(t)=(1-\eta)S(t)$ at every date. This is a
 forward-looking asset equation, not a law that makes surplus predetermined.
 
-The nonexplosive occupied-job value has the present-value representation
+To recover the present-value meaning, move the value term to the left and
+define its survival-adjusted discount factor:
+\begin{align}
+ \dot J(\tau)-[r+s(\tau)]J(\tau)&=-[z(\tau)-w(\tau)],\\
+ Q(t,\tau)&=e^{-\int_t^\tau[r+s(a)]da},\qquad Q(t,t)=1,\\
+ \frac{\partial}{\partial\tau}[Q(t,\tau)J(\tau)]
+ &=Q(t,\tau)\{\dot J(\tau)-[r+s(\tau)]J(\tau)\},\\
+ &=-Q(t,\tau)[z(\tau)-w(\tau)],\\
+ Q(t,T)J(T)-J(t)
+ &=-\int_t^T Q(t,\tau)[z(\tau)-w(\tau)]d\tau,\\
+ J(t)&=\int_t^T Q(t,\tau)[z(\tau)-w(\tau)]d\tau+Q(t,T)J(T).
+\end{align}
+Nonexplosive terminal selection requires $Q(t,T)J(T)\to0$. Taking the limit
+gives the occupied-job value
 \begin{align}
  J(t)&=\int_t^\infty
  e^{-\int_t^\tau[r+s(a)]da}[z(\tau)-w(\tau)]d\tau.
@@ -744,6 +771,7 @@ Together with \eqref{eq:lm-dynamic-surplus}, these equations close the
 transition. One first selects the surplus path consistent with future
 fundamentals, then evolves the given unemployment stock forward.
 
+\Needspace{9\baselineskip}
 For a given time-varying $f(t)$ and $s(t)$, define
 $K(t)=\int_0^t[s(a)+f(a)]da$. The integrating-factor steps are
 \begin{align}
@@ -904,6 +932,7 @@ establish that every matching model fails, or that wage rigidity is the only
 possible modification. Parameter choices, hiring costs, heterogeneity, and
 the wage paid in new matches all require evidence.
 
+\Needspace{12\baselineskip}
 \subsubsection{A controlled fixed-real-wage comparison}
 
 For a separate stationary experiment, replace Nash bargaining by a real wage
@@ -1092,7 +1121,19 @@ fixed $\vartheta$, write $\bar u=s/(s+f)$ and use
  C(t)&=z-[z-b+\kappa\vartheta]u(t),\\
  \mathcal P(\vartheta;u_0)
  &=\int_0^\infty e^{-rt}\{z-[z-b+\kappa\vartheta]
-        [\bar u+(u_0-\bar u)e^{-(s+f)t}]\}dt,\\
+        [\bar u+(u_0-\bar u)e^{-(s+f)t}]\}dt.
+\end{align}
+The two required discount integrals are
+\begin{align}
+ \int_0^\infty e^{-rt}dt
+ &=\left[-\frac{e^{-rt}}r\right]_0^\infty=\frac1r,\\
+ \int_0^\infty e^{-(r+s+f)t}dt
+ &=\left[-\frac{e^{-(r+s+f)t}}{r+s+f}\right]_0^\infty
+   =\frac1{r+s+f}.
+\end{align}
+Separating the constant part from the inherited-stock part therefore gives
+\begin{align}
+ \mathcal P(\vartheta;u_0)
  &=\frac zr-[z-b+\kappa\vartheta]
        \left[\frac{\bar u}r+\frac{u_0-\bar u}{r+s+f}\right].
 \end{align}
@@ -1114,6 +1155,7 @@ subsidy changes a firm's private cost without making the social resource
 cost disappear. The planner comparison does not supply these missing accounts.
 \end{redblock}
 
+\Needspace{15\baselineskip}
 \subsection{Read employment recoveries through the mechanism that is missing}
 
 \subsubsection{Bring participation back into the accounts}
@@ -1202,5 +1244,5 @@ restrict nominal adjustment; matching explains how jobs form and disappear
 through flows. Combining them is useful when the question requires their
 interaction, but also requires a common household problem, timing, resource
 constraint, and wage institution. The synthesis in
-Section~\ref{sec:fluctuations-synthesis} compares these mechanisms before
+Chapter~\ref{sec:fluctuations-synthesis} compares these mechanisms before
 Open Economy adds trade, external borrowing, and cross-border transmission.

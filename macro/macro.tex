@@ -42,6 +42,10 @@
 \setlength{\RaggedRightParindent}{2em}
 \setlength{\RaggedRightRightskip}{0pt plus 1fil}
 \setcounter{tocdepth}{2}% Keep the main contents at chapter and section level.
+% Leave room for two-digit chapter and subsection numbers, such as 13.10.
+\makeatletter
+\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{3.2em}}
+\makeatother
 
 % Table cells start flush left; environment grouping preserves body indentation.
 % ragged2e restores paragraph columns using RaggedRightParindent, not parindent alone.

@@ -224,8 +224,9 @@ Run `.venv/bin/python macro/scripts/verify_fluctuation_synthesis.py`. The checks
 compare 500 recursive and closed-form state values, including equal and zero
 roots; nine flexible-contract equilibria independently reproduce the nominal
 response formula; four work-allocation curvature calculations and symmetric
-Taylor-error orders pass. Financial and matching examples are hypothetical
-questions for additional models, not completed derivations or causal evidence.
+Taylor-error orders pass. Financial examples remain hypothetical questions for
+additional models. The matching comparison now points to the completed labor
+chapter's solved benchmark; neither comparison is empirical causal evidence.
 
 ## Labor markets and unemployment
 

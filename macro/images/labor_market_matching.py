@@ -116,12 +116,14 @@ def transition(kind, p=Parameters(), horizon=240., end=36., points=721):
 
 
 def figures():
-    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 10,
+    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 8.5,
+                         'axes.titlesize': 9, 'axes.labelsize': 8,
+                         'xtick.labelsize': 8, 'ytick.labelsize': 8,
                          'axes.spines.top': False, 'axes.spines.right': False,
                          'pdf.fonttype': 42, 'ps.fonttype': 42})
     p = Parameters(); base = steady(p)
     directory = Path(__file__).resolve().parent
-    fig, axes = plt.subplots(1, 2, figsize=(10.3, 4.05), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.3, 3.1), constrained_layout=True)
     ax = axes[0]
     th = np.linspace(.03, 1.35, 400)
     jc = p.z-p.k*(p.r+p.s)/p.A*th**p.xi
@@ -132,10 +134,10 @@ def figures():
     ax.axvline(base['th'], color='.6', lw=.8, ls=':')
     ax.axhline(base['w'], color='.6', lw=.8, ls=':')
     ax.annotate('Equilibrium', (base['th'], base['w']), xytext=(.15, 1.035),
-                arrowprops={'arrowstyle': '->', 'color': '.3'}, fontsize=9)
-    ax.set(title='A. The wage and recruitment must agree', xlabel='Vacancies / unemployed workers',
+                arrowprops={'arrowstyle': '->', 'color': '.3'}, fontsize=7.5)
+    ax.set(title='A. Wage and vacancy entry', xlabel='Vacancies / unemployed workers',
            ylabel='Real wage (goods per month)', ylim=(.80, 1.14))
-    ax.legend(frameon=False, loc='lower right', fontsize=9)
+    ax.legend(frameon=False, loc='lower right', fontsize=7)
     ax = axes[1]
     u = np.linspace(.025, .105, 500)
     for pp, color, label in [(p, '#244d74', 'Baseline matching'),
@@ -145,16 +147,15 @@ def figures():
         ax.plot(100*u, 100*v, color=color, label=label)
         ax.plot(100*u, 100*st['th']*u, '--', lw=1, color=color)
         ax.plot(100*st['u'], 100*st['v'], 'o', color=color)
-    ax.text(3.0, .65, 'Dashed: entry rays', fontsize=8, color='.3')
-    ax.set(title='B. Balanced flows and vacancy entry', xlabel='Unemployed / labor force (%)',
+    ax.set(title='B. Matching and balanced flows', xlabel='Unemployed / labor force (%)',
            ylabel='Vacancies / labor force (%)', ylim=(0, 7), xlim=(2.5, 10.5))
-    ax.legend(frameon=False, fontsize=8, loc='upper right')
+    ax.legend(frameon=False, fontsize=6.7, loc='lower left')
     for ax in axes: ax.grid(alpha=.13)
     fig.savefig(directory/'labor_market_equilibrium.pdf', metadata={'CreationDate': None})
     fig.savefig(directory/'labor_market_equilibrium.png', dpi=180)
     plt.close(fig)
 
-    fig, axes = plt.subplots(2, 3, figsize=(10.4, 6.4), constrained_layout=True)
+    fig, axes = plt.subplots(3, 2, figsize=(6.3, 6.6), constrained_layout=True)
     series = [('th', 'Market tightness', '% from baseline'),
               ('u', 'Unemployment rate', 'Percentage-point change'),
               ('v', 'Vacancies per worker', '% from baseline'),
@@ -172,7 +173,7 @@ def figures():
             ax.set(title=title, ylabel=units, xlabel='Months after news')
             ax.axhline(0, color='.55', lw=.6)
             ax.grid(alpha=.13)
-    axes[0, 0].legend(frameon=False, fontsize=8)
+    axes[0, 0].legend(frameon=False, fontsize=6.7)
     fig.savefig(directory/'labor_market_transitions.pdf', metadata={'CreationDate': None})
     fig.savefig(directory/'labor_market_transitions.png', dpi=180)
     plt.close(fig)
