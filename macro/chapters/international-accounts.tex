@@ -426,7 +426,7 @@ $F^{in}\equiv-FA$, its equation is $CA+KA+F^{in}=0$.
 
 Now reconcile stocks and flows. Let $VAL$ be net revaluation gains, including
 exchange-rate and other price changes, and $OCV$ other changes in volume,
-such as an uncompensated write-off. Then
+such as a unilateral write-off. Then
 \begin{align}
  NFA_t-NFA_{t-1}&=FA_t+VAL_t+OCV_t\\
  &=CA_t+KA_t+VAL_t+OCV_t.\label{eq:open-iip-reconcile}
@@ -527,11 +527,13 @@ Persistent loss&1&1&1.00&0.00\\
 Future income news&2&3&2.50&$-0.50$\\
 \hline
 \end{tabular}
-\end{threeparttable}
-\smallskip
-{\footnotesize Hypothetical quantities; $B_0=0$, $R=\beta=\sigma=1$.
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Hypothetical quantities; $B_0=0$, $R=\beta=\sigma=1$.
 ``Persistent'' here means both dates of this finite economy, not an
-infinite sequence.\par}
+infinite sequence.
+\end{tablenotes}
+\end{threeparttable}
 \end{minipage}
 \end{center}
 
@@ -893,14 +895,14 @@ The resulting sequential asset path satisfies
 \end{align}
 Thus it is feasible under the specified debt restriction. Its optimality can
 also be checked directly, rather than assumed from Euler alone. Concavity
-implies, for any alternative positive admissible path $\widetilde C_t$,
+implies, for any alternative positive admissible path $\tilde C_t$,
 \begin{align}
- u(\widetilde C_t)-u(\bar C)
- &\leq u'(\bar C)(\widetilde C_t-\bar C),\\
+ u(\tilde C_t)-u(\bar C)
+ &\leq u'(\bar C)(\tilde C_t-\bar C),\\
  \sum_{t=1}^\infty\beta^{t-1}
- [u(\widetilde C_t)-u(\bar C)]
+ [u(\tilde C_t)-u(\bar C)]
  &\leq R u'(\bar C)\sum_{t=1}^\infty
-             \frac{\widetilde C_t-\bar C}{R^t}\\
+             \frac{\tilde C_t-\bar C}{R^t}\\
  &\leq0.
 \end{align}
 The last inequality uses the alternative's present-value inequality and the

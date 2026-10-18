@@ -62,7 +62,8 @@ def figures():
         ax.set(xlim=(0,4.35),ylim=(0,4.35),xlabel='Consumption at date 1',ylabel='Consumption at date 2',title=country)
         ax.set_xticks([0,1,2,3,4]); ax.set_yticks([0,1,2,3,4])
     axes[0].legend(loc='upper right',frameon=False)
-    fig.savefig(root/'intertemporal_exchange.pdf'); fig.savefig(root/'intertemporal_exchange.png',dpi=180)
+    fig.savefig(root/'intertemporal_exchange.pdf',metadata={'CreationDate':None,'ModDate':None})
+    fig.savefig(root/'intertemporal_exchange.png',dpi=180)
     plt.close(fig)
 
     fig, axes=plt.subplots(2,2,figsize=(6.3,4.8),layout='constrained')
@@ -84,7 +85,8 @@ def figures():
     ax.axhline(0,color='#60666d',lw=.6)
     ax.set(title='A more productive future project',xticks=x,xticklabels=names,ylabel='Goods',ylim=(-.9,2.6))
     ax.legend(frameon=False,loc='upper right')
-    fig.savefig(root/'external_adjustment.pdf');fig.savefig(root/'external_adjustment.png',dpi=180)
+    fig.savefig(root/'external_adjustment.pdf',metadata={'CreationDate':None,'ModDate':None})
+    fig.savefig(root/'external_adjustment.png',dpi=180)
     plt.close(fig)
 
 
