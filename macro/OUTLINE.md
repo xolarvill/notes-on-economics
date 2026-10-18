@@ -230,6 +230,7 @@ chapter of Part V.
 ### 11. New Keynesian Model
 
 - Why demand can change output: from RBC to nominal price constraints
+- From RBC to NKDSGE: common framework, changed constraints, and the fixed-factor simplification
 - Ten detailed condition cards: agents, timing, nominal accounts, and closure
 - Two-stage household choice
   - CES expenditure minimization and utility maximization
@@ -253,27 +254,51 @@ chapter of Part V.
 
 ### 12. Sticky Wage Model
 
+- Wage contracts, labor types, and the family's work trade-off
+- Ten complete condition cards, including insurance, timing, ownership, and dispersion
+- CES labor cost minimization, type demand, and the wage index
+- Household Euler condition, flexible-wage markup, and both wage-optimization routes
+- Nonlinear reset wage, own-hours feedback, and full Taylor expansion
+- Wage-index aggregation and the wage Phillips curve
+- Natural output, efficient output, and the real-wage / markup gaps
+- Joint price–wage–IS–policy system and the inherited real-wage state
+- Flexible contract limits and incompatible inflation-stabilization targets
+- Scalar state-root and shock-coefficient derivations; an independently solved experiment
+- Comparison of sticky prices, sticky wages, and both contracts
+- Nominal wages, real wages, wage markups, and the boundary with unemployment
+
 ### 13. Labor Markets and Unemployment — **planned**
 
 - Employment, unemployment, and participation
 - Search, matching, and wage determination
 - Adjustment and persistence
 
+### 14. Fluctuations: Mechanisms, Comparisons, and Diagnosis
+
+- A common DSGE framework: shocks, propagation, adjustment, and policy closure
+- The same output decline under productivity, spending, and wage constraints
+- Recognizing financing and matching mechanisms not yet modeled
+- Contract memory versus the persistence of the disturbance
+- A common policy innovation and the flexible-contract limit
+- Reading a recession as a sequence of constraints and testable implications
+- Natural, efficient, statistical, and capacity benchmarks; work-allocation welfare
+- Connections to the planned labor-market chapter, open economy, and finance
+
 ## Part IV: Open Economy
 
-### 14. International Accounts and Intertemporal Trade — **planned**
+### 15. International Accounts and Intertemporal Trade — **planned**
 
 - Trade balances, current accounts, and external wealth
 - Consumption smoothing and international borrowing
 - Investment and external adjustment
 
-### 15. Trade and Relative Prices — **planned**
+### 16. Trade and Relative Prices — **planned**
 
 - Comparative advantage, trade gains, and trade costs
 - Terms of trade and the real exchange rate
 - Tradable goods, nontradable goods, and adjustment
 
-### 16. Open Economy Fluctuations and Exchange Rates — **planned**
+### 17. Open Economy Fluctuations and Exchange Rates — **planned**
 
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
@@ -281,38 +306,38 @@ chapter of Part V.
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 
-### 17. Money, Banking, and Central Bank Operations — **planned**
+### 18. Money, Banking, and Central Bank Operations — **planned**
 
 - Money, payments, and financial claims
 - Banks and balance sheets
 - Implementing monetary policy
 
-### 18. Financial Frictions and Aggregate Adjustment — **planned**
+### 19. Financial Frictions and Aggregate Adjustment — **planned**
 
 - Borrowing limits and collateral
 - Intermediation and financial amplification
 - Financial distress and policy intervention
 
-### 19. Household Heterogeneity and Policy Transmission — **planned**
+### 20. Household Heterogeneity and Policy Transmission — **planned**
 
 - Income risk, insurance, and precautionary saving
 - Marginal propensities to consume and redistribution
 - From representative to heterogeneous households
 
-### 20. Monetary Policy
+### 21. Monetary Policy
 
 - Transmission and policy shocks — **planned**
 - Rules, commitment, and discretion — **planned**
 - The interest-rate lower bound and balance-sheet policies — **planned**
 - Optimal monetary policy
 
-### 21. Fiscal Policy — **planned**
+### 22. Fiscal Policy — **planned**
 
 - Government budgets, debt, and Ricardian equivalence
 - Taxes, purchases, transfers, and public investment
 - Fiscal multipliers and financing
 
-### 22. Policy Interaction and Constraints — **planned**
+### 23. Policy Interaction and Constraints — **planned**
 
 - Fiscal and monetary regimes
 - Debt sustainability and policy space
@@ -320,7 +345,7 @@ chapter of Part V.
 
 ## Part VI: Topics
 
-### 23. The Dollar in the International Monetary System — **planned**
+### 24. The Dollar in the International Monetary System — **planned**
 
 - History and measures of international currency use
 - Network effects, invoicing, and safe assets
@@ -328,7 +353,7 @@ chapter of Part V.
 - Global funding and policy spillovers
 - Persistence, alternatives, and testable changes
 
-### 24. China's Growth and Adjustment after the Pandemic — **planned**
+### 25. China's Growth and Adjustment after the Pandemic — **planned**
 
 - The baseline, timeline, and measurement
 - Demand, consumption, and employment

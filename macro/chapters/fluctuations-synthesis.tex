@@ -1,0 +1,383 @@
+% !TEX root = ../macro.tex
+\section{Fluctuations: Mechanisms, Comparisons, and Diagnosis}
+\label{sec:fluctuations-synthesis}
+
+A district reports fewer orders, shorter shifts, falling sales, and postponed
+investment. Has its ability to produce declined, have customers postponed
+purchases, or can otherwise viable plans no longer be financed? Those questions
+can lead to different models even when the headline observation is the same.
+A model becomes useful when it identifies the constraint that changed and the
+additional observations that would distinguish its explanation.
+
+The district in this chapter is hypothetical. We follow its firms and workers
+through several possible situations rather than assign one model to a country
+or a recession. The purpose is to organize what has been derived, show how the
+mechanisms fit together, and identify where a new model is required. The
+financial and matching mechanisms discussed at the boundary are questions for
+later development, not results already established by the completed chapters.
+
+\subsection{One framework, several questions}
+
+Growth models were easier to separate because their common question was how
+income and productive capacity develop over time. Saving, intertemporal choice,
+generations, and technical change supplied distinct routes into that question.
+For fluctuations, the same optimizing household can face a technology change,
+a change in the real return on saving, an inherited contract, or a borrowing
+limit. Naming the model is only the beginning of identifying the mechanism.
+
+Keep four questions in view. \emph{Source}: what changes first? \emph{Propagation}:
+which stocks, contracts, or expectations carry its effects forward?
+\emph{Adjustment}: which prices or quantities can move, and which cannot?
+\emph{Closure}: which rule and market conditions make all the plans consistent?
+The shock, its persistence, the constraint, and the policy response are separate
+parts of the explanation.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{The questions isolated by the completed fluctuation models.}
+\label{tab:fluctuation-mechanism-map}
+\begin{tabular}{p{.18\linewidth}p{.35\linewidth}p{.37\linewidth}}
+\hline
+\tableheading{Specification}&\tableheading{Question made visible}&\tableheading{Adjustment and memory}\\
+\hline
+RBC&How do households and firms reallocate work, spending, and investment when real opportunities change?&Flexible real prices coordinate choices. Capital carries history in the accumulation version; shock persistence and forecasts also matter.\\
+Sticky-price NK&Why can a change in spending or monetary policy move output relative to flexible-price output?&Some product quotes are inherited. Resetters consider future costs. The basic consumption-only gap system has no inherited capital.\\
+Sticky-wage NK&What changes when compensation cannot always respond to new work incentives and labor costs?&Wage quotes are inherited as well. The real-wage position connects price and wage inflation and adds an endogenous state.\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+
+Table~\ref{tab:fluctuation-mechanism-map} contains specifications within a common
+dynamic general-equilibrium approach, not three unrelated languages. The wage
+chapter already combines sticky prices with sticky wages. DSGE describes the
+framework; NK describes a set of economic mechanisms within it. Adding capital,
+financial intermediaries, or heterogeneous households expands the specification
+and requires additional budgets and choices. It does not turn a label into a
+solution by itself.
+
+\begin{greenblock}
+\textbf{Remember the constraint before the model name.}
+Ask who wants to change a decision, what prevents that change, and which other
+variable then adjusts. A price contract, a wage contract, an inherited machine,
+and a borrowing limit are different constraints. Their effects depend on the
+shock and the policy environment in which they operate.
+\end{greenblock}
+
+\subsection{The same output decline can describe different economies}
+
+\subsubsection{When production opportunities deteriorate}
+
+First suppose the district loses access to a productive input. A machine runs
+more slowly or a production process becomes less effective. In the RBC language,
+the productivity state changes. The basic production accounting is
+\begin{align}
+ Y_t&=A_tK_t^{\alpha}N_t^{1-\alpha},\\
+ \hat y_t&=a_t+\alpha\hat k_t+(1-\alpha)\hat n_t.
+\end{align}
+At impact, the inherited capital stock cannot jump. If it was initially at
+reference, its deviation is zero, so
+\begin{align}
+ \hat y_0&=a_0+(1-\alpha)\hat n_0.
+\end{align}
+Output changes through productivity and the endogenous hours response. Lower
+productivity does not mechanically determine every other sign: income effects,
+work substitution, expected recovery, and the investment opportunity all enter
+the household's decision. The solved RBC experiment supplies a particular
+joint response under its stated parameters.
+
+Before treating the decline as spare capacity, ask whether the district can
+still produce its previous quantity with the same resources. If not, restoring
+spending alone does not restore the missing production opportunity. Conversely,
+a temporary decline in orders does not prove that the production function
+shifted. The resource constraint and the demand schedule answer different
+questions.
+
+RBC's real allocation also does not, by itself, supply a prediction for the
+nominal price level or inflation. To interpret those observations, a nominal
+closure must be specified. Describing a fall in technology as ``output down,
+inflation up'' without such a closure adds a result that the real model has
+not produced.
+
+\subsubsection{When customers postpone purchases}
+
+Now leave the district's productive capacity unchanged. Households want to
+postpone consumption because the real return is higher relative to the
+natural rate. Gap IS says
+\begin{align}
+ x_t&=E_tx_{t+1}-\frac1\sigma(r_t-r_t^n),\qquad
+ r_t=j_t-E_t\pi_{t+1}^p.
+\end{align}
+At a held next-gap forecast, a higher real-rate gap lowers current demand.
+The NK equilibrium also determines how the forecast, inflation, and policy
+respond; the conditional equation alone is not the entire shock solution.
+
+A restaurant with inherited menu prices can meet fewer bookings by reducing
+meals and shifts. Marginal cost and new price quotes then respond. This is the
+mechanism isolated by the policy experiment, not evidence that every restaurant
+with weak sales faces a monetary disturbance. A preference change could alter
+the natural rate, and expected future income could change spending independently
+of a current policy innovation.
+
+The question is whether the spending path is weak relative to the model's
+flexible-price allocation. A measured trend gap is not automatically that
+counterfactual. Technology and preferences can move the natural allocation
+while observed output changes as well.
+
+\subsubsection{When labor compensation adjusts on a different schedule}
+
+Suppose orders fall before annual pay reviews. Wages may remain close to their
+old nominal quotes while work incentives and product prices change. The relevant
+comparisons are
+\begin{align}
+ \hat{mc}_t&=g_t+\gamma_p x_t,\\
+ \hat\mu_t^w&=g_t-\gamma_wx_t.
+\end{align}
+A real wage that is only slightly below its natural reference can still be
+high relative to the MRS associated with lower consumption and fewer hours.
+Table~\ref{tab:sw-impact-comparison} illustrates exactly that combination:
+the both-contract experiment has a small negative real-wage gap and a positive
+wage-markup deviation.
+
+This distinction is useful when nominal pay changes little but real purchasing
+power falls. It is also why the response cannot be diagnosed from a real-wage
+series alone. The consumer price, hours, household valuation of consumption,
+and the compensation schedule all enter the comparison.
+
+\subsubsection{When the missing constraint is outside these models}
+
+A supplier may have customers and working machines yet be unable to finance
+materials. A worker may be willing to work at the going wage yet fail to find
+a matching vacancy. Neither situation is fully described by the representative
+household's interior hours choice. A financing constraint requires assets,
+liabilities, repayment, and a rule limiting funds. Job finding requires workers,
+vacancies, and a matching or recruitment process.
+
+The financial and labor-market chapters are where those conditions belong.
+Here the observations tell us which missing mechanism to seek. Renaming a
+monetary innovation ``credit stress'' does not introduce a lender's balance
+sheet; renaming lower hours ``unemployment'' does not create job search.
+
+\begin{center}
+\begin{minipage}{\linewidth}
+\captionsetup{type=table}
+\centering\small
+\begin{threeparttable}
+\caption{Further observations that help distinguish explanations of weaker activity.}
+\label{tab:fluctuation-diagnosis}
+\begin{tabular}{p{.19\linewidth}p{.33\linewidth}p{.38\linewidth}}
+\hline
+\tableheading{Candidate constraint}&\tableheading{What to look at next}&\tableheading{What the observation would still not establish}\\
+\hline
+Production opportunity&Input availability, output per hour, usable capital, and production interruptions&A productivity residual can include utilization or measurement changes; it is not a direct count of technical ideas.\\
+Desired spending&Orders, inventories, spending plans, expected income, and expected real returns&Weak sales alone do not identify a monetary shock or hold supply conditions fixed.\\
+Nominal contracts&Timing of price and wage reviews, relative quotes, real wages, and hours&An unchanged wage does not imply an unchanged real wage or a particular unemployment mechanism.\\
+Financing&Collateral, spreads, lending conditions, repayment needs, and rejected projects&A wider spread can reflect risk or demand as well as funding constraints. An explicit intermediary model is still needed.\\
+Matching and reallocation&Vacancies, job finding, separations, skills, and participation&Slow hiring can reflect several constraints; wage stickiness alone does not measure them.\\
+\hline
+\end{tabular}
+\end{threeparttable}
+\end{minipage}
+\end{center}
+
+These are hypotheses for a diagnostic sequence, not sign restrictions that
+identify a unique cause from one observation. Several constraints can bind in
+the same district and at different stages of a downturn.
+
+\subsection{A short-lived disturbance can leave a longer history}
+
+A useful memory from Growth is the difference between an inherited stock and
+a current decision. Capital survives today's saving decision. In the wage
+model, an inherited relative compensation position survives today's policy
+innovation. Neither persistence needs to be assigned entirely to the shock.
+
+For the monetary experiment in the wage chapter,
+\begin{align}
+ \nu_t&=\rho_\nu\nu_{t-1}+\varepsilon_t^\nu,\\
+ g_t&=Gg_{t-1}+J\nu_t,\qquad
+ x_t=f_xg_{t-1}+h_x\nu_t.
+\end{align}
+Apply one date-zero innovation $e$ and zero later innovations, with zero
+prehistory. Then $\nu_t=\rho_\nu^te$. Iterating the state law gives
+\begin{align}
+ g_0&=Je,\\
+ g_1&=GJe+J\rho_\nu e,\\
+ g_t&=Je\sum_{h=0}^tG^{t-h}\rho_\nu^h.
+\end{align}
+To evaluate this sum for $G\ne\rho_\nu$, multiply it by $G$ and by
+$\rho_\nu$, then subtract:
+\begin{align}
+ G\sum_{h=0}^tG^{t-h}\rho_\nu^h
+ -\rho_\nu\sum_{h=0}^tG^{t-h}\rho_\nu^h
+ &=G^{t+1}-\rho_\nu^{t+1},\\
+ g_t&=Je\frac{G^{t+1}-\rho_\nu^{t+1}}{G-\rho_\nu}.
+\end{align}
+If $G=\rho_\nu$, every term of the original sum is $G^t$, so instead
+\begin{align}
+ g_t&=Je(t+1)G^t.
+\end{align}
+The two roots describe different memories: $\rho_\nu$ belongs to the policy
+process and $G$ to the endogenous contract adjustment. In the iid case,
+$\rho_\nu=0$, the disturbance vanishes after impact but
+\begin{align}
+ g_t&=JeG^t,\qquad
+ x_t=f_xJeG^{t-1}\quad(t\geq1).
+\end{align}
+The later response need not have the same sign as the impact response.
+Persistent adjustment and permanently lower output are also different claims.
+With stable roots, this model's gap eventually vanishes. A destroyed capital
+stock, a different trend, or hysteresis requires its own state equation.
+
+\begin{blueblock}
+\textbf{Three different questions about persistence.}
+How long does the exogenous disturbance last? How long does the economy take
+to adjust after it ends? Does the eventual level or growth path change?
+A long recovery does not, by itself, answer the third question. Nor does a
+short-lived innovation imply a short-lived equilibrium response.
+\end{blueblock}
+
+\subsection{Compare the same policy disturbance under different constraints}
+
+Figure~\ref{fig:sw-contract-responses} holds the policy innovation fixed and
+solves each contract specification separately. The differences therefore reflect
+changed adjustment mechanisms and the resulting forecasts, not independently
+chosen response curves. Its output comparison concerns the same labor-only
+family of models; it is not a comparison between a full capital RBC calibration
+and an unrelated estimated NK economy.
+
+A flexible-price-and-wage limit clarifies what the contracts add. With no
+real shocks and constant markup wedges, flexible quotes give $x_t=g_t=0$.
+Dynamic IS therefore requires
+\begin{align}
+ 0&=0-\frac1\sigma(j_t-E_t\pi_{t+1}^p),\\
+ j_t&=E_t\pi_{t+1}^p.
+\end{align}
+Combine that condition with the same Taylor rule:
+\begin{align}
+ \phi_\pi\pi_t^p+\nu_t&=E_t\pi_{t+1}^p.
+\end{align}
+For $\nu_t$ following AR(1), try $\pi_t^p=b_\nu\nu_t$:
+\begin{align}
+ \phi_\pi b_\nu\nu_t+\nu_t&=b_\nu\rho_\nu\nu_t,\\
+ (\phi_\pi-\rho_\nu)b_\nu&=-1,\\
+ \pi_t^p&=-\frac{\nu_t}{\phi_\pi-\rho_\nu},\qquad
+ j_t=-\frac{\rho_\nu\nu_t}{\phi_\pi-\rho_\nu}.
+\end{align}
+For $\phi_\pi>1$ and $0\leq\rho_\nu<1$, this is the bounded solution.
+The nominal variables adjust while the real allocation stays at its natural
+benchmark. A positive \emph{rule intercept} need not produce a higher realized
+nominal rate when inflation responds. This makes it especially important to
+separate a policy innovation, the systematic reaction, and the observed rate.
+
+With a sticky product or wage contract, the same nominal innovation can also
+move the real-rate gap and current output. The sign and persistence then follow
+from the complete system, including expectations and the inherited states.
+The conditional IS--LM diagrams help organize those channels; the solved dynamic
+paths determine how their intercepts move over time.
+
+\subsection{Read a recession as a sequence of constraints}
+
+Return to the district and begin with a sequence rather than a model label.
+Did a supplier lose an input before it lost orders? Did orders weaken before
+staffing changed? Were prices reviewed before pay agreements? Did customers
+cancel because they wanted to postpone purchases, or because their lender
+withdrew funds? The ordering does not identify causality by itself, but it
+helps formulate a model in which the proposed cause can actually operate.
+
+Next follow the accounts. For households, a wage reduction is also an income
+change; for firms it is a cost change. A loan is another sector's asset. Lower
+investment reduces current demand and changes future capital. A model that
+keeps only one side of these transactions may describe a partial mechanism
+while missing the aggregate feedback. General equilibrium makes those sides
+fit together; it does not guarantee that their combined effect is desirable.
+
+Then separate the horizon of the question. A temporary inability to sell meals
+can leave the restaurant's productive knowledge intact. A prolonged inability
+to finance maintenance can affect later capacity. A worker missing a shift and
+a worker losing a durable employment match carry different histories. The
+relevant horizon follows from what is inherited and what is costly to rebuild,
+not from an arbitrary rule that fluctuations must disappear after a fixed
+number of quarters.
+
+Finally ask for an observation that could make the explanation fail. If the
+story requires unchanged technology, what evidence of input loss would challenge
+it? If it requires an inherited wage, what would immediate repricing of labor
+change? If it requires binding credit, would a sufficiently funded firm in the
+same market respond differently? This is how an intuition becomes a model
+comparison rather than a flexible narrative that fits every outcome.
+
+\begin{redblock}
+\textbf{A disciplined comparison.}
+Choose the initial state, the disturbance, the variables observed, and the
+policy rule. Change one adjustment mechanism, re-solve the equilibrium, and
+explain why the resulting joint paths differ. If instead the shock or policy
+also changes, say so explicitly. A model-generated response is a conditional
+prediction; identifying the disturbance in data is a further task.
+\end{redblock}
+
+\subsection{A smaller gap is not the whole welfare question}
+
+The natural allocation allows flexible quotes while retaining market power
+and other specified real distortions. The efficient allocation removes the
+relevant wedges under a stated planner problem. A statistical trend is a fitted
+reference path. Productive capacity describes feasible production under a
+chosen resource concept. These objects need not coincide, and no one output
+series supplies all of them.
+
+The earlier chapters showed that constant price and wage markups depress
+natural output relative to the symmetric efficient allocation. Contract dispersion
+also changes how spending and hours are allocated across varieties and labor
+types. Stabilizing an aggregate gap alone therefore need not remove the
+welfare cost of unequal relative prices and hours.
+
+A small calculation illustrates one work-allocation cost. Take two equally
+weighted labor types with physical hours $H(1+z)$ and $H(1-z)$, so average
+physical hours stay $H$. This is an illustration of the work burden at a held
+arithmetic mean, not an equilibrium with composite output also held fixed.
+The average disutility is
+\begin{align}
+ \mathcal V(z)&=\frac{\chi H^{1+\varphi}}{2(1+\varphi)}
+                       [(1+z)^{1+\varphi}+(1-z)^{1+\varphi}].
+\end{align}
+Expand the two powers separately:
+\begin{align}
+ (1+z)^{1+\varphi}
+ &\simeq1+(1+\varphi)z+\tfrac12\varphi(1+\varphi)z^2,\\
+ (1-z)^{1+\varphi}
+ &\simeq1-(1+\varphi)z+\tfrac12\varphi(1+\varphi)z^2,\\
+ \mathcal V(z)
+ &\simeq\frac{\chi H^{1+\varphi}}{1+\varphi}
+                       +\frac{\chi\varphi H^{1+\varphi}}2 z^2.
+\end{align}
+The first-order terms cancel, yet uneven work raises the burden at second
+order when $\varphi>0$. This explains why a first-order dispersion cancellation
+does not justify omitting dispersion from a welfare analysis. The full policy
+loss function additionally needs the output allocation, product-price dispersion,
+reference distortions, and explicit instruments.
+
+\subsection{How the remaining parts extend the map}
+
+The planned labor-market chapter distinguishes hours from employment, job
+finding, vacancies, and participation. It adds a mechanism that the completed
+Calvo-wage model does not contain. Open Economy then allows the district to
+trade goods and future income with others: demand and financing can move
+across borders, relative prices include exchange rates, and adjustment depends
+on the monetary arrangement.
+
+The money, finance, and policy part adds balance sheets, borrowing constraints,
+and household differences before comparing instruments and objectives. These
+are also fluctuation mechanisms even though the book develops them later.
+The part boundary organizes the learning sequence; it is not a claim that
+finance or international trade matters only outside a recession model.
+
+\begin{greenblock}
+\textbf{A map to carry into the next part.}
+Describe the observation, identify the candidate disturbance, name the constraint,
+trace the inherited state, and specify policy. Then compare the implied paths
+with other mechanisms and with evidence. This sequence links the growth models,
+the real and nominal fluctuation benchmarks, and the extensions still to come.
+\end{greenblock}

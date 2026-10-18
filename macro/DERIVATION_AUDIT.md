@@ -207,3 +207,22 @@ solution over 216 cases. Four finite-horizon boundary systems independently
 recover the policies, including both-flexible neutrality. Nine natural-level
 identities and the original-source digest pass. The figure generator separately
 checks every unreduced equilibrium relation and flexible-contract condition.
+
+## Fluctuation synthesis
+
+The synthesis retains the RBC beginning-of-period capital timing K_t, then
+compares the completed price/wage models using their own natural references.
+Its additional calculations expand the inherited real-wage recursion into a
+geometric convolution, show the cancellation giving the closed form, and
+handle equal roots separately. A flexible-contract policy example derives
+price inflation and the realized nominal rate from IS and the same Taylor
+rule rather than assigning either response. The uneven-hours illustration
+expands both type-specific work costs at a fixed arithmetic mean of physical
+hours; it explicitly does not hold composite output fixed at the same time.
+
+Run `.venv/bin/python macro/scripts/verify_fluctuation_synthesis.py`. The checks
+compare 500 recursive and closed-form state values, including equal and zero
+roots; nine flexible-contract equilibria independently reproduce the nominal
+response formula; four work-allocation curvature calculations and symmetric
+Taylor-error orders pass. Financial and matching examples are hypothetical
+questions for additional models, not completed derivations or causal evidence.

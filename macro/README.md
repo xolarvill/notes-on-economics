@@ -27,7 +27,7 @@ the introduction is a bridge to graduate study, not a repeat of that course.
 | `macro.tex` | Shared settings and document assembly |
 | `frontmatter/` | Title page and preface |
 | `parts/` | Six part introductions and the chapter order within each part |
-| `chapters/` | One file for each of the 24 chapters |
+| `chapters/` | One file for each of the 25 chapters |
 | `styles/` | Reusable layouts, including the model-condition cards |
 | `images/` | Figures and their recovery provenance |
 | `legacy/` | Original aggregate-model material, excluded from the main PDF |
@@ -45,11 +45,20 @@ begins with a qualitative introduction in Chapter 9, before RBC in Chapter 10.
 RBC retains the original fixed-capital route and develops capital accumulation,
 explicit stochastic and nominal pricing, stepwise approximation, and a solved
 first-order shock experiment. Its original course text remains as comments for comparison.
-Chapter 11 develops the New Keynesian model with complete conditions, both course
+Chapter 11 connects RBC to the NKDSGE framework and develops the New Keynesian
+model with complete conditions, both course
 pricing routes, natural benchmarks, monetary closure, a solved policy experiment,
 and a final IS–LM / AD–AS bridge. Its complete original text remains in comments.
 Run `.venv/bin/python macro/scripts/verify_new_keynesian.py` from the repository
-root for independent nonlinear and local-equilibrium checks. The existing welfare derivation is included directly in
+root for independent nonlinear and local-equilibrium checks.
+Chapter 12 develops staggered wages with ten detailed condition cards, the full
+wage-choice derivation, and a solved joint price–wage system. Chapter 13 remains
+a planned labor-market chapter; Chapter 14 closes Fluctuations with model
+comparisons, economic situations, propagation, and diagnostic reasoning.
+Run `.venv/bin/python macro/scripts/verify_sticky_wages.py` for wage primitives
+and joint-equilibrium checks, and
+`.venv/bin/python macro/scripts/verify_fluctuation_synthesis.py` for the new
+memory and welfare calculations. The existing welfare derivation is included directly in
 `chapters/monetary-policy.tex`.
 
 ## Headings and page starts
