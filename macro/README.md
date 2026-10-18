@@ -45,13 +45,14 @@ begins with a qualitative introduction in Chapter 9, before RBC in Chapter 10.
 RBC retains the original fixed-capital route and develops capital accumulation,
 explicit stochastic and nominal pricing, stepwise approximation, and a solved
 first-order shock experiment. Its original course text remains as comments for comparison.
-Chapter 11 connects RBC to the NKDSGE framework and develops the New Keynesian
-model with complete conditions, both course
+Chapter 11, *New Keynesian Model: Sticky Prices*, connects RBC to the NKDSGE
+framework and develops the sticky-price benchmark with complete conditions, both course
 pricing routes, natural benchmarks, monetary closure, a solved policy experiment,
 and a final IS–LM / AD–AS bridge. Its complete original text remains in comments.
 Run `.venv/bin/python macro/scripts/verify_new_keynesian.py` from the repository
 root for independent nonlinear and local-equilibrium checks.
-Chapter 12 develops staggered wages with ten detailed condition cards, the full
+Chapter 12, *New Keynesian Model: Sticky Wages and Prices*, develops staggered
+wages with ten detailed condition cards, the full
 wage-choice derivation, and a solved joint price–wage system. Chapter 13 remains
 a planned labor-market chapter; Chapter 14 closes Fluctuations with model
 comparisons, economic situations, propagation, and diagnostic reasoning.

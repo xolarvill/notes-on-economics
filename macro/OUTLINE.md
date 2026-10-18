@@ -227,7 +227,7 @@ chapter of Part V.
 - What should an economist learn from the benchmark?
   - Joint-path evidence, identification, efficiency, and missing mechanisms
 
-### 11. New Keynesian Model
+### 11. New Keynesian Model: Sticky Prices
 
 - Why demand can change output: from RBC to nominal price constraints
 - From RBC to NKDSGE: common framework, changed constraints, and the fixed-factor simplification
@@ -252,7 +252,7 @@ chapter of Part V.
   - Compare assumptions, expectations, benchmarks, and welfare
   - Paired IS–LM illustrations: monetary expansion, future spending, and IS–MP
 
-### 12. Sticky Wage Model
+### 12. New Keynesian Model: Sticky Wages and Prices
 
 - Wage contracts, labor types, and the family's work trade-off
 - Ten complete condition cards, including insurance, timing, ownership, and dispersion
