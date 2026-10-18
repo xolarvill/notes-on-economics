@@ -73,8 +73,8 @@ def figures():
         ax.bar(x-width/2,q,width,color='#88a3ba',label='Income Q')
         ax.bar(x+width/2,[c['c1'],c['c2']],width,color='#56836c',label='Consumption C')
         ax.set(title=title,xticks=x,xticklabels=['Date 1','Date 2'],ylim=(0,3.6),ylabel='Goods')
-        ax.text(.97,3.28,f"Date-1 assets: {c['b1']:+.2f}",transform=ax.transData,ha='center',fontsize=7)
-    axes.flat[0].legend(loc='upper left',frameon=False)
+        ax.text(.04,.94,f"Date-1 assets: {c['b1']:+.2f}",transform=ax.transAxes,va='top',fontsize=7)
+    axes.flat[0].legend(loc='upper left',bbox_to_anchor=(.03,.86),borderaxespad=0,frameon=False)
     ax=axes.flat[3]
     values=[project(A=a) for a in (1.,1.4)]
     names=['C₁','Saving S₁','Investment I₁','CA₁']
@@ -82,7 +82,7 @@ def figures():
     for offset,v,col,lab in [(-.16,values[0],'#88a3ba','A₂ = 1'),(.16,values[1],'#56836c','A₂ = 1.4')]:
         ax.bar(x+offset,[v['c1'],v['saving'],v['k'],v['ca']],.3,color=col,label=lab)
     ax.axhline(0,color='#60666d',lw=.6)
-    ax.set(title='A more productive future project',xticks=x,xticklabels=names,ylabel='Goods',ylim=(-.7,2.6))
+    ax.set(title='A more productive future project',xticks=x,xticklabels=names,ylabel='Goods',ylim=(-.9,2.6))
     ax.legend(frameon=False,loc='upper right')
     fig.savefig(root/'external_adjustment.pdf');fig.savefig(root/'external_adjustment.png',dpi=180)
     plt.close(fig)

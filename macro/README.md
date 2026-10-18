@@ -59,6 +59,16 @@ with full conditions, wage bargaining, vacancy creation, nonlinear transition
 experiments, and the planner/Hosios comparison. Its participation extension
 is accounting rather than a solved participation-choice model. Chapter 14 closes Fluctuations with model
 comparisons, economic situations, propagation, and diagnostic reasoning.
+Chapter 15 opens Part IV with the analysis boundary and solved one-good trade
+across dates. It develops full two-period conditions, external accounts and
+valuation, income news and return effects, productive investment, finite and
+infinite horizons, and a separate borrowing-ceiling model. Ten condition cards
+and the detailed algebra remain visible. Chapter 17's planned outline includes
+an IS–LM–BP / Mundell–Fleming bridge, with conditional diagrams and explicit
+capital-flow, expectation, and exchange-rate-regime assumptions.
+Run `.venv/bin/python macro/scripts/verify_intertemporal_trade.py` for direct
+utility/project optimization, constrained choices, derivatives, telescoping,
+annuity limits, and gross external-account reconciliation.
 Run `.venv/bin/python macro/scripts/verify_sticky_wages.py` for wage primitives
 and joint-equilibrium checks, and
 `.venv/bin/python macro/scripts/verify_fluctuation_synthesis.py` for the new

@@ -265,3 +265,30 @@ The fluctuation synthesis now incorporates the completed matching model.
 Financial intermediation remains outside the completed benchmarks; participation
 choices, endogenous destruction, permanent skill damage, and a full NK--matching
 integration are identified as extensions rather than solved results.
+
+## International accounts and intertemporal trade (Chapter 15)
+
+A planned outline is developed into new mathematics; the outline remains in
+comments. The visible derivations follow these routes:
+
+| Route | Intermediate operations retained |
+| --- | --- |
+| Cross-date trade | Autarky quantities, opposite bond positions, both world goods balances and asset clearing, explicit utility gain |
+| Two-period resources | Terminal settlement argument, second-budget solution for B1, substitution into the first, present-value frontier and slope |
+| Choice | Substitution chain rule and second derivative; separate multiplier FOCs; CRRA ratio, denominator, consumption and external position |
+| World closure | Log demands and bond positions summed, world return solved from endowments, competitive versus large-country distinction |
+| Accounts | Expenditure identity, disposable income, national/private/public saving, S−I; interest/principal separation, capital/financial sign conventions, gross stock-flow valuation example |
+| Shocks/returns | Total differential of wealth/consumption/assets; temporary, two-date persistent and news experiments; derivative of g and D, quotient derivative and welfare calculation using the differentiated budget |
+| Investment | Both budgets consolidated, direct joint FOCs, separate project present-value derivatives, Cobb capital solution/log derivatives, explicit cancellation of induced-capital terms, current-account derivative, two numerical settlements |
+| Horizons | Every early discounted budget, telescoping, Euler transfer, finite consumption sequence and geometric-sum subtraction; no-Ponzi counterexample and distinct infinite PV restriction |
+| Infinite solution | Geometric annuity, sequential feasibility/terminal limit, concavity supporting inequality for optimality, one-time/permanent/future-news present-value sums |
+| Credit ceiling | Budget converted into a consumption cap, both multipliers, inequality Euler and complementarity, exact constrained choice, binding consumption/repayment and multiplier, current-income/news/credit-cap responses |
+
+Run `.venv/bin/python macro/scripts/verify_intertemporal_trade.py`.
+Independent direct optimization checks 72 unconstrained CRRA choices,
+16 joint consumption/capital problems, and 36 borrowing-limited choices.
+Further checks cover 18 return/welfare derivatives, 54 income responses,
+project comparative derivatives and final liquidation accounts, 12 finite
+horizons, infinite annuity/discounted-asset limits, and 100 randomly generated
+saving--investment, gross portfolio reconciliation and reserve-flow sign cases.
+Figures contain solved hypothetical quantities rather than empirical estimates.

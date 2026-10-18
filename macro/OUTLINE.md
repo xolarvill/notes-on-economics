@@ -295,11 +295,19 @@ chapter of Part V.
 
 ## Part IV: Open Economy
 
-### 15. International Accounts and Intertemporal Trade — **planned**
+### 15. International Accounts and Intertemporal Trade
 
-- Trade balances, current accounts, and external wealth
-- Consumption smoothing and international borrowing
-- Investment and external adjustment
+- What openness changes: the analysis boundary, goods, and external claims
+- Openness, comparative advantage, country size, and market power distinguished
+- One-good two-country exchange across dates; world asset and goods clearing
+- Five complete baseline condition cards; sequential and present-value budgets
+- Substitution and multiplier routes to Euler; explicit CRRA consumption and borrowing
+- Trade/current/financial/capital accounts, national saving, and valuation reconciliation
+- Temporary and persistent income, future news, and return/welfare derivatives
+- Resident-owned capital projects, financing, salvage, and saving--investment separation
+- Finite-horizon telescoping, consumption paths, no-Ponzi restriction, and annuity solution
+- A separate complete borrowing-ceiling specification and the constrained Euler condition
+- Ten condition cards, two original figures, and two measured comparison tables
 
 ### 16. Trade and Relative Prices — **planned**
 
@@ -312,6 +320,8 @@ chapter of Part V.
 - The small open economy RBC model
 - Capital flows, interest parity, and risk
 - Nominal rigidities and exchange-rate regimes
+- IS--LM--BP and Mundell--Fleming: conditional diagrams, capital-flow assumptions,
+  reserve accounting, fixed/floating regimes, and the link to open economy NK
 
 ## Part V: Money, Finance, and Macroeconomic Policy
 

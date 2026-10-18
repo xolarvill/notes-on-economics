@@ -366,7 +366,7 @@ the private sector, $S_p=GNDI-T-C$ and $S_g=T-G$.
 A larger fiscal deficit need not imply an equal increase in the current-account
 deficit: private saving and investment can respond.
 
-\Needspace{14\baselineskip}
+\Needspace{11\baselineskip}
 \begin{center}
 \begin{minipage}{\linewidth}
 \captionsetup{type=table}
@@ -580,6 +580,464 @@ its budget and utility gives
 A higher new-loan return benefits a net lender and harms a net borrower
 locally. The quantity response and the welfare response answer different
 questions.
+
+
+\subsection{Investment can separate domestic production from national saving}
+
+A country may borrow because current income is low. It may also borrow
+because productive projects are attractive. To distinguish these mechanisms,
+allow residents to build capital today that produces goods tomorrow. We use
+a new project rather than an inherited capital stock so that the investment
+and financing decisions remain visible.
+
+\Needspace{14\baselineskip}
+\subsubsection{Specify the project, its owners, and its final value}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{06}{A two-date production extension}
+Retain the resident households, one tradable numeraire, deterministic
+information, CRRA preferences, initial external payoff $R_0B_0$, and frictionless
+borrowing/lending at given $R$ from conditions 01--05. Add a domestic project
+owned entirely by those residents. At date 1, one good installs one unit of
+capital: $I_1=K_2\geq0$. There is no initial project capital and no production
+from new investment at date 1. At date 2, the project produces $A_2F(K_2)$,
+where $A_2>0$, $F(0)=0$, $F'>0$, $F''<0$, and
+$F'(0^+)=\infty$, $F'(\infty)=0$. Date-1 and date-2 endowments $Q_1,Q_2>0$
+remain separate from this additional production.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{07}{Depreciation, liquidation, and financing}
+A fraction $\delta\in[0,1]$ of project capital depreciates before final
+settlement. Remaining capital $(1-\delta)K_2$ can be converted back into goods
+at date 2 at a unit price, without cost. There are no installation costs,
+taxes, borrowing limits, default, or externalities. Assume $R>1-\delta$ so
+the asymptotic salvage return alone does not make investment unbounded.
+Households own all project proceeds; consolidated budgets count them once.
+Debt can be recorded on household or firm books without changing aggregate
+external finance. No project or external claim is left after date 2.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{08}{Choices, resources, and the production equilibrium}
+Residents choose $C_1,C_2>0$, $K_2\geq0$, and $B_1$ subject to
+\[
+ C_1+K_2+B_1=Q_1+R_0B_0,
+ \qquad C_2=Q_2+A_2F(K_2)+(1-\delta)K_2+RB_1.
+\]
+They maximize $u(C_1)+\beta u(C_2)$ at the given world return. This integrated
+problem is equivalent to a resident-owned firm maximizing the project's
+present value and households allocating total wealth, under the frictionless
+conditions just stated. In national accounts $Y_1=Q_1$ and
+$Y_2=Q_2+A_2F(K_2)$; liquidation is disinvestment
+$I_2=-(1-\delta)K_2$, not extra GDP. In the numerical example $\delta=1$,
+so no salvage or final disinvestment remains.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsubsection{One more unit of capital or one more foreign bond?}
+
+Solve the first budget for the external claim and substitute into the second:
+\begin{align}
+ B_1&=Q_1+R_0B_0-C_1-K_2,\\
+ C_2&=Q_2+A_2F(K_2)+(1-\delta)K_2
+       +R(Q_1+R_0B_0-C_1-K_2),\\
+ C_2&=R(Q_1+R_0B_0-C_1)+Q_2+A_2F(K_2)
+       -(R-1+\delta)K_2.\label{eq:open-joint-production}
+\end{align}
+The integrated objective is $u(C_1)+\beta u(C_2(C_1,K_2))$.
+Its two partial derivatives are
+\begin{align}
+ \frac{\partial C_2}{\partial C_1}&=-R,\\
+ \frac{\partial C_2}{\partial K_2}
+ &=A_2F'(K_2)+1-\delta-R,\\
+ \frac{\partial U}{\partial C_1}
+ &=u'(C_1)-\beta R u'(C_2)=0,\\
+ \frac{\partial U}{\partial K_2}
+ &=\beta u'(C_2)\bigl[A_2F'(K_2)+1-\delta-R\bigr]=0.
+\end{align}
+Since $\beta u'(C_2)>0$, the interior investment choice requires
+\begin{align}
+ A_2F'(K_2)+1-\delta&=R,\\
+ A_2F'(K_2)&=R-1+\delta=r^*+\delta.\label{eq:open-investment-foc}
+\end{align}
+Investing one good sacrifices a bond paying $R$. It must produce the same
+marginal final goods payoff, including salvage. This is the familiar Ramsey
+return comparison, but domestic capital does not determine the return in
+this small economy. The world bond supplies the alternative use of funds.
+
+The same result follows from maximizing the project's date-1 value:
+\begin{align}
+ \Pi^{PV}(K_2)&=\frac{A_2F(K_2)+(1-\delta)K_2}{R}-K_2,\\
+ \frac{d\Pi^{PV}}{dK_2}
+ &=\frac{A_2F'(K_2)+1-\delta}{R}-1,\\
+ \frac{d^2\Pi^{PV}}{dK_2^2}&=\frac{A_2F''(K_2)}R<0.
+\end{align}
+Concavity and the boundary conditions yield one positive finite optimum.
+The household then spends total wealth
+\begin{align}
+ \mathcal W^{prod}
+ &=Q_1+R_0B_0+\frac{Q_2}{R}+\Pi^{PV}(K_2^*),\\
+ C_1&=\frac{\mathcal W^{prod}}D,\qquad C_2=gC_1,\\
+ B_1&=Q_1+R_0B_0-C_1-K_2^*.
+\end{align}
+This separation uses perfect external finance and certainty. A collateral
+constraint or a borrowing spread can make project size depend on internal
+funds and the owner's marginal utility; we cannot keep the same separation
+once those constraints matter.
+
+For $F(K)=K^\alpha$, $0<\alpha<1$, solve rather than just quote the stock:
+\begin{align}
+ A_2\alpha K_2^{\alpha-1}&=R-1+\delta,\\
+ K_2^{1-\alpha}&=\frac{\alpha A_2}{R-1+\delta},\\
+ K_2^*&=\left(\frac{\alpha A_2}{R-1+\delta}\right)^{1/(1-\alpha)},\\
+ \log K_2^*&=\frac{\log\alpha+\log A_2-\log(R-1+\delta)}{1-\alpha},\\
+ \frac{dK_2^*}{dA_2}&=\frac{K_2^*}{(1-\alpha)A_2}>0,\\
+ \frac{dK_2^*}{dR}&=-\frac{K_2^*}{(1-\alpha)(R-1+\delta)}<0.
+\end{align}
+Better future productivity raises today's desired capital; a higher financing
+return raises its opportunity cost.
+
+\subsubsection{Why a profitable expansion can worsen the current account}
+
+Keep $R,R_0,B_0,Q_1,Q_2$ fixed and raise $A_2$. Differentiate total wealth,
+retaining the derivative of capital until its coefficient cancels:
+\begin{align}
+ \frac{d\mathcal W^{prod}}{dA_2}
+ &=\frac{F(K_2^*)}{R}
+ +\left[\frac{A_2F'(K_2^*)+1-\delta}{R}-1\right]
+       \frac{dK_2^*}{dA_2}\\
+ &=\frac{F(K_2^*)}{R}>0,\\
+ \frac{dC_1}{dA_2}&=\frac{F(K_2^*)}{RD}>0,\\
+ \frac{dCA_1}{dA_2}
+ &=\frac{d}{dA_2}(Q_1+r_0B_0-C_1-K_2^*)\\
+ &=-\frac{F(K_2^*)}{RD}-\frac{dK_2^*}{dA_2}<0.
+\end{align}
+Two mechanisms reinforce each other: investment uses goods now, and higher
+lifetime wealth raises consumption now. External finance permits both
+without requiring a fall in domestic consumption to fund every new machine.
+The deficit is a consequence of an optimal allocation in this benchmark;
+it is not a general endorsement of any observed deficit.
+
+For $Q_1=Q_2=2$, $B_0=0$, $R=\beta=\sigma=1$, $\alpha=1/2$,
+$\delta=1$, start at $A_2=1$:
+\begin{align}
+ K_2^*&=(1/2)^2=0.25,\qquad A_2\sqrt{K_2^*}=0.50,\\
+ \mathcal W^{prod}&=2+2+0.50-0.25=4.25,\\
+ C_1=C_2&=4.25/2=2.125,\\
+ S_1&=2-2.125=-0.125,\\
+ CA_1=S_1-I_1&=-0.125-0.25=-0.375.
+\end{align}
+At $A_2=1.4$, repeat the calculation:
+\begin{align}
+ K_2^*&=(1.4/2)^2=0.49,\qquad A_2\sqrt{K_2^*}=0.98,\\
+ \mathcal W^{prod}&=2+2+0.98-0.49=4.49,\\
+ C_1=C_2&=2.245,\\
+ CA_1&=2-2.245-0.49=-0.735,\\
+ Q_2+A_2\sqrt{K_2^*}+B_1&=2+0.98-0.735=2.245=C_2.
+\end{align}
+The last line checks that the investment and consumption expansion can still
+be repaid. It is a deliberately simple illustration of, for example, an
+anticipated improvement in an export project's productivity. There is no
+construction delay beyond one period, failure risk, or foreign ownership in
+this example; those omissions matter for applying it to an actual project.
+
+\Needspace{30\baselineskip}
+\begin{center}
+\begin{minipage}{.98\linewidth}
+\captionsetup{type=figure}
+\centering
+\includegraphics[width=\linewidth]{images/external_adjustment.pdf}
+\caption{Income timing and investment create different reasons to borrow}
+\label{fig:open-adjustment}
+\smallskip
+{\footnotesize Original solved examples, not data. The upper panels and
+lower-left panel use Table~\ref{tab:open-income-examples}; all have
+$R=\beta=\sigma=1$, $B_0=0$. The investment panel uses
+$Q_1=Q_2=2$, $F(K)=\sqrt K$, $\delta=1$, and the two productivity values
+calculated above. Negative $CA_1$ means net external borrowing.\par}
+\end{minipage}
+\end{center}
+
+\Needspace{8\baselineskip}
+\begin{greenblock}
+\textbf{From Ramsey to an open production economy.}
+The household still compares marginal utility across dates, and the firm
+still compares the marginal product with the cost of funds. What changes is
+closure. In the closed economy, aggregate saving finances aggregate domestic
+investment and helps determine the return. At a given world return, a small
+open economy can change its external position instead. The world as a whole
+still cannot invest more goods than it saves.
+\end{greenblock}
+
+\subsection{Solvency is a statement about the whole path}
+
+\subsubsection{Add dates before taking an infinite-horizon limit}
+
+Return first to the endowment economy. Extend it to dates $t=1,\ldots,T$,
+with known $Q_t>0$, constant gross return $R>0$ also applying to $B_0$,
+positive $C_t$, and no investment or government. This sets $R_0=R$.
+The same single real bond and preferences apply; utility is now
+$\sum_{t=1}^T\beta^{t-1}u(C_t)$. The budgets are
+\begin{align}
+ C_t+B_t&=Q_t+RB_{t-1},\qquad t=1,\ldots,T,\\
+ \frac{C_t}{R^t}+\frac{B_t}{R^t}
+ &=\frac{Q_t}{R^t}+\frac{B_{t-1}}{R^{t-1}}.
+\end{align}
+Write the first terms to see what cancels:
+\begin{align}
+ \frac{C_1}{R}+\frac{B_1}{R}&=\frac{Q_1}{R}+B_0,\\
+ \frac{C_2}{R^2}+\frac{B_2}{R^2}&=\frac{Q_2}{R^2}+\frac{B_1}{R},\\
+ \frac{C_3}{R^3}+\frac{B_3}{R^3}&=\frac{Q_3}{R^3}+\frac{B_2}{R^2}.
+\end{align}
+Summing through $T$ cancels every intermediate discounted asset:
+\begin{align}
+ \sum_{t=1}^T\frac{C_t}{R^t}+\frac{B_T}{R^T}
+ &=B_0+\sum_{t=1}^T\frac{Q_t}{R^t}.\label{eq:open-finite-telescope}
+\end{align}
+The final no-unpaid-debt condition is $B_T\geq0$; monotonic utility and no
+bequest motive again give $B_T=0$ at an optimum. This makes consumption's
+present value equal to initial wealth plus income's present value. It does
+not require $B_t=0$ at intermediate dates.
+
+A small feasible transfer of consumption from $t$ to $t+1$ changes
+$C_t$ by $-\varepsilon$ and $C_{t+1}$ by $R\varepsilon$. Its utility
+derivative at zero must vanish at an interior optimum:
+\begin{align}
+ 0&=-\beta^{t-1}u'(C_t)+\beta^tR u'(C_{t+1}),\\
+ C_{t+1}&=(\beta R)^{1/\sigma}C_t=gC_t,\\
+ C_t&=g^{t-1}C_1.
+\end{align}
+Substitute this path into the finite present-value constraint:
+\begin{align}
+ \sum_{t=1}^T\frac{g^{t-1}C_1}{R^t}
+ &=B_0+\sum_{t=1}^T\frac{Q_t}{R^t},\\
+ \frac{C_1}{R}\sum_{j=0}^{T-1}\left(\frac gR\right)^j
+ &=B_0+\sum_{t=1}^T\frac{Q_t}{R^t},\\
+ C_1&=\frac{RB_0+\sum_{t=1}^T Q_t/R^{t-1}}
+ {\sum_{j=0}^{T-1}(g/R)^j}.\label{eq:open-finite-choice}
+\end{align}
+For $a=g/R\ne1$, multiply $H_T=1+a+\cdots+a^{T-1}$ by $a$ and subtract:
+\begin{align}
+ aH_T&=a+a^2+\cdots+a^T,\\
+ (1-a)H_T&=1-a^T,\\
+ H_T&=\frac{1-a^T}{1-a}.
+\end{align}
+For $a=1$, the denominator is instead $T$. With $T=2$, this solution
+reduces to the earlier two-date formula with $R_0=R$.
+
+\subsubsection{A debt rollover cannot replace eventual resources}
+
+An economy that continues indefinitely has no final calendar date on which
+we can simply impose $B_T=0$. We must restrict the limiting financing path.
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{09}{Infinite dates, convergence, and admissible debt}
+In this extension, dates are all positive integers; households live forever,
+with utility $\sum_{t=1}^\infty\beta^{t-1}u(C_t)$ and $\beta\in(0,1)$.
+There is one perishable tradable endowment good, no capital or government,
+and a constant known return $R>1$ on every external claim including $B_0$.
+All $Q_t$ are known initially, positive, and bounded. Borrowing and lending
+are otherwise unrestricted, but admissible paths satisfy
+$\liminf_{T\to\infty}B_T/R^T\geq0$. Assume
+$B_0+\sum_{t=1}^\infty Q_t/R^t>0$.
+For the explicit annuity solution below impose $\beta R=1$; this extra
+restriction is not part of the general two-period model.
+\end{modelcondition}
+\end{modelsetup}
+
+Why is a limiting restriction needed? Let debt be rolled over without a trade
+surplus. With $TB_t=Q_t-C_t=0$ and $B_0=-d<0$,
+\begin{align}
+ B_t&=RB_{t-1},\\
+ B_t&=-R^td,\\
+ \frac{B_t}{R^t}&=-d<0.
+\end{align}
+The budget holds at every finite date, but old debt is serviced solely by
+issuing new debt forever. The no-Ponzi restriction excludes this path.
+
+\Needspace{8\baselineskip}
+For an admissible path, use \eqref{eq:open-finite-telescope} and take the
+limit of the nonnegative consumption partial sums:
+\begin{align}
+ \sum_{t=1}^\infty\frac{C_t}{R^t}
+ &=B_0+\sum_{t=1}^\infty\frac{Q_t}{R^t}
+       -\lim_{T\to\infty}\frac{B_T}{R^T}\\
+ &\leq B_0+\sum_{t=1}^\infty\frac{Q_t}{R^t}.\label{eq:open-infinite-pv}
+\end{align}
+The discounted-asset limit exists here because the endowment present value
+converges and the consumption partial sums are monotone and bounded by
+solvency. Solvency is an admissibility restriction. An optimality condition
+that rules out unused valuable terminal wealth serves a different purpose;
+the two should not simply be called the same condition.
+
+For $\beta R=1$, Euler gives $C_{t+1}=C_t=\bar C$. Set discounted terminal
+wealth to zero and solve the present-value equality. First compute the
+geometric sum:
+\begin{align}
+ \sum_{t=1}^\infty R^{-t}
+ &=\frac{R^{-1}}{1-R^{-1}}=\frac1{R-1},\\
+ \frac{\bar C}{R-1}
+ &=B_0+\sum_{t=1}^\infty\frac{Q_t}{R^t},\\
+ \bar C&=(R-1)\left(B_0+\sum_{t=1}^\infty\frac{Q_t}{R^t}\right).
+ \label{eq:open-annuity}
+\end{align}
+The resulting sequential asset path satisfies
+\begin{align}
+ \frac{B_T}{R^T}
+ &=B_0+\sum_{t=1}^T\frac{Q_t-\bar C}{R^t}
+ \ \longrightarrow\ 0.
+\end{align}
+Thus it is feasible under the specified debt restriction. Its optimality can
+also be checked directly, rather than assumed from Euler alone. Concavity
+implies, for any alternative positive admissible path $\widetilde C_t$,
+\begin{align}
+ u(\widetilde C_t)-u(\bar C)
+ &\leq u'(\bar C)(\widetilde C_t-\bar C),\\
+ \sum_{t=1}^\infty\beta^{t-1}
+ [u(\widetilde C_t)-u(\bar C)]
+ &\leq R u'(\bar C)\sum_{t=1}^\infty
+             \frac{\widetilde C_t-\bar C}{R^t}\\
+ &\leq0.
+\end{align}
+The last inequality uses the alternative's present-value inequality and the
+candidate's equality. For paths whose utility is negative infinity, the
+comparison is immediate; otherwise it follows by limits of partial sums.
+Strict concavity gives uniqueness. This proof also shows why both a marginal
+condition and a resource/terminal condition are needed.
+
+\Needspace{6\baselineskip}
+The horizon changes the numerical smoothing rule. At fixed return and $B_0$,
+a one-time date-1 income gain $\Delta$ produces
+\begin{align}
+ \Delta\bar C&=\frac{R-1}{R}\Delta,\\
+ \Delta CA_1&=\Delta-\Delta\bar C=\frac\Delta R.
+\end{align}
+If income instead rises by $\Delta$ at every date,
+\begin{align}
+ \Delta\bar C&=(R-1)\Delta\sum_{t=1}^\infty R^{-t}=\Delta,\\
+ \Delta CA_1&=\Delta-\Delta=0.
+\end{align}
+News of a one-time gain at future date $h$ gives
+$\Delta\bar C=(R-1)\Delta/R^h$ immediately. News of a permanent gain starting
+at $h$ gives
+\begin{align}
+ \Delta\bar C
+ &=(R-1)\Delta\sum_{t=h}^\infty R^{-t}\\
+ &=(R-1)\Delta\frac{R^{-h}}{1-R^{-1}}
+   =\Delta R^{1-h}.
+\end{align}
+These are perfect-foresight news experiments. They do not model uncertainty
+or precautionary saving. Nor should the infinite-horizon coefficients be
+inserted into Table~\ref{tab:open-income-examples}, whose horizon is two dates.
+
+\subsection{A solvent borrower may still face a financing limit}
+
+Having enough lifetime resources does not force a lender to advance them
+today. A repayment limit concerns the entire path; a credit limit restricts
+which intermediate paths can be chosen. We can isolate the difference
+without changing income uncertainty or preferences.
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{10}{A date-1 borrowing ceiling}
+Return to the \emph{two-period endowment} economy in conditions 01--05:
+known $Q_1,Q_2>0$, inherited payoff $R_0B_0$, given $R>0$, CRRA utility,
+no project, no government, and final settlement $B_2=0$.
+Replace unrestricted date-1 borrowing by $B_1\geq-\bar d$, where
+$\bar d\geq0$ is a known exogenous debt ceiling in goods. Lending is not
+capped. Assume $\mathcal W>0$ and
+$\bar c\equiv Q_1+R_0B_0+\bar d>0$, so positive consumption is feasible.
+The ceiling is a reduced-form constraint, not a derived default or collateral
+contract. No interest spread or risk premium is added implicitly.
+\end{modelcondition}
+\end{modelsetup}
+
+Using the first budget, the borrowing ceiling becomes a consumption ceiling:
+\begin{align}
+ B_1=Q_1+R_0B_0-C_1&\geq-\bar d,\\
+ C_1&\leq Q_1+R_0B_0+\bar d=\bar c.
+\end{align}
+\Needspace{13\baselineskip}
+Let $\mu\geq0$ be its multiplier, alongside the resource multiplier $\lambda$.
+The constrained Lagrangian and conditions are
+\begin{align}
+ \mathcal L&=u(C_1)+\beta u(C_2)
+ +\lambda\left(\mathcal W-C_1-\frac{C_2}{R}\right)
+ +\mu(\bar c-C_1),\\
+ u'(C_1)-\lambda-\mu&=0,\\
+ \beta u'(C_2)-\lambda/R&=0,\\
+ u'(C_1)-\beta R u'(C_2)&=\mu\geq0,\label{eq:open-credit-euler}\\
+ \bar c-C_1&\geq0,\quad \mu(\bar c-C_1)=0.
+\end{align}
+If the ceiling is slack, $\mu=0$ and Euler holds with equality. If it binds
+strictly, the household values an extra good today more than the discounted
+utility from its repayment. It would like to borrow more at the quoted rate
+but cannot. A rate alone no longer describes the marginal opportunity set.
+
+Let $C_1^{free}=\mathcal W/D$. Strict concavity gives the exact choice:
+\begin{align}
+ C_1^{limit}&=\min\{C_1^{free},\bar c\},\\
+ C_2^{limit}&=R(\mathcal W-C_1^{limit}),\\
+ B_1^{limit}&=Q_1+R_0B_0-C_1^{limit}.
+\end{align}
+When $C_1^{free}>\bar c$, substitute the binding choice into the final budget:
+\begin{align}
+ B_1^{limit}&=-\bar d,\\
+ C_1^{limit}&=Q_1+R_0B_0+\bar d,\\
+ C_2^{limit}&=Q_2-R\bar d,\\
+ \mu&=(Q_1+R_0B_0+\bar d)^{-\sigma}
+       -\beta R(Q_2-R\bar d)^{-\sigma}>0.
+\end{align}
+Positive $C_2$ follows in the binding case because
+$\bar c<C_1^{free}<\mathcal W$. We do not apply these binding formulas to
+arbitrary debt ceilings that would exhaust final income.
+
+Return to $(Q_1,Q_2)=(1,3)$, $B_0=0$, $R=\beta=\sigma=1$.
+The free allocation has $(C_1,C_2)=(2,2)$ and $B_1=-1$. Set $\bar d=0.4$:
+\begin{align}
+ \bar c&=1.4<2,\\
+ (C_1,C_2,B_1)&=(1.4,2.6,-0.4),\\
+ \mu&=1/1.4-1/2.6\simeq0.3297>0.
+\end{align}
+There is no insolvency: the debt will be repaid. The welfare loss comes from
+a restriction on timing. As long as the constraint keeps binding, an extra
+current good raises $C_1$ one for one, while extra future income raises only
+$C_2$. This gives a concrete reason why the consumption response to the same
+income news can differ across financing conditions.
+
+A tighter ceiling, while still binding, gives
+\begin{align}
+ dC_1&=d\bar d,\\
+ dB_1&=-d\bar d,\\
+ dCA_1&=dB_1=-d\bar d,\\
+ dC_2&=-R\,d\bar d.
+\end{align}
+If $d\bar d<0$, current consumption falls and the current account improves.
+An improving external balance can therefore accompany a painful financing
+contraction. This experiment is a quantity restriction; endogenous lender
+runs, exchange-rate feedback, and crisis dynamics require additional models.
+
+\Needspace{10\baselineskip}
+\begin{greenblock}
+\textbf{Read an external balance together with its mechanism.}
+A deficit may smooth a temporary loss, anticipate higher income, or finance
+productive capital. A surplus may reflect a temporary windfall, a desire to
+save, or an inability to borrow. Ask what changed in income, investment,
+expected returns, or the feasible set. Then check who owes what, in which
+unit, at which maturity. The sign of $CA$ is an accounting description,
+not a welfare ranking or a complete diagnosis.
+\end{greenblock}
+
+The next chapter adds different goods and relative prices: which goods are
+traded, how specialization changes production, and how international prices
+alter purchasing power. Chapter~\ref{sec:open-fluctuations} then adds shocks,
+nominal exchange rates, and policy regimes. That is the place to connect
+these stock--flow restrictions with IS--LM--BP and Mundell--Fleming; the
+present endowment model has neither money nor nominal demand management.
 
 % Original planned outline, preserved before development:
 % \plannedsection{International Accounts and Intertemporal Trade}\label{sec:international-accounts}

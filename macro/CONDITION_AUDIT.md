@@ -234,3 +234,29 @@ measurement, matching and wages, adjustment and persistence.
 Ten full-width condition cards remain visible. Three-color callouts distinguish
 waiting, bargaining, resource accounting, recruitment incentives, and efficiency;
 they do not substitute for the conditions or the algebra.
+
+## International accounts and intertemporal trade (Chapter 15)
+
+The original three-section planned outline is retained as comments. No earlier
+course derivation or detailed conditions existed in this file. Ten visible
+full-width cards specify the new models without replacing content with labels.
+
+| Card | Visible conditions and interpretation |
+| --- | --- |
+| 01 | Resident household mass, consolidation boundary, perishable homogeneous tradable numeraire, and baseline exclusions |
+| 02 | Two dates, complete deterministic information, inherited principal and its separately dated payoff, decision timing |
+| 03 | One real external bond, borrowing/lending price, small-country price taking, absent spreads/default/quantity limits; no claim of state insurance |
+| 04 | Positive consumption, complete CRRA/log specification, beta/sigma ranges, derivatives and positive lifetime wealth |
+| 05 | Both budgets, no unpaid terminal debt, no bequests, optimal terminal equality, goods deliveries and world closure |
+| 06 | Resident ownership, new-project investment timing, separate endowments and project technology including curvature/boundaries |
+| 07 | Depreciation, unit-price final liquidation, funding, no double counting, finite-optimum restriction |
+| 08 | Full joint production problem, both budgets, GDP versus final disinvestment, frictionless separation conditions |
+| 09 | Infinite life, positive bounded known endowments, beta and return restrictions, no-Ponzi admissibility, extra beta R=1 for the explicit annuity |
+| 10 | Complete two-period borrowing-limit variant, exogenous quantity cap, feasible positive consumption, no implicit risk/spread/default model |
+
+The finite-horizon extension explicitly specifies the changed horizon,
+preferences, common return including inherited assets, and terminal settlement.
+Statistical identities state the resident boundary, consistent price/period
+coverage, financial-account signs, current versus capital transfers, and
+transaction versus valuation/volume changes. None is treated as a behavioral
+capital-flow equation. Three-color callouts remain separate teaching objects.
