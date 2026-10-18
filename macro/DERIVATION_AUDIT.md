@@ -160,3 +160,17 @@ optimization; checks pricing and dispersion error orders, money derivatives,
 and the stochastic Euler approximation. The figure generator separately checks
 every unreduced local equilibrium equation and all six plotted paths. These
 checks concern algebra and the stated approximations, not empirical fit.
+
+### IS–LM illustrations
+
+The paired figures additionally show the same monetary expansion using a
+linear intermediate goods/money specification and the derived conditional
+Euler/MIU system. The new text explicitly collects the intermediate goods
+equation into its inverse IS curve. A second pair holds money fixed while
+expected future consumption changes, then replaces the money closure by a
+Taylor-rule MP relation. Substituting the NKPC into the Taylor rule gives
+its slope phi_x+phi_pi*kappa in interest-rate–gap space.
+`images/islm_comparison.py` independently verifies every plotted intersection
+against the underlying equations and checks the shift-arrow endpoints.
+All pre-existing mathematical expressions, condition cards, and original
+course comments remain unchanged.
