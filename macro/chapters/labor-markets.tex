@@ -1,14 +1,617 @@
 % !TEX root = ../macro.tex
-\plannedsection{Labor Markets and Unemployment}\label{sec:labor-markets}
+\section{Labor Markets and Unemployment}\label{sec:labor-markets}
 
-\subsection{Employment, unemployment, and participation}
-Define the margins hidden by a single aggregate labor-supply variable.
-Distinguish changes in hours from movements into and out of employment.
+% BEGIN ORIGINAL LABOR-MARKET OUTLINE (comparison only)
+% \plannedsection{Labor Markets and Unemployment}\label{sec:labor-markets}
+%
+% \subsection{Employment, unemployment, and participation}
+% Define the margins hidden by a single aggregate labor-supply variable.
+% Distinguish changes in hours from movements into and out of employment.
+%
+% \subsection{Search, matching, and wage determination}
+% Introduce a basic matching framework to explain vacancies and unemployment.
+% State how wage setting and hiring incentives determine job creation.
+%
+% \subsection{Adjustment and persistence}
+% Compare search frictions with nominal wage rigidity. Examine which mechanisms
+% can make employment recover slowly and connect a recession to longer-run output.
+% END ORIGINAL LABOR-MARKET OUTLINE
 
-\subsection{Search, matching, and wage determination}
-Introduce a basic matching framework to explain vacancies and unemployment.
-State how wage setting and hiring incentives determine job creation.
+\subsection{Why can a willing worker and an open job remain apart?}
 
-\subsection{Adjustment and persistence}
-Compare search frictions with nominal wage rigidity. Examine which mechanisms
-can make employment recover slowly and connect a recession to longer-run output.
+Imagine a district where a warehouse advertises jobs while nearby residents
+remain unemployed. One resident has not seen the advertisement; another needs
+a different shift; a third is waiting for an interview. The employer also needs
+time to screen applicants and learn whether a match will work. A posted wage
+does not instantly place the right person in the right job.
+
+The previous chapters made useful decisions about this problem. RBC described
+aggregate labor as a quantity households and firms could coordinate through a
+real wage. The wage-contract NK model distinguished the compensation desired
+by labor suppliers from the wage employers actually paid. Neither construction
+counted the workers waiting to meet an employer. We now make that waiting
+process explicit.
+
+Start with people, rather than rename a fall in aggregate hours as unemployment.
+Then count movements into and out of jobs. To explain those movements, we need
+workers searching, firms recruiting, and a technology that turns their efforts
+into matches. Recruiting costs resources before a job produces anything.
+The expected value of the eventual match determines whether a firm opens a
+vacancy. Once the parties meet, their outside options help determine how they
+divide the gain from working together.
+
+This sequence is a teaching reconstruction, not an account of any author's
+private thought process. It leads to a basic Diamond--Mortensen--Pissarides
+(DMP) search-and-matching model. We use homogeneous jobs and exogenous
+separations to isolate job creation and unemployment flows. Endogenous job
+destruction, participation choices, capital, and nominal contracts require
+additional decisions.\footnote{For a primary-source formulation and its
+quantitative limitations, see Shimer (2005),
+\href{https://home.uchicago.edu/~shimer/wp/published/uv.pdf}{\textit{The Cyclical
+Behavior of Equilibrium Unemployment and Vacancies}}, American Economic Review
+95(1), 25--49. The present deterministic examples and parameter choices are
+our own; they do not reproduce that paper's calibration or empirical estimates.}
+
+\Needspace{7\baselineskip}
+\begin{greenblock}
+\textbf{Three different coordination problems.}
+A flexible wage coordinates desired hours in the RBC benchmark. An inherited
+wage quote restricts nominal adjustment in the previous NK chapter. A matching
+friction delays the formation of a working relationship. Unemployment can
+therefore persist even when the wage of every newly formed match is negotiable.
+\end{greenblock}
+
+\subsection{Count people, hours, and transitions separately}
+
+\subsubsection{An unemployment rate has a denominator}
+
+Let $P$ be the relevant population, $E$ the number employed, $U$ the number
+unemployed, and $O$ the number outside the labor force. Define
+\begin{align}
+ P&=E+U+O, & L&=E+U,\\
+ u&=\frac UL, & \ell&=\frac LP, & e&=\frac EP.
+\end{align}
+The unemployment rate uses the labor force, not the whole population. An
+unemployed person is searching and available under the statistical definition
+being used; a nonemployed person need not be classified as unemployed.
+Exact survey rules must be checked before using data.\footnote{For one explicit
+statistical implementation, see the US Bureau of Labor Statistics,
+\href{https://www.bls.gov/cps/definitions.htm}{\textit{Concepts and Definitions
+(CPS)}}. Its population universe, search criteria, temporary-layoff provisions,
+and treatment of absence from work are measurement rules, not assumptions of
+the matching model below. No current labor-market estimates are used here.}
+Multiplying the two relevant shares gives
+\begin{align}
+ e&=\frac LP\frac EL
+   =\ell\frac{L-U}{L}
+   =\ell(1-u).
+\end{align}
+Thus a lower unemployment rate can accompany a lower employment-population
+ratio if participation falls sufficiently.
+
+For a hypothetical population of 100, first take $(E,U,O)=(60,5,35)$ and then
+$(58,3,39)$. The two observations imply
+\begin{align}
+ (\ell_0,u_0,e_0)&=(.65,5/65,.60),\\
+ (\ell_1,u_1,e_1)&=(.61,3/61,.58).
+\end{align}
+Measured unemployment falls from about $7.69\%$ to $4.92\%$, while employment
+also falls. These counts alone do not reveal which individuals moved between
+states; individual transition data would supply that information.
+
+\subsubsection{Fewer workers and shorter shifts are different adjustments}
+
+Let $h$ denote average physical hours per employed person, measured consistently
+with the employment count. Total physical hours satisfy
+\begin{align}
+ H&=Eh=P\ell(1-u)h,\\
+ \log H&=\log P+\log\ell+\log(1-u)+\log h,\\
+ d\log H&=d\log P+d\log\ell-\frac{du}{1-u}+d\log h.
+\end{align}
+The middle identity also holds in exact log differences between two dates.
+The last line is its differential, not an exact finite-change formula using
+the initial unemployment rate. A firm cutting every shift by one hour changes
+the intensive margin. A firm dismissing workers changes the extensive margin.
+An aggregate $N$ in a production function does not identify which happened.
+Moreover, the CES labor composite in the preceding wage chapter need not equal
+physical $H$ when relative wages differ.
+
+\subsubsection{A stock can be stable while many people change state}
+
+For now close participation and normalize $L=1$, so $n=1-u$ is employment.
+During a short interval $dt$, an employed worker separates at rate $s>0$ and an
+unemployed worker finds a job at rate $f\geq0$. Inflows minus outflows give
+\begin{align}
+ u(t+dt)-u(t)&=s[1-u(t)]dt-f(t)u(t)dt+o(dt),\\
+ \frac{u(t+dt)-u(t)}{dt}&=s[1-u(t)]-f(t)u(t)+\frac{o(dt)}{dt},\\
+ \dot u(t)&=s[1-u(t)]-f(t)u(t).
+ \label{eq:lm-unemployment-flow}
+\end{align}
+The dot means a derivative with respect to continuous time. The approximation
+keeps one transition in $dt$; the probability of two transitions is of smaller
+order. Equal inflows and outflows keep $u$ constant without keeping the same
+people unemployed. A recession can raise unemployment through more separations,
+slower job finding, or both. A stock series alone cannot separate these routes.
+
+\subsection{The search economy: people, resources, and timing}
+
+The conditions below define a real labor-market benchmark. We temporarily set
+aside the NK consumption Euler equation, differentiated products, and Calvo
+contracts. A complete NK--matching model would have to specify how these
+pieces fit together; its equations cannot be obtained by appending an
+unemployment identity to the previous chapter.
+
+\Needspace{12\baselineskip}
+\begin{modelsetup}[1]
+\begin{modelcondition}{01}{People, jobs, and the employment margin}
+There is a unit mass of infinitely lived workers and a continuum of potential
+single-worker jobs. Workers are either employed, $n=1-u$, or unemployed and
+searching, $u$. Labor-force participation is fixed at one. Each employed worker
+supplies one fixed unit of time; hours per employee, search effort, and
+on-the-job search are not chosen. Jobs and workers are homogeneous before
+matching. There is no population growth, migration, capital, government,
+foreign sector, or nominal unit of account.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{02}{Continuous time, valuation, and risk}
+Time is $t\geq0$, measured in months in the numerical examples. All agents value
+flows linearly in consumption units and discount at $r>0$:
+$E_t\int_t^\infty e^{-r(\tau-t)}c(\tau)d\tau$.
+There is no consumption curvature or additional work disutility. Asset claims
+are valued at the same real rate $r$; borrowing constraints and income effects
+on search are absent. Individual meetings and separations are random. A law
+of large numbers makes aggregate flows deterministic conditional on aggregate
+fundamentals. The transition experiments specify an unexpected change at
+$t=0$ followed by known deterministic paths, not a stochastic DSGE solution.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{03}{Output, home production, and recruitment costs}
+An occupied job produces $z>0$ goods per unit time; an unemployed worker
+produces $b\geq0$ home goods. All goods are perfect substitutes for consumption.
+The baseline has $z>b$. Posting one vacancy costs $\kappa>0$ goods per unit
+time while it remains unfilled. There is no one-time posting cost, training
+cost, or additional operating fixed cost. If $v$ is vacancies per worker,
+market output is $Y=zn$ and aggregate consumption is
+\[
+ C=zn+bu-\kappa v>0.
+\]
+Here $b$ is real nonmarket production, not a government-financed unemployment
+benefit. A transfer would require a tax counterpart and a different resource
+interpretation. Workers own the firms, receive their net profits, and fund
+recruitment through those ownership accounts.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{04}{Meetings and the two sides of the market}
+New matches per unit time satisfy
+\[
+ m(u,v)=\mathcal A_m u^\xi v^{1-\xi},\qquad
+ \mathcal A_m>0,\quad0<\xi<1.
+\]
+For $u,v>0$, tightness is $\vartheta=v/u$. The worker's job-finding hazard is
+$f=m/u$ and a vacancy's filling hazard is $q=m/v$. Matching is random and
+undirected; agents take aggregate hazards as given. There is no queue choice
+or observable match-quality heterogeneity. The parameter $\xi$ is the
+elasticity with respect to searching workers. $\vartheta$ is a vacancy-worker
+ratio, unrelated to the Calvo survival probabilities of the preceding chapter.
+Hazards are positive rates; they need not be less than one.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{05}{Separation, re-entry, and information}
+An occupied job disappears at an exogenous Poisson rate $s>0$. The worker
+returns to unemployment and the firm loses the match asset. A firm can open
+a new vacancy at the prevailing cost. Existing matches have no productive
+heterogeneity, so there is no endogenous destruction threshold in the baseline.
+Agents observe current fundamentals and share the deterministic forecasts
+specified for an experiment. Simultaneous events have zero probability in
+continuous time. A newly separated worker can search immediately, but a second
+transition within $dt$ has probability of order $dt^2$.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{06}{Values, ownership, and finance}
+$\mathcal U$ is a worker's unemployment value, $\mathcal W$ the employment
+value, $J$ the firm's value of an occupied job, and $V$ the value of a vacancy.
+These are discounted lifetime stocks, not flow wages or current output.
+The worker values track labor and home income; common portfolio distributions
+are omitted from both states. Linear utility and common ownership make that
+income additive, so it cancels from the employment surplus and bargaining.
+Let $D=\mathcal W-\mathcal U$ and $S=D+J$ when free entry gives $V=0$.
+All payments and profits use real goods units. A real flow wage $w$ transfers
+income from the firm to its employee; it is not a resource cost for the
+economy as a whole. Recruitment $\kappa v$ is a resource cost. Unlimited
+potential entry and frictionless funding remove a financial obstacle to
+vacancy creation, but they do not remove the matching delay.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{07}{How a match divides its gain}
+Workers have Nash bargaining weight $0<\eta<1$. A disagreement leaves the
+worker unemployed and the firm with its vacancy value, zero under free entry.
+At given aggregate outside opportunities, the parties maximize
+$D^\eta J^{1-\eta}$ over a transferable positive match surplus. They can
+renegotiate the real wage continuously; no wage floor, nominal contract,
+private information, or commitment friction is imposed. Both participation
+surpluses must be positive. The later fixed-real-wage experiment replaces
+this bargaining rule explicitly; it is not the same as a Calvo nominal wage.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{08}{Entry, matching, and aggregate accounts}
+Vacancies can be opened or withdrawn immediately. In an interior equilibrium
+$v>0$, free entry imposes $V=0$ and $\kappa=qJ$. The analysis solves this
+positive-entry case; eliminating the gain from a match would require
+reconsidering entry and the decision to continue existing jobs.
+Matches employ one previously unemployed worker
+and fill one vacancy; separations destroy one occupied job. The two sides
+therefore use the same aggregate flow $m=fu=qv$. Total firm net cash flow is
+$(z-w)n-\kappa v$. Wages plus home output plus that cash flow equal $C$ in
+Card 03. Claims between residents have zero aggregate net supply; firm equity
+is owned by workers. No independent monetary or aggregate-demand rule is
+needed for this risk-neutral real benchmark.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{09}{Initial stocks and terminal selection}
+Initial unemployment $u(0)\in(0,1)$ is given. Employment cannot jump because
+meeting and separation hazards are finite. Vacancies and match asset values
+can jump after news. The stationary derivation holds $z,b,s,\mathcal A_m,
+\kappa,r,\eta,\xi$ constant. A transition instead solves forward-looking match
+values with no explosive terminal component and then evolves $u$ forward.
+Discounted terminal assets vanish. The illustrated returning paths converge
+to the original stationary equilibrium, and numerical terminal conditions are
+checked at successively longer horizons. The maintained interior solution has
+$J,D,S>0$ and positive consumption throughout.
+\end{modelcondition}
+\end{modelsetup}
+
+\begin{modelsetup}[1]
+\begin{modelcondition}{10}{Scope of the welfare and extension comparisons}
+The planner faces the same matching technology, separation risk, population,
+home output, recruitment cost, and initial employment as private agents.
+It values total consumption linearly and chooses vacancies; transfers cancel.
+The efficiency comparison adds no taxes or additional distortions. Three-state
+population accounting later permits participation flows as an identity, but
+does not supply a participation optimization problem. Skill loss, mismatch,
+endogenous separations, and a nominal NK embedding are identified as further
+mechanisms; they are not silently assumed in the baseline solution.
+\end{modelcondition}
+\end{modelsetup}
+
+\subsection{Matching determines waiting times and unemployment flows}
+
+\subsubsection{The same meeting has two different probabilities}
+
+Substitute $v=\vartheta u$ in the matching technology:
+\begin{align}
+ m(u,v)&=\mathcal A_m u^\xi(\vartheta u)^{1-\xi}
+        =\mathcal A_m u\vartheta^{1-\xi},\\
+ f(\vartheta)&=\frac mu=\mathcal A_m\vartheta^{1-\xi},\\
+ q(\vartheta)&=\frac mv
+   =\frac{\mathcal A_m u\vartheta^{1-\xi}}{\vartheta u}
+   =\mathcal A_m\vartheta^{-\xi},\\
+ f(\vartheta)&=\vartheta q(\vartheta).
+\end{align}
+The derivatives make the congestion effects explicit:
+\begin{align}
+ f'(\vartheta)&=(1-\xi)\mathcal A_m\vartheta^{-\xi}>0,\\
+ q'(\vartheta)&=-\xi\mathcal A_m\vartheta^{-\xi-1}<0,\\
+ \frac{\vartheta f'}f&=1-\xi,
+ &\frac{\vartheta q'}q&=-\xi.
+\end{align}
+More vacancies per searching worker help that worker find a job, while making
+each individual vacancy harder to fill. A hospital competing with many other
+recruiters may offer abundant opportunities to an applicant and still wait
+months to fill its own post. There is no contradiction between those two
+perspectives.
+
+With a constant hazard $f$, let $B(a)$ be the probability that an unemployed
+worker has not yet found a job after duration $a$. Then
+\begin{align}
+ B(a+da)&=B(a)[1-f\,da]+o(da),\\
+ B'(a)&=-fB(a),\qquad B(0)=1,\\
+ B(a)&=e^{-fa},\qquad \Pr(T\leq a)=1-e^{-fa},\\
+ E[T]&=\int_0^\infty B(a)da
+     =\left[-\frac{e^{-fa}}f\right]_0^\infty=\frac1f.
+\end{align}
+The last expression is a mean waiting time to the first job, not the probability
+of being employed at the end of a month. That distinction matters because the
+worker can find a job and separate again before the month ends.
+
+\Needspace{7\baselineskip}
+\begin{blueblock}
+\textbf{A rate is not a probability.}
+A hazard of $1.2$ per month does not mean a $120\%$ probability. With a constant
+hazard, the probability of at least one arrival within a month is
+$1-e^{-1.2}$. A final-state transition probability additionally accounts for
+later transitions back. Continuous-time rates and discrete-time probabilities
+must be converted before comparing their numerical values.
+\end{blueblock}
+
+\subsubsection{Solve the stock equation before calling unemployment persistent}
+
+For constant $f$ and $s$, rewrite \eqref{eq:lm-unemployment-flow} as
+\begin{align}
+ \dot u+(s+f)u&=s, & \bar u&=\frac{s}{s+f},\\
+ \dot u&=-(s+f)(u-\bar u).
+\end{align}
+Let $d(t)=u(t)-\bar u$. Multiplying $\dot d+(s+f)d=0$ by the integrating factor
+$e^{(s+f)t}$ gives
+\begin{align}
+ \frac{d}{dt}[e^{(s+f)t}d(t)]&=0,\\
+ e^{(s+f)t}d(t)&=d(0),\\
+ u(t)&=\bar u+[u(0)-\bar u]e^{-(s+f)t}.
+ \label{eq:lm-stock-solution}
+\end{align}
+Initial unemployment is inherited. Even if vacancy incentives change at once,
+the people waiting for jobs move gradually. The convergence half-life is
+$\log2/(s+f)$. A larger finding rate both lowers steady unemployment and speeds
+adjustment to it. This model does not imply an arbitrarily long recovery when
+its own hazards are high.
+
+Set the initial state first to unemployment, $u(0)=1$, and then to employment,
+$u(0)=0$. The exact end-of-interval transition probabilities are
+\begin{align}
+ P_{U\to E}(\Delta)
+ &=1-\left[\frac{s}{s+f}+\frac f{s+f}e^{-(s+f)\Delta}\right]
+   =\frac f{s+f}[1-e^{-(s+f)\Delta}],\\
+ P_{E\to U}(\Delta)
+ &=\frac{s}{s+f}[1-e^{-(s+f)\Delta}].
+\end{align}
+The remaining two probabilities are their row complements. The first-job
+probability $1-e^{-f\Delta}$ and the final employment probability above
+coincide only if re-separation is excluded. For small $\Delta$, expanding
+$e^{-(s+f)\Delta}=1-(s+f)\Delta+o(\Delta)$ gives the familiar first-order
+approximations $P_{U\to E}\simeq f\Delta$ and $P_{E\to U}\simeq s\Delta$.
+
+\subsection{Value a match, divide its surplus, and decide whether to recruit}
+
+\subsubsection{Where the asset equations come from}
+
+Begin with a stationary environment. Track the labor/home-income component
+of value; common ownership distributions cancel from the state comparison.
+An unemployed worker receives $b\,dt$
+now, stays unemployed with probability $1-fdt$, and finds a job with probability
+$fdt$. Discounting the continuation gives
+\begin{align}
+ \mathcal U
+ &=b\,dt+e^{-r dt}[(1-fdt)\mathcal U+fdt\mathcal W]+o(dt),\\
+ &=b\,dt+(1-rdt)[\mathcal U+fdt(\mathcal W-\mathcal U)]+o(dt),\\
+ 0&=[b-r\mathcal U+f(\mathcal W-\mathcal U)]dt+o(dt),\\
+ r\mathcal U&=b+f(\mathcal W-\mathcal U).
+ \label{eq:lm-U-bellman}
+\end{align}
+The product of two terms of order $dt$ is absorbed in $o(dt)$. Applying the
+same reasoning to an employed worker yields
+\begin{align}
+ \mathcal W
+ &=w\,dt+e^{-rdt}[(1-sdt)\mathcal W+sdt\mathcal U]+o(dt),\\
+ r\mathcal W&=w+s(\mathcal U-\mathcal W).
+ \label{eq:lm-W-bellman}
+\end{align}
+For an occupied job, current profit is $(z-w)dt$ and separation destroys the
+match asset:
+\begin{align}
+ J&=(z-w)dt+e^{-rdt}(1-sdt)J+o(dt),\\
+ (r+s)J&=z-w,\qquad J=\frac{z-w}{r+s}.
+ \label{eq:lm-job-value}
+\end{align}
+Thus $z-w$ is a profit flow, while $J$ capitalizes that flow until separation.
+A low separation rate can make a modest flow margin valuable.
+
+For a vacancy, the firm pays while it waits:
+\begin{align}
+ V&=-\kappa dt+e^{-rdt}[(1-qdt)V+qdt J]+o(dt),\\
+ rV&=-\kappa+q(J-V).
+\end{align}
+If opening a vacancy had positive net value, entry would continue. With
+positive vacancies, free entry therefore gives
+\begin{align}
+ V&=0, & \kappa&=qJ, & J&=\frac\kappa q,\\
+ z-w&=(r+s)\frac\kappa q.
+ \label{eq:lm-job-creation}
+\end{align}
+The vacancy has zero value, but the filled job has positive value. The reward
+from filling the vacancy pays for expected recruitment costs. Zero vacancy
+value does not mean zero wages, profits, or productive match surplus.
+
+\subsubsection{Why the worker's outside option is not simply home output}
+
+Subtract \eqref{eq:lm-U-bellman} from \eqref{eq:lm-W-bellman} and write
+$D=\mathcal W-\mathcal U$:
+\begin{align}
+ rD&=w-b-sD-fD,\\
+ (r+s+f)D&=w-b,\qquad D=\frac{w-b}{r+s+f}.
+ \label{eq:lm-worker-surplus}
+\end{align}
+The worker who rejects this job does not necessarily remain unemployed forever.
+When $f$ is high, another match is easier to find. That prospect raises the
+unemployment value and reduces the extra value of this particular job at a
+given wage.
+
+The parties divide total surplus $S=D+J$. Hold the aggregate outside
+environment fixed while an individual pair negotiates. An extra unit of
+present-value transfer raises $D$ and lowers $J$ by the same amount. The Nash
+problem is therefore
+\begin{align}
+ \max_{0<D<S}\quad &D^\eta(S-D)^{1-\eta},\\
+ \max_{0<D<S}\quad &\eta\log D+(1-\eta)\log(S-D),\\
+ 0&=\frac\eta D-\frac{1-\eta}{S-D},\\
+ \eta(S-D)&=(1-\eta)D,\\
+ D&=\eta S,\qquad J=(1-\eta)S,\qquad
+ D=\frac\eta{1-\eta}J.
+ \label{eq:lm-nash-sharing}
+\end{align}
+The second derivative is $-\eta/D^2-(1-\eta)/(S-D)^2<0$, so the interior
+solution is the unique maximum.
+
+To implement this split with a wage, rearrange the worker's employment equation
+while holding its outside value $\mathcal U$ fixed:
+\begin{align}
+ (r+s)\mathcal W&=w+s\mathcal U,\\
+ (r+s)D&=w-r\mathcal U,\\
+ w-r\mathcal U&=\frac\eta{1-\eta}(z-w),\\
+ (1-\eta)w-(1-\eta)r\mathcal U&=\eta z-\eta w,\\
+ w&=\eta z+(1-\eta)r\mathcal U.
+\end{align}
+Now impose the aggregate outside option and free entry:
+\begin{align}
+ r\mathcal U
+ &=b+fD
+  =b+\frac\eta{1-\eta}fJ
+  =b+\frac\eta{1-\eta}\frac{f\kappa}{q}
+  =b+\frac\eta{1-\eta}\kappa\vartheta,\\
+ w&=(1-\eta)b+\eta(z+\kappa\vartheta).
+ \label{eq:lm-nash-wage}
+\end{align}
+The wage reflects home output, match productivity, and opportunities elsewhere.
+The last term does not reimburse the employee for posting a vacancy. It enters
+because tightness improves the employee's outside opportunities.
+
+\Needspace{8\baselineskip}
+\begin{redblock}
+\textbf{Which outside option is held fixed during bargaining?}
+An individual pair takes the market's unemployment value as given. First derive
+the Nash surplus shares, then impose the equilibrium outside option. If one
+first substitutes a stationary $\mathcal U(w)$ and differentiates as if the
+pair changed every wage and meeting opportunity in the economy, one solves
+a different bargaining problem. Aggregate feedback belongs in equilibrium,
+after the individual negotiation.
+\end{redblock}
+
+Finally, add the worker and firm surplus equations:
+\begin{align}
+ rS&=w-b-(s+f)D+z-w-sJ,\\
+ (r+s)S&=z-b-fD,\\
+ (r+s+\eta f)S&=z-b,\\
+ S&=\frac{z-b}{r+s+\eta f}.
+\end{align}
+Wages cancel because they divide the match's gain. Search opportunities
+remain because employment removes a worker from the pool that can form
+other matches. Neither private bargaining nor free entry alone determines
+the efficient amount of recruitment.
+
+\subsection{Close the equilibrium and read the Beveridge curve}
+
+\subsubsection{One equation determines market tightness}
+
+Insert \eqref{eq:lm-nash-wage} in \eqref{eq:lm-job-creation}:
+\begin{align}
+ z-[(1-\eta)b+\eta z+\eta\kappa\vartheta]
+   &=(r+s)\frac\kappa{q(\vartheta)},\\
+ (1-\eta)(z-b)-\eta\kappa\vartheta
+   &=(r+s)\frac\kappa{q(\vartheta)},\\
+ \frac{\kappa(r+s)}{\mathcal A_m}\vartheta^\xi
+       +\eta\kappa\vartheta&=(1-\eta)(z-b).
+ \label{eq:lm-tightness-equilibrium}
+\end{align}
+The first cost term values recruitment while the eventual job may separate.
+The second reflects the wage response to outside opportunities. The right
+side is the firm's bargaining share of the flow gain over home production.
+
+Define the left side minus the right side as $F(\vartheta)$. Then
+\begin{align}
+ F(0)&=-(1-\eta)(z-b)<0,\\
+ F'(\vartheta)
+   &=\frac{\kappa(r+s)\xi}{\mathcal A_m}\vartheta^{\xi-1}
+        +\eta\kappa>0,\\
+ \lim_{\vartheta\to\infty}F(\vartheta)&=\infty.
+\end{align}
+Continuity and strict monotonicity give exactly one positive stationary
+tightness. Recover the other quantities in sequence:
+\begin{align}
+ f&=\mathcal A_m\vartheta^{1-\xi}, &q&=\mathcal A_m\vartheta^{-\xi},\\
+ \bar u&=\frac{s}{s+f}, &\bar n&=1-\bar u, &\bar v&=\vartheta\bar u,\\
+ w&=(1-\eta)b+\eta(z+\kappa\vartheta),
+ &J&=\frac\kappa q, &D&=\frac\eta{1-\eta}J,\\
+ r\mathcal U&=b+fD,
+ &\mathcal W&=\mathcal U+D, &S&=D+J,\\
+ Y&=z\bar n,
+ &C&=z\bar n+b\bar u-\kappa\bar v.
+\end{align}
+This is an equilibrium with people waiting and firms recruiting. The same
+matching flow must satisfy both $f\bar u=q\bar v$ and
+$f\bar u=s\bar n$. Neither side of the labor market disappears from the
+accounts.
+
+\subsubsection{How a change in opportunities affects recruitment}
+
+Implicit differentiation of $F(\vartheta)=0$ gives
+\begin{align}
+ F_\vartheta\,d\vartheta+F_z\,dz&=0,
+ &F_z&=-(1-\eta),\\
+ \frac{d\vartheta}{dz}&=\frac{1-\eta}{F_\vartheta}>0,\\
+ \frac{d\vartheta}{db}&=-\frac{1-\eta}{F_\vartheta}<0,\\
+ \frac{d\vartheta}{d\kappa}
+ &=-\frac{(r+s)/q+\eta\vartheta}{F_\vartheta}<0,\\
+ \frac{d\vartheta}{ds}&=-\frac{\kappa/q}{F_\vartheta}<0,\\
+ \frac{d\vartheta}{d\mathcal A_m}
+ &=\frac{\kappa(r+s)\vartheta^\xi}
+        {\mathcal A_m^2 F_\vartheta}>0.
+\end{align}
+Each derivative holds the other primitive parameters fixed and compares
+stationary equilibria. A more productive occupied job attracts recruitment;
+a better nonmarket alternative reduces the gain from matching. More expensive
+recruitment or shorter expected job life discourages entry. Better matching
+raises both direct meeting efficiency and equilibrium tightness.
+
+At fixed $s$ and $\mathcal A_m$, trace a tightness change into the two stocks:
+\begin{align}
+ \frac{d\bar u}{d\vartheta}
+ &=-\frac{s f'(\vartheta)}{(s+f)^2}<0,\\
+ \frac{d\log\bar v}{d\log\vartheta}
+ &=1+\frac{d\log\bar u}{d\log\vartheta}
+  =1-\frac{(1-\xi)f}{s+f}
+  =\frac{s+\xi f}{s+f}>0.
+\end{align}
+Thus a productivity improvement produces fewer unemployed workers and more
+vacancies in this stationary comparison. If the primitive change also moves
+$s$ or $\mathcal A_m$, one must include that direct effect; the last derivative
+alone no longer determines the vacancy response.
+
+\subsubsection{A curve of balanced flows does not determine job creation}
+
+Set unemployment inflows equal to outflows and use the matching function:
+\begin{align}
+ s(1-u)&=\mathcal A_m u^\xi v^{1-\xi},\\
+ v^{1-\xi}&=\frac{s(1-u)}{\mathcal A_m u^\xi},\\
+ v_{BC}(u)&=\left[\frac{s(1-u)}{\mathcal A_m u^\xi}\right]^{1/(1-\xi)},\\
+ \log v_{BC}
+ &=\frac1{1-\xi}[\log s+\log(1-u)-\log\mathcal A_m-\xi\log u],\\
+ \frac{d\log v_{BC}}{du}
+ &=\frac1{1-\xi}\left[-\frac1{1-u}-\frac\xi u\right]<0.
+\end{align}
+This downward relation is the model's steady-flow Beveridge curve. Job
+creation separately determines $\vartheta$, hence the ray $v=\vartheta u$.
+Their intersection selects the stationary stocks. A negative relationship
+between vacancies and unemployment in a diagram is not itself a wage-setting
+or vacancy-entry equation.
+
+A lower $\mathcal A_m$ raises the vacancies required to sustain a given
+unemployment rate; a higher $s$ does the same. An outward shift therefore
+does not uniquely identify skill mismatch. Worse screening, geographic
+barriers, or a change in separations can have related aggregate symptoms.
+In a transition, $\dot u$ need not be zero, so the economy need not sit on the
+steady-flow curve even when the matching technology has not changed.
+
+\Needspace{7\baselineskip}
+\begin{blueblock}
+\textbf{Vacancies are an investment decision; unemployment is an inherited stock.}
+Free entry determines how much recruitment is worth undertaking. The flow
+equation determines how quickly that recruitment reaches waiting workers.
+A vacancy jump and a gradual unemployment response are compatible. Treating
+the Beveridge curve as a restriction at every date would erase this adjustment.
+\end{blueblock}
+
+% Dynamic experiments, wage comparisons, and the planner follow below.
